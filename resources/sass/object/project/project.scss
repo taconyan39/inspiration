@@ -1,0 +1,357 @@
+.p-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  &__title{
+    &--wrapper{
+      box-sizing: border-box;
+    }
+  }
+  &__auth{
+    width: 250px;
+  }
+}
+
+.p-categoryList{
+  &__title{
+    margin-bottom: 0;
+    padding: $spacing-md $spacing-sm;
+  }
+  &__item{
+    border-bottom: 1px solid $color_gray;
+  }
+  &__link{
+    padding: $spacing-md $spacing-sm;
+  }
+}
+
+.p-profileList{
+  &__title{
+    margin-bottom: 0;
+    padding: $spacing-md $spacing-sm;
+  }
+  &__item{
+    border-bottom: 1px solid $color_gray;
+  }
+  &__link{
+    padding: $spacing-md $spacing-sm;
+  }
+}
+
+
+.p-pickupCategory{
+  &__container{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  &__item{
+    position: relative;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    width: calc(100%/3 - 15px);
+    &:nth-of-type(4){
+      margin: -15px;
+    }
+  }
+  &__link{
+    display: block;
+  }
+  &__name{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: $color_white;
+  }
+}
+
+// attention
+.p-attention{
+  width: 100%;
+  // padding: $spacing-md;
+  &__list{
+    width: 100%;
+    padding: $spacing_md;
+  }
+  &__listItem{
+    border: 3px solid $color_main;
+    width: 100%;
+    margin-bottom: $spacing-md;
+  }
+  &__listLink{
+    padding: $spacing-md;
+    &:hover{
+      background: $color_gray;
+    }
+    // Todo ホバーしたらテキストのみアンダーライン
+    // &:hover + .p-atettntion__listLink .c-txt{
+    //   text-decoration: underline;
+    // }
+  }
+  &__user{
+    float: left;
+    width: 150px;
+    margin-right: $spacing-lg;
+  }
+  &__userCard{
+    width: 100px;
+    padding: $spacing-sm;
+  }
+  &__userImg{
+    border: 1px solid $color_black;
+    border-radius: 50%;
+    &--outer{
+      width: 80px;
+      height: 80px;
+      margin: 0 auto $spacing-md;
+    }
+  }
+  &__info{
+    float: left;
+    width: 70%;
+    &--top{
+      margin-bottom: $spacing-md;
+      display: flex;
+      justify-content: space-between;
+    }
+    &--body{
+      width: 100%;
+    }
+    // TODO jsを使用して複数行の3点リーダー実装
+  }
+  &__summary{
+    width: 100%;
+    padding-top: $spacing-lg;
+    padding-bottom: $spacing-lg;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  &__rating{
+    display: inline;
+  }
+  &__price{
+    font-weight: bold;
+  }
+}
+
+// review
+.p-review{
+  &__list{
+    padding: $spacing-md;
+    display: flex;
+    justify-content: space-around;
+  }
+  &__listItem{
+    box-sizing: border-box;
+    padding: $spacing-md;
+    width: calc(25% - 15px);
+    margin-right: 15px;
+    height:300px;
+    overflow: hidden;
+    border: 3px solid $color_main;
+  }
+  &__card{
+    &:nth-of-type(4){
+      margin-right: -15px;
+    }
+    &--top{
+      padding: $spacing-sm;
+      margin: 0 auto;
+      // border-radius: 50%;
+    }
+    &--bottom{
+      margin: 0 auto;
+    }
+    &--partition{
+        margin: $spacing-sm;
+    }
+  }
+  &__img{
+    &--outer{
+    width: 80px;
+    height: 80px;
+    }
+  }
+}
+
+// form
+.p-login{
+  &__label{
+    display: block;
+    &--wrapper{
+      display: block;
+      margin-bottom: $spacing-md;
+    }
+  }
+  &__btn{
+    background: $color_action;
+    float: right;
+  }
+}
+
+// myItem
+
+.p-ideaList{
+  &__list{
+    width: 100%;
+    padding: $spacing_md;
+  }
+  &__listItem{
+    border-bottom: 1px solid $color_black;
+    width: 100%;
+  }
+  &__listLink{
+    padding: $spacing-md;
+    &:hover{
+      background: $color_gray;
+    }
+  }
+  &__user{
+    float: left;
+    width: 10%;
+    margin-right: $spacing-lg;
+  }
+  &__userImg{
+    border: 1px solid $color_black;
+    border-radius: 50%;
+    &--outer{
+      width: 50px;
+      height: 50px;
+      margin: 0 auto $spacing-md;
+    }
+  }
+  &__info{
+    float: left;
+    width: calc(90% - 15px);
+    &--top{
+    margin-bottom: $spacing-md;
+    }
+    &--bottom{
+      width: 100%;
+    }
+    // jsを使用して複数行の3点リーダー実装
+  }
+  &__summary{
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: left;
+    text-decoration: underline;
+    color: $color_gray;
+  }
+}
+
+// プロフィールサイドバー
+.p-profileList{
+  // width: 25%;
+  &__item{
+    padding: $spacing-md;
+    display: block;
+    border: none;
+  }
+  &__card{
+    box-sizing: border-box;
+    padding: $spacing-md;
+    width: 100%;
+    margin-right: 15px;
+    overflow: hidden;
+    border: 3px solid $color_main;
+    &:nth-of-type(4){
+      margin-right: -15px;
+    }
+    &--top{
+      padding: $spacing-sm;
+      margin: 0 auto;
+      // border-radius: 50%;
+    }
+    &--bottom{
+      margin: 0 auto;
+    }
+    &--partition{
+        margin: $spacing-sm;
+    }
+  }
+  &__img{
+    border-radius: 50%;
+    &--outer{
+    width: 80px;
+    height: 80px;
+    }
+  }
+}
+
+// プロフィール編集
+.p-profEdit{
+  width: 60%;
+  &__label{
+    display: block;
+    &--wrapper{
+      display: block;
+      margin-bottom: $spacing-md;
+    }
+  }
+  &__btn{
+    background: $color_action;
+    float: right;
+  }
+}
+
+// アイデア投稿
+.p-postIdea{
+  width: 60%;
+  &__label{
+    display: block;
+    &--wrapper{
+      display: block;
+      margin-bottom: $spacing-md;
+    }
+  }
+  &__btn{
+    background: $color_action;
+    float: right;
+  }
+}
+
+// アイデア投稿ページ
+.p-postIdea{
+  &__textArea{
+    height: 300px;
+  }
+}
+
+// アイデア詳細ページ
+.p-ideaDetail{
+  &__top{
+    margin-bottom: $spacing_lg;
+    display: flex;
+    justify-content: flex-end;
+    
+  }
+  &__price{
+    font-size: $font-size_xl;
+    font-weight: bold;
+    margin-right: $spacing_sm;
+  }
+  &__purchased{
+    background: $color-gray;
+  }
+  &__article{
+    margin: $spacing-lg;
+    padding: $spacing-lg;
+  }
+  &__summary{
+    color: $color-gray;
+    font-weight: bold;
+    margin-bottom: $spacing-lg;
+  }
+  &__content{
+    padding: $spacing-lg;
+    border-top: 1px solid $color-black;
+    border-bottom: 1px double $color-black;
+    margin-bottom: $spacing-lg;
+  }
+}
