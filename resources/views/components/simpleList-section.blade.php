@@ -11,11 +11,11 @@
             </div>
             <div class="p-ideaList__info">
               <div class="p-ideaList__info--top">
-                <span class="p-ideaList__name">{{ $user->name }}</span>
+                <span class="p-ideaList__name">{{ $idea->user->name }}</span>
                 <i class="fas fa-star fa-lg c-rating__icon"></i>
                 <span>3.7</span>
                 <span class="p-ideaList__rating--num"></span>
-                <span class="c-tag p-ideaList__tag">マッチング</span>
+                <span class="c-tag p-ideaList__tag">{{ __($idea->category->name) }}</span>
               </div>
               <div class="p-ideaList__info--bottom">
                 <p class="c-txt p-ideaList__summary ">

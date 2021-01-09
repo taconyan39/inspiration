@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Idea;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $user = Auth::user();
+        $ideas = $user->ideas->take(5);
+        // dd($ideas);
+
+        // return view('mypage');
+        return view('home', ['user' => $user, 'ideas' => $ideas]);
     }
 }

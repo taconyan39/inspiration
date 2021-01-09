@@ -1,14 +1,22 @@
 {
   "Board": "掲示板",
   "E-Mail Address": "Eメールアドレス",
+  "Edit": "変更する",
   "EC-Site": "ECサイト",
+  "Forgot Your Password?": "パスワードを忘れた",
   "Login": "ログイン",
   "Matching": "マッチング",
+  "Name": "名前",
+  "New Password": "新しいパスワード",
+  "Password": "パスワード",
+  "Password Confirm": "パスワード（確認用）",
   "Register": "会員登録",
   "Reset Password": "パスワード再発行",
+  "Remember Me": "ログインを保持する",
   "Send Password Reset Link": "再発行用メールを送信する",
   "Sharing": "シェアリング",
   "Transmission": "情報発信",
-  "Other": "その他"
+  "Other": "その他",
+  "Your profile has changed": "プロフィールを変更しました"
 
 }

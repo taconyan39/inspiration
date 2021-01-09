@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Inspiration') }}</title>
+    <title>@yield('title') | {{ config('app.name', 'Inspiration') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -23,9 +23,23 @@
 <body>
     <div id="app">
     <header class="l-header" id="header">
+
+        <!-- javascriptで表示処理 -->
+        @if(session('flash_message'))
+            <div class="c-flash p-flash">
+                {{ session('flash_message') }}
+            </div>
+        @endif
+        
+        @if(session('flash_message'))
+            <div class="c-flash p-flash">
+                {{ session('flash_message') }}
+            </div>
+        @endif
+
         <nav class="u-site__width p-header">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <h1 class="c-title__header p-header__title">{{ config('app.name', 'Laravel') }}</h1>
+                    <h1 class="c-title__header p-header__title">{{ config('app.name', 'Inspiration') }}</h1>
                 </a>
 
                 <!-- レスポンシブ用 -->

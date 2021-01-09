@@ -49750,7 +49750,13 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 
 var app = new Vue({
   el: '#app'
-});
+}); // (function() {
+//     'use strict';
+//     // フラッシュメッセージのfadeout
+//     $(function(){
+//         $('.flash_message').fadeOut(3000);
+//     });
+// })();
 
 /***/ }),
 
@@ -49886,8 +49892,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Applications/MAMP/htdocs/inspiration/inspiration/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/inspiration/inspiration/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Applications/MAMP/htdocs/inspiration/inspiration_1/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/inspiration/inspiration_1/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
