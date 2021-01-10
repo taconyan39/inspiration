@@ -11,11 +11,11 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('index');
-// });
+Route::get('/', function () {
+    return view('index');
+});
 
-Route::get('/', 'IdeasController@index')->name('index');
+// Route::get('/', 'IdeasController@index')->name('index');
 Route::get('/index', 'IdeasController@index')->name('index');
 Route::get('/home', 'UsersController@home')->name('home');
 Route::get('/profile', 'ProfileController@edit')->name('profile.edit');
