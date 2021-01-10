@@ -23,6 +23,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // mysqlがindexのデータ長を超えてしまうので(191)文字に調整
         \Illuminate\Support\Facades\Schema::defaultStringLength(191);
     }
 }
