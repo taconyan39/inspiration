@@ -1,10 +1,10 @@
 const path = require('path');
 
 module.exports = {
-  entry: path.join(__dirname, 'src/js/app.js'),
+  entry: path.join(__dirname, 'resources/js/app.js'),
   output: {
-    path: path.join(__dirname, 'dist/js'),
-    filename: 'bundle.js'
+    path: path.join(__dirname, 'public/js'),
+    filename: 'app.js'
   },
   module: {
     loaders: [
@@ -19,10 +19,10 @@ module.exports = {
     ]
   },
   resolve: {
-    modules: [path.join(__dirname, 'src'), 'node_modules'],
+    modules: [path.join(__dirname, 'resources'), 'node_modules'],
     extensions: ['.js'],
     alias: {
-      vue: 'vue/dis/vue.esm.js'
+      vue: 'vue/dist/vue.esm.js' //npm installしたvueはtenmpate機能のないランタイム限定ビルドなので、こっちを使うようエイリアスを貼る
     }
   }
 };

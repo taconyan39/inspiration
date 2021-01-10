@@ -522,22 +522,22 @@ li {
   }
 }
 
-.p-header {
+.p-test .p-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 100%;
 }
 
-.p-header__title--wrapper {
+.p-test .p-header__title--wrapper {
   box-sizing: border-box;
 }
 
-.p-header__auth {
+.p-test .p-header__auth {
   width: 250px;
 }
 
-.p-header__navItem {
+.p-test .p-header__navItem {
   margin-left: 10px;
 }
 

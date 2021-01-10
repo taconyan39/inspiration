@@ -1,7 +1,7 @@
 import gulp from 'gulp';
 import webpackConfig from './webpack.config.js'
 import webpack from 'webpack-stream';
-import browserSync from 'browser-sync';
+// import browserSync from 'browser-sync';
 import notify from 'gulp-notify';
 import plumber from 'gulp-plumber';
 import eslint from 'gulp-eslint';
@@ -9,38 +9,38 @@ import eslint from 'gulp-eslint';
 // import sass from 'gulp-sass';
 
 gulp.task('js-build', function(){
-  gulp.src('src/js/app.js')
+  gulp.src('resources/js/app.js')
   .pipe(plumber({
     errorHandler: notify.onError("Error: <%= error.message %>")
   }))
   .pipe(webpack(webpackConfig))
-  .pipe(gulp.dest("dist/js"));
+  .pipe(gulp.dest("public/js"));
 });
 
 gulp.task('sass-build', function(){
-  gulp.src('src/scss/style.scss')
+  gulp.src('resources/sass/app.scss')
   .pipe(plumber({
     errorHandler: notify.onError("Error: <%= error.message %>")
   }))
   .pipe(sass())
   .pipe(rename({extname: '.css'}))
-  .pipe(gulp.dest("dist/css"));
+  .pipe(gulp.dest("public/css"));
 });
 
-gulp.task('browser-sync', function() {
-  browserSync.init({
-    server: {
-      baseDir: "./",
-      index: "index.html"
-    }
-  });
-});
-gulp.task('bs-reload', function(){
-  browserSync.reload();
-});
+// gulp.task('browser-sync', function() {
+//   browserSync.init({
+//     server: {
+//       baseDir: "./",
+//       index: "index.html"
+//     }
+//   });
+// });
+// gulp.task('bs-reload', function(){
+//   browserSync.reload();
+// });
 
 gulp.task('eslint', function() {
-  return gulp.src(['src/**/*.js'])
+  return gulp.src(['resources/**/*.js'])
     .pipe(plumber({
       errorHandler: function(error){
         const taskName = 'eslint';
@@ -60,10 +60,11 @@ gulp.task('eslint', function() {
     .pipe(plumber.stop())
 });
 
-gulp.task('default', ['eslint', 'js-build','sass-build', 'browser-sync'], function(){
-  gulp.watch('./src/**/*.js', ['js-build']);
-  gulp.watch('./src/**/*.css',['css-build']);
-  gulp.watch('./src/**/*.scss', ['sass-build']);
-  gulp.watch('./*.html', ['bs-reload']);
-  gulp.watch('./dist/**/*.+(js|css)', ['bs-reload']);
+// gulp.task('default', ['eslint', 'js-build','sass-build', 'browser-sync'], function(){
+gulp.task('default', ['eslint', 'js-build','sass-build'], function(){
+  gulp.watch('./resources/**/*.js', ['js-build']);
+  gulp.watch('./resources/**/*.css',['css-build']);
+  gulp.watch('./resources/**/*.scss', ['sass-build']);
+  // gulp.watch('./*.html', ['bs-reload']);
+  gulp.watch('./public/**/*.+(js|css)', ['bs-reload']);
 })

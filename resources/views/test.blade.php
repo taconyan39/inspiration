@@ -13,7 +13,7 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <div id="app">
+        <div id="app" class="p-test">
             <header-component></header-component>
             <example-component></example-component>
         </div>
