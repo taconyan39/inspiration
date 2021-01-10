@@ -7,12 +7,20 @@
   &__1colum{
     margin-top: $spacing_3l;
     margin-bottom: $spacing_3l;
+    box-sizing: border-box;
+    padding-right: 3%;
+    padding-left: 3%;
+    overflow:hidden;
   }
   &__2colum{
     margin-top: $spacing_3l;
     margin-bottom: $spacing_3l;
     display: flex;
     justify-content: space-between;
+    box-sizing: border-box;
+    padding-right: 3%;
+    padding-left: 3%;
+    overflow:hidden;
   }
 }
 

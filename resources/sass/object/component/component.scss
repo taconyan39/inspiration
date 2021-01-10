@@ -26,8 +26,22 @@
   border: 1px solid $color_gray;
   padding: $spacing_md $spacing_lg;
   background: $color_white;
+  box-sizing: border-box;
+  &:hover{
+    cursor: pointer;
+  }
     &__signup{
     background: $color_action;
+  }
+  &__box{
+    margin-top: $spacing_xxl;
+    margin-bottom: $spacing_xl;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding-right: $spacing-md;
+    padding-left: $spacing-md;
+    box-sizing: border-box;
   }
 }
 
@@ -141,11 +155,15 @@
   padding: $spacing-md;
   box-sizing: border-box;
   &__wrapper{
-    // width: 400px;
+    width: 400px;
     margin: 0 auto;
     font-size: $font-size_lg;
     @include border();
     box-sizing: border-box;
+    @include mq(md){
+      width: 100%;
+
+    }
   }
   &__title{
     font-size: 2rem;
@@ -160,10 +178,17 @@
     display: block;
     box-sizing: border-box;
     margin-bottom: $spacing-md;
-    &--check{
+    &--checkBox{
+      // width: 50%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
       &:hover{
         cursor:pointer;
       }
+    }
+    &--outer{
+      margin-bottom: $spacing_lg;
     }
   }
   &__input{
@@ -171,7 +196,8 @@
     padding: $spacing-md;
     box-sizing: border-box;
     margin-bottom: $spacing-md;
-    &--check{
+    &--checkBox{
+      margin-right: $spacing_sm;
       &:hover{
         cursor:pointer;
       }

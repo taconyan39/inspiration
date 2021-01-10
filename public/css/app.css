@@ -217,6 +217,10 @@ li {
 .l-wrapper__1colum {
   margin-top: 40px;
   margin-bottom: 40px;
+  box-sizing: border-box;
+  padding-right: 3%;
+  padding-left: 3%;
+  overflow: hidden;
 }
 
 .l-wrapper__2colum {
@@ -224,6 +228,10 @@ li {
   margin-bottom: 40px;
   display: flex;
   justify-content: space-between;
+  box-sizing: border-box;
+  padding-right: 3%;
+  padding-left: 3%;
+  overflow: hidden;
 }
 
 .l-main__1colum {
@@ -298,10 +306,26 @@ li {
   border: 1px solid #999;
   padding: 10px 15px;
   background: #f8fafc;
+  box-sizing: border-box;
+}
+
+.c-btn:hover {
+  cursor: pointer;
 }
 
 .c-btn__signup {
   background: #4FC3F7;
+}
+
+.c-btn__box {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  padding-right: 10px;
+  padding-left: 10px;
+  box-sizing: border-box;
 }
 
 .c-nav__item--wrapper {
@@ -396,10 +420,17 @@ li {
 }
 
 .c-form__wrapper {
+  width: 400px;
   margin: 0 auto;
   font-size: 1.2rem;
   border: 1px solid #000;
   box-sizing: border-box;
+}
+
+@media screen and (max-width: 768px) {
+  .c-form__wrapper {
+    width: 100%;
+  }
 }
 
 .c-form__title {
@@ -418,8 +449,18 @@ li {
   margin-bottom: 10px;
 }
 
-.c-form__label--check:hover {
+.c-form__label--checkBox {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.c-form__label--checkBox:hover {
   cursor: pointer;
+}
+
+.c-form__label--outer {
+  margin-bottom: 15px;
 }
 
 .c-form__input {
@@ -429,7 +470,11 @@ li {
   margin-bottom: 10px;
 }
 
-.c-form__input--check:hover {
+.c-form__input--checkBox {
+  margin-right: 5px;
+}
+
+.c-form__input--checkBox:hover {
   cursor: pointer;
 }
 
@@ -696,6 +741,25 @@ li {
 .p-login__btn {
   background: #4FC3F7;
   float: right;
+}
+
+.p-login__btnBox {
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.p-register__label {
+  display: block;
+}
+
+.p-register__label--wrapper {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.p-register__btn {
+  background: #4FC3F7;
 }
 
 .p-ideaList__list {

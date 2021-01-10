@@ -2,8 +2,8 @@
 
 @section('content')
 
-<form action="{{ route('mail') }}">
-  <button>送信</button>
-</form>
+<div id="app">
+<example-component></example-component>
+</div>
 
 @endsection

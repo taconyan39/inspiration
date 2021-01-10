@@ -1,5 +1,6 @@
 {
   "Board": "掲示板",
+  "Confirm Password": "パスワード(確認用)",
   "E-Mail Address": "Eメールアドレス",
   "Edit": "変更する",
   "EC-Site": "ECサイト",
@@ -9,7 +10,6 @@
   "Name": "名前",
   "New Password": "新しいパスワード",
   "Password": "パスワード",
-  "Password Confirm": "パスワード（確認用）",
   "Register": "会員登録",
   "Reset Password": "パスワード再発行",
   "Remember Me": "ログインを保持する",

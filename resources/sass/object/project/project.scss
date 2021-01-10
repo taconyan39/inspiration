@@ -230,6 +230,24 @@
     background: $color_action;
     float: right;
   }
+  &__btnBox{
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+  }
+}
+
+.p-register{
+  &__label{
+    display: block;
+    &--wrapper{
+      display: block;
+      margin-bottom: $spacing_md;
+    }
+  }
+  &__btn{
+    background: $color_action;
+  }
 }
 
 // myItem
