@@ -20,16 +20,30 @@
 .l-main{
   &__1colum{
     width: 100%;
+    box-sizing: border-box;
+    @include mq(md){
+      padding-right: $spacing-md;
+      padding-left: $spacing-md;
+    }
   }
   &__2colum{
     justify-content: space-between;
     width: 75%;
+    box-sizing: border-box;
+    @include mq(md){
+      width: 100%;
+      padding-right: $spacing-md;
+      padding-left: $spacing-md;
+    }
   }
 }
 
 .l-sidebar{
   width: calc(25% - 20px);
   margin-right: $spacing_lg;
+  @include mq('md'){
+    display: none;
+  }
 }
 
 .l-footer{

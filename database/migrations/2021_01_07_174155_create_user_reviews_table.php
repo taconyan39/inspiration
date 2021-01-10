@@ -17,6 +17,7 @@ class CreateUserReviewsTable extends Migration
             $table->bigIncrements('id');
             $table->string('review');
             $table->integer('rating');
+            $table->integer('idea_id');
             $table->boolean('delete_flg')->default(0);
             $table->timestamps();
         });
