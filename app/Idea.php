@@ -13,4 +13,8 @@ class Idea extends Model
     public function category(){
         return $this->belongsTo('App\Category');
     }
+
+    public function review(){
+        return $this->belongsTo('App\UserReview');
+    }
 }
