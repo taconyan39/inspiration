@@ -16,6 +16,15 @@
         人気カテゴリー
       @endslot
     @endcomponent
+    
+    
+    @component('components.pickupList-section', ['ideas' => $ideas])
+      @slot('title')
+        注目のアイデア
+      @endslot
+    @endcomponent
+
+    @include('components.review-section')
 
   </main>
   
