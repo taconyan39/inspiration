@@ -35,14 +35,13 @@
                   <img class="c-img p-attention__userImg" src="{{asset('/images/icon/' . $idea->user->icon_img )}}" alt="">
                 </div>
                 <div class="c-card--bottom p-attention__userCard--bottom">
-                  <p class="c-card__name">{{ $idea->user->name }}</p>
                 </div>
               </div>
             </div>
             <div class="c-info__item">
               
               <div class="p-attention__summary">
-                <span class="c-tag p-attention__tag">{{ $idea->category->name }}</span>
+
                 <div class="p-attention__text--container">
                   <p class="c-txt p-attention__text ">{{$idea->summary}}</p>
                 </div>
