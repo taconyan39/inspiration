@@ -6,7 +6,7 @@ import notify from 'gulp-notify';
 import plumber from 'gulp-plumber';
 import eslint from 'gulp-eslint';
 // import rename from 'gulp-rename';
-// import sass from 'gulp-sass';
+import sass from 'gulp-sass';
 
 gulp.task('js-build', function(){
   gulp.src('resources/js/app.js')
@@ -23,7 +23,7 @@ gulp.task('sass-build', function(){
     errorHandler: notify.onError("Error: <%= error.message %>")
   }))
   .pipe(sass())
-  .pipe(rename({extname: '.css'}))
+  // .pipe(rename({extname: '.css'}))
   .pipe(gulp.dest("public/css"));
 });
 
@@ -39,32 +39,32 @@ gulp.task('sass-build', function(){
 //   browserSync.reload();
 // });
 
-gulp.task('eslint', function() {
-  return gulp.src(['resources/**/*.js'])
-    .pipe(plumber({
-      errorHandler: function(error){
-        const taskName = 'eslint';
-        const title = '[task]' + taskName + ' ' + error.plugin;
-        const errormsg = 'error:' + error.message;
-        console.error(title + '\n' + errormsg);
-        notify.onError({
-          title: title,
-          message: errormsg,
-          time: 3000
-        });
-      }
-    }))
-    .pipe(eslint({ useEslintrc: true}))
-    .pipe(eslint.format())
-    .pipe(eslint.failOnError())
-    .pipe(plumber.stop())
-});
+// gulp.task('eslint', function() {
+//   return gulp.src(['resources/**/*.js'])
+//     .pipe(plumber({
+//       errorHandler: function(error){
+//         const taskName = 'eslint';
+//         const title = '[task]' + taskName + ' ' + error.plugin;
+//         const errormsg = 'error:' + error.message;
+//         console.error(title + '\n' + errormsg);
+//         notify.onError({
+//           title: title,
+//           message: errormsg,
+//           time: 3000
+//         });
+//       }
+//     }))
+//     .pipe(eslint({ useEslintrc: true}))
+//     .pipe(eslint.format())
+//     .pipe(eslint.failOnError())
+//     .pipe(plumber.stop())
+// });
 
 // gulp.task('default', ['eslint', 'js-build','sass-build', 'browser-sync'], function(){
-gulp.task('default', ['eslint', 'js-build','sass-build'], function(){
+gulp.task('default', ['js-build','sass-build'], function(){
   gulp.watch('./resources/**/*.js', ['js-build']);
   gulp.watch('./resources/**/*.css',['css-build']);
   gulp.watch('./resources/**/*.scss', ['sass-build']);
   // gulp.watch('./*.html', ['bs-reload']);
-  gulp.watch('./public/**/*.+(js|css)', ['bs-reload']);
+  // gulp.watch('./public/**/*.+(js|css)', ['bs-reload']);
 })

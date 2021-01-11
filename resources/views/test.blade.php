@@ -14,11 +14,9 @@
     </head>
     <body>
         <div id="app" class="p-test">
-            <header-component></header-component>
             <example-component></example-component>
         </div>
         @include('components.footer')
-        laravelmix-style
         <!-- <script src="{{ mix('js/app.js') }}"></script>
     </body>
 </html> -->
