@@ -17,8 +17,6 @@
       @endslot
     @endcomponent
 
-    @include('components.review-section')
-
   </main>
   
   <!-- <div class="container">
