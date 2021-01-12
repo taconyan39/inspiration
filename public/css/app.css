@@ -313,10 +313,6 @@ li {
   cursor: pointer;
 }
 
-.c-btn__signup {
-  background: #4FC3F7;
-}
-
 .c-btn__box {
   margin-top: 30px;
   margin-bottom: 20px;
@@ -546,6 +542,14 @@ li {
 
 .p-header__navItem {
   margin-left: 10px;
+}
+
+.p-header__btn--mypage {
+  background: #4FC3F7;
+}
+
+.p-header__btn--signup {
+  background: #4FC3F7;
 }
 
 .p-categoryList__title {

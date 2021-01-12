@@ -22,22 +22,22 @@
 </head>
 <body>
     <div id="app">
-    <header class="l-header" id="header">
+        <header class="l-header" id="header">
+            <flash></flash>
+            <!-- javascriptで表示処理 -->
+            @if(session('flash_message'))
+                <div class="c-flash p-flash">
+                    {{ session('flash_message') }}
+                </div>
+            @endif
+            
+            @if(session('flash_message'))
+                <div class="c-flash p-flash">
+                    {{ session('flash_message') }}
+                </div>
+            @endif
 
-        <!-- javascriptで表示処理 -->
-        @if(session('flash_message'))
-            <div class="c-flash p-flash">
-                {{ session('flash_message') }}
-            </div>
-        @endif
-        
-        @if(session('flash_message'))
-            <div class="c-flash p-flash">
-                {{ session('flash_message') }}
-            </div>
-        @endif
-
-        <nav class="u-site__width p-header">
+            <nav class="u-site__width p-header">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <h1 class="c-title__header p-header__title">{{ config('app.name', 'Inspiration') }}</h1>
                 </a>
@@ -62,30 +62,34 @@
                             </li>
                             @if (Route::has('register'))
                                 <li class="c-nav__item p-header__navItem">
-                                    <a class="c-btn c-btn__signup" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="c-btn p-header__btn--signup" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
 
-                        <!-- TODO テンプレのままなので修正 -->
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
+                    <!-- TODO テンプレのままなので修正 -->
+                        <!-- <li class="nav-item dropdown"> -->
+                        <li class="c-nav__item p-header__navItem">
+                            <a class="c-btn" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();
+                                "
+                            >{{ __('Logout') }}</a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                        </li>
+                            <li class="c-nav__item p-header__navItem">
+                                <a  class="c-btn p-header__btn--mypage" href="{{ route('home') }}"
+                                >{{ __('My Page') }}</a>
                             </li>
-                        @endguest
-                    </ul>
-        </nav>
+
+                            </li>
+
+                                
+                        <!-- </li> -->
+                    @endguest
+                </ul>
+            </nav>
         </header>
