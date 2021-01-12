@@ -20,11 +20,11 @@
     
     @component('components.pickupList-section', ['ideas' => $ideas])
       @slot('title')
-        注目のアイデア
+        新着のアイデア
       @endslot
     @endcomponent
 
-    @include('components.review-section')
+    @include('components.review-section',[ 'reviews' => $reviews])
 
   </main>
   

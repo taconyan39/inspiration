@@ -13,6 +13,7 @@
       </li>
       <li class="c-list__item p-profileList__item">
         <a href="{{ route('profile.edit') }}" class="c-link__underline">プロフィール変更</a>
+        <a href="{{ url('idea-post/create')}}" class="c-btn">アイデアを<br>投稿する</a>
       </li>
     </ul>
   </div>

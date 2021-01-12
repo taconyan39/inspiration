@@ -16,10 +16,9 @@ class CreateIdeasTable extends Migration
         Schema::create('ideas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->integer('price');
+            $table->string('price');
             $table->string('summary');
             $table->string('content');
-            $table->string('pic');
             $table->boolean('delete_flg')->default(0);
             $table->bigInteger('user_id');
             $table->bigInteger('category_id');

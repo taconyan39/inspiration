@@ -15,6 +15,8 @@ class CreateUserReactionsTable extends Migration
     {
         Schema::create('user_reactions', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('user_id');
+            $table->integer('idea_id');
             $table->boolean('interest_flg');
             $table->boolean('buy_flg');
             $table->timestamps();

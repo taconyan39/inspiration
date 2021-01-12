@@ -4,13 +4,15 @@
 
         @foreach($pickupCategories as $pickupCategory)
         <div class="p-pickupCategory__item">
-          <div class="c-img__filter p-pickupCategory__filter">
+          <!-- <div class="c-img__filter p-pickupCategory__filter"> -->
             <a href="#" class="p-pickupCategory__link">
-            
+
               <div class="p-pickupCategory__item--outer c-img--outer">
-                  <span class="p-pickupCategory__name">{{ $pickupCategory->name }}</span>
-                  <img src="{{ asset('/images/categories/'.$pickupCategory->image) }}" alt="{{ $pickupCategory->name }}.'の写真'" class="c-img p-pickupCategory__img">
+                <div class="p-pickupCategory__filter">
+                  <small class="p-pickupCategory__name">{{ $pickupCategory->name }}</small>
                 </div>
+            
+                  <img src="{{ asset('/images/categories/'.$pickupCategory->image) }}" alt="{{ $pickupCategory->name }}.'の写真'" class="c-img p-pickupCategory__img">
               </div>
 
             </a>

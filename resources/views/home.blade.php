@@ -11,26 +11,31 @@
   <main class="l-main__2colum u-site__width">
     @component('components.simpleList-section', ['ideas' => $ideas, 'user'=>$user])
         @slot('title')
-            購入したアイデア
+            投稿したアイデア
         @endslot
+
+
     @endcomponent
 
     @component('components.simpleList-section', ['ideas' => $ideas, 'user'=>$user])
         @slot('title')
-            投稿したアイデア
+            購入したアイデア
         @endslot
+
     @endcomponent
 
     @component('components.simpleList-section', ['ideas' => $ideas, 'user'=>$user])
         @slot('title')
             レビュー
         @endslot
+
     @endcomponent
     
     @component('components.simpleList-section', ['ideas' => $ideas, 'user'=>$user])
         @slot('title')
             気になるリスト
         @endslot
+
     @endcomponent
     
     

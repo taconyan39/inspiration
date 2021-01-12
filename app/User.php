@@ -48,4 +48,14 @@ class User extends Authenticatable
     public function ideas(){
         return $this->hasMany('App\Idea');
     }
+
+    public function reviews(){
+        return $this->hasManyThrough('App\Review', 'App\Idea');
+    }
+
+    // public function reactions(){
+        
+        // return $this->hasMany( 'App\UserReaction');
+        // return $this->hasManyThrough('App\Idea', 'App\UserReaction');
+    // }
 }
