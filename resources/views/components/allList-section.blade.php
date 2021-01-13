@@ -14,10 +14,14 @@
             <div class="p-ideaList__info--spec">
               <span class="p-ideaList__name">{{ $item->user->name }}</span>
               <i class="fas fa-star fa-lg c-rating__icon"></i>
-              <span></span>
+              <span>3.7</span>
               <span class="p-ideaList__rating--num"></span>
-              <span class="c-tag p-ideaList__tag">{{ $item->category->name}}</span>
+              <span class="c-tag p-ideaList__tag"></span>
             </div>
+            <div>
+              {{ $btn }}
+            </div>
+
           </div>
           <div class="p-ideaList__info--bottom">
             <p class="c-txt p-ideaList__summary ">
@@ -28,5 +32,4 @@
     </li>
   @endforeach
   </ul>
-  <div><a href="{{ url('post-idea') }}">全件表示</a></div>
 </section>

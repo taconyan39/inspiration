@@ -7,7 +7,7 @@ use App\Idea;
 use App\Category;
 use App\Review;
 
-class IdeasController extends Controller
+class TopController extends Controller
 {
     public function index(){
 

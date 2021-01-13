@@ -15,14 +15,18 @@ class CreateIdeasTable extends Migration
     {
         Schema::create('ideas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->string('title');
             $table->string('price');
             $table->string('summary');
             $table->string('content');
             $table->boolean('delete_flg')->default(0);
-            $table->bigInteger('user_id');
-            $table->bigInteger('category_id');
+            $table->boolean('buy_flg')->default(0);
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('category_id');
             $table->timestamps();
+
+            // 外部キー
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

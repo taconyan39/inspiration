@@ -24,7 +24,7 @@ class IdeaPostRequest extends FormRequest
     public function rules()
     {
         return [
-            'idea_name' => 'required | max:255',
+            'idea_name' => 'required | max:20',
             'category' => 'required',
             'summary' => 'required | max:50',
             'price' => 'required | max:255 | integer | It:1000000',

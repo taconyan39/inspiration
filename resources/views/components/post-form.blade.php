@@ -1,17 +1,10 @@
-@extends('layouts.app')
-
-@section('title', 'アイデア投稿')
-
-@section('content')
-<div class="l-wrapper__2colum u-site__width">
-        
         <main class="c-form__wrapper p-ideaPost ">
         <div class="p-ideaPost__title c-form__header">
             <h2 class="c-form__title">アイデア投稿画面</h2>
         </div>
         
-        <form method="POST" action="{{ url('idea-post') }}" class="c-form p-ideaPost__form u-clearfix">
-            @csrf
+        <form method="POST" action="{{ url('post-idea') }}" class="c-form p-ideaPost__form u-clearfix">
+          @csrf
             
             <label for="category_id" class="p-ideaPost__label c-form__label">
                 {{ __('Category')}}
@@ -34,14 +27,14 @@
               </span>
             @enderror
 
-            <label for="name" class="p-ideaPost__label c-form__label">
+            <label for="title" class="p-ideaPost__label c-form__label">
               {{ __('Idea Name')}}
             </label>
 
-              <input id="name" type="text" class="p-ideaPost__input c-form__input
-                                @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+              <input id="title" type="text" class="p-ideaPost__input c-form__input
+                                @error('title') is-invalid @enderror" name="title" value="{{ old('title') }}" required autocomplete="title" autofocus>
                                 
-                                @error('name')
+                                @error('title')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -92,13 +85,10 @@
                     
                     <label for="upload_img">
                     </label>
+            
 
-            <button type="submit" class="
-            c-btn c-form__btn btn p-ideaPost__btn">
-                {{ __('Post Idea') }}
-            </button>
+            {{ $btn }}
         </form>
-  </main>
-    @include('components.sidebar-profile',['user' => $user])
-</div>
-@endsection
+    </main>
+    <div class="c-link__conainer">
+    </div>

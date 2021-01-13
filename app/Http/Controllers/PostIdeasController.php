@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 // use 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\Category;
 use App\Idea;
+use App\Review;
 
-class IdeasPostController extends Controller
+class PostIdeasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +19,13 @@ class IdeasPostController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user();
+        $categories = Category::all();
+
+        $postIdeas = $user->ideas()->where('user_id',$user->id)->orderBy('created_at', 'desc')->get()->take(10); 
+        //             // ->paginate(10);
+        // dd(DB::table('i'));
+        return view('post-idea.index', ['user' => $user, 'categories' => $categories,'postIdeas' => $postIdeas]);
     }
 
     /**
@@ -31,10 +39,10 @@ class IdeasPostController extends Controller
     {
         $user = Auth::user();
         $categories = Category::all();
-        // dd($categories);
+        
         
 
-        return view('idea-post', ['user' => $user, 'categories' => $categories]);
+        return view('post-idea.create', ['user' => $user, 'categories' => $categories]);
     }
 
     /**
@@ -68,7 +76,12 @@ class IdeasPostController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = Auth::user();
+        $idea = Idea::find($id);
+        $reviews = Review::all()->take(5);
+
+        $categories = Category::all();
+        return view('post-idea.show',[ 'categories' => $categories, 'user' => $user, 'idea' => $idea, 'reviews' => $reviews]);
     }
 
     /**
@@ -79,7 +92,11 @@ class IdeasPostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = Auth::user();
+        $idea = Idea::find($id);
+
+        $categories = Category::all();
+        return view('post-idea.edit',[ 'categories' => $categories, 'user' => $user, 'idea' => $idea]);
     }
 
     /**
@@ -91,7 +108,10 @@ class IdeasPostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $idea = Idea::find($id);
+        unset($form['_token']);
+        $idea->fill($request->all())->save();
+        return redirect('/post-idea/index');
     }
 
     /**
@@ -102,6 +122,7 @@ class IdeasPostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Idea::find($id)->delete();
+        return redirect('post-idea/index');
     }
 }

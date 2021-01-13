@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->boolean('delete_flg')->default(0);
             $table->rememberToken();
             $table->timestamps();
+
         });
     }
 

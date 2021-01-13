@@ -53,9 +53,38 @@ class User extends Authenticatable
         return $this->hasManyThrough('App\Review', 'App\Idea');
     }
 
-    // public function reactions(){
+    public function interests(){
         
-        // return $this->hasMany( 'App\UserReaction');
+        return $this->hasMany( 'App\Interest');
         // return $this->hasManyThrough('App\Idea', 'App\UserReaction');
-    // }
+    }
+
+    public function buyIdeas(){
+        
+        // return $this->hasManyThrough( 'App\Idea', 'App\BuyIdea');
+        return $this->hasMany('App\BuyIdea');
+    }
+
+    /**
+* micropostをお気に入りにしてる1以上のユーザ。
+*/
+
+    public function interestIdeas(){
+        return $this->belongsToMany('App\Idea');
+        // return $this->belongsToMany(User::class, 'interests', 'user_id', 'idea_id')->withTimestamps();
+    }
+    /**
+* $idea_idで指定されたideaをお気に入り登録する。
+*
+* @param int $userId
+* @return bool
+*/
+    public function interest($userId){
+        // すでにお気に入りしているかの確認
+        // $exist = $this->is_interest($ideaId);
+        // 相手が自分自身かどうかの確認
+        // $its_me = $this_id == $ideaId;
+
+        // return $userId;
+        }
 }

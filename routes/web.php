@@ -16,14 +16,16 @@
 // });
 
 // Route::get('/', 'TestController@test');
-Route::get('/test', 'TestController@test');
+Route::get('/test', 'TestController@get');
+Route::post('/test', 'TestController@post');
 
-Route::get('/', 'IdeasController@index')->name('index');
-Route::get('/index', 'IdeasController@index')->name('index');
+Route::get('/', 'TopController@index')->name('index');
+Route::get('/index', 'TopController@index')->name('index');
 Route::get('/home', 'UsersController@home')->name('home');
 Route::get('/profile', 'ProfileController@edit')->name('profile.edit');
 Route::post('/profile', 'ProfileController@update')->name('profile.update');
-Route::resource('/idea-post', 'IdeasPostController');
+Route::resource('post-idea', 'PostIdeasController');
+
 
 // つまり"TestMailController"のsendメソッドを利用してメールを送信する
 Route::get('/mail', 'TestMailController@send')->name('mail');

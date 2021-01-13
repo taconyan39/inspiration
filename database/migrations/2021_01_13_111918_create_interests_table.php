@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserReactionsTable extends Migration
+class CreateInterestsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateUserReactionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_reactions', function (Blueprint $table) {
+        Schema::create('interests', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('user_id');
             $table->integer('idea_id');
-            $table->boolean('interest_flg');
-            $table->boolean('buy_flg');
+            // $table->boolean('interest_flg');
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreateUserReactionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_reactions');
+        Schema::dropIfExists('interests');
     }
 }

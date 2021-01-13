@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 
+
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -13,11 +15,18 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(UsersTableSeeder::class);
         $this->call(CategoriesTableSeeder::class);
-        $this->call(IdeasTableSeeder::class);
-        $this->call(ReviewsTableSeeder::class);
-        // $this->call(ReviewsLocalTableSeeder::class);
-        // $this->call(IdeasLocalTableSeeder::class);
-        $this->call(UserReactionsLocalTableSeeder::class);
+
+        //本番用
+        // $this->call(IdeasTableSeeder::class);
+        // $this->call(ReviewsTableSeeder::class);
+        // $this->call
+        
+        // ローカル用
+        (ReviewsLocalTableSeeder::class);
+        $this->call(IdeasLocalTableSeeder::class);
+        $this->call(InterestLocalTableSeeder::class);
+        $this->call(BuyIdeaLocalTableSeeder::class);
+
 
     }
 }

@@ -221,6 +221,7 @@ li {
   padding-right: 3%;
   padding-left: 3%;
   overflow: hidden;
+  flex-wrap: wrap;
 }
 
 .l-wrapper__2colum {
@@ -232,6 +233,7 @@ li {
   padding-right: 3%;
   padding-left: 3%;
   overflow: hidden;
+  flex-wrap: wrap;
 }
 
 .l-main__1colum {

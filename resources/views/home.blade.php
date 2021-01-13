@@ -9,35 +9,16 @@
   @include('components.sidebar-profile', ['user' => $user])
   
   <main class="l-main__2colum u-site__width">
-    @component('components.simpleList-section', ['ideas' => $ideas, 'user'=>$user])
+
+  <a class="c-btn" href="{{ url('post-idea/create') }}">アイデアを投稿する</a>
+
+    @component('components.simpleList-section', ['items' => $postIdeas])
         @slot('title')
             投稿したアイデア
         @endslot
 
-
     @endcomponent
 
-    @component('components.simpleList-section', ['ideas' => $ideas, 'user'=>$user])
-        @slot('title')
-            購入したアイデア
-        @endslot
-
-    @endcomponent
-
-    @component('components.simpleList-section', ['ideas' => $ideas, 'user'=>$user])
-        @slot('title')
-            レビュー
-        @endslot
-
-    @endcomponent
-    
-    @component('components.simpleList-section', ['ideas' => $ideas, 'user'=>$user])
-        @slot('title')
-            気になるリスト
-        @endslot
-
-    @endcomponent
-    
     
   </main>
 </div>
