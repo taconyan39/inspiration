@@ -20,8 +20,8 @@
             <div class="c-info__box c-dammy p-attention__infoBox"></div>
             <div class="c-info__box p-attention__infoBox">
               <i class="fas fa-star fa-lg c-rating__icon"></i>
-              <span class="p-attention__rating--num">3.7</span>
-              <span>(33)</span>
+              <span class="p-attention__rating--num">{{ $idea->rating }}</span>
+              <span>({{ ($idea->countReview) }})</span>
             </div>
             <div class="c-info__box p-attention__infoBox">
               <span class="c-price p-attention__price">¥{{ $idea->price }}</span>

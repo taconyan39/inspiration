@@ -15,9 +15,12 @@
 //     return view('welcome');
 // });
 
-// Route::get('/', 'TestController@test');
+// Route::get('/', 'TestController@get');
 Route::get('/test', 'TestController@get');
 Route::post('/test', 'TestController@post');
+
+Route::get('/axios', 'TestController@axios');
+
 
 Route::get('/', 'TopController@index')->name('index');
 Route::get('/index', 'TopController@index')->name('index');

@@ -6,7 +6,7 @@
 <div class="l-wrapper__2colum u-site__width">
 
   
-  @include('components.sidebar-profile', ['user' => $user])
+  <sidebar-category></sidebar-cateogry>
   
   <main class="l-main__2colum u-site__width">
 
@@ -28,7 +28,7 @@
             <div class="p-ideaList__info--spec">
               <span class="p-ideaList__name">{{ $item->user->name }}</span>
               <i class="fas fa-star fa-lg c-rating__icon"></i>
-              <span>3.7</span>
+              <span>$item->rating</span>
               <span class="p-ideaList__rating--num"></span>
               <span class="c-tag p-ideaList__tag"></span>
             </div>

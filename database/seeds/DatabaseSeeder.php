@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
         // $this->call
         
         // ローカル用
-        (ReviewsLocalTableSeeder::class);
+        $this->call(ReviewsLocalTableSeeder::class);
         $this->call(IdeasLocalTableSeeder::class);
         $this->call(InterestLocalTableSeeder::class);
         $this->call(BuyIdeaLocalTableSeeder::class);

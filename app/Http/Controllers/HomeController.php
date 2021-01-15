@@ -34,7 +34,9 @@ class HomeController extends Controller
         $user = Auth::user();
         $postIdeas = $user->ideas()->orderBy('created_at', 'desc')->take(5)->get();
         $ideas = Idea::all();
-        dd($ideas[0]->reviews()->where('user_id', 1)->avg('rating'));
+
+        // testでチェック中
+        // dd($ideas[0]->reviews()->where('user_id', 1)->avg('rating'));
         
         $reviews = $user->reviews;
         // $interests = $user->interests;
