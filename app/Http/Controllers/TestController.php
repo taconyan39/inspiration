@@ -49,7 +49,7 @@ class TestController extends Controller
         $twitter = new TwitterOAuth(env('TWITTER_CONSUMER_KEY'), env('TWITTER_CONSUMER_SECRET'),env('TWITTER_CONSUMER_TOKEN'),
         env('TWITTER_CONSUMER_ACCESS_SECRET'));
         
-        dd($twitter);
+        // dd($twitter);
         $twitter->post("statuses/update", [
             "status" =>
                 'テスト'
