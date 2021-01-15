@@ -8,12 +8,19 @@ use App\Category;
 use App\Idea;
 use App\Review;
 use Abraham\TwitterOAuth\TwitterOAuth;
+use Illuminate\Support\Facades\DB;
 
 class TestController extends Controller
 {
     public function get(){
 
-        $reviews = Review::where('user_id', 1)->avg('rating');
+        $user = User::find(1);
+        $ideas = Idea::all()->where('user_id',$user->id);
+        $ideaReviews = Review::join('ideas', 'reviews.idea_id', '=', 'ideas.id')->where('ideas.user_id','=', $user->id)->get();
+        dd($ideaReviews[0]->created_at);
+        //  $reviews = DB::table('reviews')->where();
+        //  dd($user->reviews());
+        // dd($review[0]->idea->user->name);
         // $ideas = '';
         // $categories = '';
         // $users = '';
@@ -21,19 +28,17 @@ class TestController extends Controller
         //     echo $review->rating;
         // }
         // return view('test', ['ideas' => $ideas, 'categories' => $categories, 'users' => $users ]);
-            $categories = Category::all();
+            // $categories = Category::all();
             return view('./test', ['categories' => $categories ]);
         
     }
-    public function post($id){
+    public function post($param){
 
-        dd($id);
+        // dd('vue post');
+        dd($param);
 
-        $ideas = Idea::all();
-        $categories = Category::all();
-        $users = User::all();
-        // dd($ideas[0]->user);
-        return view('test', ['ideas' => $ideas, 'categories' => $categories, 'users' => $users ]);
+        return $param;
+
     }
 
     public function axios(){

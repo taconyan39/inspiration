@@ -10,7 +10,7 @@
 <body>
  
     <div id="app">
-        <todo-component></todo-component>
+        <axios-component></axios-component>
     </div>
  
     <script src="{{ mix('js/app.js') }}"></script>

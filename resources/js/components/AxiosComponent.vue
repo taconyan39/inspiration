@@ -12,30 +12,31 @@
 </template>
 
 <script>
-export default {
-    data() {
-        return {
-            loading: true,
-            errored: false,
-            error: null,
-            todos: null
-        };
-    },
-    created() {
-        let vm = this;
-        axios
-            .get("https://jsonplaceholder.typicode.com/todos", {
-                params: {
-                    userId: "1"
-                }
-            })
-            .then(response => {
-                vm.todos = response.data;
-            })
-            .catch(err => {
-                (vm.errored = true), (vm.error = err);
-            })
-            .finally(() => (vm.loading = false));
-    }
-};
+
+    export default {
+        data() {
+            return {
+                loading: true,
+                errored: false,
+                error: null,
+                todos: null
+            };
+        },
+        created() {
+            let vm = this;
+            axios
+                .get("https://jsonplaceholder.typicode.com/todos", {
+                    params: {
+                        userId: "1"
+                    }
+                })
+                .then(response => {
+                    vm.todos = response.data;
+                })
+                .catch(err => {
+                    (vm.errored = true), (vm.error = err);
+                })
+                .finally(() => (vm.loading = false));
+        }
+    };
 </script>

@@ -21,7 +21,9 @@ window.Vue = require('vue');
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 	
-// Vue.component('todo-component', require('./components/AxiosComponent.vue').default);
+// Vue.component('axios-component', require('./components/AxiosComponent.vue').default);
+// Vue.component('test-component', require('./components/TestComponent.vue').default);
+Vue.component('input-component', require('./components/InputComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
