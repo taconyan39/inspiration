@@ -14,8 +14,8 @@
             <div class="p-ideaList__info--spec">
               <span class="p-ideaList__name">{{ $item->user->name }}</span>
               <i class="fas fa-star fa-lg c-rating__icon"></i>
-              <span></span>
-              <span class="p-ideaList__rating--num"></span>
+              <span>{{ $item->rating  }}</span>
+              <span class="p-ideaList__rating--num">({{ $item->reviewsCount }})</span>
               <span class="c-tag p-ideaList__tag">{{ $item->category->name}}</span>
             </div>
           </div>

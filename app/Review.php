@@ -12,5 +12,9 @@ class Review extends Model
     public function user(){
         return $this->belongsTo('App\User');
     }
+    public function ideaUser(){
+        return $this->hasOneThrough('App\User', 'App\Idea');
+    }
+
 
 }

@@ -78,7 +78,8 @@ class PostIdeasController extends Controller
     {
         $user = Auth::user();
         $idea = Idea::find($id);
-        $reviews = Review::all()->take(5);
+        $reviews = Review::all()->where('user_id',$id)->take(5);
+        // dd($reviews);
 
         $categories = Category::all();
         return view('post-idea.show',[ 'categories' => $categories, 'user' => $user, 'idea' => $idea, 'reviews' => $reviews]);

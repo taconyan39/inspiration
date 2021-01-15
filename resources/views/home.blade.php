@@ -19,6 +19,12 @@
 
     @endcomponent
 
+    @component('components.simpleList-section', ['items' => $interestIdeas])
+        @slot('title')
+            気になるリスト
+        @endslot
+    @endcomponent
+
     
   </main>
 </div>

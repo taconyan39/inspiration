@@ -30,18 +30,28 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $reviews = Review::all();
+        // dd($reviews);
         // 日付順に並べる
         $user = Auth::user();
         $postIdeas = $user->ideas()->orderBy('created_at', 'desc')->take(5)->get();
         $ideas = Idea::all();
 
-        // testでチェック中
-        // dd($ideas[0]->reviews()->where('user_id', 1)->avg('rating'));
-        
-        $reviews = $user->reviews;
-        // $interests = $user->interests;
-        // $buyIdeas = BuyIdea::all()->ideas($user->id);
-        
-        return view('home',['user' => $user, 'postIdeas' => $postIdeas,'reviews' => $reviews, 'ideas' => $ideas]);
+        foreach($ideas as $idea){
+            $idea->rating = sprintf('%.1f',$idea->reviews->avg('rating'));
+            $idea->countReview = $idea->reviews->count();
+        }
+        $interestIdeas = $user->interestIdeas;
+        $buyIdeas = $user->buyIdeas;
+        // $reviews = Review::find($postIdeas[0]->id);
+        // dd($reviews);
+        // $reviews = $postIdeas->reviews();
+        // 無理やり配列を作ったので動かない
+        // $reviews = $postIdeas->where('user_id',Review::all()->idea->user->id)
+        // foreach($postIdeas as $key => $val){
+        //     $reviews[$key] = $val->reviews();
+        // }
+
+        return view('home',['user' => $user, 'postIdeas' => $postIdeas, 'ideas' => $ideas, 'interestIdeas' => $interestIdeas, 'buy_ideas' => $buyIdeas]);
     }
 }

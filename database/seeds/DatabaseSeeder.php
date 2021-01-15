@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
         $this->call(IdeasLocalTableSeeder::class);
         $this->call(InterestLocalTableSeeder::class);
         $this->call(BuyIdeaLocalTableSeeder::class);
+        $this->call(IdeasReviewsLocalTableSeeder::class);
 
 
     }

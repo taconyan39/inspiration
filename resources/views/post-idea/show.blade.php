@@ -22,12 +22,6 @@
         </div>
         <p>{{ $idea->content }}</p>
 
-        @component('components.simpleList-section',['items' => $reviews])
-            @slot('title')
-                このアイデアのレビュー
-            @endslot
-        @endcomponent
-
         <div>
             <a href="#">全件表示する</a>
         </div>
