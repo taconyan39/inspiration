@@ -22,6 +22,10 @@
         </div>
         <p>{{ $idea->content }}</p>
 
+        <form action="{{ route('twitter') }}" method="post">
+            <input type="submit" value="Twitter">
+        </form>
+
         <div>
             <a href="#">全件表示する</a>
         </div>

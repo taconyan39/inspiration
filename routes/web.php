@@ -17,7 +17,8 @@
 
 // Route::get('/', 'TestController@get');
 Route::get('/test', 'TestController@get');
-Route::post('/test', 'TestController@post');
+Route::post('/test', 'TestController@twitter')->name('twitter');
+// Route::post('/test', 'TestController@post');
 
 Route::get('/axios', 'TestController@axios');
 
