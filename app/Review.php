@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Review extends Model
 {
+
     public function idea(){
         return $this->belongsTo('App\Idea');
     }

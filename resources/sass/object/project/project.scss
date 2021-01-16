@@ -130,19 +130,33 @@
     // text-align:right;
   // }
   &__infoBox{
-    // width: 25%;
-    // @include mq(md){
-    //   width: 33%;
-    //   text-align: center;
     &--left{
       text-align: start;
     }
+    &--bottom{
+      display: flex;
+      width: 100%;
+      margin-bottom: 10px;
+      overflow:hidden;
+    }
+    &--title{
+      // width: 100px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      width: 100%;
+    }
+    &--tag{
+      display: inline-block;
+      width: 100px;
+      text-align: center;
+      margin-left: 10px;
+      margin-right: 25px;
+    }
   }
-    // &.c-dammy{
-    //   @include mq(md){
-    //     display: none;
-    //   }
-    // }
   &__rating{
     display: inline;
   }

@@ -12,20 +12,17 @@
             <div class="c-info__box p-attention__infoBox--left">
               <time class="p-attention__info--date">{{ $idea->created_at->format('Y/m/d') }}</time>
             </div>
-            <!-- </div> -->
-            <!-- <i class="fas fa-star fa-lg c-rating__icon"></i>
-            <i class="fas fa-star fa-lg c-rating__icon"></i>
-            <i class="far fa-star fa-lg c-rating__icon"></i>
-            <i class="far fa-star fa-lg c-rating__icon"></i> -->
             <div class="c-info__box c-dammy p-attention__infoBox"></div>
             <div class="c-info__box p-attention__infoBox">
-              <i class="fas fa-star fa-lg c-rating__icon"></i>
-              <span class="p-attention__rating--num">{{ $idea->rating }}</span>
-              <span>({{ ($idea->countReview) }})</span>
+              <span class="p-attention__rating c-rating">{{ $idea->rating }} ({{ $idea->countReview }})</span>
             </div>
             <div class="c-info__box p-attention__infoBox">
               <span class="c-price p-attention__price">¥{{ $idea->price }}</span>
             </div>
+          </div>
+          <div class="p-attention__infoBox--bottom">
+            <span class="c-tag p-attention__infoBox--tag">{{ $idea->category->name }}</span>
+            <h3 class="c-list__item--title p-attention__infoBox--title">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</h3>
           </div>
           <div class="p-attention__body">
 
@@ -42,7 +39,6 @@
             <div class="c-info__item">
               
               <div class="p-attention__summary">
-                <span class="c-tag p-attention__tag">{{ $idea->category->name }}</span>
                 <div class="p-attention__text--container">
                   <p class="c-txt p-attention__text ">{{$idea->summary}}</p>
                 </div>

@@ -17,14 +17,17 @@
         </div>
         <div>
             <span>{{ $idea->category->name}}</span>
-            <span><i class="fas fa-star fa-lg c-rating__icon"></i>3.7(33)</span>
+            <span><i class="fas fa-star fa-lg c-rating__icon"></i>{{$idea->rating}}({{$idea->countReview}})</span>
             <span>¥ {{ $idea->price }}</span>
         </div>
         <p>{{ $idea->content }}</p>
 
-        <form action="{{ route('twitter') }}" method="post">
+        <form action="{{ route('test') }}" method="post">
             <input type="submit" value="Twitter">
         </form>
+
+        @component('components.review-section',['ideaReviews' => $ideaReviews])
+        @endcomponent
 
         <div>
             <a href="#">全件表示する</a>

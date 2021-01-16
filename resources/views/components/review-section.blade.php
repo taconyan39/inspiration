@@ -10,8 +10,8 @@
               <time class="p-review__info--date">{{ $review->created_at->format('Y/m/d') }}</time>
             </div>
             <div class="c-info__box">
-              <i class="fas fa-star fa-lg c-rating__icon"></i>
-              <span class="p-review__rating--num">3.7</span>
+              <!-- <i class="fas fa-star c-rating__icon"></i> -->
+              <span class="p-review__rating--num c-rating">{{ $review->idea->rating }}({{ $review->idea->countReview}})</span>
             </div>
             <div class="c-info__box">
               <span class="c-price p-review__price">¥{{ $review->idea->price }}</span>

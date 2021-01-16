@@ -78,11 +78,15 @@ class PostIdeasController extends Controller
     {
         $user = Auth::user();
         $idea = Idea::find($id);
-        $reviews = Review::all()->where('user_id',$id)->take(5);
-        // dd($reviews);
+        $idea->rating = $idea->reviews()->avg('rating');
+        $idea->countReview = $idea->reviews->count();
 
-        $categories = Category::all();
-        return view('post-idea.show',[ 'categories' => $categories, 'user' => $user, 'idea' => $idea, 'reviews' => $reviews]);
+        dd($user);
+        $ideaReviews = DB::table('reviews')->join('ideas','reviews.idea_id','=','ideas.id')
+                    ->where('ideas.id', $id)->orderBy('reviews.created_at', 'desc')->take(5)
+                    ->get();
+
+        return view('post-idea.show',[ 'user' => $user, 'idea' => $idea, 'ideaReviews' => $ideaReviews]);
     }
 
     /**

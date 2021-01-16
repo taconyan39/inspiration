@@ -142,12 +142,6 @@
   }
 }
 
-.c-rating{
-  &__icon{
-    color: #F5D300;
-  }
-}
-
 .c-tag{
   padding: $spacing-sm;
   font-size: $font-size_md;
@@ -156,6 +150,7 @@
   background: $color_action;
   border-radius: 5px;
   margin-right: $spacing-sm;
+  box-sizing: border-box;
 }
 
 .c-txt{
@@ -247,10 +242,24 @@
     &--left{
       text-align: start;
     }
+    &--title{
+
+    }
     &.c-dammy{
       @include mq(md){
         display: none;
       }
     }
+  }
+}
+
+// rating
+.c-rating{
+  font-size:$font-size_lg;
+  &::before{
+    font-family: "Font Awesome 5 Free";
+    content: "\f005";
+    margin-right: $spacing-sm;
+    color: #F5D300;
   }
 }
