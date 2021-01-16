@@ -12,8 +12,10 @@
         <form method="POST" action="{{ route('login') }}" class="c-form p-login__form u-clearfix">
             @csrf
 
-            <label for="email" class="p-login__label c-form__label">{{ __('E-Mail Address') }}</label>
-            <input id="email" type="email" class="p-login__email c-form__input @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+            <label for="email" class="p-login__label c-form__label">{{ __('E-Mail Address') }}
+
+                <input id="email" type="email" class="p-login__email c-form__input @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+            </label>
 
             @error('email')
                 <span class="invalid-feedback" role="alert">
@@ -21,9 +23,11 @@
                 </span>
             @enderror
 
-            <label for="password" class="p-login__label c-form__label">{{ __('Password') }}</label>
+            <label for="password" class="p-login__label c-form__label">{{ __('Password') }}
 
-            <input id="password" type="password" class="p-login__pass c-form__input @error('password') is-invalid @enderror" name="password" required autocomplete="password">
+                
+                <input id="password" type="password" class="p-login__pass c-form__input @error('password') is-invalid @enderror" name="password" required autocomplete="password">
+            </label>
 
             @error('password')
                 <span class="invalid-feedback" role="alert">

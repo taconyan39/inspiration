@@ -22,7 +22,7 @@
           </div>
           <div class="p-attention__infoBox--bottom">
             <span class="c-tag p-attention__infoBox--tag">{{ $idea->category->name }}</span>
-            <h3 class="c-list__item--title p-attention__infoBox--title">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</h3>
+            <h3 class="c-list__item--title p-attention__infoBox--title">{{ $idea->title }}</h3>
           </div>
           <div class="p-attention__body">
 

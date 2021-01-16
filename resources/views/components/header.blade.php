@@ -21,7 +21,7 @@
     <script src="https://kit.fontawesome.com/8e92148154.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div id="app">
+    <div id="app" class="l-wrapper">
         <header class="l-header" id="header">
             <!-- javascriptで表示処理 -->
             @if(session('flash_message'))
@@ -80,7 +80,7 @@
                                 </form>
                         </li>
                             <li class="c-nav__item p-header__navItem">
-                                <a  class="c-btn p-header__btn--mypage" href="{{ route('home') }}"
+                                <a  class="c-btn p-header__btn--mypage" href="{{ route('mypage') }}"
                                 >{{ __('My Page') }}</a>
                             </li>
 

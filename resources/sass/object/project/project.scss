@@ -35,19 +35,6 @@
   }
 }
 
-.p-profileList{
-  &__title{
-    margin-bottom: 0;
-    padding: $spacing-md $spacing-sm;
-  }
-  &__item{
-    border-bottom: 1px solid $color_gray;
-  }
-  &__link{
-    padding: $spacing-md $spacing-sm;
-  }
-}
-
 
 .p-pickupCategory{
   &__container{
@@ -345,8 +332,7 @@
 }
 
 // プロフィールサイドバー
-.p-profileList{
-  // width: 25%;
+.p-profileSidebar{
   &__item{
     padding: $spacing-md;
     display: block;
@@ -359,27 +345,22 @@
     margin-right: 15px;
     overflow: hidden;
     border: 3px solid $color_main;
-    &:nth-of-type(4){
-      margin-right: -15px;
-    }
-    &--top{
-      padding: $spacing-sm;
-      margin: 0 auto;
-      // border-radius: 50%;
-    }
-    &--bottom{
-      margin: 0 auto;
-    }
-    &--partition{
-        margin: $spacing-sm;
-    }
   }
   &__img{
     border-radius: 50%;
     &--outer{
-    width: 80px;
-    height: 80px;
+      width: 80px;
+      height: 80px;
+      margin: 0 auto;
     }
+  }
+  &__btn{
+    display: block;
+    width:100%;
+    margin: 0 auto $spacing_md;
+    padding: $spacing-sm $spacing-md;
+    text-align: center;
+    background-color: $color_sub;
   }
 }
 

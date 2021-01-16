@@ -20,6 +20,11 @@
   }
 }
 
+.c-error{
+  font-size: $spacing-sm;
+  color: #cc0000;
+}
+
 // btn
 
 .c-btn{
@@ -27,8 +32,11 @@
   padding: $spacing_md $spacing_lg;
   background: $color_white;
   box-sizing: border-box;
+  transition: .3s;
   &:hover{
     cursor: pointer;
+    opacity: 0.8;
+    border-radius: 3px;
   }
   //   &__signup{
   //   background: $color_action;
@@ -201,7 +209,6 @@
     width: 100%;
     padding: $spacing-md;
     box-sizing: border-box;
-    margin-bottom: $spacing-md;
     &--checkBox{
       margin-right: $spacing_sm;
       &:hover{

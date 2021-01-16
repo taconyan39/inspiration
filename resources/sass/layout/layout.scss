@@ -4,6 +4,9 @@
 }
 
 .l-wrapper{
+  min-height: 100vh;
+  display:flex;
+  flex-direction: column;
   &__1colum{
     margin-top: $spacing_3l;
     margin-bottom: $spacing_3l;
@@ -63,5 +66,5 @@
   color: $color_white;
   text-align: center;
   font-size: $font-size_sm;
-  margin-top: $spacing-lg;
+  margin-top: auto;
 }

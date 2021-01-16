@@ -11,7 +11,7 @@ use App\UserReaction;
 use App\Interest;
 use App\BuyIdea;
 
-class HomeController extends Controller
+class MypageController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -72,6 +72,6 @@ class HomeController extends Controller
         // }
 
 
-        return view('home',['user' => $user, 'postIdeas' => $postIdeas, 'interestIdeas' => $interestIdeas, 'buy_ideas' => $buyIdeas, 'ideaReviews' => $ideaReviews]);
+        return view('mypage',['user' => $user, 'postIdeas' => $postIdeas, 'interestIdeas' => $interestIdeas, 'buy_ideas' => $buyIdeas, 'ideaReviews' => $ideaReviews]);
     }
 }

@@ -36,4 +36,4 @@ Route::get('/mail', 'TestMailController@send')->name('mail');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/mypage', 'MypageController@index')->name('mypage');

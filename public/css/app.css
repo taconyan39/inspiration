@@ -216,6 +216,12 @@ li {
   height: 80px;
 }
 
+.l-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 .l-wrapper__1colum {
   margin-top: 40px;
   margin-bottom: 40px;
@@ -281,8 +287,8 @@ li {
   background: #000;
   color: #f8fafc;
   text-align: center;
-  font-size: 0.7rem;
-  margin-top: 15px;
+  font-size: 0.8rem;
+  margin-top: auto;
 }
 
 .c-title__header {
@@ -306,15 +312,23 @@ li {
   margin-bottom: 15px;
 }
 
+.c-error {
+  font-size: 5px;
+  color: #cc0000;
+}
+
 .c-btn {
   border: 1px solid #999;
   padding: 10px 15px;
   background: #f8fafc;
   box-sizing: border-box;
+  transition: 0.3s;
 }
 
 .c-btn:hover {
   cursor: pointer;
+  opacity: 0.8;
+  border-radius: 3px;
 }
 
 .c-btn__box {
@@ -405,8 +419,8 @@ li {
 
 .c-tag {
   padding: 5px;
-  font-size: 0.8rem;
-  line-height: 0.8rem;
+  font-size: 0.9rem;
+  line-height: 0.9rem;
   border: 1px solid #000;
   background: #4FC3F7;
   border-radius: 5px;
@@ -471,7 +485,6 @@ li {
   width: 100%;
   padding: 10px;
   box-sizing: border-box;
-  margin-bottom: 10px;
 }
 
 .c-form__input--checkBox {
@@ -574,19 +587,6 @@ li {
 }
 
 .p-categoryList__link {
-  padding: 10px 5px;
-}
-
-.p-profileList__title {
-  margin-bottom: 0;
-  padding: 10px 5px;
-}
-
-.p-profileList__item {
-  border-bottom: 1px solid #999;
-}
-
-.p-profileList__link {
   padding: 10px 5px;
 }
 
@@ -887,13 +887,13 @@ li {
   color: #999;
 }
 
-.p-profileList__item {
+.p-profileSidebar__item {
   padding: 10px;
   display: block;
   border: none;
 }
 
-.p-profileList__card {
+.p-profileSidebar__card {
   box-sizing: border-box;
   padding: 10px;
   width: 100%;
@@ -902,30 +902,23 @@ li {
   border: 3px solid #e6dfcf;
 }
 
-.p-profileList__card:nth-of-type(4) {
-  margin-right: -15px;
-}
-
-.p-profileList__card--top {
-  padding: 5px;
-  margin: 0 auto;
-}
-
-.p-profileList__card--bottom {
-  margin: 0 auto;
-}
-
-.p-profileList__card--partition {
-  margin: 5px;
-}
-
-.p-profileList__img {
+.p-profileSidebar__img {
   border-radius: 50%;
 }
 
-.p-profileList__img--outer {
+.p-profileSidebar__img--outer {
   width: 80px;
   height: 80px;
+  margin: 0 auto;
+}
+
+.p-profileSidebar__btn {
+  display: block;
+  width: 100%;
+  margin: 0 auto 10px;
+  padding: 5px 10px;
+  text-align: center;
+  background-color: rgba(184, 189, 204, 0.7);
 }
 
 .p-profEdit {

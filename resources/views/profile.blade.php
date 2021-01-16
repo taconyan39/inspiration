@@ -5,7 +5,7 @@
 @section('content')
 <div class="l-wrapper__2colum u-site__width">
   
-  @include('components.sidebar-profile',['user' => $user])
+    @include('components.sidebar-profile',['user' => $user])
 
     <main class="c-form__wrapper p-profEdit ">
         <div class="p-profEdit__title c-form__header">
@@ -35,80 +35,93 @@
             <!-- 変更テストが必要 -->
             <label for="email" class="p-profEdit__label c-form__label">
               {{ __('E-Mail Address')}}
+              
+              <input id="email"
+                     type="email" 
+                     class="p-profEdit__email c-form__input
+              @error('email') is-invalid @enderror" 
+                     name="email" 
+                     value="{{ old('email', $user->email) }}" 
+                     required autocomplete="email" 
+                     autofocus>
+              
+              @error('email')
+              <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+                </span>
+                @enderror
             </label>
 
-              <input id="email" type="email" class="p-profEdit__email c-form__input
-                                @error('email') is-invalid @enderror" name="email" value="{{ old('email', $user->email) }}" required autocomplete="email" autofocus>
-                                
-                                @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-
-                <label for="password" class="p-profEdit__label c-form__label">
-                    {{ __('Password') }}
-                </label>
+            <label for="password" class="p-profEdit__label c-form__label">
+                {{ __('Password') }}
+                
+                <input id="password" 
+                       type="password" 
+                       class="p-profEdit__pass c-form__input @error('password') is-invalid @enderror" 
+                       name="pass_old" 
+                       autocomplete="current-password">
+            </label>
                     
-                        <input id="password" type="password" class="p-profEdit__pass
-                        c-form__input @error('password') is-invalid @enderror" name="pass_old" autocomplete="current-password">
-                        
-                    @error('password')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
+                @error('password')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
 
-                <label for="pass_new" class="p-profEdit__label c-form__label">
-                    {{ __('New Password') }}
-                </label>
+            <label for="pass_new" class="p-profEdit__label c-form__label">
+                {{ __('New Password') }}
+                
+                <input id="password" 
+                       type="pass_new" 
+                       class="p-profEdit__pass c-form__input @error('pass_new') is-invalid @enderror" 
+                       name="pass_new" 
+                       autocomplete="current-pass_new">
+            </label>
                     
-                        <input id="password" type="pass_new" class="p-profEdit__pass
-                        c-form__input @error('pass_new') is-invalid @enderror" name="pass_new" autocomplete="current-pass_new">
-                        
-                    @error('pass_new')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                    @if('password_match')
-                        <span class="c-error">パスワードが違います</span>
-                    @endif
-                <label for="pass_re" class="p-profEdit__label c-form__label">
-                    {{ __('Password Confirm') }}
-                </label>
+                @error('pass_new')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+                @if('password_match')
+                    <span class="c-error">パスワードが違います</span>
+                @endif
+            <label for="pass_re" class="p-profEdit__label c-form__label">
+                {{ __('Password Confirm') }}
+                
+                <input id="pass_re" 
+                       type="pass_re" 
+                       class="p-profEdit__pass c-form__input @error('pass_re') is-invalid @enderror" 
+                       name="pass_re" 
+                       autocomplete="current-pass_re">
+            </label>
                     
-                        <input id="pass_re" type="pass_re" class="p-profEdit__pass
-                        c-form__input @error('pass_re') is-invalid @enderror" name="pass_re" autocomplete="current-pass_re">
-                        
-                    @error('pass_re')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                        
-                    <div class="p-profEdit__label--wrapper">
-                    
-                    <label for="icon_img">
-                    </label>
-                    <input type="file" name="icon_img" id="icon_img" autocomplete="icon_img" value="{{ old('prof_img') }}">
-                    @error('prof_img')
-                        <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+            @error('pass_re')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+                
+            <div class="p-profEdit__label--wrapper">
+            
+            <label for="icon_img">
+            </label>
+            <input type="file" 
+                    name="icon_img" 
+                    id="icon_img" 
+                    autocomplete="icon_img" 
+                    value="{{ old('prof_img') }}">
+            @error('prof_img')
+                <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+                </span>
+            @enderror
 
-                                <button type="submit" class="
-                                c-btn c-form__btn btn p-profEdit__btn">
-                                    {{ __('Edit') }}
-                                </button>
-
-                                <!-- @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                 @endif -->
-                    </form>
-</main>
+            <button type="submit" class="
+            c-btn c-form__btn btn p-profEdit__btn">
+                {{ __('Edit') }}
+            </button>
+        </form>
+    </main>
 </div>
 @endsection

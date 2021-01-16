@@ -12,9 +12,11 @@
         <form method="POST" action="{{ route('register') }}" class="c-form p-register__form u-clearfix">
         @csrf
 
-            <label for="name" class="p-register__label c-form__label">{{ __('Name') }}</label>
+            <label for="name" class="p-register__label c-form__label">{{ __('Name') }}
 
-            <input id="name" type="text" class="p-register__name c-form__input @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                
+                <input id="name" type="text" class="p-register__name c-form__input @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+            </label>
 
             @error('name')
                 <span class="invalid-feedback" role="alert">
@@ -22,9 +24,11 @@
                 </span>
             @enderror
 
-            <label for="email" class="p-register__label c-form__label">{{ __('E-Mail Address') }}</label>
+            <label for="email" class="p-register__label c-form__label">{{ __('E-Mail Address') }}
 
-            <input id="email" type="email" class="p-register__email c-form__input @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                
+                <input id="email" type="email" class="p-register__email c-form__input @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+            </label>
 
             @error('email')
                 <span class="invalid-feedback" role="alert">
@@ -32,9 +36,11 @@
                 </span>
             @enderror
 
-            <label for="password" class="p-register__label c-form__label">{{ __('Password') }}</label>
+            <label for="password" class="p-register__label c-form__label">{{ __('Password') }}
 
-            <input id="password" type="password" class="p-register__pass c-form__input @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                
+                <input id="password" type="password" class="p-register__pass c-form__input @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+            </label>
 
             @error('password')
                 <span class="invalid-feedback" role="alert">
@@ -42,9 +48,11 @@
                 </span>
             @enderror
 
-            <label for="password-confirm" class="p-register__label c-form__label">{{ __('Confirm Password') }}</label>
+            <label for="password-confirm" class="p-register__label c-form__label">{{ __('Confirm Password') }}
 
-            <input id="password-confirm" type="password" class="p-register__passConfirm c-form__input" name="password_confirmation" required autocomplete="new-password">
+                
+                <input id="password-confirm" type="password" class="p-register__passConfirm c-form__input" name="password_confirmation" required autocomplete="new-password">
+            </label>
 
             <div class="c-btn__box p-register__btnBox">
                 <button type="submit" class="c-btn c-form__btn p-register__btn">
