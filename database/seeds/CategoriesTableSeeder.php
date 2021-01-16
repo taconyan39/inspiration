@@ -14,49 +14,49 @@ class CategoriesTableSeeder extends Seeder
     public function run()
     {
         DB::table('categories')->insert([
-            'name' => 'Matching',
+            'category_name' => 'Matching',
             'image' => 'category_matching.jpg',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
         
         DB::table('categories')->insert([
-            'name' => 'Board',
+            'category_name' => 'Board',
             'image' => 'category_boards.jpg',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
         
         DB::table('categories')->insert([
-            'name' => 'SNS',
+            'category_name' => 'SNS',
             'image' => 'category_sns.jpg',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
         
         DB::table('categories')->insert([
-            'name' => 'Sharing',
+            'category_name' => 'Sharing',
             'image' => 'category_sharing.jpg',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
         
         DB::table('categories')->insert([
-            'name' => 'EC-Site',
+            'category_name' => 'EC-Site',
             'image' => 'category_delivery.jpg',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
         
         DB::table('categories')->insert([
-            'name' => 'Transmission',
+            'category_name' => 'Transmission',
             'image' => 'category_media.jpg',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
         
         DB::table('categories')->insert([
-            'name' => 'Other',
+            'category_name' => 'Other',
             'image' => 'category_other.jpg',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),

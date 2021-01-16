@@ -78,15 +78,13 @@ class PostIdeasController extends Controller
     {
         $user = Auth::user();
         $idea = Idea::find($id);
-        $idea->rating = $idea->reviews()->avg('rating');
+        $idea->rating = sprintf('%.1f',$idea->reviews()->avg('rating'));
         $idea->countReview = $idea->reviews->count();
 
-        dd($user);
-        $ideaReviews = DB::table('reviews')->join('ideas','reviews.idea_id','=','ideas.id')
-                    ->where('ideas.id', $id)->orderBy('reviews.created_at', 'desc')->take(5)
-                    ->get();
-
-        return view('post-idea.show',[ 'user' => $user, 'idea' => $idea, 'ideaReviews' => $ideaReviews]);
+        // 自分のアイデアに投稿されたレビューとその情報を取得
+        $reviews = Review::all()->where('idea_id', $id)->take(5);
+        
+        return view('post-idea.show',[ 'user' => $user, 'idea' => $idea, 'reviews' => $reviews]);
     }
 
     /**

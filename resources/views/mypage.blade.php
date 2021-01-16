@@ -10,13 +10,17 @@
   
   <main class="l-main__2colum u-site__width">
 
-  <a class="c-btn" href="{{ url('post-idea/create') }}">アイデアを投稿する</a>
-
     @component('components.simpleList-section', ['items' => $postIdeas])
         @slot('title')
             投稿したアイデア
         @endslot
 
+    @endcomponent
+    
+    @component('components.simpleList-section', ['items' => $buyIdeas])
+        @slot('title')
+          購入アイデア
+        @endslot
     @endcomponent
 
     @component('components.simpleList-section', ['items' => $interestIdeas])
@@ -24,6 +28,14 @@
             気になるリスト
         @endslot
     @endcomponent
+
+    @component('components.simpleList-reviewSection', ['reviews' => $ideaReviews])
+        @slot('title')
+            レビュー一覧
+        @endslot
+    @endcomponent
+
+
 
     
   </main>

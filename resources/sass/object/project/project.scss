@@ -282,7 +282,7 @@
 
 // myItem
 
-.p-ideaList{
+.p-simpleList{
   &__list{
     width: 100%;
     padding: $spacing_md;
@@ -328,6 +328,10 @@
     text-align: left;
     text-decoration: underline;
     color: $color_gray;
+  }
+  &__bottom{
+    text-align: center;
+    margin: $spacing_lg 0 $spacing_lg;
   }
 }
 
@@ -403,35 +407,79 @@
   }
 }
 
-// アイデア詳細ページ
+// アイデア詳細画面
 .p-ideaDetail{
-  &__top{
-    margin-bottom: $spacing_lg;
+  width: 100%;
+  border-radius: 3px;
+  border: 3px solid $color_sub;
+  &__content{
+    padding: $spacing-md $spacing-lg;
+    margin-bottom: $spacing-lg;
+  }
+  &__info{
     display: flex;
-    justify-content: flex-end;
-    
+    text-align: right;
+    &--left{
+      text-align: start;
+    }
+    &--title{
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      width: 100%;
+    }
+    &--tag{
+      display: inline-block;
+      width: 100px;
+      text-align: center;
+      margin-left: 10px;
+      margin-right: 25px;
+    }
+  }
+  &__infoItem{
+    &--bottom{
+        display: flex;
+        width: 100%;
+        margin-bottom: 10px;
+        overflow:hidden;
+        justify-content: space-between;
+        box-sizing: border-box;
+    }
+  }
+  &__rating{
+    display: inline;
+  }
+  &__price{
+    font-size: $font-size_lg;
+  }
+  &__body{
+    width: 100%;
+    box-sizing: border-bx;
+    display: flex;
+    justify-content: flex-start;
+    overflow:hidden;
+    text-overflow: ellipsis;
+  }
+  &__summary{
+    font-weight: bold;
+    margin-bottom: $spacing-lg;
+  }
+  &__text{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    // white-space: nowrap;
+    box-sizing: border-box;
+    text-align: start;
+    &--wrapper{
+      margin-bottom: $spacing-lg;
+    }
   }
   &__price{
     font-size: $font-size_xl;
     font-weight: bold;
     margin-right: $spacing_sm;
-  }
-  &__purchased{
-    background: $color-gray;
-  }
-  &__article{
-    margin: $spacing-lg;
-    padding: $spacing-lg;
-  }
-  &__summary{
-    color: $color-gray;
-    font-weight: bold;
-    margin-bottom: $spacing-lg;
-  }
-  &__content{
-    padding: $spacing-lg;
-    border-top: 1px solid $color-black;
-    border-bottom: 1px double $color-black;
-    margin-bottom: $spacing-lg;
   }
 }

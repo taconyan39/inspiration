@@ -54,6 +54,28 @@
     padding-left: $spacing-md;
     box-sizing: border-box;
   }
+  &__twitter{
+    height: 20px;
+    text-align:center;
+    color: $color_white;
+    background: #1da1f2;
+    border-radius: 5px;
+    font-size: $font-size_md;
+    padding: $spacing-sm $spacing_md;
+    box-sizing: border-box;
+    align-items: center;
+    &--input{
+      line-height: 20px;
+      background: transparent;
+      border: none;
+      color: $color_white;
+      font-weight: bold;
+    }
+  }
+  &__prompt{
+    margin-left: $spacing_md;
+    font-size: $font-size_md;
+  }
 }
 
 .c-nav{
@@ -241,7 +263,9 @@
   justify-content: space-between;
   text-align:right;
   &__box{
-    width: 25%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
     @include mq(md){
       width: 33%;
       text-align: center;
@@ -264,8 +288,9 @@
 .c-rating{
   font-size:$font-size_lg;
   &::before{
-    font-family: "Font Awesome 5 Free";
+    font-family: $font-awesome;
     content: "\f005";
+    font-size:$font-size_xl;
     margin-right: $spacing-sm;
     color: #F5D300;
   }

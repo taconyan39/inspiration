@@ -30,35 +30,48 @@ class MypageController extends Controller
      */
     public function index()
     {
-        // 各リストを新基準順に取得
+        // 各リストを新規準順に取得
         $user = Auth::user();
         $postIdeas = $user
                     ->ideas()
                     ->orderBy('created_at', 'desc')
                     ->take(5)
                     ->get();
+
+        // 平均点と口コミ数を代入
         foreach($postIdeas as $postIdea){
             $postIdea->rating = sprintf('%.1f',$postIdea->reviews->avg('rating'));
             $postIdea->countReview = $postIdea->reviews->count();
         }
-
-        // dd($postIdeas[0]->rating);
 
         $interestIdeas = $user
                     ->interestIdeas()
                     ->orderBy('created_at','desc')
                     ->take(5)
                     ->get();
+        foreach($interestIdeas as $interestIdea){
+            $interestIdea->rating = sprintf('%.1f',$interestIdea->reviews->avg('rating'));
+            $interestIdea->countReview = $interestIdea->reviews->count();
+        }
 
         $buyIdeas = $user
                     ->buyIdeas()
                     ->orderBy('created_at','desc')
                     ->take(5)
                     ->get();
+        foreach($buyIdeas as $buyIdea){
+            $buyIdea->rating = sprintf('%.1f',$buyIdea->reviews->avg('rating'));
+            $buyIdea->countReview = $buyIdea->reviews->count();
+        }
 
-        // 自分のアイデアに投稿されたレビューを取得
-        $ideaReviews = Review::join('ideas', 'reviews.idea_id', '=', 'ideas.id')
-                    ->where('ideas.user_id','=', $user->id)->orderBy('reviews.created_at', 'desc')->take(5)
+        // 自分のアイデアに投稿されたレビューとその情報を取得
+        $ideaReviews = Review::leftjoin('ideas', 'reviews.idea_id', '=', 'ideas.id')
+                    ->leftjoin('users','reviews.user_id', '=', 'users.id')
+                    ->leftjoin('categories','ideas.category_id', '=', 'categories.id')
+                    ->where('ideas.user_id','=', $user->id)
+                    ->select('reviews.id','reviews.review','reviews.rating','reviews.created_at','reviews.updated_at','ideas.title','ideas.price','ideas.summary','users.name','users.icon_img','categories.category_name',)
+                    ->orderBy('reviews.created_at', 'desc')
+                    ->take(5)
                     ->get();
 
         // dd($ideaReviews[0]);
@@ -71,7 +84,8 @@ class MypageController extends Controller
         //     $idea->countReview = $idea->reviews->count();
         // }
 
+        // dd($buyIdeas);
 
-        return view('mypage',['user' => $user, 'postIdeas' => $postIdeas, 'interestIdeas' => $interestIdeas, 'buy_ideas' => $buyIdeas, 'ideaReviews' => $ideaReviews]);
+        return view('mypage',['user' => $user, 'postIdeas' => $postIdeas, 'interestIdeas' => $interestIdeas, 'buyIdeas' => $buyIdeas, 'ideaReviews' => $ideaReviews]);
     }
 }

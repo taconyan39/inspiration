@@ -21,7 +21,7 @@ class CreateReviewsTable extends Migration
             $table->integer('rating');
             $table->boolean('delete_flg')->default(0);
             $table->timestamps();
-            $table->unique(['idea_id', 'user_id']);
+            // $table->unique(['idea_id', 'user_id']);
         });
     }
 
