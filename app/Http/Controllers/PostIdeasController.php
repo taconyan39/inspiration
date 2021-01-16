@@ -65,7 +65,7 @@ class PostIdeasController extends Controller
         $idea->fill($request->all())->save();
 
 
-        return redirect('home')->with('flash_message', __('Registered.'));
+        return redirect('home')->with('flash_message', '投稿しました');
     }
 
     /**
@@ -116,7 +116,7 @@ class PostIdeasController extends Controller
         $idea = Idea::find($id);
         unset($form['_token']);
         $idea->fill($request->all())->save();
-        return redirect('/post-idea/index');
+        return redirect('/post-idea/index')->with('flash_message','変更しました');
     }
 
     /**
@@ -128,6 +128,6 @@ class PostIdeasController extends Controller
     public function destroy($id)
     {
         Idea::find($id)->delete();
-        return redirect('post-idea/index');
+        return redirect('post-idea/index')->with('flash_message', '削除しました');
     }
 }

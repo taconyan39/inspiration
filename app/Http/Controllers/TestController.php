@@ -17,7 +17,7 @@ class TestController extends Controller
         $user = User::find(1);
         $ideas = Idea::all()->where('user_id',$user->id);
         $ideaReviews = Review::join('ideas', 'reviews.idea_id', '=', 'ideas.id')->where('ideas.user_id','=', $user->id)->get();
-        dd($ideaReviews[0]->created_at);
+        // dd($ideaReviews[0]->created_at);
         //  $reviews = DB::table('reviews')->where();
         //  dd($user->reviews());
         // dd($review[0]->idea->user->name);
@@ -29,15 +29,14 @@ class TestController extends Controller
         // }
         // return view('test', ['ideas' => $ideas, 'categories' => $categories, 'users' => $users ]);
             // $categories = Category::all();
-            return view('./test', ['categories' => $categories ]);
+            return view('./test');
         
     }
-    public function post($param){
+    public function post(Request $request){
 
-        // dd('vue post');
-        dd($param);
-
-        return $param;
+        // dd($requ                         est);
+// 
+        return redirect('/test')->with('flash_message','テストでおます');
 
     }
 

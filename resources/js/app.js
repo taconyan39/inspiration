@@ -5,6 +5,7 @@
  */
 
 require('./bootstrap');
+require('./jquery-3.5.1.min.js');
 
 window.Vue = require('vue');
 
@@ -34,3 +35,10 @@ Vue.component('input-component', require('./components/InputComponent.vue').defa
 const app = new Vue({
     el: '#app',
 });
+
+// フラッシュメッセージのfadeout
+$(function(){
+    $(function(){
+      $('.js-flash').fadeOut(3000);
+    });
+})

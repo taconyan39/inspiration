@@ -270,3 +270,13 @@
     color: #F5D300;
   }
 }
+
+// flash message
+.c-flash{
+  width: 100%;
+  position: fixed;
+  text-align: center;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.3);
+  line-height: 80px;
+}

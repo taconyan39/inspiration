@@ -23,18 +23,11 @@
 <body>
     <div id="app" class="l-wrapper">
         <header class="l-header" id="header">
-            <!-- javascriptで表示処理 -->
             @if(session('flash_message'))
-                <div class="c-flash p-flash">
-                    {{ session('flash_message') }}
-                </div>
+            <!-- javascriptで表示処理 -->
+                <div class="c-flash js-flash">
+                {{ session('flash_message') }}</div>
             @endif
-
-            @if (session('flash_message'))
-            <div class="alert alert-primary text-center" role="alert">
-                {{ session('flash_message') }}
-            </div>
-        @endif
 
             <nav class="u-site__width p-header">
                 <a class="navbar-brand" href="{{ url('/') }}">
