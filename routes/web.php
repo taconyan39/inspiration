@@ -18,7 +18,7 @@
 // Route::get('/', 'TestController@get');
 Route::get('/test', 'TestController@get')->name('test');
 Route::post('/', 'TwitterController@twitter')->name('twitter');
-Route::post('http://inspiration-o.herokuapp.com/login/twitter/callback', 'LoginController.php@twitterCallback');
+Route::post('http://inspiration-o.herokuapp.com/login/twitter/callback', 'TwitterController.php@twitterCallback');
 Route::get('/share', 'TwitterController@twitterLogedIn');
 Route::post('/share', 'TwitterController@share')->name('share');
 // Route::post('/test', 'TestController@post')->name('post');
