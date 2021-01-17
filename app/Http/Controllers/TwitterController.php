@@ -96,7 +96,7 @@ class TwitterController extends Controller
             "status" =>
             'テスト'
             ]);
-            dd($twitter);
+            // dd($twitter);
 
         return redirect('/mypage')->with('flash_message', 'シェアしました');
         }
