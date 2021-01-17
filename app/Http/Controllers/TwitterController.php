@@ -70,7 +70,7 @@ class TwitterController extends Controller
         $twitter_user_info = $twitter_user->get('account/verify_credentials');
         // dd($twitter_user_info);
 
-        $twitter->post("statuses/update", [
+        $twitter_user->post("statuses/update", [
             "status" =>
                 'テスト'
                 // 'New Photo Post!' . PHP_EOL .
