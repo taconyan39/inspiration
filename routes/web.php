@@ -34,6 +34,13 @@ Route::get('/profile', 'ProfileController@edit')->name('profile.edit');
 Route::post('/profile', 'ProfileController@update')->name('profile.update');
 Route::resource('post-idea', 'PostIdeasController');
 
+// Twitter
+Route::post('/', 'TwitterController@twitter')->name('twitter');
+Route::get('/login/twitter/callback', 'TwitterController@twitterCallback');
+// Route::post('/login/twitter/callback', 'TwitterController@twitterCallback');
+// Route::get('/share', 'TwitterController@twitterLogedIn');
+// Route::post('/share', 'TwitterController@share')->name('share');
+
 
 // つまり"TestMailController"のsendメソッドを利用してメールを送信する
 Route::get('/mail', 'TestMailController@send')->name('mail');

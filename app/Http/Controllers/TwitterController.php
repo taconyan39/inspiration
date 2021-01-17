@@ -68,7 +68,19 @@ class TwitterController extends Controller
 
         # 本来はアカウント有効状態を確認するためのものですが、プロフィール取得にも使用可能
         $twitter_user_info = $twitter_user->get('account/verify_credentials');
-        dd($twitter_user_info);
+        // dd($twitter_user_info);
+
+        $twitter->post("statuses/update", [
+            "status" =>
+                'テスト'
+                // 'New Photo Post!' . PHP_EOL .
+                // '新しい聖地の写真が投稿されました!' . PHP_EOL .
+                // 'タイトル「' . $title . '」' . PHP_EOL .
+                // '#photo #anime #photography #アニメ #聖地 #写真 #HolyPlacePhoto' . PHP_EOL .
+                // 'https://www.holy-place-photo.com/photos/' . $id
+        ]);
+
+        return redirect('/mypage')->with('flash_message','シェアしました');
     }
 
     public function twitterLogedIn(){
