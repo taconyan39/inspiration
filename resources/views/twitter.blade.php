@@ -8,7 +8,7 @@
   <flash-message></flash-message>
 @endif
 
-<form action="{{ route('share')}}" method="post">
+<form action="{{ route('twitter')}}" method="post">
   @csrf
   <input type="submit" value="submit">
 </form>
