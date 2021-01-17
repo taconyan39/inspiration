@@ -14,6 +14,7 @@ class TestController extends Controller
 {
     public function get(){
 
+        dd('get');
         $user = User::find(1);
         $ideas = Idea::all()->where('user_id',$user->id);
         $ideaReviews = Review::join('ideas', 'reviews.idea_id', '=', 'ideas.id')->where('ideas.user_id','=', $user->id)->get();
@@ -34,8 +35,7 @@ class TestController extends Controller
     }
     public function post(Request $request){
 
-        // dd($requ                         est);
-// 
+        dd('post');
         return redirect('/test')->with('flash_message','テストでおます');
 
     }
@@ -45,6 +45,7 @@ class TestController extends Controller
     }
 
     public function twitter(Request $request){
+        // dd('twitter');
         $title = '超ド級！！';
 
         $id = 1;
@@ -53,7 +54,6 @@ class TestController extends Controller
         $twitter = new TwitterOAuth(env('TWITTER_CONSUMER_KEY'), env('TWITTER_CONSUMER_SECRET'),env('TWITTER_CONSUMER_TOKEN'),
         env('TWITTER_CONSUMER_ACCESS_SECRET'));
         
-        // dd($twitter);
         $twitter->post("statuses/update", [
             "status" =>
                 'テスト'
@@ -63,5 +63,9 @@ class TestController extends Controller
                 // '#photo #anime #photography #アニメ #聖地 #写真 #HolyPlacePhoto' . PHP_EOL .
                 // 'https://www.holy-place-photo.com/photos/' . $id
         ]);
+
+        return redirect('/mypage')->with('flash_message', 'シェアしました');
+
+        // dd($twitter->post);
     }
 }

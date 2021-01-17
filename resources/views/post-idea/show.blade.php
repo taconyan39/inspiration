@@ -43,7 +43,8 @@
                         <p class="p-ideaDetail__text">{{ $idea->content }}</p>
                     </div>
                     
-                    <form action="{{ route('test') }}" method="post">
+                    <form action="{{ route('twitter') }}" method="post">
+                        @csrf
                         <label for="" class="c-btn__twitter">
                             <i class="fab fa-twitter"></i>
                             <input type="submit" value="Twitter" class="c-btn c-btn__twitter--input">
