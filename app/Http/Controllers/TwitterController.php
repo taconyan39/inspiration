@@ -70,17 +70,7 @@ class TwitterController extends Controller
         $twitter_user_info = $twitter_user->get('account/verify_credentials');
         // dd($twitter_user_info);
 
-        $twitter_user->post("statuses/update", [
-            "status" =>
-                'テスト'
-                // 'New Photo Post!' . PHP_EOL .
-                // '新しい聖地の写真が投稿されました!' . PHP_EOL .
-                // 'タイトル「' . $title . '」' . PHP_EOL .
-                // '#photo #anime #photography #アニメ #聖地 #写真 #HolyPlacePhoto' . PHP_EOL .
-                // 'https://www.holy-place-photo.com/photos/' . $id
-        ]);
-
-        return redirect('/mypage')->with('flash_message','シェアしました');
+        return redirect('/share')->with('flash_message','シェアしました');
     }
 
     public function twitterLogedIn(){

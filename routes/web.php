@@ -20,7 +20,7 @@ Route::get('/test', 'TestController@get')->name('test');
 Route::post('/', 'TwitterController@twitter')->name('twitter');
 Route::get('/login/twitter/callback', 'TwitterController@twitterCallback');
 Route::post('/login/twitter/callback', 'TwitterController@twitterCallback');
-Route::get('/share', 'TwitterController@twitterLogedIn');
+Route::get('/share', 'TwitterController@share');
 Route::post('/share', 'TwitterController@share')->name('share');
 // Route::post('/test', 'TestController@post')->name('post');
 
