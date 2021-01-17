@@ -51,8 +51,8 @@ class TestController extends Controller
         $id = 1;
 
         
-        $twitter = new TwitterOAuth(env('TWITTER_CONSUMER_KEY'), env('TWITTER_CONSUMER_SECRET'),env('TWITTER_CONSUMER_TOKEN'),
-        env('TWITTER_CONSUMER_ACCESS_SECRET'));
+        $twitter = new TwitterOAuth(env('TWITTER_CONSUMER_KEY'), env('TWITTER_CONSUMER_SECRET'),env('TWITTER_ACCESS_TOKEN'),
+        env('TWITTER_ACCESS_SECRET'));
         
         $twitter->post("statuses/update", [
             "status" =>
