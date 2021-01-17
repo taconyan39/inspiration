@@ -26,6 +26,11 @@ class TwitterController extends Controller
             'oauth_token' => $token['oauth_token'],
             'oauth_token_secret' => $token['oauth_token_secret'],
         ));
+        
+        $twitter->post("statuses/update", [
+            "status" =>
+            'テスト'
+            ]);
 
         # 認証画面へ移動させる
         ## 毎回認証をさせたい場合： 'oauth/authorize'
