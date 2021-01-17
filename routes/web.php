@@ -18,6 +18,7 @@
 // Route::get('/', 'TestController@get');
 Route::get('/test', 'TestController@get')->name('test');
 Route::post('/', 'TwitterController@twitter')->name('twitter');
+Route::get('/login/twitter/callback', 'TwitterController@twitterCallback');
 Route::post('/login/twitter/callback', 'TwitterController@twitterCallback');
 Route::get('/share', 'TwitterController@twitterLogedIn');
 Route::post('/share', 'TwitterController@share')->name('share');
