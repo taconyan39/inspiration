@@ -11,7 +11,7 @@
         <!-- 情報部分 -->
           <div class="p-simpleList__user">
             <div class="c-img--outer p-simpleList__userImg--outer">
-              <img class="c-img p-simpleList__userImg" src="{{asset('/images/icon/'.icon_img)}}" alt="">
+              <img class="c-img p-simpleList__userImg" src="{{asset('/images/icon/'.$item->user->icon_img)}}" alt="">
             </div>
           </div>
 
@@ -19,7 +19,7 @@
           <div class="p-simpleList__info">
             <div class="p-simpleList__info--top">
               <div class="p-simpleList__info--spec">
-                <span class="p-simpleList__name">{{ $name }}</span>
+                <span class="p-simpleList__name">{{ $item->user->name }}</span>
                 <span class="c-rating">{{ $item->rating  }}</span>
                 <span class="p-simpleList__rating--num">({{ $item->countReview }})</span>
                 <span class="c-tag p-simpleList__tag">{{ $item->category->category_name}}</span>

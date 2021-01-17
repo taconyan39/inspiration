@@ -49,6 +49,7 @@ class MypageController extends Controller
                     ->orderBy('created_at','desc')
                     ->take(5)
                     ->get();
+        dd($interestIdeas);
         foreach($interestIdeas as $interestIdea){
             $interestIdea->rating = sprintf('%.1f',$interestIdea->reviews->avg('rating'));
             $interestIdea->countReview = $interestIdea->reviews->count();
