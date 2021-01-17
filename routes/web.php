@@ -17,7 +17,9 @@
 
 // Route::get('/', 'TestController@get');
 Route::get('/test', 'TestController@get')->name('test');
-Route::post('/test', 'TestController@twitter')->name('twitter');
+Route::post('/', 'TwitterController@twitter')->name('twitter');
+Route::get('/share', 'TwitterController@twitterLogedIn');
+Route::post('/share', 'TwitterController@share')->name('share');
 // Route::post('/test', 'TestController@post')->name('post');
 
 Route::get('/axios', 'TestController@axios');

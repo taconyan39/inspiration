@@ -44,28 +44,52 @@ class TestController extends Controller
         return view('axios');
     }
 
-    public function twitter(Request $request){
-        // dd('twitter');
-        $title = '超ド級！！';
 
-        $id = 1;
+    public function getTimeline(Request $request)
+    {
+        # userがある前提です
+        $user = User::find(Auth::user()->user_id);
 
-        
-        $twitter = new TwitterOAuth(env('TWITTER_CONSUMER_KEY'), env('TWITTER_CONSUMER_SECRET'),env('TWITTER_ACCESS_TOKEN'),
-        env('TWITTER_ACCESS_SECRET'));
-        
-        $twitter->post("statuses/update", [
-            "status" =>
-                'テスト'
-                // 'New Photo Post!' . PHP_EOL .
-                // '新しい聖地の写真が投稿されました!' . PHP_EOL .
-                // 'タイトル「' . $title . '」' . PHP_EOL .
-                // '#photo #anime #photography #アニメ #聖地 #写真 #HolyPlacePhoto' . PHP_EOL .
-                // 'https://www.holy-place-photo.com/photos/' . $id
-        ]);
+        $twitter = new TwitterOAuth(
+            config('twitter.consumer_key'),
+            config('twitter.consumer_secret')
+        );
+        # 指定したユーザーのタイムラインを取得
+        $timeline = $twitter->get('statuses/user_timeline', array(
+            'user_id' => Auth::User()->twitter_id,
+        ));
+        // dd($ret);
+    }
 
-        return redirect('/mypage')->with('flash_message', 'シェアしました');
+    public function getFollowList(Request $request)
+    {
+        # userがある前提です
+        $user = User::find(Auth::user()->user_id);
 
-        // dd($twitter->post);
+        $twitter = new TwitterOAuth(
+            config('twitter.consumer_key'),
+            config('twitter.consumer_secret')
+        );
+        # 指定したユーザーのフォローを取得
+        $timeline = $twitter->get('friends/list', array(
+            'user_id' => Auth::User()->twitter_id,
+        ));
+        // dd($ret);
+    }
+
+    public function getFollowerList(Request $request)
+    {
+        # userがある前提です
+        $user = User::find(Auth::user()->user_id);
+
+        $twitter = new TwitterOAuth(
+            config('twitter.consumer_key'),
+            config('twitter.consumer_secret')
+        );
+        # 指定したユーザーのフォロワーを取得
+        $timeline = $twitter->get('followers/list', array(
+            'user_id' => Auth::User()->twitter_id,
+        ));
+        // dd($ret);
     }
 }
