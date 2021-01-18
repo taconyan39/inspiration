@@ -45,7 +45,7 @@ class ProfileController extends Controller
         $user->icon_img = $fileName;
         $user->save();
 
-
+        dd($user->icon_img);
         return redirect('profile')->with('flash_message', __('Your profile has changed'));
     }
 }

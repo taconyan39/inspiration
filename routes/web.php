@@ -28,14 +28,12 @@ Route::post('/share', 'TwitterController@share')->name('share');
 Route::get('contact', 'ContactController@input'); // 入力ページ
 Route::post('contact', 'ContactController@send'); // 送信ページ（Ajax）
 
-Route::get('/axios', 'TestController@axios');
-
-
 Route::get('/', 'TopController@index')->name('index');
 Route::get('/index', 'TopController@index')->name('index');
 Route::get('/home', 'UsersController@home')->name('home');
 Route::get('/profile', 'ProfileController@edit')->name('profile.edit');
 Route::post('/profile', 'ProfileController@update')->name('profile.update');
+
 Route::resource('post-idea', 'PostIdeasController');
 
 // Twitter

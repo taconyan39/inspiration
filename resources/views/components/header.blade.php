@@ -23,8 +23,8 @@
 <body>
     <div id="app" class="l-wrapper">
         <header class="l-header" id="header">
-        @if(session('flash_message'))
             <flash-message flash="{{ session('flash_message') }}"></flash-message>
+        @if(session('flash_message'))
         @endif
 
             <nav class="u-site__width p-header">
