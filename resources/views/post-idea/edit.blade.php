@@ -29,7 +29,7 @@
             </label>
             
             @error('category_id')
-              <span class="invalid-feedback" role="alert">
+              <span class="c-error" role="alert">
                   <strong>{{ $message }}</strong>
               </span>
             @enderror
@@ -42,7 +42,7 @@
             </label>
               
               @error('title')
-              <span class="invalid-feedback" role="alert">
+              <span class="c-error" role="alert">
                   <strong>{{ $message }}</strong>
                 </span>
                 @enderror
@@ -55,7 +55,7 @@
                 </label>
                     
                     @error('summary')
-                    <span class="invalid-feedback" role="alert">
+                    <span class="c-error" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                     @enderror
@@ -68,7 +68,7 @@
                 </label>
                         
                     @error('price')
-                    <span class="invalid-feedback" role="alert">
+                    <span class="c-error" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                     @enderror
@@ -83,7 +83,7 @@
             </label>
                         
                     @error('content')
-                    <span class="invalid-feedback" role="alert">
+                    <span class="c-error" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                     @enderror

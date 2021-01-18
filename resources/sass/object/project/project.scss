@@ -369,18 +369,44 @@
 }
 
 // プロフィール編集
-.p-profEdit{
+.p-profileEdit{
   width: 60%;
+  &__btn{
+    background: #4FC3F7;
+    margin: auto 0 0 auto;
+    background: $color_action;
+    &--container{
+      display: flex;
+      justify-content: flex-end;
+      align-items: bottom;
+    }
+  }
+  &__img{
+    &--outer{
+      width: 150px;
+      height: 150px;
+      margin: $spacing-lg auto;
+    }
+  }
   &__label{
     display: block;
-    &--wrapper{
+    &--container{
       display: block;
       margin-bottom: $spacing-md;
     }
   }
-  &__btn{
-    background: $color_action;
-    float: right;
+  &__password{
+    color: $color_gray;
+  }
+  &__row{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: $spacing-md;
+    &--password{
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: $spacing-md;
+    }
   }
 }
 

@@ -1,16 +1,16 @@
-@extends('layouts.app')
+<input id="file-sample" type="file">
+<img id="file-preview">
 
-@section('title', 'トップページ')
+<script>
 
-@section('content')
 
-@if(session('flash_message'))
-  <flash-message></flash-message>
-@endif
 
-<form action="{{ route('test')}}" method="post">
-  @csrf
-  <input type="submit" value="submit">
-</form>
+    document.getElementById('file-sample').addEventListener('change', function(e){
+        var file = e.target.files[0];
 
-@endsection
+        var blobUrl = window.URL.createObjectURL(file);
+
+        var img = document.getElementById('file-preview');
+        img.src = blobUrl;
+    })
+</script>

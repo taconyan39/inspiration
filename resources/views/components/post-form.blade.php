@@ -22,7 +22,7 @@
             </select>
               
             @error('category_id')
-              <span class="invalid-feedback" role="alert">
+              <span class="c-error" role="alert">
                   <strong>{{ $message }}</strong>
               </span>
             @enderror
@@ -35,7 +35,7 @@
                                 @error('title') is-invalid @enderror" name="title" value="{{ old('title') }}" required autocomplete="title" autofocus>
                                 
                                 @error('title')
-                            <span class="invalid-feedback" role="alert">
+                            <span class="c-error" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
@@ -48,7 +48,7 @@
                         c-form__input @error('summary') is-invalid @enderror" name="summary" required autocomplete="summary">
                         
                     @error('summary')
-                    <span class="invalid-feedback" role="alert">
+                    <span class="c-error" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                     @enderror
@@ -61,7 +61,7 @@
                         c-form__input @error('price') is-invalid @enderror" name="price" required autocomplete="price">
                         
                     @error('price')
-                    <span class="invalid-feedback" role="alert">
+                    <span class="c-error" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                     @enderror
@@ -77,7 +77,7 @@
                         
                     @error('content')
                     
-                    <span class="invalid-feedback" role="alert">
+                    <span class="c-errorz" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                     @enderror

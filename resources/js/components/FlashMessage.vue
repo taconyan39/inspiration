@@ -1,5 +1,5 @@
 <template>
-  <div class="c-flash js-flash">{{ flash }}</div>
+  <div v-if="flash" class="c-flash js-flash">{{ flash }}</div>
 </template>
 
 <script>

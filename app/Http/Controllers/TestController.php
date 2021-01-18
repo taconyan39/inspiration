@@ -14,7 +14,7 @@ class TestController extends Controller
 {
     public function get(){
 
-        dd('get');
+        // dd('get');
         $user = User::find(1);
         $ideas = Idea::all()->where('user_id',$user->id);
         $ideaReviews = Review::join('ideas', 'reviews.idea_id', '=', 'ideas.id')->where('ideas.user_id','=', $user->id)->get();
