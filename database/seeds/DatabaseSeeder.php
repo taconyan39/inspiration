@@ -19,7 +19,6 @@ class DatabaseSeeder extends Seeder
         //本番用
         // $this->call(IdeasTableSeeder::class);
         // $this->call(ReviewsTableSeeder::class);
-        // $this->call
         
         // ローカル用
         $this->call(ReviewsLocalTableSeeder::class);

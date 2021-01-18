@@ -24,6 +24,10 @@ Route::get('/share', 'TwitterController@share');
 Route::post('/share', 'TwitterController@share')->name('share');
 // Route::post('/test', 'TestController@post')->name('post');
 
+// jsonテスト用
+Route::get('contact', 'ContactController@input'); // 入力ページ
+Route::post('contact', 'ContactController@send'); // 送信ページ（Ajax）
+
 Route::get('/axios', 'TestController@axios');
 
 

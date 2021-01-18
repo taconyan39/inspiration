@@ -23,11 +23,9 @@
 <body>
     <div id="app" class="l-wrapper">
         <header class="l-header" id="header">
-            @if(session('flash_message'))
-            <!-- javascriptで表示処理 -->
-                <div class="c-flash js-flash">
-                {{ session('flash_message') }}</div>
-            @endif
+        @if(session('flash_message'))
+            <flash-message flash="{{ session('flash_message') }}"></flash-message>
+        @endif
 
             <nav class="u-site__width p-header">
                 <a class="navbar-brand" href="{{ url('/') }}">

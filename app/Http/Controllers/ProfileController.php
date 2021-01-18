@@ -15,7 +15,7 @@ class ProfileController extends Controller
 
         $user = Auth::user();
         // dd($user);
-        return view('profile', ['user' => $user]);
+        return view('profile', ['user' => $user])->with(['string' => '文字列']);
     }
 
     public function update(ProfileEditReqest $request)

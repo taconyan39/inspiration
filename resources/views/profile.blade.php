@@ -11,19 +11,21 @@
         <div class="p-profEdit__title c-form__header">
             <h2 class="c-form__title">プロフィール編集</h2>
         </div>
+
+        <profile-edit-form></profile-edit-form>
         
         <form method="POST" action="{{ route('profile.update') }}" class="c-form p-profEdit__form u-clearfix" enctype="multipart/form-data">
             @csrf
             
             <label for="name" class="p-profEdit__label c-form__label">
               {{ __('Name') }}
-            </label>
 
-            <input id="name" type="name" class="p-profEdit__name c-form__input
-            @error('name') is-invalid @enderror"
-            name="name"
-            value="{{ old('name', $user->name) }}" required autocomplete="name"
-            autofocus>
+                <input id="name" type="name" class="p-profEdit__name c-form__input
+                @error('name') is-invalid @enderror"
+                name="name"
+                value="{{ old('name', $user->name) }}" required autocomplete="name"
+                autofocus>
+            </label>
               
             @error('name')
               <span class="invalid-feedback" role="alert">
