@@ -66,7 +66,7 @@
 
                 <icon-edit
                     noimage="{{ asset('images/icon/noimage_icon.png') }}"
-                    icon="{{ asset('images/icon/'.$user->icon_img) }}"
+                    icon="{{ asset('storage/images/icons/' . $user->icon_img) }}"
                 ></icon-edit>
                 
                 @error('prof_img')

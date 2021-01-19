@@ -28,6 +28,7 @@ Vue.component('input-component', require('./components/InputComponent.vue').defa
 Vue.component('flash-message', require('./components/FlashMessage.vue').default);
 // Vue.component('profile-edit-form', require('./components/ProfileEditForm.vue').default);
 Vue.component('icon-edit', require('./components/IconEdit.vue').default);
+Vue.component('ideas-list', require('./components/IdeasList.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -40,8 +41,14 @@ const app = new Vue({
 });
 
 // フラッシュメッセージのfadeout
-$(function(){
-    $(function(){
-      $('.js-flash').fadeOut(3000);
-    });
-})
+var flash = document.getElementById('js-flash');
+
+setTimeout(function(){
+  flash.style.display = "none"
+}, 3000);
+
+// $(function(){
+//     $(function(){
+//       $('.js-flash').fadeOut(3000);
+//     });
+// })

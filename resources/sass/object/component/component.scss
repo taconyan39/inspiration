@@ -123,6 +123,8 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    padding: $spacing-sm;
+    box-sizing: border-box;
   }
   &--round{
     border-radius: 50%;
@@ -193,21 +195,15 @@
 .c-form{
   padding: $spacing-md;
   box-sizing: border-box;
-  &__wrapper{
-    width: 400px;
-    margin: 0 auto;
-    font-size: $font-size_lg;
-    @include border();
+  &__textArea{
+    width: 100%;
+    padding: $spacing-md;
     box-sizing: border-box;
-    @include mq(md){
-      width: 100%;
-
-    }
+    margin-bottom: $spacing-md;
   }
   &__title{
     font-size: 2rem;
     text-align: center;
-
   }
   &__header{
     background: $color_main;
@@ -216,7 +212,7 @@
   &__label{
     display: block;
     box-sizing: border-box;
-    margin-bottom: $spacing-md;
+    margin-top: $spacing-md;
     &--checkBox{
       // width: 50%;
       display: flex;
@@ -241,11 +237,15 @@
       }
     }
   }
-  &__textArea{
-    width: 100%;
-    padding: $spacing-md;
+  &__wrapper{
+    width: 400px;
+    margin: 0 auto;
+    font-size: $font-size_lg;
+    @include border();
     box-sizing: border-box;
-    margin-bottom: $spacing-md;
+    @include mq(md){
+      width: 100%;
+    }
   }
 }
 
@@ -305,10 +305,20 @@
   position: fixed;
   text-align: center;
   height: 80px;
-
   background: rgba(255, 255, 255, 0.5);
   background: rgba(79, 195, 247, 0.3);
   line-height: 80px;
+  animation: fadeOut 3s;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeOut{
+  0% {
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
 }
 
 // 

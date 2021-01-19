@@ -2,7 +2,7 @@
   <div class="c-container--half">
 
     <label for="icon_img">
-        プロフィールを変更する
+        プロフィール画像を変更する
         <!-- <div v-if="url" class="c-img--outer p-profileEdit__img--outer"> -->
         <div class="c-img--outer p-profileEdit__img--outer">
         

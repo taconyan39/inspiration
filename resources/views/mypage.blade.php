@@ -10,26 +10,27 @@
   
   <main class="l-main__2colum u-site__width">
 
-    @component('components.simpleList-section', ['items' => $postIdeas])
+    @component('components.simpleList-section', ['items' => $postIdeas, 'list-name' => 'post-ideas'])
+
         @slot('title')
             投稿したアイデア
         @endslot
 
     @endcomponent
     
-    @component('components.simpleList-section', ['items' => $buyIdeas])
+    @component('components.simpleList-section', ['items' => $buyIdeas, 'list-name' => 'buy-ideas'])
         @slot('title')
           購入アイデア
         @endslot
     @endcomponent
 
-    @component('components.simpleList-section', ['items' => $interestIdeas])
+    @component('components.simpleList-section', ['items' => $interestIdeas, 'list-name' => 'interests'])
         @slot('title')
             気になるリスト
         @endslot
     @endcomponent
 
-    @component('components.simpleList-reviewSection', ['reviews' => $ideaReviews])
+    @component('components.simpleList-reviewSection', ['reviews' => $ideaReviews, 'list-name' => 'reviews'])
         @slot('title')
             レビュー一覧
         @endslot

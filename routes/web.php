@@ -36,9 +36,13 @@ Route::post('/profile', 'ProfileController@update')->name('profile.update');
 
 Route::resource('post-idea', 'PostIdeasController');
 
+// アイデア一覧表示
+Route::get('ideas-list/{sort}/{page}', 'IdeasListController@showList');
+
 // Twitter
 Route::post('/', 'TwitterController@twitter')->name('twitter');
 Route::get('/login/twitter/callback', 'TwitterController@twitterCallback');
+
 // Route::post('/login/twitter/callback', 'TwitterController@twitterCallback');
 // Route::get('/share', 'TwitterController@twitterLogedIn');
 // Route::post('/share', 'TwitterController@share')->name('share');
