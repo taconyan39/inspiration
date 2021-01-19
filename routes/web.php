@@ -31,8 +31,14 @@ Route::post('contact', 'ContactController@send'); // 送信ページ（Ajax）
 Route::get('/', 'TopController@index')->name('index');
 Route::get('/index', 'TopController@index')->name('index');
 Route::get('/home', 'UsersController@home')->name('home');
+
+//プロフィール変更
 Route::get('/profile', 'ProfileController@edit')->name('profile.edit');
 Route::post('/profile', 'ProfileController@update')->name('profile.update');
+
+//パスワード変更
+Route::get('/password-edit', 'PasswordEditController@edit')->name('passwordEdit.edit');
+Route::post('/password-edit', 'PasswordEditController@update')->name('passwordEdit.update');
 
 Route::resource('post-idea', 'PostIdeasController');
 

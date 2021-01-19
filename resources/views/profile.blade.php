@@ -59,7 +59,7 @@
             </div>
 
             <div class="p-profileEdit__row--password">
-                <a href="{{ url('post-idea') }}" class="c-link__underline p-profileEdit__password">パスワードを変更する</a>
+                <a href="{{ route('passwordEdit.edit') }}" class="c-link__underline p-profileEdit__password">パスワードを変更する</a>
             </div>
 
             <div class="p-profileEdit__row c-container__row">

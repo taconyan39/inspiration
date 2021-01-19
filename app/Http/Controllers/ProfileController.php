@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ProfileEditRequest;
 use Illuminate\Support\Facades\Storage;
-// use Illuminate\Support\Facades\Hash;
+use App\Notifications\NotificationTest;
 use App\User;
 
 class ProfileController extends Controller
@@ -32,6 +32,9 @@ class ProfileController extends Controller
         unset($form['_token']);
         unset($form['_method']);
         $user->fill($form)->save();
+
+        $user->notify(new NotificationTest);
+
         return redirect('/mypage')->with('flash_message', 'プロフィールを変更しました');
     }
 

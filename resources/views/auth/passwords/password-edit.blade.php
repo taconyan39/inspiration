@@ -1,49 +1,51 @@
 @extends('layouts.app')
 
+@section('title', '会員登録')
+
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Confirm Password') }}</div>
-
-                <div class="card-body">
-                    {{ __('Please confirm your password before continuing.') }}
-
-                    <form method="POST" action="{{ route('password.confirm') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="c-error" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Confirm Password') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+<div class="l-wrapper__1colum u-site__width">
+    <div class="c-form__wrapper p-passwordEdit">
+        <div class="p-passwordEdit__title c-form__header">
+            <h2 class="c-form__title">{{ __('Register') }}</h2>
         </div>
+
+        <form method="POST" action="{{ route('passwordEdit.update') }}" class="c-form p-passwordEdit__form u-clearfix">
+        @csrf
+
+            <label for="current_password" class="p-passwordEdit__label c-form__label">現在のパスワード
+
+                <input id="current_password" type="password" class="p-passwordEdit__current c-form__input @error('current_password') is-invalid @enderror" name="current_password" value="">
+            </label>
+
+            @error('current_password')
+                <span class="c-error" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+
+            <label for="password" class="p-passwordEdit__label c-form__label">新しいパスワード
+
+                <input id="password" type="password" class="p-passwordEdit__pass c-form__input @error('password') is-invalid @enderror" name="password">
+            </label>
+
+            @error('password')
+                <span class="c-error" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+
+            <label for="password-confirm" class="p-passwordEdit__label c-form__label">{{ __('Confirm Password') }}
+
+                
+                <input id="password-confirm" type="password" class="p-passwordEdit__passConfirm c-form__input" name="password_confirmation">
+            </label>
+
+            <div class="c-btn__box p-passwordEdit__btnBox">
+                <button type="submit" class="c-btn c-form__btn p-passwordEdit__btn">
+                    {{ __('Edit') }}
+                </button>
+            </div>
+        </form>
     </div>
 </div>
 @endsection

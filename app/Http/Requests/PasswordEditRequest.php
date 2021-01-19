@@ -4,9 +4,8 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use App\Rules\UserPasswordRule;
-use Illuminate\Support\Facades\Auth;
 
-class ProfileEditRequest extends FormRequest
+class PasswordEditRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -18,15 +17,6 @@ class ProfileEditRequest extends FormRequest
         return true;
     }
 
-    public function all($keys = null)
-    {
-        $results = parent::all($keys);
-
-        $this->user_id = Auth::user()->id;
-
-        return $results;
-    }
-
     /**
      * Get the validation rules that apply to the request.
      *
@@ -35,9 +25,13 @@ class ProfileEditRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required | max:255',
-            'email' => 'required | max:255 | email',
-            'profile_img' => 'image|file',
+            'current_password' => ['max:255 | alpha_dash | min:8 | required',
+                // Ruleで現在のパスワードと一致するかの確認を行っている
+                // new UserPasswordRule(
+                //     $this->user_id
+                // )
+            ],
+            'password' => 'max:255 | min:8 | alpha_dash | confirmed'
         ];
     }
 }
