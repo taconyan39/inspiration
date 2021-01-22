@@ -18,6 +18,7 @@ mix.js('resources/js/app.js', 'public/js')
 mix.browserSync({
    files: [
        "resources/views/**/*.blade.php",
+       "resources/views/**/*.vue",
        "public/**/*.*"     // 公開フォルダを指定しないとリロードが効きません。注意
    ],
    proxy: {

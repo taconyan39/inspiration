@@ -50,7 +50,7 @@ class PasswordEdit extends Notification
             // ->line('予約日：' . $this->reservation->date)
             // ->line('氏名：' . $notifiable->name)
             // ->line('当日のご来店をお待ちしております');
-    }
+                }
 
     /**
      * Get the array representation of the notification.

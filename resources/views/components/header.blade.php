@@ -9,9 +9,6 @@
 
     <title>@yield('title') | {{ config('app.name', 'Inspiration') }}</title>
 
-    <!-- Scripts -->
-    <!-- <script src="{{ asset('js/app.js') }}" defer></script> -->
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -23,9 +20,9 @@
 <body>
     <div id="app" class="l-wrapper">
         <header class="l-header" id="header">
+
+        <!-- フラッシュメッセージ -->
             <flash-message flash="{{ session('flash_message') }}"></flash-message>
-        @if(session('flash_message'))
-        @endif
 
             <nav class="u-site__width p-header">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -42,6 +39,10 @@
                     <ul class="navbar-nav mr-auto">
 
                     </ul> -->
+
+                    <div class="p-header__search js-search">
+                        <i class="fas fa-search"></i>
+                    </div>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="c-nav__item--wrapper">

@@ -438,6 +438,29 @@
   width: 100%;
   border-radius: 3px;
   border: 3px solid $color_sub;
+  &__bottom{
+    display: flex;
+    justify-content: space-between;
+    &--right{
+    }
+  }
+  &__btn{
+    &--interest{
+      height: 40px;
+      line-height: 40px;
+      font-size: $font-size_md;
+      padding: 0;
+      vertical-align: middle;
+      box-sizing: border-box;
+      background: $color_sub;
+      // border-radius: 5px;
+      width: 200px;
+      // background: black;
+      &::after{
+        font-size: $font-size_default;
+      }
+    }
+  }
   &__content{
     padding: $spacing-md $spacing-lg;
     margin-bottom: $spacing-lg;

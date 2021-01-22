@@ -1,5 +1,5 @@
 <template>
-    <ul class="pagination">
+  <ul class="pagination">
     <li class="page-item" v-if="hasPrev">
         <a class="page-link" href="#" @click.prevent="move(data.current_page-1)">前へ</a>
     </li>
@@ -13,9 +13,11 @@
 </template>
 
 <script>
-export default {
+
+export default{
     props: {
-        data: {}  // paginate()で取得したデータ
+        data: {},  // paginate()で取得したデータ
+        // name: 'v-pagination'
     },
     methods: {
         move(page) {
@@ -29,7 +31,7 @@ export default {
         },
         isCurrentPage(page) {
 
-            return (this.data.current_page == page);
+            return (this.data.current_page == page); // 独自イベントを送出
 
         },
         getPageClass(page) {
@@ -71,5 +73,8 @@ export default {
 
         }
     },
+    mounted(){
+      console.log(this.data);
+    }
 }
 </script>

@@ -80,11 +80,31 @@ class PostIdeasController extends Controller
         $idea = Idea::find($id);
         $idea->rating = sprintf('%.1f',$idea->reviews()->avg('rating'));
         $idea->countReview = $idea->reviews->count();
+        $interest_flg = false;
+
+        // 投稿者の場合の表示
+        if(DB::table('ideas')->where('id', $idea->id)->where('user_id', $user->id)->exists()){
+            $user_flg = 1;
+        }else{
+            // 購入済みの場合の処理
+            if(DB::table('buy_ideas')->where('user_id', $user->id)->where('idea_id', $idea->id)->exists()){
+                $user_flg = 2;
+            }else{
+                $user_flg = 3;
+                // 未購入で気になる追加済みの処理
+                if(DB::table('interests')->where('user_id', $user->id)->where('idea_id', $idea->id)->exists()){
+                    $interest_flg = true;
+                // 未購入気になる未追加の処理
+                }else{
+                    $interest_flg = false;
+                }
+            }
+        }
 
         // 自分のアイデアに投稿されたレビューとその情報を取得
         $reviews = Review::all()->where('idea_id', $id)->take(5);
         
-        return view('post-idea.show',[ 'user' => $user, 'idea' => $idea, 'reviews' => $reviews]);
+        return view('post-idea.show',[ 'user' => $user, 'idea' => $idea, 'reviews' => $reviews, 'user_flg' => $user_flg, 'interest_flg' => $interest_flg]);
     }
 
     /**

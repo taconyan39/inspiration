@@ -1,19 +1,4 @@
-<template>
-    <ul class="pagination">
-    <li class="page-item" v-if="hasPrev">
-        <a class="page-link" href="#" @click.prevent="move(data.current_page-1)">前へ</a>
-    </li>
-    <li :class="getPageClass(page)" v-for="page in pages" :key="page.id">
-        <a class="page-link" href="#" v-text="page" @click.prevent="move(page)"></a>
-    </li>
-    <li class="page-item" v-if="hasNext">
-        <a class="page-link" href="#" @click.prevent="move(data.current_page+1)">次へ</a>
-    </li>
-  </ul>
-</template>
-
-<script>
-export default {
+Vue.component('v-pagination', {
     props: {
         data: {}  // paginate()で取得したデータ
     },
@@ -29,7 +14,7 @@ export default {
         },
         isCurrentPage(page) {
 
-            return (this.data.current_page == page);
+            return (this.data.current_page == page); // 独自イベントを送出
 
         },
         getPageClass(page) {
@@ -71,5 +56,16 @@ export default {
 
         }
     },
-}
-</script>
+    template:
+        '<ul class="pagination">'+
+            '<li class="page-item" v-if="hasPrev">'+
+                '<a class="page-link" href="#" @click.prevent="move(data.current_page-1)">前へ</a>'+
+            '</li>'+
+            '<li :class="getPageClass(page)" v-for="page in pages">'+
+                '<a class="page-link" href="#" v-text="page" @click.prevent="move(page)"></a>'+
+            '</li>'+
+            '<li class="page-item" v-if="hasNext">'+
+                '<a class="page-link" href="#" @click.prevent="move(data.current_page+1)">次へ</a>'+
+            '</li>'+
+        '</ul>'
+});

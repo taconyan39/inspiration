@@ -40,6 +40,6 @@
   </ul>
   <!-- 全件表示 -->
   <div class="p-simpleList__bottom">
-    <a href="{{ url('ideas-list/all/1' ) }}" class="c-link__underline">全件表示</a>
+    <a href="{{ url('ideas-list/all' ) }}" class="c-link__underline">全件表示</a>
   </div>
 </section>

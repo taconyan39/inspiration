@@ -42,15 +42,31 @@
                     <div class="p-ideaDetail__text--wrapper">
                         <p class="p-ideaDetail__text">{{ $idea->content }}</p>
                     </div>
+
+                    <div class="c-article__bottom p-ideaDetail__bottom">
                     
-                    <form action="{{ route('twitter') }}" method="post">
-                        @csrf
-                        <label for="" class="c-btn__twitter">
-                            <i class="fab fa-twitter"></i>
-                            <input type="submit" value="Twitter" class="c-btn c-btn__twitter--input">
-                        </label>
-                        <span class="c-btn__prompt">Twitterでシェアしよう！！</span>
-                    </form>
+                        <form action="{{ route('twitter') }}" method="post">
+                            @csrf
+                            <label for="" class="c-label">
+                                <button type="submit" class="c-btn c-btn__twitter">
+                                    <i class="fab fa-twitter"></i> Twitter
+                                </button>
+                            </label>
+                            <span class="c-btn__prompt">Twitterでシェアしよう！！</span>
+                        </form>
+
+                        <form>
+                            @csrf
+                            
+                            <button class="c-btn c-rating  p-ideaDetail__btn--interest" v-if="">解除する</button>
+
+                            <button class="c-btn c-rating--empty  p-ideaDetail__btn--interest" v-else> 気になる</button>
+                        </form>
+
+                    </div>
+                    </div>
+
+
                 </div>
             </div>
         </article>

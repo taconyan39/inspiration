@@ -55,15 +55,20 @@
     box-sizing: border-box;
   }
   &__twitter{
-    height: 20px;
+    height: 30px;
     text-align:center;
     color: $color_white;
     background: #1da1f2;
     border-radius: 5px;
     font-size: $font-size_md;
-    padding: $spacing-sm $spacing_md;
+    padding: 0 ;
     box-sizing: border-box;
-    align-items: center;
+    line-height: 30px;
+    width: 100px;
+    text-align: center;
+    &::before{
+      @include font-awesome(\f099, $color_white);
+    }
     &--input{
       line-height: 20px;
       background: transparent;
@@ -291,11 +296,19 @@
 .c-rating{
   font-size:$font-size_lg;
   &::before{
-    font-family: $font-awesome;
-    content: "\f005";
-    font-size:$font-size_xl;
+    @include font-awesome(){
+    // font-size:$font-size_xl;
     margin-right: $spacing-sm;
-    color: #F5D300;
+    font-weight: 600;
+    }
+  }
+  &--empty{
+    &::before{
+      @include font-awesome(){
+        // font-size:$font-size_xl;
+        margin-right: $spacing-sm;
+      }
+    }
   }
 }
 

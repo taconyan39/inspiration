@@ -1,14 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Ajax;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Idea;
-use App\Category;
 
 class IdeasListController extends Controller
 {
-    public function index($sort){
+    public function index($sort) {
+
+        // return Idea::paginate(10);
 
         if($sort === 'all'){
             $ideas = Idea::pagenate(10);
@@ -18,6 +20,6 @@ class IdeasListController extends Controller
 
         $categories = Category::all();
 
-        return view('ideas-list', ['ideas' => $ideas, 'categories' => $categories, 'sort' => $sort]);
+
     }
 }

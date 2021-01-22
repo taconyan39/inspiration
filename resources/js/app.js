@@ -29,6 +29,7 @@ Vue.component('flash-message', require('./components/FlashMessage.vue').default)
 // Vue.component('profile-edit-form', require('./components/ProfileEditForm.vue').default);
 Vue.component('icon-edit', require('./components/IconEdit.vue').default);
 Vue.component('ideas-list', require('./components/IdeasList.vue').default);
+Vue.component('v-pagination', require('./components/v-pagination.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -38,17 +39,41 @@ Vue.component('ideas-list', require('./components/IdeasList.vue').default);
 
 const app = new Vue({
     el: '#app',
+
+    data: {
+      page: 1,
+      items: []
+    },
+    methods: {
+        getItems() {
+
+            // Ajaxでデータの所得
+            const url = '/ajax/ideas-list?page='+ this.page;
+            axios.get(url)
+                .then((response) => {
+
+                    this.items = response.data;
+
+                });
+
+        },
+        // ページ移動
+        movePage(page) {
+
+            this.page = page; // ページ番号を更新
+            this.getItems(); // Ajaxで新データを取得
+        },
+    },
+    mounted() {
+
+        this.getItems();
+            
+        // フラッシュメッセージのfadeout
+        var flash = document.getElementById('js-flash');
+    
+        setTimeout(function(){
+            flash.style.display = "none"
+            }, 3000);
+        }
 });
 
-// フラッシュメッセージのfadeout
-var flash = document.getElementById('js-flash');
-
-setTimeout(function(){
-  flash.style.display = "none"
-}, 3000);
-
-// $(function(){
-//     $(function(){
-//       $('.js-flash').fadeOut(3000);
-//     });
-// })

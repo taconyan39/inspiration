@@ -343,15 +343,23 @@ li {
 }
 
 .c-btn__twitter {
-  height: 20px;
+  height: 30px;
   text-align: center;
   color: #f8fafc;
   background: #1da1f2;
   border-radius: 5px;
   font-size: 0.9rem;
-  padding: 5px 10px;
+  padding: 0;
   box-sizing: border-box;
-  align-items: center;
+  line-height: 30px;
+  width: 100px;
+  text-align: center;
+}
+
+.c-btn__twitter::before {
+  font-family: "Font Awesome 5 Free";
+  content: ;
+  color: #f8fafc;
 }
 
 .c-btn__twitter--input {
@@ -579,9 +587,16 @@ li {
 .c-rating::before {
   font-family: "Font Awesome 5 Free";
   content: "\F005";
-  font-size: 1.4rem;
-  margin-right: 5px;
   color: #F5D300;
+  margin-right: 5px;
+  font-weight: 600;
+}
+
+.c-rating--empty::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\F005";
+  color: #F5D300;
+  margin-right: 5px;
 }
 
 .c-flash {
@@ -1076,6 +1091,26 @@ li {
   width: 100%;
   border-radius: 3px;
   border: 3px solid rgba(184, 189, 204, 0.7);
+}
+
+.p-ideaDetail__bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.p-ideaDetail__btn--interest {
+  height: 40px;
+  line-height: 40px;
+  font-size: 0.9rem;
+  padding: 0;
+  vertical-align: middle;
+  box-sizing: border-box;
+  background: rgba(184, 189, 204, 0.7);
+  width: 200px;
+}
+
+.p-ideaDetail__btn--interest::after {
+  font-size: 1rem;
 }
 
 .p-ideaDetail__content {

@@ -22,7 +22,7 @@ Route::get('/login/twitter/callback', 'TwitterController@twitterCallback');
 Route::post('/login/twitter/callback', 'TwitterController@twitterCallback');
 Route::get('/share', 'TwitterController@share');
 Route::post('/share', 'TwitterController@share')->name('share');
-// Route::post('/test', 'TestController@post')->name('post');
+
 
 // jsonテスト用
 Route::get('contact', 'ContactController@input'); // 入力ページ
@@ -43,7 +43,10 @@ Route::post('/password-edit', 'PasswordEditController@update')->name('passwordEd
 Route::resource('post-idea', 'PostIdeasController');
 
 // アイデア一覧表示
-Route::get('ideas-list/{sort}/{page}', 'IdeasListController@showList');
+Route::get('ideas-list/{category}', 'IdeasListController@index');
+Route::get('ajax/ideas-list/{category}', 'Ajax\IdeasListController@index');
+// Route::get('pagination', 'PaginationController@index'); // メイン
+Route::get('ajax/pagination', 'Ajax\PaginationController@index'); // Ajax
 
 // Twitter
 Route::post('/', 'TwitterController@twitter')->name('twitter');
