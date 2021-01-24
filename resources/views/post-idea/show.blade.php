@@ -48,9 +48,10 @@
                         <form action="{{ route('twitter') }}" method="post">
                             @csrf
                             <label for="" class="c-label">
-                                <button type="submit" class="c-btn c-btn__twitter">
+                                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                                <!-- <button type="submit" class="c-btn c-btn__twitter">
                                     <i class="fab fa-twitter"></i> Twitter
-                                </button>
+                                </button> -->
                             </label>
                             <span class="c-btn__prompt">Twitterでシェアしよう！！</span>
                         </form>
