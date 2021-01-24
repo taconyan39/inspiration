@@ -11,7 +11,7 @@ class IdeasListController extends Controller
     public function index($sort){
 
         if($sort === 'all'){
-            $ideas = Idea::pagenate(10);
+            $ideas = Idea::paginate(10);
         }else{
             $ideas = Idea::where('category_id', '=', $sort)->orderBy('created_at', 'desc')->paginate(10);
         }

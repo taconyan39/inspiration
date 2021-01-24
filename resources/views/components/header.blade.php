@@ -16,6 +16,21 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script src="https://kit.fontawesome.com/8e92148154.js" crossorigin="anonymous"></script>
+
+    <style>
+        .menu-enter{
+            transform: translateX( -100%);
+        }
+        
+        /* .menu-leave-to{
+            transform: translateX( -100%);
+        } */
+
+        .menu-enter-active, .menu-leave-active{
+        /* transform: tra; */
+        transition: transform 1s;
+        }
+    </style>
 </head>
 <body>
     <div id="app" class="l-wrapper">
@@ -40,16 +55,12 @@
 
                     </ul> -->
 
-                    <div class="p-header__search js-search">
-                        <i class="fas fa-search"></i>
-                    </div>
-
                     <!-- Right Side Of Navbar -->
                     <ul class="c-nav__item--wrapper">
                         <!-- Authentication Links -->
                         @guest
                             <li class="c-nav__item p-header__navItem">
-                                <a class="c-btn" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="c-btn p-header__btn" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="c-nav__item p-header__navItem">
@@ -82,5 +93,31 @@
                         <!-- </li> -->
                     @endguest
                 </ul>
+
+                <div class="p-header__hamburger" @click="menu=!menu">
+                    <div class="p-header__hamburger--line c-hamburger__top"></div>
+                    <div class="p-header__hamburger--line c-hamburger__middle"></div> 
+                    <div class="p-header__hamburger--line c-hamburger__bottomline-bottom"></div>
+                </div>
+
+
+                <!-- <hamburger-menu></hamburger-menu> -->
+        
+                <transition name="menu">
+                    <div class="l-sp__menu" v-if="menu">
+                        <div class="p-categoryList">
+                            <ul class="c-list p-categoryList__items">
+                                <li class="c-list__title p-categoryList__item">
+                                    <p class="c-content__title p-categoryList__title">カテゴリ名</p>
+                                </li>
+                                <li class="c-list__item p-categoryList__item">
+                                    <a href="url('ideas-list/')" class="c-list__link p-categoryList__link">aaa</a>
+                                </li>
+                            </ul> 
+                        </div>
+                    </div>
+                </transition>
+                
+
             </nav>
         </header>

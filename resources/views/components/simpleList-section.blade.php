@@ -11,7 +11,11 @@
         <!-- 情報部分 -->
           <div class="p-simpleList__user">
             <div class="c-img--outer p-simpleList__userImg--outer">
-              <img class="c-img p-simpleList__userImg" src="{{asset('storage/images/icons/'.$item->user->icon_img)}}" alt="プロフィール画像">
+              @if( $item->user->icon_img )
+                <img class="c-img p-simpleList__userImg" src="{{asset('storage/images/icons/'.$item->user->icon_img)}}" alt="プロフィール画像">
+              @else
+                <img class="c-img p-simpleList__userImg" src="{{asset('images/icons/noimage_icon.png')}}" alt="プロフィール画像">
+              @endif  
             </div>
           </div>
 

@@ -15,7 +15,7 @@
 //     return view('welcome');
 // });
 
-// Route::get('/', 'TestController@get');
+Route::get('/test', 'TestController@get');
 Route::get('/test', 'TestController@get')->name('test');
 Route::post('/', 'TwitterController@twitter')->name('twitter');
 Route::get('/login/twitter/callback', 'TwitterController@twitterCallback');
@@ -49,8 +49,11 @@ Route::get('ajax/ideas-list/{category}', 'Ajax\IdeasListController@index');
 Route::get('ajax/pagination', 'Ajax\PaginationController@index'); // Ajax
 
 // Twitter
-Route::post('/', 'TwitterController@twitter')->name('twitter');
-Route::get('/login/twitter/callback', 'TwitterController@twitterCallback');
+// Route::post('/', 'TwitterController@twitter')->name('twitter');
+// Route::get('/login/twitter/callback', 'TwitterController@twitterCallback');
+
+Route::get('twitter/create', 'ProductController@create');
+Route::post('twitter', 'ProductController@store');  // Ajax
 
 // Route::post('/login/twitter/callback', 'TwitterController@twitterCallback');
 // Route::get('/share', 'TwitterController@twitterLogedIn');

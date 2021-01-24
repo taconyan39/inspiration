@@ -6,14 +6,19 @@ use Illuminate\Http\Request;
 use App\Idea;
 use App\Category;
 use App\Review;
+use Carbon\Carbon;
 
 class TopController extends Controller
 {
     public function index(){
 
         $categories = Category::all();
-        $ideas = Idea::all()->take(3);
-        $reviews = Review::all()->take(4);
+        // $ideas = Idea::latest()->get();
+        $ideas = Idea::latest()->take(3)->get();
+
+        $reviews = Review::latest()->take(4)->get();
+
+        // dd($reviews);
 
         // 口コミの平均値を$ideasに格納する
         foreach($ideas as $idea){
