@@ -18,7 +18,7 @@ class CreateIdeasTable extends Migration
             $table->string('title');
             $table->string('price');
             $table->string('summary');
-            $table->string('content');
+            $table->string('content', '5000');
             $table->boolean('delete_flg')->default(0);
             $table->boolean('buy_flg')->default(0);
             $table->unsignedBigInteger('user_id');

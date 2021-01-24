@@ -59,14 +59,14 @@
             </div>
 
             <div class="p-profileEdit__row--password">
-                <a href="{{ url('post-idea') }}" class="c-link__underline p-profileEdit__password">パスワードを変更する</a>
+                <a href="{{ route('passwordEdit.edit') }}" class="c-link__underline p-profileEdit__password">パスワードを変更する</a>
             </div>
 
             <div class="p-profileEdit__row c-container__row">
 
                 <icon-edit
                     noimage="{{ asset('images/icon/noimage_icon.png') }}"
-                    icon="{{ asset('images/icon/'.$user->icon_img) }}"
+                    icon="{{ asset('storage/images/icons/' . $user->icon_img) }}"
                 ></icon-edit>
                 
                 @error('prof_img')

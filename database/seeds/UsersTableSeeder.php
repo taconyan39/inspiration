@@ -13,34 +13,79 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-            'name' => '山田　太郎',
-            'email' => 'example@sample.com',
-            'introduction' => '解説文',
-            'password' => bcrypt('password'),
-            'icon_img' => 'icon_sample01.jpg',
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-        ]);
 
-        DB::table('users')->insert([
-            'name' => '田中 花子',
-            'email' => 'hanako@flower.com',
-            'introduction' => '花子さん',
-            'password' => bcrypt('password'),
-            'icon_img' => 'icon_sample02.jpg',
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-        ]);
+            DB::table('users')->insert([
+                'name' => 'sample1',
+                'email' => 'example@sample.com',
+                'introduction' => '自己紹介文',
+                'password' => bcrypt('password'),
+                'icon_img' => 'icon_sample01.jpg',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]);
+            DB::table('users')->insert([
+                'name' => 'sample2',
+                'email' => 'example2@sample.com',
+                'introduction' => '自己紹介文',
+                'password' => bcrypt('password'),
+                'icon_img' => 'icon_sample02.jpg',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]);
+            DB::table('users')->insert([
+                'name' => 'sample3',
+                'email' => 'example3@sample.com',
+                'introduction' => '自己紹介文',
+                'password' => bcrypt('password'),
+                'icon_img' => 'icon_sample03.jpg',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]);
+            DB::table('users')->insert([
+                'name' => 'sample4',
+                'email' => 'example4@sample.com',
+                'introduction' => '自己紹介文',
+                
+                'password' => bcrypt('password'),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]);
+            DB::table('users')->insert([
+                'name' => 'sample5',
+                'email' => 'example5@sample.com',
+                'introduction' => '自己紹介文',
+                'password' => bcrypt('password'),
+                'icon_img' => 'icon_sample05.jpg',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]);
+            DB::table('users')->insert([
+                'name' => 'sample6',
+                'email' => 'example6@sample.com',
+                'introduction' => '自己紹介文',
+                'password' => bcrypt('password'),
+                'icon_img' => 'icon_sample06.jpg',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]);
+            DB::table('users')->insert([
+                'name' => 'sample7',
+                'email' => 'example7@sample.com',
+                'introduction' => '自己紹介文',
+                'password' => bcrypt('password'),
+                'icon_img' => 'icon_sample07.jpg',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]);
+            DB::table('users')->insert([
+                'name' => 'sample8',
+                'email' => 'example8@sample.com',
+                'introduction' => '自己紹介文',
+                'password' => bcrypt('password'),
+                'icon_img' => 'icon_sample08.jpg',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]);
 
-        DB::table('users')->insert([
-            'name' => '織田 信長',
-            'email' => 'nobunaga@desuyo.com',
-            'introduction' => '天下武布',
-            'password' => bcrypt('password'),
-            'icon_img' => 'icon_sample03.jpg',
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-        ]);
     }
 }

@@ -29,6 +29,7 @@ class UserPasswordRule implements Rule
      */
     public function passes($attribute, $value)
     {
+        // dd($this);
         //現在のパスワードを取得
         $current_password = User::find($this->user_id)->password;
         if(Hash::check($value, $current_password)){

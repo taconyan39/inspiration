@@ -1,16 +1,35 @@
-<input id="file-sample" type="file">
-<img id="file-preview">
+<html>
+<header>
+<style>
+    .demo-enter-active, .demo-leave-active{
+      transition: transform 1s;
+    }
+    .demo-enter, .demo-leave-to{
+      transform: translateX( -100%);
+    }
+  </style>
+</header>
+  
+  <body>
+    <div id="app">
+      <button v-on:click="show=!show">切り替え</button>
+    <transition name="demo">
+      <div v-show="show">トランジションさせたい要素</div>
+    </transition>
+  </div>
 
-<script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
 
-
-
-    document.getElementById('file-sample').addEventListener('change', function(e){
-        var file = e.target.files[0];
-
-        var blobUrl = window.URL.createObjectURL(file);
-
-        var img = document.getElementById('file-preview');
-        img.src = blobUrl;
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        show: true
+      }
     })
-</script>
+    </script>
+
+
+</body>
+</html>

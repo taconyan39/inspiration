@@ -15,14 +15,14 @@
 //     return view('welcome');
 // });
 
-// Route::get('/', 'TestController@get');
+Route::get('/test', 'TestController@get');
 Route::get('/test', 'TestController@get')->name('test');
 Route::post('/', 'TwitterController@twitter')->name('twitter');
 Route::get('/login/twitter/callback', 'TwitterController@twitterCallback');
 Route::post('/login/twitter/callback', 'TwitterController@twitterCallback');
 Route::get('/share', 'TwitterController@share');
 Route::post('/share', 'TwitterController@share')->name('share');
-// Route::post('/test', 'TestController@post')->name('post');
+
 
 // jsonテスト用
 Route::get('contact', 'ContactController@input'); // 入力ページ
@@ -31,14 +31,30 @@ Route::post('contact', 'ContactController@send'); // 送信ページ（Ajax）
 Route::get('/', 'TopController@index')->name('index');
 Route::get('/index', 'TopController@index')->name('index');
 Route::get('/home', 'UsersController@home')->name('home');
+
+//プロフィール変更
 Route::get('/profile', 'ProfileController@edit')->name('profile.edit');
 Route::post('/profile', 'ProfileController@update')->name('profile.update');
 
+//パスワード変更
+Route::get('/password-edit', 'PasswordEditController@edit')->name('passwordEdit.edit');
+Route::post('/password-edit', 'PasswordEditController@update')->name('passwordEdit.update');
+
 Route::resource('post-idea', 'PostIdeasController');
 
+// アイデア一覧表示
+Route::get('ideas-list/{category}', 'IdeasListController@index');
+Route::get('ajax/ideas-list/{category}', 'Ajax\IdeasListController@index');
+// Route::get('pagination', 'PaginationController@index'); // メイン
+Route::get('ajax/pagination', 'Ajax\PaginationController@index'); // Ajax
+
 // Twitter
-Route::post('/', 'TwitterController@twitter')->name('twitter');
-Route::get('/login/twitter/callback', 'TwitterController@twitterCallback');
+// Route::post('/', 'TwitterController@twitter')->name('twitter');
+// Route::get('/login/twitter/callback', 'TwitterController@twitterCallback');
+
+Route::get('product/create', 'ProductController@create');
+Route::post('product', 'ProductController@store');  // Ajax
+
 // Route::post('/login/twitter/callback', 'TwitterController@twitterCallback');
 // Route::get('/share', 'TwitterController@twitterLogedIn');
 // Route::post('/share', 'TwitterController@share')->name('share');

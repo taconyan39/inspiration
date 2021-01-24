@@ -11,7 +11,11 @@
         <!-- 情報部分 -->
           <div class="p-simpleList__user">
             <div class="c-img--outer p-simpleList__userImg--outer">
-              <img class="c-img p-simpleList__userImg" src="{{asset('/images/icon/'.$item->user->icon_img)}}" alt="">
+              @if( $item->user->icon_img )
+                <img class="c-img p-simpleList__userImg" src="{{asset('storage/images/icons/'.$item->user->icon_img)}}" alt="プロフィール画像">
+              @else
+                <img class="c-img p-simpleList__userImg" src="{{asset('images/icons/noimage_icon.png')}}" alt="プロフィール画像">
+              @endif  
             </div>
           </div>
 
@@ -40,6 +44,6 @@
   </ul>
   <!-- 全件表示 -->
   <div class="p-simpleList__bottom">
-    <a href="{{ url('post-idea') }}" class="c-link__underline">全件表示</a>
+    <a href="{{ url('ideas-list/all' ) }}" class="c-link__underline">全件表示</a>
   </div>
 </section>

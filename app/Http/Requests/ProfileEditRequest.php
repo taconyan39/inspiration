@@ -6,7 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use App\Rules\UserPasswordRule;
 use Illuminate\Support\Facades\Auth;
 
-class ProfileEditReqest extends FormRequest
+class ProfileEditRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -37,15 +37,7 @@ class ProfileEditReqest extends FormRequest
         return [
             'name' => 'required | max:255',
             'email' => 'required | max:255 | email',
-            'password' => 'max:255 | alpha_dash | min:8',
-            'pass_new' => 'max:255 | min:8 | alpha_dash | same:pass_re',
             'profile_img' => 'image|file',
-            // 'old_password'    => ['required',
-            //     new UserPasswordRule(
-            //         $this->user_id
-            //     )
-            // ],
-            // 'password'    => ['required', 'confirmed'],
         ];
     }
 }

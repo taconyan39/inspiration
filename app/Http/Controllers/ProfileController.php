@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\ProfileEditReqest;
+use App\Http\Requests\ProfileEditRequest;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Hash;
+use App\Notifications\NotificationTest;
 use App\User;
 
 class ProfileController extends Controller
@@ -18,34 +18,39 @@ class ProfileController extends Controller
         return view('profile', ['user' => $user])->with(['string' => '文字列']);
     }
 
-    public function update(ProfileEditReqest $request)
+    public function update(ProfileEditRequest $request)
     {
-        $id = Auth::user()->id;
-        $user = User::find($id);
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = Hash::make($request->pass_new);
+        $user = Auth::user();
+        $form = $request->all();
+        $id = $user->id;
 
-        // TODO データ更新時の古いデータの削除
-        if($file = $request->icon_img){
-            $fileName = time() . $file->getClientOriginalName();
-            if(!empty($user->icon_img)){
-                $target_path = public_path('/images/icon');
-                $file->move($target_path, $fileName);
-                Storage::delete($target_path . '/' .$user->icon_img);
-            }
-        }else{
-            if(!empty($user->icon_img)){
-                $fileName = $user->icon_img;
-            }else{
-                $fileName = "";
-            }
+        $profileImage = $request->file('icon_img');
+        if ($profileImage != null) {
+            $form['icon_img'] = $this->saveProfileImage($profileImage, $id); // return file name
         }
 
-        $user->icon_img = $fileName;
-        $user->save();
+        unset($form['_token']);
+        unset($form['_method']);
+        $user->fill($form)->save();
 
-        dd($user->icon_img);
-        return redirect('profile')->with('flash_message', __('Your profile has changed'));
+        $user->notify(new NotificationTest);
+
+        return redirect('/mypage')->with('flash_message', 'プロフィールを変更しました');
+    }
+
+    private function saveProfileImage($image, $id) {
+        // get instance
+        $img = \Image::make($image);
+        // resize
+        $img->fit(150, 150, function($constraint){
+            $constraint->upsize();
+        });
+
+        // save
+        $file_name = 'icon_'.$id.'.'.$image->getClientOriginalExtension();
+        $save_path = 'public/images/icons/'.$file_name;
+        Storage::put($save_path, (string) $img->encode());
+        // return file name
+        return $file_name;
     }
 }
