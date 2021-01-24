@@ -40,10 +40,11 @@ class TwitterNotification extends Notification
      */
     public function toTwitter($notifiable)
     {
-        $text = "新着！\n【". $this->product->name ."】という商品が登録されました\n".
-                url('product/'. $this->product->id);
+        // $text = "新着！\n【". $this->product->name ."】という商品が登録されました\n".
+        //         url('product/'. $this->product->id);
+        // return $text;
         // $attachment = $this->product->getAttachment('product_image');
-        return (new TwitterStatusUpdate($text));
+        // return (new TwitterStatusUpdate($text));
         // return (new TwitterStatusUpdate($text))->withImage($attachment->path);
 
         // return (new MailMessage)

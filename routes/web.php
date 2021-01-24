@@ -53,7 +53,7 @@ Route::get('ajax/pagination', 'Ajax\PaginationController@index'); // Ajax
 // Route::get('/login/twitter/callback', 'TwitterController@twitterCallback');
 
 Route::get('product/create', 'ProductController@create');
-Route::post('product', 'ProductController@store');  // Ajax
+Route::post('product', 'ProductController@store')->name('twitter');  // Ajax
 
 // Route::post('/login/twitter/callback', 'TwitterController@twitterCallback');
 // Route::get('/share', 'TwitterController@twitterLogedIn');
