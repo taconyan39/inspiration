@@ -36,6 +36,12 @@
   background: $color_white;
   box-sizing: border-box;
   transition: .3s;
+  &--large{
+    // font-weight: bold;
+    font-size: $font-size_lg;
+    background-color:rgba(79, 195, 247, 0.8);
+    padding: $spacing-md $spacing-xl;
+  }
   &:hover{
     cursor: pointer;
     opacity: 0.8;
@@ -335,7 +341,7 @@
   height: 80px;
   background: rgba(79, 195, 247, 0.8);
   line-height: 80px;
-  // animation: fadeOut 3s;
+  animation: fadeOut 3s;
   animation-fill-mode: both;
 }
 

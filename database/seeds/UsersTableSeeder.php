@@ -16,7 +16,7 @@ class UsersTableSeeder extends Seeder
 
             DB::table('users')->insert([
                 'name' => 'sample1',
-                'email' => 'example@sample.com',
+                'email' => 'taconyan39@gmail.com',
                 'introduction' => '自己紹介文',
                 'password' => bcrypt('password'),
                 'icon_img' => 'icon_sample01.jpg',
@@ -25,7 +25,7 @@ class UsersTableSeeder extends Seeder
             ]);
             DB::table('users')->insert([
                 'name' => 'sample2',
-                'email' => 'example2@sample.com',
+                'email' => 'ochazukeyaro3@gmail.com',
                 'introduction' => '自己紹介文',
                 'password' => bcrypt('password'),
                 'icon_img' => 'icon_sample02.jpg',

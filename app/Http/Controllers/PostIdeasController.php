@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use App\Category;
 use App\Idea;
 use App\Review;
+use Carbon\Carbon;
 
 class PostIdeasController extends Controller
 {
@@ -80,31 +81,45 @@ class PostIdeasController extends Controller
         $idea = Idea::find($id);
         $idea->rating = sprintf('%.1f',$idea->reviews()->avg('rating'));
         $idea->countReview = $idea->reviews->count();
-        $interest_flg = false;
+
+        // dd($idea->user_id);
 
         // 投稿者の場合の表示
         if(DB::table('ideas')->where('id', $idea->id)->where('user_id', $user->id)->exists()){
-            $user_flg = 1;
+            // dd('owner');
+            $owner_flg = true;
+            $buy_flg = false;
+            $interest_flg = false;
         }else{
+            // dd('not_owner');
+            $owner_flg = false;
             // 購入済みの場合の処理
             if(DB::table('buy_ideas')->where('user_id', $user->id)->where('idea_id', $idea->id)->exists()){
-                $user_flg = 2;
+                // dd('buy');
+                $buy_flg = true;
+                $interest_flg = false;
             }else{
-                $user_flg = 3;
+                // dd('not_buy');
+                $buy_flg = false;
                 // 未購入で気になる追加済みの処理
                 if(DB::table('interests')->where('user_id', $user->id)->where('idea_id', $idea->id)->exists()){
+                    // dd('true');
                     $interest_flg = true;
                 // 未購入気になる未追加の処理
                 }else{
+                    // dd('falsmyse');
                     $interest_flg = false;
                 }
             }
         }
 
+
         // 自分のアイデアに投稿されたレビューとその情報を取得
         $reviews = Review::all()->where('idea_id', $id)->take(5);
+
+        // dd($interest_flg);
         
-        return view('post-idea.show',[ 'user' => $user, 'idea' => $idea, 'reviews' => $reviews, 'user_flg' => $user_flg, 'interest_flg' => $interest_flg]);
+        return view('post-idea.show',[ 'user' => $user, 'idea' => $idea, 'reviews' => $reviews, 'owner_flg' => $owner_flg, 'interest_flg' => $interest_flg, 'buy_flg' => $buy_flg]);
     }
 
     /**
@@ -147,5 +162,36 @@ class PostIdeasController extends Controller
     {
         Idea::find($id)->delete();
         return redirect('post-idea/index')->with('flash_message', '削除しました');
+    }
+
+    public function interest(Request $request ,$id){
+
+        // dd($request->interest);
+        if($request->remove){
+            // dd('remove');
+            DB::table('interests')->where('user_id', Auth::user()->id)->where('idea_id', $id)->delete();
+        }elseif($request->interest){
+            // dd();
+            DB::table('interests')->insert([
+                'idea_id' => $id,
+                'user_id' => Auth::user()->id,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ]);
+        }
+
+        return redirect('post-idea/' . $id);
+    }
+
+    public function buy(Request $request ,$id){
+
+            DB::table('buy_ideas')->insert([
+                'idea_id' => $id,
+                'user_id' => Auth::user()->id,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ]);
+
+        return redirect('post-idea/' . $id);
     }
 }

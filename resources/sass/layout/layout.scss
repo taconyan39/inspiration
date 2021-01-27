@@ -76,10 +76,10 @@
   height: 100vh;
   background: rgba(248, 250, 252, 0.95);
   // background: black;
-  z-index: 30 !important;
+  z-index: 30;
   text-align:center;
   position: relatvie;
-  // transform: translateX( -100%);
+  transform: translateX( -100%);
   &--active{
 
   }

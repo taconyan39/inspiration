@@ -17,11 +17,11 @@
 
 Route::get('/test', 'TestController@get');
 Route::get('/test', 'TestController@get')->name('test');
-Route::post('/', 'TwitterController@twitter')->name('twitter');
-Route::get('/login/twitter/callback', 'TwitterController@twitterCallback');
-Route::post('/login/twitter/callback', 'TwitterController@twitterCallback');
-Route::get('/share', 'TwitterController@share');
-Route::post('/share', 'TwitterController@share')->name('share');
+// Route::post('/', 'TwitterController@twitter')->name('twitter');
+// Route::get('/login/twitter/callback', 'TwitterController@twitterCallback');
+// Route::post('/login/twitter/callback', 'TwitterController@twitterCallback');
+// Route::get('/share', 'TwitterController@share');
+// Route::post('/share', 'TwitterController@share')->name('share');
 
 
 // jsonテスト用
@@ -40,7 +40,14 @@ Route::post('/profile', 'ProfileController@update')->name('profile.update');
 Route::get('/password-edit', 'PasswordEditController@edit')->name('passwordEdit.edit');
 Route::post('/password-edit', 'PasswordEditController@update')->name('passwordEdit.update');
 
+// アイデア詳細表示
 Route::resource('post-idea', 'PostIdeasController');
+Route::post('/ajax/interest/{id}', 'Ajax\PostIdeasController@interest');
+Route::get('/ajax/interest/{id}', 'Ajax\PostIdeasController@changeInterest');
+
+Route::post('post-idea/interest/{id}', 'PostIdeasController@interest');
+Route::post('post-idea/buy/{id}', 'PostIdeasController@buy')->name('buy');
+
 
 // アイデア一覧表示
 Route::get('ideas-list/{category}', 'IdeasListController@index');

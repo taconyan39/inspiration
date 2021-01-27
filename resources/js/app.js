@@ -30,6 +30,8 @@ Vue.component('flash-message', require('./components/FlashMessage.vue').default)
 Vue.component('icon-edit', require('./components/IconEdit.vue').default);
 Vue.component('ideas-list', require('./components/IdeasList.vue').default);
 Vue.component('hamburger-menu', require('./components/HamburgerMenu.vue').default);
+Vue.component('interest-component', require('./components/InterestComponent.vue').default);
+Vue.component('buy-component', require('./components/BuyComponent.vue').default);
 
 
 /**
@@ -46,30 +48,30 @@ const app = new Vue({
       page: 1,
       items: []
     },
-    methods: {
-        getItems() {
+    // methods: {
+    //     getItems() {
 
-            // Ajaxでデータの所得
-            const url = '/ajax/ideas-list?page='+ this.page;
-            axios.get(url)
-                .then((response) => {
+    //         // Ajaxでデータの所得
+    //         const url = '/ajax/ideas-list?page='+ this.page;
+    //         axios.get(url)
+    //             .then((response) => {
 
-                    this.items = response.data;
+    //                 this.items = response.data;
 
-                });
+    //             });
 
-        },
-        // ページ移動
-        movePage(page) {
+    //     },
+    //     // ページ移動
+    //     movePage(page) {
 
-            this.page = page; // ページ番号を更新
-            this.getItems(); // Ajaxで新データを取得
-        },
-    },
-    mounted() {
+    //         this.page = page; // ページ番号を更新
+    //         this.getItems(); // Ajaxで新データを取得
+    //     },
+    // },
+    // mounted() {
 
-        this.getItems();
+    //     this.getItems();
             
-        }
+    //     }
 });
 

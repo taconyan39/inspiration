@@ -74,8 +74,7 @@
                         <li class="c-nav__item p-header__navItem">
                             <a class="c-btn" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
-                                                document.getElementById('logout-form').submit();
-                                "
+                            document.getElementById('logout-form').submit();"
                             >{{ __('Logout') }}</a>
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -95,15 +94,15 @@
                 </ul>
 
                 <div class="p-header__hamburger" @click="menu=!menu">
-                    <div class="p-header__hamburger--line c-hamburger__top"></div>
-                    <div class="p-header__hamburger--line c-hamburger__middle"></div> 
-                    <div class="p-header__hamburger--line c-hamburger__bottomline-bottom"></div>
+                    <div class="c-hamburger__line p-header__hamburger--top"></div>
+                    <div class="c-hamburger__line p-header__hamburger--middle"></div> 
+                    <div class="c-hamburger__line p-header__hamburger--bottom"></div>
                 </div>
 
 
                 <!-- <hamburger-menu></hamburger-menu> -->
         
-                <transition name="menu">
+                <transition name="menu" v-cloak>
                     <div class="l-sp__menu" v-if="menu">
                         <div class="p-categoryList">
                             <ul class="c-list p-categoryList__items">

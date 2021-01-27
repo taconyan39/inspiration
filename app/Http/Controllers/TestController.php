@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 class TestController extends Controller
 {
     public function get(){
-        return view('test');
+
+        $idea = \App\Idea::find(1);
+        // dd($idea);
+        return view('test')->with(
+            ['idea' => $idea]
+        );
     }
 }

@@ -39,28 +39,32 @@
                         <h3>{{ $idea->summary }}</h3>
                     </div>
                     
-                    <div class="p-ideaDetail__text--wrapper">
-                        @if($buy_flg)
-                            <div class="p-ideaDetail__purchased">
-                                <p class="p-ideaDetail__text">{{ $idea->content }}</p>
-                            </div>
-                        @else
-                            <div class="p-ideaDetail__purchased--not">
-                                <p class="p-ideaDetail__text--not">購入すると表示されます</p>
-                                <!-- ○名がすでに購入されました -->
-                                <span class="p-ideaDetail__message">¥{{ $idea->price }}</span>
-                                <form action="{{ url('post-idea/buy/' . $idea->id) }}" method="POST">
-                                @csrf
-                                    <buy-component></buy-component>
-                                </form>
-                            </div>
-                        @endif
-                    </div>
+                    @if($buy_flg)
+                        <div class="p-ideaDetail__text--wrapper">
+                            <p class="p-ideaDetail__text">{{ $idea->content }}</p>
+                        </div>
+                    @else
+                        <h1>購入すると表示されます</h1>
+                        <span>{{ $idea->price }}</span>
+                        <form action="{{ url('post-idea/buy/' . $idea->id) }}" method="POST">
+                            @csrf
+                            <input type="submit" value="購入する" name="buy">
+                        </form>
+                    @endif
 
                     <div class="c-article__bottom p-ideaDetail__bottom">
-                                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>
+<!--                     
+                        <form action="{{ route('twitter') }}" method="post">
+                            @csrf
+                            <label for="" class="c-label"> -->
+                                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                                <!-- <button type="submit" class="c-btn c-btn__twitter">
+                                    <i class="fab fa-twitter"></i> Twitter
+                                </button> -->
+                            <!-- </label>
+                            <span class="c-btn__prompt">Twitterでシェアしよう！！</span>
+                        </form> -->
 
-                        <interest-component :idea="{{ $idea }}" :interest="@json($interest_flg)"></interest-component>
                         <form method="post" action="{{ url('post-idea/interest/' . $idea->id) }}">
                             @csrf
                             

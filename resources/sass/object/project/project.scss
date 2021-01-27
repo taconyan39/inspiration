@@ -48,73 +48,86 @@
 
 // ハンバーガー
 
-.container {
-  width: 100%;
-  height: 200px;
-  background-color: #ccc;
-}
+// .container {
+//   width: 100%;
+//   height: 200px;
+//   background-color: #ccc;
+// }
 
 /* ここから */
-:root {
-  --hamburger-menu-size: 100px; /* メニューの大きさ */ 
-  --hamburger-menu-padding: 12px;  
-  --hamburger-menu-border-px: 3px; /* 線の太さ */
-  --hamburger-menu-border-color: #342534; /* 線の色 */
-  --hamburger-menu-transition: 0.3s; /* アニメーション秒数 */
-}
+// :root {
+//   --hamburger-menu-size: 100px; /* メニューの大きさ */ 
+//   --hamburger-menu-padding: 12px;  
+//   --hamburger-menu-border-px: 3px; /* 線の太さ */
+//   --hamburger-menu-border-color: #342534; /* 線の色 */
+//   --hamburger-menu-transition: 0.3s; /* アニメーション秒数 */
+// }
 
 
-.p-header__hamburger {
-  // margin: 0 auto; /* 中央寄せしたいだけ */
-  cursor: pointer;
-  position: relative;
-  width: 50px;
-  height: 50px;
-  display: none;
-  @include mq(md){
-    display: inline;
+.p-header{
+    &__hamburger {
+    // margin: 0 auto; /* 中央寄せしたいだけ */
+    cursor: pointer;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    display: none;
+    @include mq(md){
+      display: inline;
+    }
+    &--top{
+      top: 12px;
+      left: 12px;
+    }
+    &--middle{
+      top: calc(50% - 3px/2);
+      left: 12px;
+    }
+    &--bottom{
+      bottom: 12px;
+      left: 12px;
+    }
   }
 }
 
-
-.p-header__hamburger--line {
+.c-hamburger__line {
   position: absolute;
-  transition: var(--hamburger-menu-transition);
-  width: calc(100% - var(--hamburger-menu-padding) * 2);
-  height: var(--hamburger-menu-border-px);
-  background-color: var(--hamburger-menu-border-color);
+  transition: 0.3s;
+  width: calc(100% - 12px * 2);
+  height: 3px;
+  background-color: #342534;
 }
 
 
-.c-hamburger__top{
-  top: var(--hamburger-menu-padding);
-  left: var(--hamburger-menu-padding);
-}
+// .p-hamburger__top{
+//   top: 12px;
+//   left: 12px;
+// }
 
-.c-hamburger__middle {
-  top: calc(50% - var(--hamburger-menu-border-px)/2);
-  left: var(--hamburger-menu-padding);
-}
+// .p-hamburger__middle {
+//   top: calc(50% - 3px/2);
+//   left: 12px;
+// }
 
-.c-hamburger__bottom {
-  bottom: var(--hamburger-menu-padding);
-  left: var(--hamburger-menu-padding);
-}
+// .p-hamburger__bottom {
+//   bottom: 12px;
+//   left: 12px;
+// }
 
 
 .hamburger-menu-active > .line-top {
-  top: calc(50% - var(--hamburger-menu-border-px)/2);
+  top: calc(50% - 3px/2);
   transform: rotate(45deg);
 }
 
 .hamburger-menu-active > .line-middle {
   width: 0;
   height: 0;
-  left: var(--hamburger-menu-padding);
+  left: 12px;
 }
 
 .hamburger-menu-active > .line-bottom {
-  top: calc(50% - var(--hamburger-menu-border-px)/2);
+  top: calc(50% - 12px/2);
   transform: rotate(-45deg);
 }
 
@@ -558,6 +571,17 @@
         font-size: $font-size_default;
       }
     }
+    &--buy{
+
+    }
+  }
+  &__body{
+    width: 100%;
+    box-sizing: border-bx;
+    display: flex;
+    justify-content: flex-start;
+    overflow:hidden;
+    text-overflow: ellipsis;
   }
   &__content{
     padding: $spacing-md $spacing-lg;
@@ -602,14 +626,6 @@
   &__price{
     font-size: $font-size_lg;
   }
-  &__body{
-    width: 100%;
-    box-sizing: border-bx;
-    display: flex;
-    justify-content: flex-start;
-    overflow:hidden;
-    text-overflow: ellipsis;
-  }
   &__summary{
     font-weight: bold;
     margin-bottom: $spacing-lg;
@@ -621,7 +637,16 @@
     box-sizing: border-box;
     text-align: start;
     &--wrapper{
-      margin-bottom: $spacing-lg;
+      margin: $spacing-3l 0;
+    }
+    &--not{
+    }
+  }
+  &__purchased{
+    margin-bottom: $spacing-lg;
+    &--not{
+      text-align:center;
+      font-size: $font-size_xxl;
     }
   }
   &__price{
