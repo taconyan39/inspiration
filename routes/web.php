@@ -48,19 +48,22 @@ Route::get('/ajax/interest/{id}', 'Ajax\PostIdeasController@changeInterest');
 Route::post('post-idea/interest/{id}', 'PostIdeasController@interest');
 Route::post('post-idea/buy/{id}', 'PostIdeasController@buy')->name('buy');
 
-
 // アイデア一覧表示
 Route::get('ideas-list/{category}', 'IdeasListController@index');
 Route::get('ajax/ideas-list/{category}', 'Ajax\IdeasListController@index');
 // Route::get('pagination', 'PaginationController@index'); // メイン
 Route::get('ajax/pagination', 'Ajax\PaginationController@index'); // Ajax
 
+// レビュー投稿画面
+Route::get('reviews/post-review/{id}','ReviewsController@create');
+Route::post('reviews/post-review/{id}','ReviewsController@store');
+
 // Twitter
 // Route::post('/', 'TwitterController@twitter')->name('twitter');
 // Route::get('/login/twitter/callback', 'TwitterController@twitterCallback');
 
-Route::get('product/create', 'ProductController@create');
-Route::post('product', 'ProductController@store')->name('twitter');  // Ajax
+// Route::get('product/create', 'ProductController@create');
+// Route::post('product', 'ProductController@store')->name('twitter');  // Ajax
 
 // Route::post('/login/twitter/callback', 'TwitterController@twitterCallback');
 // Route::get('/share', 'TwitterController@twitterLogedIn');

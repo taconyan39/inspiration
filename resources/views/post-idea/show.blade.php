@@ -40,11 +40,11 @@
                     </div>
                     
                     <div class="p-ideaDetail__text--wrapper">
-                        @if($buy_flg)
+                        <!-- @if($buy_flg) -->
                             <div class="p-ideaDetail__purchased">
                                 <p class="p-ideaDetail__text">{{ $idea->content }}</p>
                             </div>
-                        @else
+                        <!-- @else -->
                             <div class="p-ideaDetail__purchased--not">
                                 <p class="p-ideaDetail__text--not">購入すると表示されます</p>
                                 <!-- ○名がすでに購入されました -->
@@ -54,7 +54,7 @@
                                     <buy-component></buy-component>
                                 </form>
                             </div>
-                        @endif
+                        <!-- @endif -->
                     </div>
 
                     <div class="c-article__bottom p-ideaDetail__bottom">
@@ -78,6 +78,14 @@
                 </div>
             </div>
         </article>
+    
+    <section class="">
+    @if( $myreview )
+        <div>{{ $myreview->review }}</div>
+    @else
+        <a href="{{ url('reviews/post-review/' . $idea->id) }}" class="c-btn">レビューを投稿する</a>
+    @endif
+    </section>
 
     <section class="p-simpleList">
 

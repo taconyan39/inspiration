@@ -9,6 +9,8 @@ use App\Mail\SendMail;
 class TestMailController extends Controller
 {
     public function send(){
-        return Mail::to('taconyan39@gmail.com')->send(new SendMail());
+
+        $user = \App\User::find(2);
+        return Mail::to($user->email)->send(new SendMail());
     }
 }

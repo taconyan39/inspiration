@@ -26,7 +26,6 @@ class PostIdeasController extends Controller
     public function interest(Request $request, $id){
 
         if($request->interest){
-            echo 'true';
             DB::table('interests')->insert([
                 'idea_id' => $id,
                 'user_id' => Auth::user()->id,
@@ -43,5 +42,24 @@ class PostIdeasController extends Controller
         }
 
         // return $interest_flg;
+    }
+
+    public function interest(Request $request ,$id){
+
+        // dd($request->interest);
+        if($request->remove){
+            // dd('remove');
+            DB::table('interests')->where('user_id', Auth::user()->id)->where('idea_id', $id)->delete();
+        }elseif($request->interest){
+            // dd();
+            DB::table('interests')->insert([
+                'idea_id' => $id,
+                'user_id' => Auth::user()->id,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ]);
+        }
+
+        return redirect('post-idea/' . $id);
     }
 }
