@@ -1,75 +1,67 @@
 <template>
-    <ul class="pagination">
-    <li class="page-item" v-if="hasPrev">
-        <a class="page-link" href="#" @click.prevent="move(data.current_page-1)">前へ</a>
-    </li>
-    <li :class="getPageClass(page)" v-for="page in pages" :key="page.id">
-        <a class="page-link" href="#" v-text="page" @click.prevent="move(page)"></a>
-    </li>
-    <li class="page-item" v-if="hasNext">
-        <a class="page-link" href="#" @click.prevent="move(data.current_page+1)">次へ</a>
-    </li>
-  </ul>
+  <section class="p-simpleList">
+    <h2 class="c-title__section p-simpleList__title">アイデア一覧</h2>
+
+    <select name="sort" id="sort">
+      <option value="1">投稿日</option>
+      <option value="2">カテゴリ</option>
+      <option value="3">価格</option>
+    </select>
+
+    <select name="sort_sub" id="">
+      <option value="1">新着順</option>
+      <option value="2">古い順</option>
+    </select>
+    
+    <select name="sort_sub" id="">
+      <option value="1"></option>
+      <option value="2"></option>
+      <option value="3"></option>
+      <option value="4"></option>
+      <option value="5"></option>
+      <option value="6"></option>
+      <option value="7"></option>
+    </select>
+
+    <ul class="c-list p-simpleList__list">
+      <li v-for="item in items" :key="item.id">
+        {{item.title}}
+      </li>
+      <li class="c-list__item p-simpleList__listItem u-clearfix">
+        <a href="" class="c-list__link p-simpleList__listLink u-clearfix">
+          <div class="p-simpleList__user">
+            <div class="c-img--outer p-simpleList__userImg--outer">
+              <img class="c-img p-simpleList__userImg" src="" alt="">
+            </div>
+          </div>
+          <div class="p-simpleList__info">
+            <div class="p-simpleList__info--top">
+              <div class="p-simpleList__info--spec">
+                <span class="p-simpleList__name"></span>
+                <i class="fas fa-star fa-lg c-rating__icon"></i>
+                <span>3.7</span>
+                <span class="p-simpleList__rating--num"></span>
+                <span class="c-tag p-simpleList__tag"></span>
+              </div>
+
+            </div>
+            <div class="p-simpleList__info--bottom">
+              <p class="c-txt p-simpleList__summary ">
+                </p>
+            </div>
+          </div>
+        </a>
+      </li>
+    </ul>
+
+    <!-- <pagination :data="items" @move-page="movePage($event)"></pagination> -->
+</section>
 </template>
 
 <script>
+
 export default {
-    props: {
-        data: {}  // paginate()で取得したデータ
-    },
-    methods: {
-        move(page) {
-
-            if(!this.isCurrentPage(page)) {
-
-                this.$emit('move-page', page);
-
-            }
-
-        },
-        isCurrentPage(page) {
-
-            return (this.data.current_page == page);
-
-        },
-        getPageClass(page) {
-
-            let classes = ['page-item'];
-
-            if(this.isCurrentPage(page)) {
-
-                classes.push('active');
-
-            }
-
-            return classes;
-
-        }
-    },
-    computed: {
-        hasPrev() {
-
-            return (this.data.prev_page_url != null);
-
-        },
-        hasNext() {
-
-            return (this.data.next_page_url != null);
-
-        },
-        pages() {
-
-            let pages = [];
-
-            for(let i = 1 ; i <= this.data.last_page ; i++) {
-
-                pages.push(i);
-
-            }
-
-            return pages;
-
-        }
-    },
+  props:['items']
 }
+
 </script>

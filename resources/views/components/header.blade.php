@@ -17,7 +17,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script src="https://kit.fontawesome.com/8e92148154.js" crossorigin="anonymous"></script>
 
-    <style>
+    <!-- <style>
         .menu-enter{
             transform: translateX( -100%);
         }
@@ -30,10 +30,10 @@
         /* transform: tra; */
         transition: transform 1s;
         }
-    </style>
+    </style> -->
 </head>
 <body>
-    <div id="app" class="l-wrapper">
+    <div id="app" class="l-wrapper" v-cloak>
         <header class="l-header" id="header">
 
         <!-- フラッシュメッセージ -->
@@ -93,16 +93,16 @@
                     @endguest
                 </ul>
 
-                <div class="p-header__hamburger" @click="menu=!menu">
+                <!-- <div class="p-header__hamburger" @menu-click="menu=!menu">
                     <div class="c-hamburger__line p-header__hamburger--top"></div>
                     <div class="c-hamburger__line p-header__hamburger--middle"></div> 
                     <div class="c-hamburger__line p-header__hamburger--bottom"></div>
-                </div>
+                </div> -->
 
 
-                <!-- <hamburger-menu></hamburger-menu> -->
+                <hamburger-menu @menu-click="menu = $event"></hamburger-menu>
         
-                <transition name="menu" v-cloak>
+                <!-- <transition name="menu" v-cloak>
                     <div class="l-sp__menu" v-if="menu">
                         <div class="p-categoryList">
                             <ul class="c-list p-categoryList__items">
@@ -115,7 +115,7 @@
                             </ul> 
                         </div>
                     </div>
-                </transition>
+                </transition> -->
                 
 
             </nav>

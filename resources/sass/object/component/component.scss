@@ -353,12 +353,3 @@
     opacity: 0;
   }
 }
-
-.menu-enter, .menu-leave-to{
-  opacity: 0;
-}
-
-.menu-enter-active, .menu-leave-active{
-  // transform: tra;
-  transition: opacity 3s;
-}

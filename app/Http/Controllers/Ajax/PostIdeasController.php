@@ -44,7 +44,7 @@ class PostIdeasController extends Controller
         // return $interest_flg;
     }
 
-    public function interest(Request $request ,$id){
+    public function test(Request $request ,$id){
 
         // dd($request->interest);
         if($request->remove){

@@ -18,10 +18,7 @@
     @endcomponent
 
     <div>
-      <!-- <ideas-list :data="items" @move-page="movePage($event)"></ideas-list> -->
-      <ul class="list-group">
-        <li class="list-group-item" v-for="item in items.data" v-text="item.title"></li>
-    </ul>
+      <!-- <ideas-list :ideas="{{ $ideas }}"></ideas-list> -->
     </div>
 
     <div class="p-ideasList__bottom">

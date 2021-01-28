@@ -21,8 +21,6 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-	
-// Vue.component('axios-component', require('./components/AxiosComponent.vue').default);
 Vue.component('test-component', require('./components/TestComponent.vue').default);
 Vue.component('input-component', require('./components/InputComponent.vue').default);
 Vue.component('flash-message', require('./components/FlashMessage.vue').default);
@@ -32,6 +30,9 @@ Vue.component('ideas-list', require('./components/IdeasList.vue').default);
 Vue.component('hamburger-menu', require('./components/HamburgerMenu.vue').default);
 Vue.component('interest-component', require('./components/InterestComponent.vue').default);
 Vue.component('buy-component', require('./components/BuyComponent.vue').default);
+Vue.component('category-menu', require('./components/CategoryMenu.vue').default);
+Vue.component('pagination', require('./components/Pagination.vue').default);
+
 
 
 /**
@@ -40,38 +41,38 @@ Vue.component('buy-component', require('./components/BuyComponent.vue').default)
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+
 const app = new Vue({
     el: '#app',
 
-    data: {
-        menu: false,
-      page: 1,
-      items: []
-    },
-    // methods: {
-    //     getItems() {
-
-    //         // Ajaxでデータの所得
-    //         const url = '/ajax/ideas-list?page='+ this.page;
-    //         axios.get(url)
-    //             .then((response) => {
-
-    //                 this.items = response.data;
-
-    //             });
-
-    //     },
-    //     // ページ移動
-    //     movePage(page) {
-
-    //         this.page = page; // ページ番号を更新
-    //         this.getItems(); // Ajaxで新データを取得
-    //     },
+    // data: function() {
+    //   return {
+    //     menu: false
+    //   }
     // },
-    // mounted() {
 
-    //     this.getItems();
-            
-    //     }
+      data: {
+        page: 1,
+        items: []
+      },
+      methods: {
+        getItems() {
+    
+          const url = '/ajax/ideas-list?page=' + this.page;
+          // const url = '/ajax/ideas-list';
+          axios.get(url)
+            .then((response) => {
+              this.items = response.data;
+            });
+          }
+        },
+        mounted() {
+          
+          this.getItems();
+
+          // console.log(this.items)
+    
+      }
+    
 });
 

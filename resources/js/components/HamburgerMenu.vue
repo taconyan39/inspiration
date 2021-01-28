@@ -1,31 +1,35 @@
 <template>
-  <!-- <div class="p-header__search js-search"> -->
-  <div>
-    <div class="hamburger-menu" @click="menu=!menu">
-        <div class="hamburger-menu-line line-top"></div>
-        <div class="hamburger-menu-line line-middle"></div> 
-        <div class="hamburger-menu-line line-bottom"></div>
+
+    <div class="p-header__hamburger" @click="toggleMenu">
+        <div class="c-hamburger__line p-header__hamburger--top"></div>
+        <div class="c-hamburger__line p-header__hamburger--middle"></div> 
+        <div class="c-hamburger__line p-header__hamburger--bottom"></div>
     </div>
 
-  </div>
 </template>
 
 <script>
 export default {
   data() { 
      return{
-      menu: true
+      menu: false
   }
  },
   methods :{
-      // menuOn:  {
-      //   menu = !menu
-      // },
+      toggleMenu (){
+        this.menu = !this.menu
+        this.$emit("menu-click", this.menu);
+      },
     },
-  mounted :function(){
-    // axios.get('https://jsonplaceholder.typicode.com/users')
-    //       .then(response => this.users = response.data)
-    //       .catch(error => console.log(error))
-  }
 }
 </script>
+
+<style>
+  .menu-enter, .menu-leave-to{
+    transform: translateX( -100%);
+  }
+
+  .menu-enter-active, .menu-leave-active{
+    transition: transform 0.5s;
+  }
+</style>

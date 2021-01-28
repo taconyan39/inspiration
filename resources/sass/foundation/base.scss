@@ -24,6 +24,10 @@ $font-size_3l: 2.5rem;
 
 $site-width: 980px;
 
+[v-cloak] {
+  display: none;
+}
+
 @mixin font-awesome($content: '\f005',$color: #F5D300){
   font-family: "Font Awesome 5 Free";
   content: $content;
