@@ -45,7 +45,7 @@ class ReviewsTableSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ]);
         }
-        for($i = 1;$i <= 100; $i++){
+        for($i = 1;$i <= 10; $i++){
     
             $r = mt_rand(3, 5);
             $u = mt_rand(2, 7);
