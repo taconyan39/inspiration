@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(IdeasTableSeeder::class);
         $this->call(ReviewsTableSeeder::class);
         $this->call(InterestTableSeeder::class);
-        $this->call(BuyIdeableSeeder::class);
+        $this->call(BuyIdeaTableSeeder::class);
         
         // ローカル用
         // $this->call(ReviewsLocalTableSeeder::class);
