@@ -55,7 +55,7 @@ class ReviewsTableSeeder extends Seeder
                 しっかり作り込んであるので、こちらもしっかりと米作りを学んで挑みましょう。しかし、だからと言って理不尽だったりイライラしたりする事はありません。
                 奥深い稲作の世界を体験しましょう。',
                 'rating' => $r,
-                'idea_id' => $o,
+                'idea_id' => $o * 10 + 1,
                 'user_id' => $u  * 10 + 1,
                 'created_at' => Carbon::createFromDate(2020, $r, $u),
                 'updated_at' => Carbon::now(),
@@ -72,8 +72,8 @@ class ReviewsTableSeeder extends Seeder
                 しっかり作り込んであるので、こちらもしっかりと米作りを学んで挑みましょう。しかし、だからと言って理不尽だったりイライラしたりする事はありません。
                 奥深い稲作の世界を体験しましょう。',
                 'rating' => $r,
-                'idea_id' => $o,
-                'user_id' => $u  + 1,
+                'idea_id' => $o * 10 + 1,
+                'user_id' => $u * 10 + 1,
                 'created_at' => Carbon::createFromDate(2020, $r, $u),
                 'updated_at' => Carbon::now(),
             ]);
