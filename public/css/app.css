@@ -240,6 +240,12 @@ li {
   flex-wrap: wrap;
 }
 
+@media screen and (max-width: 576px) {
+  .l-wrapper__1colum {
+    margin-top: 20%;
+  }
+}
+
 .l-wrapper__2colum {
   margin-top: 10%;
   margin-bottom: 40px;
@@ -250,6 +256,12 @@ li {
   padding-left: 3%;
   overflow: hidden;
   flex-wrap: wrap;
+}
+
+@media screen and (max-width: 576px) {
+  .l-wrapper__2colum {
+    margin-top: 20%;
+  }
 }
 
 .l-main__1colum {
