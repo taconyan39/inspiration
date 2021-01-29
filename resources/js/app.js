@@ -45,34 +45,39 @@ Vue.component('pagination', require('./components/Pagination.vue').default);
 const app = new Vue({
     el: '#app',
 
-    // data: function() {
-    //   return {
-    //     menu: false
-    //   }
-    // },
-
-      data: {
+    data: function() {
+      return {
+        menu: false,
         page: 1,
-        items: []
-      },
-      methods: {
-        getItems() {
-    
-          const url = '/ajax/ideas-list?page=' + this.page;
-          // const url = '/ajax/ideas-list';
-          axios.get(url)
-            .then((response) => {
-              this.items = response.data;
-            });
-          }
-        },
-        mounted() {
-          
-          this.getItems();
-
-          // console.log(this.items)
-    
+        items: [],
+        flash_flg: true
       }
+    },
+    methods: {
+      getItems() {
+  
+        const url = '/ajax/ideas-list?page=' + this.page;
+        // const url = '/ajax/ideas-list';
+        axios.get(url)
+          .then((response) => {
+            this.items = response.data;
+          });
+        }
+      },
+      mounted() {
+        
+        this.getItems();{
+            var flash = document.getElementById('js-flash');
+        
+            console.log(this.flash_flg);
+            setTimeout(function(){
+                flash.style.display = "none"
+                // this.flash_flg = false
+                }, 3000);
+              
+        }
+  
+    }
     
 });
 

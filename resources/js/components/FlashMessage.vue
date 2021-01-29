@@ -1,7 +1,8 @@
 <template>
   <!-- <transition name="flash"> -->
     <!-- <div v-if="flash" class="c-flash js-flash">{{ flash }}</div> -->
-    <div v-if="flash" class="c-flash js-flash">{{ flash }}</div>
+    <!-- <div v-if="flash" class="c-flash js-flash">{{ flash }}</div> -->
+    <div v-if="flash" class="c-flash">{{ flash }}</div>
   <!-- </transition> -->
 </template>
 
@@ -10,13 +11,15 @@
     props: ['flash'],
     // フラッシュメッセージのfadeout
     methods: {
-      mounted(){
-        var flash = document.getElementById('js-flash');
+      // created(){
+        // var flash = document.getElementById('js-flash');
     
-        setTimeout(function(){
-            flash.style.display = "none"
-            }, 3000);
-      }
+        // console.log('test');
+        // setTimeout(function(){
+            // flash.style.display = "none"
+            // this.flash = false
+            // }, 3000);
+      // }
     }
   })
 </script>

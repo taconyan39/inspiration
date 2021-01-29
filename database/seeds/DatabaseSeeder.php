@@ -17,16 +17,16 @@ class DatabaseSeeder extends Seeder
         $this->call(CategoriesTableSeeder::class);
 
         //本番用
-        $this->call(IdeasTableSeeder::class);
-        $this->call(ReviewsTableSeeder::class);
-        $this->call(InterestTableSeeder::class);
-        $this->call(BuyIdeaTableSeeder::class);
+        // $this->call(IdeasTableSeeder::class);
+        // $this->call(ReviewsTableSeeder::class);
+        // $this->call(InterestTableSeeder::class);
+        // $this->call(BuyIdeaTableSeeder::class);
         
         // ローカル用
-        // $this->call(ReviewsLocalTableSeeder::class);
-        // $this->call(IdeasLocalTableSeeder::class);
-        // $this->call(InterestLocalTableSeeder::class);
-        // $this->call(BuyIdeaLocalTableSeeder::class);
+        $this->call(ReviewsLocalTableSeeder::class);
+        $this->call(IdeasLocalTableSeeder::class);
+        $this->call(InterestLocalTableSeeder::class);
+        $this->call(BuyIdeaLocalTableSeeder::class);
 
     }
 }

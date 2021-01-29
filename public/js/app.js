@@ -1975,16 +1975,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['flash'],
   // フラッシュメッセージのfadeout
-  methods: {
-    mounted: function mounted() {
-      var flash = document.getElementById('js-flash');
-      setTimeout(function () {
-        flash.style.display = "none";
-      }, 3000);
-    }
+  methods: {// created(){
+    // var flash = document.getElementById('js-flash');
+    // console.log('test');
+    // setTimeout(function(){
+    // flash.style.display = "none"
+    // this.flash = false
+    // }, 3000);
+    // }
   }
 });
 
@@ -38705,9 +38707,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _vm.flash
-    ? _c("div", { staticClass: "c-flash js-flash" }, [
-        _vm._v(_vm._s(_vm.flash))
-      ])
+    ? _c("div", { staticClass: "c-flash" }, [_vm._v(_vm._s(_vm.flash))])
     : _vm._e()
 }
 var staticRenderFns = []
@@ -51356,14 +51356,13 @@ Vue.component('pagination', __webpack_require__(/*! ./components/Pagination.vue 
 
 var app = new Vue({
   el: '#app',
-  // data: function() {
-  //   return {
-  //     menu: false
-  //   }
-  // },
-  data: {
-    page: 1,
-    items: []
+  data: function data() {
+    return {
+      menu: false,
+      page: 1,
+      items: [],
+      flash_flg: true
+    };
   },
   methods: {
     getItems: function getItems() {
@@ -51377,7 +51376,14 @@ var app = new Vue({
     }
   },
   mounted: function mounted() {
-    this.getItems(); // console.log(this.items)
+    this.getItems();
+    {
+      var flash = document.getElementById('js-flash');
+      console.log(this.flash_flg);
+      setTimeout(function () {
+        flash.style.display = "none"; // this.flash_flg = false
+      }, 3000);
+    }
   }
 });
 
