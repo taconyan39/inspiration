@@ -88,35 +88,10 @@
 
                             </li>
 
-                                
-                        <!-- </li> -->
                     @endguest
                 </ul>
 
-                <!-- <div class="p-header__hamburger" @menu-click="menu=!menu">
-                    <div class="c-hamburger__line p-header__hamburger--top"></div>
-                    <div class="c-hamburger__line p-header__hamburger--middle"></div> 
-                    <div class="c-hamburger__line p-header__hamburger--bottom"></div>
-                </div> -->
-
-
                 <hamburger-menu @menu-click="menu = $event"></hamburger-menu>
-        
-                <!-- <transition name="menu" v-cloak>
-                    <div class="l-sp__menu" v-if="menu">
-                        <div class="p-categoryList">
-                            <ul class="c-list p-categoryList__items">
-                                <li class="c-list__title p-categoryList__item">
-                                    <p class="c-content__title p-categoryList__title">カテゴリ名</p>
-                                </li>
-                                <li class="c-list__item p-categoryList__item">
-                                    <a href="url('ideas-list/')" class="c-list__link p-categoryList__link">aaa</a>
-                                </li>
-                            </ul> 
-                        </div>
-                    </div>
-                </transition> -->
-                
 
             </nav>
         </header>
