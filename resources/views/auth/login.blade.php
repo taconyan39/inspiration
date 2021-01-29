@@ -68,5 +68,11 @@
             </div>
         </form>
     </div>
+
+    <div style="text-align:center">
+        <h3>ゲストユーザー</h3>
+        <p>mail:example@sample.com</p>
+        <p>password:guestuser</p>
+    </div>
 </div>
 @endsection

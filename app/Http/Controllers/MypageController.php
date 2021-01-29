@@ -10,6 +10,7 @@ use App\Review;
 use App\UserReaction; 
 use App\Interest;
 use App\BuyIdea;
+use App\Category;
 
 class MypageController extends Controller
 {
@@ -84,8 +85,6 @@ class MypageController extends Controller
         //     $idea->rating = sprintf('%.1f',$idea->reviews->avg('rating'));
         //     $idea->countReview = $idea->reviews->count();
         // }
-
-        // dd($buyIdeas);
 
         return view('mypage',['user' => $user, 'postIdeas' => $postIdeas, 'interestIdeas' => $interestIdeas, 'buyIdeas' => $buyIdeas, 'ideaReviews' => $ideaReviews]);
     }

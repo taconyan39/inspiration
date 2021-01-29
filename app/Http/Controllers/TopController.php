@@ -18,8 +18,6 @@ class TopController extends Controller
 
         $reviews = Review::latest()->take(4)->get();
 
-        // dd($reviews);
-
         // 口コミの平均値を$ideasに格納する
         foreach($ideas as $idea){
             $idea->rating = sprintf('%.1f',$idea->reviews->avg('rating'));
@@ -31,7 +29,6 @@ class TopController extends Controller
             $review->idea->countReview = $idea->reviews->count();
         }
 
-        // dd($ideas[0]->countReview);
         $pickupCategories =  Category::all()->take(6);
 
         return view('index', ['ideas' => $ideas, 'categories' => $categories, 'pickupCategories' => $pickupCategories, 'reviews' => $reviews]);

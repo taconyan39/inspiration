@@ -433,7 +433,6 @@ li {
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  padding: 5px;
   box-sizing: border-box;
 }
 
@@ -844,7 +843,7 @@ li {
 .p-pickupCategory__filter {
   background-color: rgba(0, 0, 0, 0.3);
   position: absolute;
-  height: 96%;
+  height: 100%;
   padding-top: 30%;
   width: 100%;
   text-align: center;

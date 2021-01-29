@@ -15,18 +15,11 @@
 //     return view('welcome');
 // });
 
+// テスト用ページ
 // Route::get('/pagination', 'TestController@get');
 // Route::get('ajax/pagination', '\Ajax\TestController@get');
-// Route::post('/', 'TwitterController@twitter')->name('twitter');
-// Route::get('/login/twitter/callback', 'TwitterController@twitterCallback');
-// Route::post('/login/twitter/callback', 'TwitterController@twitterCallback');
-// Route::get('/share', 'TwitterController@share');
-// Route::post('/share', 'TwitterController@share')->name('share');
 
-
-// jsonテスト用
-// Route::get('contact', 'ContactController@input'); // 入力ページ
-// Route::post('contact', 'ContactController@send'); // 送信ページ（Ajax）
+// トップページ
 
 Route::get('/', 'TopController@index')->name('index');
 Route::get('/index', 'TopController@index')->name('index');
@@ -49,30 +42,13 @@ Route::post('post-idea/interest/{id}', 'PostIdeasController@interest');
 Route::post('post-idea/buy/{id}', 'PostIdeasController@buy')->name('buy');
 
 // アイデア一覧表示
-Route::get('ideas-list', 'IdeasListController@index');
+Route::get('ideas-list/{category}', 'IdeasListController@index');
 Route::get('ajax/ideas-list', 'Ajax\IdeasListController@index');
-// Route::get('ajax/ideas-list/{category}', 'Ajax\IdeasListController@index');
-// Route::get('pagination', 'PaginationController@index'); // メイン
-Route::get('ajax/pagination', 'Ajax\PaginationController@index'); // Ajax
 
 // レビュー投稿画面
 Route::get('reviews/post-review/{id}','ReviewsController@create');
 Route::post('reviews/post-review/{id}','ReviewsController@store');
 
-// Twitter
-// Route::post('/', 'TwitterController@twitter')->name('twitter');
-// Route::get('/login/twitter/callback', 'TwitterController@twitterCallback');
-
-// Route::get('product/create', 'ProductController@create');
-// Route::post('product', 'ProductController@store')->name('twitter');  // Ajax
-
-// Route::post('/login/twitter/callback', 'TwitterController@twitterCallback');
-// Route::get('/share', 'TwitterController@twitterLogedIn');
-// Route::post('/share', 'TwitterController@share')->name('share');
-
-
-// つまり"TestMailController"のsendメソッドを利用してメールを送信する
-Route::get('/mail', 'TestMailController@send')->name('mail');
 
 Auth::routes();
 

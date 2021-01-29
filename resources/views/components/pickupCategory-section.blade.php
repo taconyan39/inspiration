@@ -9,7 +9,7 @@
 
               <div class="p-pickupCategory__item--outer c-img--outer">
                 <div class="p-pickupCategory__filter">
-                  <small class="p-pickupCategory__name">{{ $pickupCategory->name }}</small>
+                  <small class="p-pickupCategory__name">{{ $pickupCategory->category_name }}</small>
                 </div>
             
                   <img src="{{ asset('/images/categories/'.$pickupCategory->image) }}" alt="{{ $pickupCategory->name }}.'の写真'" class="c-img p-pickupCategory__img">

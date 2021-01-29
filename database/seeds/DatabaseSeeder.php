@@ -19,14 +19,14 @@ class DatabaseSeeder extends Seeder
         //本番用
         // $this->call(IdeasTableSeeder::class);
         // $this->call(ReviewsTableSeeder::class);
+        // $this->call(InterestTableSeeder::class);
+        // $this->call(BuyIdeableSeeder::class);
         
         // ローカル用
         $this->call(ReviewsLocalTableSeeder::class);
         $this->call(IdeasLocalTableSeeder::class);
         $this->call(InterestLocalTableSeeder::class);
         $this->call(BuyIdeaLocalTableSeeder::class);
-        $this->call(IdeasReviewsLocalTableSeeder::class);
-
 
     }
 }

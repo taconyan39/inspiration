@@ -15,10 +15,10 @@ class UsersTableSeeder extends Seeder
     {
 
             DB::table('users')->insert([
-                'name' => 'sample1',
-                'email' => 'taconyan39@gmail.com',
+                'name' => '山田太郎',
+                'email' => 'example@sample.com',
                 'introduction' => '自己紹介文',
-                'password' => bcrypt('password'),
+                'password' => bcrypt('guestuser'),
                 'icon_img' => 'icon_sample01.jpg',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),

@@ -10,16 +10,10 @@ class IdeasListController extends Controller
 {
     
     // public function index($sort){
-    public function index(){
-        // if($sort === 'all'){
-        //     $ideas = Idea::paginate(10);
-        // }else{
-        //     $ideas = Idea::where('category_id', '=', $sort)->orderBy('created_at', 'desc')->paginate(10);
-        // }
-        // $ideas = Idea::paginate(10);
+    public function index($sort){
 
         $categories = Category::all();
 
-        return view('ideas-list', ['categories' => $categories]);
+        return view('ideas-list', ['categories' => $categories, 'sort' => $sort]);
     }
 }
