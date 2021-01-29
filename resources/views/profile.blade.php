@@ -64,9 +64,13 @@
 
             <div class="p-profileEdit__row c-container__row">
 
-                <icon-edit
+                <!-- <icon-edit
                     noimage="{{ asset('images/icon/noimage_icon.png') }}"
                     icon="{{ asset('storage/images/icons/' . $user->icon_img) }}"
+                ></icon-edit> -->
+                <icon-edit
+                    noimage="{{ asset('images/icon/noimage_icon.png') }}"
+                    icon="{{ asset('images/icons/' . $user->icon_img) }}"
                 ></icon-edit>
                 
                 @error('prof_img')

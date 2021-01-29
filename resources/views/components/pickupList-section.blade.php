@@ -32,7 +32,8 @@
               <div class="p-attention__userCard c-card">
                 <div class="c-img--outer c-card--top p-attention__userImg--outer">
 
-                  <img class="c-img p-attention__userImg" src="{{asset('storage/images/icons/' . $idea->user->icon_img )}}" alt="">
+                  <!-- <img class="c-img p-attention__userImg" src="{{asset('storage/images/icons/' . $idea->user->icon_img )}}" alt=""> -->
+                  <img class="c-img p-attention__userImg" src="{{asset('images/icons/' . $idea->user->icon_img )}}" alt="">
                 </div>
                 <div class="c-card--bottom p-attention__userCard--bottom">
                   <p class="c-card__name">{{ $idea->user->name }}</p>

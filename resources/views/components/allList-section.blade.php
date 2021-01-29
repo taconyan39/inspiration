@@ -29,7 +29,8 @@
       <a href="{{ url('./post-idea/'.$item->id)}}" class="c-list__link p-simpleList__listLink u-clearfix">
         <div class="p-simpleList__user">
           <div class="c-img--outer p-simpleList__userImg--outer">
-            <img class="c-img p-simpleList__userImg" src="{{asset('/storage/images/icons/'.$item->user->icon_img)}}" alt="">
+            <!-- <img class="c-img p-simpleList__userImg" src="{{asset('/storage/images/icons/'.$item->user->icon_img)}}" alt=""> -->
+            <img class="c-img p-simpleList__userImg" src="{{asset('images/icons/'.$item->user->icon_img)}}" alt="">
           </div>
         </div>
         <div class="p-simpleList__info">
