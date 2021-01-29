@@ -159,7 +159,7 @@ class IdeasTableSeeder extends Seeder
         for($i = 1; $i <= 10; $i++){
 
             $u = mt_rand(1, 7)  * 10 + 1;
-            $c = mt_rand(1, 6) * 1 + 1;
+            $c = mt_rand(1, 6) * 10 + 1;
         DB::table('ideas')->insert([
             'title' => '暗夜行路',
             'price' => '9800',
