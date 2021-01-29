@@ -81,6 +81,10 @@ class PostIdeasController extends Controller
      */
     public function show($id)
     {
+        if(!ctype_digit($id)){
+            return redirect('/drills/new')->with('flash_message', __('Invalid operation was performed.'));
+        }
+        
         $user = Auth::user();
         $idea = Idea::find($id);
         $idea->rating = sprintf('%.1f',$idea->reviews()->avg('rating'));

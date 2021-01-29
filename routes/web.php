@@ -25,14 +25,6 @@ Route::get('/', 'TopController@index')->name('index');
 Route::get('/index', 'TopController@index')->name('index');
 Route::get('/home', 'UsersController@home')->name('home');
 
-//プロフィール変更
-Route::get('/profile', 'ProfileController@edit')->name('profile.edit');
-Route::post('/profile', 'ProfileController@update')->name('profile.update');
-
-//パスワード変更
-Route::get('password-edit', 'PasswordEditController@edit')->name('passwordEdit.edit');
-Route::post('password-edit', 'PasswordEditController@update')->name('passwordEdit.update');
-
 // アイデア詳細表示
 Route::resource('post-idea', 'PostIdeasController');
 Route::post('ajax/interest/{id}', 'Ajax\PostIdeasController@interest');
@@ -44,6 +36,15 @@ Route::post('post-idea/buy/{id}', 'PostIdeasController@buy')->name('buy');
 // アイデア一覧表示
 Route::get('ideas-list/{category}', 'IdeasListController@index');
 Route::get('ajax/ideas-list', 'Ajax\IdeasListController@index');
+
+//プロフィール変更
+Route::get('/profile', 'ProfileController@edit')->name('profile.edit');
+Route::post('/profile', 'ProfileController@update')->name('profile.update');
+
+//パスワード変更
+Route::get('password-edit', 'PasswordEditController@edit')->name('passwordEdit.edit');
+Route::post('password-edit', 'PasswordEditController@update')->name('passwordEdit.update');
+
 
 // レビュー投稿画面
 Route::get('reviews/post-review/{id}','ReviewsController@create');
