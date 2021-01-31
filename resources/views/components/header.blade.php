@@ -37,7 +37,7 @@
         <header class="l-header" id="header">
 
         <!-- フラッシュメッセージ -->
-            <flash-message class="js-flash" flash="{{ session('flash_message') }}"></flash-message>
+            <flash-message id="flash" flash="{{ session('flash_message') }}"></flash-message>
 
             <nav class="u-site__width p-header">
                 <a class="navbar-brand" href="{{ url('/') }}">

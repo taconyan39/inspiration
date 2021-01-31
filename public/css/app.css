@@ -658,10 +658,6 @@ li {
   height: 80px;
   background: rgba(79, 195, 247, 0.8);
   line-height: 80px;
-  -webkit-animation: fadeOut 3s;
-          animation: fadeOut 3s;
-  -webkit-animation-fill-mode: both;
-          animation-fill-mode: both;
 }
 
 @-webkit-keyframes fadeOut {

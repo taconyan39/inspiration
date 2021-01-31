@@ -51378,8 +51378,8 @@ var app = new Vue({
   mounted: function mounted() {
     this.getItems();
     {
-      var flash = document.getElementById('js-flash');
-      console.log(this.flash_flg);
+      var flash = document.getElementById('flash'); // console.log(this.flash_flg);
+
       setTimeout(function () {
         flash.style.display = "none"; // this.flash_flg = false
       }, 3000);

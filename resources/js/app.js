@@ -67,9 +67,9 @@ const app = new Vue({
       mounted() {
         
         this.getItems();{
-            var flash = document.getElementById('js-flash');
+            var flash = document.getElementById('flash');
         
-            console.log(this.flash_flg);
+            // console.log(this.flash_flg);
             setTimeout(function(){
                 flash.style.display = "none"
                 // this.flash_flg = false
@@ -80,4 +80,3 @@ const app = new Vue({
     }
     
 });
-

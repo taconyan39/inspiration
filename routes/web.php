@@ -16,7 +16,7 @@
 // });
 
 // テスト用ページ
-// Route::get('/pagination', 'TestController@get');
+Route::get('/test', 'TestController@get');
 // Route::get('ajax/pagination', '\Ajax\TestController@get');
 
 // トップページ

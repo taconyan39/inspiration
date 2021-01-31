@@ -1,53 +1,82 @@
 <html>
 <head>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
     <div style="padding:15px;" id="app">
-        <ul class="list-group">
-            <li class="list-group-item" v-for="item in items.data" v-text="item.name"></li>
-        </ul>
-        <br>
-        <v-pagination :data="items" @move-page="movePage($event)"></v-pagination>
+        <div v-if="show" class="c-flash js-flash"></div>
+        <button @click="removeFlash">フラッシュ</button>
     </div>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"></script> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script> -->
     <!-- <script src="/js/vue/v-pagination.js"></script> -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script>
+        const app = new Vue({
+    el: '#app',
 
-        new Vue({
-            el: '#app',
-            data: {
-                page: 1,
-                items: []
-            },
-            methods: {
-                getItems() {
+    data: function() {
+      return {
+        menu: false,
+        page: 1,
+        items: [],
+        flash: false,
+        show: true
+      }
+    },
+    methods: {
+    //   getItems() {
+  
+    //     const url = '/ajax/ideas-list?page=' + this.page;
+    //     // const url = '/ajax/ideas-list';
+    //     axios.get(url)
+    //       .then((response) => {
+    //         this.items = response.data;
+    //       });
+    //     }
+    
+    // }
 
-                    const url = '/ajax/pagination?page='+ this.page;
-                    axios.get(url)
-                        .then(response => {
+    removeFlash() {
+        // var that = this.flash
+        this.show = true
+        }
+    },
+// },
+mounted() {
 
-                            this.items = response.data;
+    // this.getItems();{
+        // var flash = document.getElementById('flash');
+        // this.flash = removeFlash();
 
-                        });
+        // if(this.flash === true){
+        //     this.show = true
+        // that = this.show;
+        //     setTimeout(function(){
+        //         console.log('タイマー')
+        //         // flash.style.display = "none"
+        //         console.log(that);
+        //         that = false
+        //     }, 3000);
+        // },
+    // updated(){
+    //     setTimeout(() => {
+    //         this.show = false
+    //     }, 3000)
+    // },
+}
+});
 
-                },
-                movePage(page) {
+// (function() {
+//     'use strict';
 
-                    this.page = page;
-                    this.getItems();
+//     // フラッシュメッセージのfadeout
+//     $(function(){
+//         $('.flash_message').fadeOut(3000);
+//     });
 
-                }
-            },
-            mounted() {
-
-                this.getItems();
-
-            }
-        });
-
+// })();
     </script>
 </body>
 </html>
