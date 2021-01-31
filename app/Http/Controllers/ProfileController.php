@@ -33,12 +33,13 @@ class ProfileController extends Controller
         unset($form['_method']);
         $user->fill($form)->save();
 
-        $user->notify(new NotificationTest);
 
         return redirect('/mypage')->with('flash_message', 'プロフィールを変更しました');
     }
 
     private function saveProfileImage($image, $id) {
+
+        $user = Auth::user();
         // get instance
         $img = \Image::make($image);
         // resize
@@ -47,9 +48,15 @@ class ProfileController extends Controller
         });
 
         // save
+        $disk = Storage::disk('s3');
         $file_name = 'icon_'.$id.'.'.$image->getClientOriginalExtension();
-        $save_path = 'public/images/icons/'.$file_name;
-        Storage::put($save_path, (string) $img->encode());
+
+        $save_path = 'images/icons/'.$file_name;
+        $disk->put('images/icons/'.$file_name, (string) $img->encode(), 'public');
+
+        $file_name = $disk->url($save_path);
+        $user->save();
+
         // return file name
         return $file_name;
     }
