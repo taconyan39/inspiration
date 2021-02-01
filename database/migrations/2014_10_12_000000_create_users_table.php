@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Storage;
 
 class CreateUsersTable extends Migration
 {
@@ -18,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('introduction')->nullable();
-            $table->string('icon_img')->nullable();
+            $table->string('icon_img')->nullable()->default(Storage::disk('s3')->url('images/icons/noimage.png'));
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->boolean('delete_flg')->default(0);

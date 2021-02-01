@@ -1,4 +1,4 @@
-.p-header{
+img.p-header{
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -279,8 +279,6 @@
     padding: $spacing-sm;
   }
   &__userImg{
-    border: 1px solid $color_black;
-    border-radius: 50%;
     &--outer{
       width: 80px;
       height: 80px;
@@ -412,8 +410,6 @@
     margin-right: $spacing-lg;
   }
   &__userImg{
-    border: 1px solid $color_black;
-    border-radius: 50%;
     &--outer{
       width: 50px;
       height: 50px;
@@ -462,7 +458,6 @@
     border: 3px solid $color_main;
   }
   &__img{
-    border-radius: 50%;
     &--outer{
       width: 80px;
       height: 80px;

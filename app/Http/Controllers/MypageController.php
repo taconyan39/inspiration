@@ -76,7 +76,6 @@ class MypageController extends Controller
                     ->take(5)
                     ->get();
 
-        // dd($ideaReviews[0]);
 
         // レビューの平均値と口コミ数を$ideasに入れる
         // $ideas = Idea::all();

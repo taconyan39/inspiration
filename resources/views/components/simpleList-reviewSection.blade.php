@@ -5,30 +5,41 @@
   <ul class="c-list p-ideaList__list">
 
     @foreach($reviews as $review)
-      <li class="c-list__item p-ideaList__listItem u-clearfix">
-        <a href="{{ url('./post-idea/'.$review->id)}}" class="c-list__link p-ideaList__listLink u-clearfix">
+      <li class="c-list__item p-simpleList__listItem u-clearfix">
+        <a href="{{ url('./post-idea/'.$review->id)}}" class="c-list__link p-simpleList__listLink u-clearfix">
 
         <!-- 情報部分 -->
-          <div class="p-ideaList__user">
+          <!-- <div class="p-ideaList__user">
             <div class="c-img--outer p-ideaList__userImg--outer">
               <img class="c-img p-ideaList__userImg" src="{{asset('/images/icon/'.$review->icon_img)}}" alt="">
             </div>
+          </div> -->
+
+          <div class="p-simpleList__user">
+            <div class="c-img--outer c-img--round p-simpleList__userImg--outer">
+              @if( $review->icon_img )
+                <img class="c-img p-simpleList__userImg" src="{{ $review->icon_img }}" alt="プロフィール画像">
+              @else
+                <img class="c-img p-simpleList__userImg" src="{{asset('images/icons/noimage_icon.png')}}" alt="プロフィール画像">
+              @endif  
+            </div>
           </div>
 
+
           <!-- タイトル部分 -->
-          <div class="p-ideaList__info">
-            <div class="p-ideaList__info--top">
-              <div class="p-ideaList__info--spec">
-                <span class="p-ideaList__name">{{ $review->name }}</span>
+          <div class="p-simpleList__info">
+            <div class="p-simpleList__info--top">
+              <div class="p-simpleList__info--spec">
+                <span class="p-simpleList__name">{{ $review->name }}</span>
                 <span class="c-rating">{{ $review->rating  }}</span>
-                <span class="p-ideaList__rating--num"></span>
-                <span class="c-tag p-ideaList__tag">{{ $review->category_name}}</span>
+                <span class="p-simpleList__rating--num"></span>
+                <span class="c-tag p-simpleList__tag">{{ $review->category_name}}</span>
               </div>
             </div>
 
             <!-- 概要部分 -->
-            <div class="p-ideaList__info--bottom">
-              <p class="c-txt p-ideaList__summary ">
+            <div class="p-simpleList__info--bottom">
+              <p class="c-txt p-simpleList__summary ">
                 {{$review->summary}}</p>
             </div>
 
@@ -39,7 +50,7 @@
 
   </ul>
   <!-- 全件表示 -->
-  <div class="p-ideaList__bottom">
+  <div class="p-simpleList__bottom">
     <a href="{{ url('post-idea') }}" class="c-link__underline">全件表示</a>
   </div>
 </section>

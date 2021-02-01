@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
 
 class UsersTableSeeder extends Seeder
@@ -14,12 +15,13 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
 
+            $disk = Storage::disk('s3');
             DB::table('users')->insert([
                 'name' => '山田太郎',
                 'email' => 'example@sample.com',
                 'introduction' => '自己紹介文',
                 'password' => bcrypt('guestuser'),
-                'icon_img' => 'icon_sample01.jpg',
+                'icon_img' => $disk->url('images/icons/icon_sample01.jpg'),
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]);
