@@ -20,7 +20,14 @@ class IdeasListController extends Controller
         //     $ideas = Idea::where('category_id', '=', $sort)->orderBy('created_at', 'desc')->paginate(10);
         // }
 
-        $ideas = Idea::paginate(10);
+
+        $ideas = Idea::with('user','category', 'reviews')->paginate(10);
+
+        // TODO まとめられないか? サービスプロバイダ?
+        foreach($ideas as $idea){
+            $idea->rating = sprintf('%.1f',$idea->reviews->avg('rating'));
+            $idea->countReview = $idea->reviews->count();
+        }
 
         return $ideas;
     }

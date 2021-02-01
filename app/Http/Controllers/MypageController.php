@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Idea;
 use App\Review;
-use App\UserReaction; 
 use App\Interest;
 use App\BuyIdea;
 use App\Category;
@@ -76,15 +75,7 @@ class MypageController extends Controller
                     ->take(5)
                     ->get();
 
-
-        // レビューの平均値と口コミ数を$ideasに入れる
-        // $ideas = Idea::all();
-
-        // foreach($ideas as $idea){
-        //     $idea->rating = sprintf('%.1f',$idea->reviews->avg('rating'));
-        //     $idea->countReview = $idea->reviews->count();
-        // }
-
         return view('mypage',['user' => $user, 'postIdeas' => $postIdeas, 'interestIdeas' => $interestIdeas, 'buyIdeas' => $buyIdeas, 'ideaReviews' => $ideaReviews]);
     }
+
 }

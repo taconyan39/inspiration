@@ -40,7 +40,7 @@
             <!-- 概要部分 -->
             <div class="p-simpleList__info--bottom">
               <p class="c-txt p-simpleList__summary ">
-                {{$review->summary}}</p>
+                {{$review->review}}</p>
             </div>
 
           </div>

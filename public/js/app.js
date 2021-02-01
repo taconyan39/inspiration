@@ -2152,8 +2152,85 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['items']
+  props: ['items', 'categories'],
+  data: function data() {
+    return {
+      sorts: [{
+        id: 1,
+        type: '投稿日'
+      }, {
+        id: 2,
+        type: '価格順'
+      } // { id:3, type: 'カテゴリー'},
+      ],
+      orders: [{
+        sortId: 1,
+        id: 1,
+        text: '投稿が新しい順'
+      }, {
+        sortId: 1,
+        id: 2,
+        text: '投稿が古い順'
+      }, {
+        sortId: 2,
+        id: 1,
+        text: '価格が高い順'
+      }, {
+        sortId: 2,
+        id: 2,
+        text: '投稿が安い順'
+      }],
+      selectedSortId: -1,
+      selectedOrderId: -1,
+      selectedCategoryId: -1
+    };
+  },
+  methods: {
+    onChangeSort: function onChangeSort() {
+      this.selectedOrderId = -1;
+
+      if (!this.selectedSortId) {
+        this.selectedSortId = -1;
+      }
+    }
+  },
+  computed: {
+    filteredOrders: function filteredOrders() {
+      var filteredOrders = [];
+
+      for (var i = 0; i < this.orders.length; i++) {
+        var order = this.orders[i];
+
+        if (order.sortId == this.selectedSortId) {
+          filteredOrders.push(order);
+        }
+      }
+
+      return filteredOrders;
+    }
+  }
 });
 
 /***/ }),
@@ -38822,30 +38899,270 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("section", { staticClass: "p-simpleList" }, [
-    _c("h2", { staticClass: "c-title__section p-simpleList__title" }, [
+  return _c("section", { staticClass: "p-fullList" }, [
+    _c("h2", { staticClass: "c-title__section p-fullList__title" }, [
       _vm._v("アイデア一覧")
     ]),
     _vm._v(" "),
-    _vm._m(0),
+    _c("div", [_vm._v(_vm._s(_vm.sort))]),
     _vm._v(" "),
-    _vm._m(1),
-    _vm._v(" "),
-    _vm._m(2),
+    _c("div", { staticClass: "c-search__wrapper p-fullList__search" }, [
+      _c(
+        "select",
+        {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.selectedSortId,
+              expression: "selectedSortId"
+            }
+          ],
+          staticClass: "c-selectBox",
+          attrs: { name: "sort" },
+          on: {
+            change: [
+              function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.selectedSortId = $event.target.multiple
+                  ? $$selectedVal
+                  : $$selectedVal[0]
+              },
+              _vm.onChangeSort
+            ]
+          }
+        },
+        [
+          _c("option", { domProps: { value: _vm.selectedSortId } }, [
+            _vm._v("絞り込む")
+          ]),
+          _vm._v(" "),
+          _vm._l(_vm.sorts, function(sort) {
+            return _c("option", {
+              key: sort.id,
+              domProps: { value: sort.id, textContent: _vm._s(sort.type) }
+            })
+          })
+        ],
+        2
+      ),
+      _vm._v(" "),
+      _c(
+        "select",
+        {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.selectedOrderId,
+              expression: "selectedOrderId"
+            }
+          ],
+          staticClass: "c-selectBox p-fullList__search--order",
+          attrs: { name: "order" },
+          on: {
+            change: function($event) {
+              var $$selectedVal = Array.prototype.filter
+                .call($event.target.options, function(o) {
+                  return o.selected
+                })
+                .map(function(o) {
+                  var val = "_value" in o ? o._value : o.value
+                  return val
+                })
+              _vm.selectedOrderId = $event.target.multiple
+                ? $$selectedVal
+                : $$selectedVal[0]
+            }
+          }
+        },
+        [
+          _c("option", { domProps: { value: _vm.selectedOrderId } }, [
+            _vm._v("並び順")
+          ]),
+          _vm._v(" "),
+          _vm._l(_vm.filteredOrders, function(order) {
+            return _c("option", {
+              key: order.id,
+              domProps: { value: order.id, textContent: _vm._s(order.text) }
+            })
+          })
+        ],
+        2
+      ),
+      _vm._v(" "),
+      _c(
+        "select",
+        {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.selectedCateogryId,
+              expression: "selectedCateogryId"
+            }
+          ],
+          staticClass: "c-selectBox p-fulllList__search--category",
+          attrs: { name: "sort_category" },
+          on: {
+            change: function($event) {
+              var $$selectedVal = Array.prototype.filter
+                .call($event.target.options, function(o) {
+                  return o.selected
+                })
+                .map(function(o) {
+                  var val = "_value" in o ? o._value : o.value
+                  return val
+                })
+              _vm.selectedCateogryId = $event.target.multiple
+                ? $$selectedVal
+                : $$selectedVal[0]
+            }
+          }
+        },
+        [
+          _c("option", { domProps: { value: _vm.selectedCategoryId } }, [
+            _vm._v("カテゴリー")
+          ]),
+          _vm._v(" "),
+          _vm._l(_vm.categories, function(category) {
+            return _c(
+              "option",
+              { key: category.id, domProps: { value: category.id } },
+              [_vm._v(_vm._s(category.category_name))]
+            )
+          })
+        ],
+        2
+      ),
+      _vm._v(" "),
+      _c("button", { staticClass: "c-search" }, [_vm._v("検索")])
+    ]),
     _vm._v(" "),
     _c(
       "ul",
-      { staticClass: "c-list p-simpleList__list" },
-      [
-        _vm._l(_vm.items, function(item) {
-          return _c("li", { key: item.id }, [
-            _vm._v("\n        " + _vm._s(item.title) + "\n      ")
-          ])
-        }),
-        _vm._v(" "),
-        _vm._m(3)
-      ],
-      2
+      { staticClass: "c-list p-fullList__list" },
+      _vm._l(_vm.items, function(item) {
+        return _c(
+          "li",
+          { key: item.id, staticClass: "p-fullList__item u-clearfix" },
+          [
+            _c(
+              "div",
+              {
+                staticClass: "c-list__link p-fullList__listLink u-clearfix",
+                attrs: { href: "#" }
+              },
+              [
+                _c("div", { staticClass: "p-fullList__info c-info" }, [
+                  _c(
+                    "div",
+                    { staticClass: "c-info__box p-fullList__infoBox--left" },
+                    [
+                      _c("time", { staticClass: "p-fullList__info--date" }, [
+                        _vm._v(_vm._s(item.created_at))
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("div", {
+                    staticClass: "c-info__box c-dammy p-fullList__infoBox"
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "c-info__box p-fullList__infoBox" },
+                    [
+                      _c(
+                        "span",
+                        { staticClass: "p-fullList__rating c-rating" },
+                        [
+                          _vm._v(
+                            _vm._s(item.rating) +
+                              "(" +
+                              _vm._s(item.countReview) +
+                              ")"
+                          )
+                        ]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "c-info__box p-fullList__infoBox" },
+                    [
+                      _c("span", { staticClass: "c-price p-fullList__price" }, [
+                        _vm._v("¥" + _vm._s(item.price))
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "p-fullList__infoBox--bottom" }, [
+                  _c(
+                    "span",
+                    { staticClass: "c-tag p-fullList__infoBox--tag" },
+                    [_vm._v(_vm._s(item.category.category_name))]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "h3",
+                    {
+                      staticClass:
+                        "c-list__item--title p-fullList__infoBox--title"
+                    },
+                    [_vm._v(_vm._s(item.title))]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "p-fullList__body" }, [
+                  _c("div", { staticClass: "p-fullList__user" }, [
+                    _c("div", { staticClass: "p-fullList__userCard c-card" }, [
+                      _vm._m(0, true),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "c-card--bottom p-fullList__userCard--bottom"
+                        },
+                        [
+                          _c("p", { staticClass: "c-card__name" }, [
+                            _vm._v(_vm._s(item.user.name))
+                          ])
+                        ]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "c-info__item" }, [
+                    _c("div", { staticClass: "p-fullList__summary" }, [
+                      _c(
+                        "div",
+                        { staticClass: "p-fullList__text--container" },
+                        [
+                          _c("p", { staticClass: "c-txt p-fullList__text " }, [
+                            _vm._v(_vm._s(item.summary))
+                          ])
+                        ]
+                      )
+                    ])
+                  ])
+                ])
+              ]
+            )
+          ]
+        )
+      }),
+      0
     )
   ])
 }
@@ -38854,93 +39171,17 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("select", { attrs: { name: "sort", id: "sort" } }, [
-      _c("option", { attrs: { value: "1" } }, [_vm._v("投稿日")]),
-      _vm._v(" "),
-      _c("option", { attrs: { value: "2" } }, [_vm._v("カテゴリ")]),
-      _vm._v(" "),
-      _c("option", { attrs: { value: "3" } }, [_vm._v("価格")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("select", { attrs: { name: "sort_sub", id: "" } }, [
-      _c("option", { attrs: { value: "1" } }, [_vm._v("新着順")]),
-      _vm._v(" "),
-      _c("option", { attrs: { value: "2" } }, [_vm._v("古い順")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("select", { attrs: { name: "sort_sub", id: "" } }, [
-      _c("option", { attrs: { value: "1" } }),
-      _vm._v(" "),
-      _c("option", { attrs: { value: "2" } }),
-      _vm._v(" "),
-      _c("option", { attrs: { value: "3" } }),
-      _vm._v(" "),
-      _c("option", { attrs: { value: "4" } }),
-      _vm._v(" "),
-      _c("option", { attrs: { value: "5" } }),
-      _vm._v(" "),
-      _c("option", { attrs: { value: "6" } }),
-      _vm._v(" "),
-      _c("option", { attrs: { value: "7" } })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c(
-      "li",
-      { staticClass: "c-list__item p-simpleList__listItem u-clearfix" },
+      "div",
+      { staticClass: "c-img--outer c-card--top p-fullList__userImg--outer" },
       [
-        _c(
-          "a",
-          {
-            staticClass: "c-list__link p-simpleList__listLink u-clearfix",
-            attrs: { href: "" }
-          },
-          [
-            _c("div", { staticClass: "p-simpleList__user" }, [
-              _c(
-                "div",
-                { staticClass: "c-img--outer p-simpleList__userImg--outer" },
-                [
-                  _c("img", {
-                    staticClass: "c-img p-simpleList__userImg",
-                    attrs: { src: "", alt: "" }
-                  })
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "p-simpleList__info" }, [
-              _c("div", { staticClass: "p-simpleList__info--top" }, [
-                _c("div", { staticClass: "p-simpleList__info--spec" }, [
-                  _c("span", { staticClass: "p-simpleList__name" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "fas fa-star fa-lg c-rating__icon" }),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("3.7")]),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "p-simpleList__rating--num" }),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "c-tag p-simpleList__tag" })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "p-simpleList__info--bottom" }, [
-                _c("p", { staticClass: "c-txt p-simpleList__summary " })
-              ])
-            ])
-          ]
-        )
+        _c("img", {
+          staticClass: "c-img p-fullList__userImg",
+          attrs: {
+            src: __webpack_require__(/*! ../../../public/images/icons/icon_sample01.jpg */ "./public/images/icons/icon_sample01.jpg"),
+            alt: ""
+          }
+        })
       ]
     )
   }
@@ -51306,6 +51547,17 @@ module.exports = function(module) {
 	return module;
 };
 
+
+/***/ }),
+
+/***/ "./public/images/icons/icon_sample01.jpg":
+/*!***********************************************!*\
+  !*** ./public/images/icons/icon_sample01.jpg ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/icon_sample01.jpg?c1bf0071ec53774103dac9325b41f9c8";
 
 /***/ }),
 

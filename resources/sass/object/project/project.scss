@@ -1,4 +1,4 @@
-img.p-header{
+.p-header{
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -22,12 +22,12 @@ img.p-header{
     background: $color_action;
     @include mq(md){
       font-size: $font-size_sm;
+      padding: $spacing-md;
     }
   }
   &__btn{
     @include mq(md){
       font-size: $font-size_sm;
-      padding: $spacing-md;
     }
     &--signup{
       background: $color_action;
@@ -214,19 +214,7 @@ img.p-header{
   }
   &__listLink{
     padding: $spacing-md;
-    // Todo ホバーしたらテキストのみアンダーライン
-    // &:hover + .p-atettntion__listLink .c-txt{
-    //   text-decoration: underline;
-    // }
   }
-  // &__info{
-    // 3点リーダーが使えないのでfloatを使っている
-    // float: left;
-    // margin-bottom: $spacing-md;
-    // display: flex;
-    // justify-content: space-between;
-    // text-align:right;
-  // }
   &__infoBox{
     &--left{
       text-align: start;
@@ -238,7 +226,6 @@ img.p-header{
       overflow:hidden;
     }
     &--title{
-      // width: 100px;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
@@ -662,6 +649,103 @@ img.p-header{
     margin: 0 auto;
   }
 }
+
+.p-fullList{
+  width: 100%;
+  // padding: $spacing-md;
+  &__body{
+    width: 100%;
+    box-sizing: border-bx;
+    display: flex;
+    justify-content: flex-start;
+    overflow:hidden;
+    text-overflow: ellipsis;
+  }
+  &__item{
+    border: 3px solid $color_main;
+    width: 100%;
+    margin-bottom: $spacing-md;
+  }
+  &__infoBox{
+    &--left{
+      text-align: start;
+    }
+    &--bottom{
+      display: flex;
+      width: 100%;
+      margin-bottom: 10px;
+      overflow:hidden;
+    }
+    &--title{
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      width: 100%;
+    }
+    &--tag{
+      display: inline-block;
+      width: 100px;
+      text-align: center;
+      margin-left: 10px;
+      margin-right: 25px;
+    }
+  }
+  &__list{
+    width: 100%;
+  }
+  &__rating{
+    display: inline;
+  }
+  &__price{
+    font-size: $font-size_lg;
+  }
+  &__user{
+    // float: left;
+    width: 120px;
+    margin-right: $spacing-lg;
+  }
+  &__userCard{
+    width: 100px;
+    padding: $spacing-sm;
+  }
+  &__userImg{
+    &--outer{
+      width: 80px;
+      height: 80px;
+      margin: 0 auto $spacing-md;
+    }
+  }
+  &__search{
+    &--order{
+      width: 150px;
+    }
+  }
+  &__summary{
+    // TODO jsを使用して複数行の3点リーダー実装
+    // width: calc(100% - 120px);
+    // width: 30px;
+    width: 100%;
+  }
+  &__text{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    // white-space: nowrap;
+    box-sizing: border-box;
+    text-align: start;
+    &--container{
+      width: 100%;
+      margin-top: $spacing_md;
+    }
+  }
+  &__title{
+    text-align: center;
+    font-size: $font-size_xl;
+  }
+}
+
 
 // ページネーション
 .p-pagination{

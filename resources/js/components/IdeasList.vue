@@ -1,56 +1,77 @@
 <template>
-  <section class="p-simpleList">
-    <h2 class="c-title__section p-simpleList__title">アイデア一覧</h2>
+  <section class="p-fullList">
+    <h2 class="c-title__section p-fullList__title">アイデア一覧</h2>
 
-    <select name="sort" id="sort">
-      <option value="1">投稿日</option>
-      <option value="2">カテゴリ</option>
-      <option value="3">価格</option>
-    </select>
+    <div>{{ sort }}</div>
 
-    <select name="sort_sub" id="">
-      <option value="1">新着順</option>
-      <option value="2">古い順</option>
-    </select>
-    
-    <select name="sort_sub" id="">
-      <option value="1"></option>
-      <option value="2"></option>
-      <option value="3"></option>
-      <option value="4"></option>
-      <option value="5"></option>
-      <option value="6"></option>
-      <option value="7"></option>
-    </select>
+    <div class="c-search__wrapper p-fullList__search">
+      <select name="sort" class="c-selectBox" v-model="selectedSortId" @change="onChangeSort">
+        <option :value="selectedSortId">絞り込む</option>
+        <option v-for="sort in sorts" :value="sort.id" v-text="sort.type" :key="sort.id"></option>
+      </select>
 
-    <ul class="c-list p-simpleList__list">
-      <li v-for="item in items" :key="item.id">
-        {{item.title}}
-      </li>
-      <li class="c-list__item p-simpleList__listItem u-clearfix">
-        <a href="" class="c-list__link p-simpleList__listLink u-clearfix">
-          <div class="p-simpleList__user">
-            <div class="c-img--outer p-simpleList__userImg--outer">
-              <img class="c-img p-simpleList__userImg" src="" alt="">
+      <select name="order" class="c-selectBox p-fullList__search--order" v-model="selectedOrderId">
+        <option :value="selectedOrderId">並び順</option>
+        <option :value="order.id" v-for="order in filteredOrders" :key="order.id" v-text="order.text"></option>
+      </select>
+
+      <select name="sort_category" v-model="selectedCateogryId" class="c-selectBox p-fulllList__search--category">
+        <option :value="selectedCategoryId">カテゴリー</option>
+        <option :value="category.id" v-for="category in categories" :key="category.id">{{category.category_name}}</option>
+
+      </select>
+
+      <button class="c-search">検索</button>
+    </div>
+
+    <ul class="c-list p-fullList__list">
+      <li v-for="item in items" :key="item.id" class="p-fullList__item u-clearfix">
+      <div href="#" class="c-list__link p-fullList__listLink u-clearfix">
+          <div class="p-fullList__info c-info">
+            <!-- <div class="p-fullList__tag"> -->
+              
+            <div class="c-info__box p-fullList__infoBox--left">
+              <time class="p-fullList__info--date">{{ item.created_at }}</time>
+            </div>
+            <div class="c-info__box c-dammy p-fullList__infoBox"></div>
+            <div class="c-info__box p-fullList__infoBox">
+              <span class="p-fullList__rating c-rating">{{ item.rating }}({{ item.countReview }})</span>
+            </div>
+            <div class="c-info__box p-fullList__infoBox">
+              <span class="c-price p-fullList__price">¥{{ item.price }}</span>
             </div>
           </div>
-          <div class="p-simpleList__info">
-            <div class="p-simpleList__info--top">
-              <div class="p-simpleList__info--spec">
-                <span class="p-simpleList__name"></span>
-                <i class="fas fa-star fa-lg c-rating__icon"></i>
-                <span>3.7</span>
-                <span class="p-simpleList__rating--num"></span>
-                <span class="c-tag p-simpleList__tag"></span>
+          <div class="p-fullList__infoBox--bottom">
+            <span class="c-tag p-fullList__infoBox--tag">{{ item.category.category_name }}</span>
+            <h3 class="c-list__item--title p-fullList__infoBox--title">{{ item.title }}</h3>
+          </div>
+
+          <!-- body -->
+          <div class="p-fullList__body">
+
+            <div class="p-fullList__user">
+              <div class="p-fullList__userCard c-card">
+                <div class="c-img--outer c-card--top p-fullList__userImg--outer">
+
+                  <!-- <img class="c-img p-fullList__userImg" src="{{asset('storage/images/icons/' . $idea->user->icon_img )}}" alt=""> -->
+                  <img class="c-img p-fullList__userImg" src="../../../public/images/icons/icon_sample01.jpg" alt="">
+                </div>
+                <div class="c-card--bottom p-fullList__userCard--bottom">
+                  <p class="c-card__name">{{ item.user.name }}</p>
+                </div>
               </div>
-
             </div>
-            <div class="p-simpleList__info--bottom">
-              <p class="c-txt p-simpleList__summary ">
-                </p>
+            <div class="c-info__item">
+              
+              <div class="p-fullList__summary">
+                <div class="p-fullList__text--container">
+                  <p class="c-txt p-fullList__text ">{{ item.summary }}</p>
+                </div>
+              </div>
             </div>
           </div>
-        </a>
+            
+      </div>
       </li>
     </ul>
 
@@ -61,7 +82,50 @@
 <script>
 
 export default {
-  props:['items']
+  props:['items', 'categories'],
+  data: function() {
+    return {
+      sorts: [
+        { id:1, type: '投稿日'},
+        { id:2, type: '価格順'},
+        // { id:3, type: 'カテゴリー'},
+      ],
+      orders: [
+        { sortId: 1, id: 1, text: '投稿が新しい順'},
+        { sortId: 1, id: 2, text: '投稿が古い順'},
+
+        { sortId: 2, id: 1, text: '価格が高い順'},
+        { sortId: 2, id: 2, text: '投稿が安い順'},
+
+      ],
+      selectedSortId: -1,
+      selectedOrderId: -1,
+      selectedCategoryId: -1
+    }
+  },
+  methods: {
+    onChangeSort() {
+
+      this.selectedOrderId = -1;
+
+      if(!this.selectedSortId) {
+        this.selectedSortId = -1;
+      }
+    }
+  },
+  computed: {
+    filteredOrders() {
+      let filteredOrders = [];
+      
+      for(let i = 0; i < this.orders.length ; i++){
+        let order = this.orders[i];
+        if(order.sortId == this.selectedSortId) {
+          filteredOrders.push(order);
+        }
+      }
+      return filteredOrders;
+    }
+  }
 }
 
 </script>

@@ -13,7 +13,7 @@
   
   <main class="l-main__2colum u-site__width">
 
-    <ideas-list :items="items.data"></ideas-list>
+    <ideas-list :items="items.data" :categories="{{ $categories }}"></ideas-list>
 
     <div class="p-ideasList__bottom">
     </div>

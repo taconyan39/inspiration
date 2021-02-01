@@ -72,7 +72,7 @@
                     <!-- TODO テンプレのままなので修正 -->
                         <!-- <li class="nav-item dropdown"> -->
                         <li class="c-nav__item p-header__navItem">
-                            <a class="c-btn" href="{{ route('logout') }}"
+                            <a class="c-btn p-header__btn" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();"
                             >{{ __('Logout') }}</a>
