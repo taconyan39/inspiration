@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+@charset "UTF-8";
 
 /*
 html5doctor.com Reset Stylesheet
@@ -501,7 +501,7 @@ li {
 
 .c-tag {
   padding: 5px;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   line-height: 0.9rem;
   border: 1px solid #000;
   background: #4FC3F7;
@@ -623,6 +623,11 @@ li {
   text-align: start;
 }
 
+.c-info__box__item {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 @media screen and (max-width: 768px) {
   .c-info__box.c-dammy {
     display: none;
@@ -691,7 +696,7 @@ li {
   height: 50px;
   align-items: center;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   margin-bottom: 10px;
   font-size: 1.2rem;
   padding: 10px;
@@ -927,9 +932,9 @@ li {
 
 .p-attention__infoBox--tag {
   display: inline-block;
-  width: 100px;
+  width: 125px;
   text-align: center;
-  margin-left: 10px;
+  margin-left: 5px;
   margin-right: 25px;
 }
 
@@ -1110,6 +1115,12 @@ li {
   width: 100%;
 }
 
+.p-simpleList__info--title {
+  margin-bottom: 5px;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
 .p-simpleList__summary {
   width: 100%;
   overflow: hidden;
@@ -1285,7 +1296,7 @@ li {
 
 .p-ideaDetail__info--tag {
   display: inline-block;
-  width: 100px;
+  width: 125px;
   text-align: center;
   margin-left: 10px;
   margin-right: 25px;
@@ -1302,6 +1313,25 @@ li {
 
 .p-ideaDetail__rating {
   display: inline;
+}
+
+.p-ideaDetail__review {
+  width: 100%;
+  padding: 10px;
+  margin-top: 15px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.p-ideaDetail__reviewText {
+  padding: 15px 0;
+  box-sizing: border-box;
+}
+
+.p-ideaDetail__reviewTitle {
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
 }
 
 .p-ideaDetail__price {
@@ -1360,6 +1390,18 @@ li {
   text-overflow: ellipsis;
 }
 
+.p-fullList__bottom {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 70px;
+}
+
+.p-fullList__btn-detail {
+  background: #4FC3F7;
+}
+
 .p-fullList__item {
   border: 3px solid #e6dfcf;
   width: 100%;
@@ -1389,7 +1431,7 @@ li {
 
 .p-fullList__infoBox--tag {
   display: inline-block;
-  width: 100px;
+  width: 125px;
   text-align: center;
   margin-left: 10px;
   margin-right: 25px;
@@ -1453,9 +1495,10 @@ li {
   justify-content: space-around;
   width: 200px;
   font-size: 1.2rem;
+  margin: 15px auto;
 }
 
-.p-pagination__items--link {
+.p-pagination__link {
   color: #999;
 }
 

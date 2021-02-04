@@ -27,9 +27,16 @@
                 <span class="p-simpleList__name">{{ $item->user->name }}</span>
                 <span class="c-rating">{{ $item->rating  }}</span>
                 <span class="p-simpleList__rating--num">({{ $item->countReview }})</span>
-                <span class="c-tag p-simpleList__tag">{{ $item->category->category_name}}</span>
+                <span class="c-tag p-simpleList__tag">{{ $item->category->name_ja}}</span>
               </div>
             </div>
+
+            <div class="p-simpleList__info--middle">
+              <div class="p-simpleList__info--title">
+                <p>{{ $item->title }}</p>
+              </div>
+            </div>
+
 
             <!-- 概要部分 -->
             <div class="p-simpleList__info--bottom">
@@ -44,7 +51,8 @@
 
   </ul>
   <!-- 全件表示 -->
+
   <div class="p-simpleList__bottom">
-    <a href="{{ url('ideas-list/all' ) }}" class="c-link__underline">全件表示</a>
+    <a href="{{ $url }}" class="c-link__underline">全件表示</a>
   </div>
 </section>

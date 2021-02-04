@@ -1,9 +1,9 @@
 <template>
   <form>
       
-      <button class="c-btn c-rating  p-ideaDetail__btn--interest" v-if="">気になるを解除する</button>
+      <button class="c-btn c-rating  p-ideaDetail__btn--interest">気になるを解除する</button>
 
-      <button class="c-btn c-rating--empty  p-ideaDetail__btn--interest" v-else> 気になる</button>
+      <button class="c-btn c-rating--empty  p-ideaDetail__btn--interest"> 気になる</button>
 
   </form>
 </template>

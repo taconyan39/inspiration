@@ -1,8 +1,7 @@
 <template>
   <section class="p-fullList">
-    <h2 class="c-title__section p-fullList__title">アイデア一覧</h2>
 
-    <div>{{ sort }}</div>
+    <h2 class="c-title__section p-fullList__title">アイデア一覧</h2>
 
     <div class="c-search__wrapper p-fullList__search">
       <select name="sort" class="c-selectBox" v-model="selectedSortId" @change="onChangeSort">
@@ -15,7 +14,7 @@
         <option :value="order.id" v-for="order in filteredOrders" :key="order.id" v-text="order.text"></option>
       </select>
 
-      <select name="sort_category" v-model="selectedCateogryId" class="c-selectBox p-fulllList__search--category">
+      <select name="sort_category" v-model="selectedCategoryId" class="c-selectBox p-fulllList__search--category">
         <option :value="selectedCategoryId">カテゴリー</option>
         <option :value="category.id" v-for="category in categories" :key="category.id">{{category.category_name}}</option>
 
@@ -31,7 +30,7 @@
             <!-- <div class="p-fullList__tag"> -->
               
             <div class="c-info__box p-fullList__infoBox--left">
-              <time class="p-fullList__info--date">{{ item.created_at }}</time>
+              <time class="p-fullList__info--date">{{ item.created_at | moment }}</time>
             </div>
             <div class="c-info__box c-dammy p-fullList__infoBox"></div>
             <div class="c-info__box p-fullList__infoBox">
@@ -42,7 +41,7 @@
             </div>
           </div>
           <div class="p-fullList__infoBox--bottom">
-            <span class="c-tag p-fullList__infoBox--tag">{{ item.category.category_name }}</span>
+            <!-- <span class="c-tag p-fullList__infoBox--tag">{{ item.category.category_name }}</span> -->
             <h3 class="c-list__item--title p-fullList__infoBox--title">{{ item.title }}</h3>
           </div>
 
@@ -68,6 +67,13 @@
                   <p class="c-txt p-fullList__text ">{{ item.summary }}</p>
                 </div>
               </div>
+              
+              <div class="p-fullList__bottom">
+                <!-- <span>{{ page_type }}</span> -->
+                <a href="" class="c-btn p-fullList__btn-detail">詳細を見る</a>
+                <a v-if="!item.buy_flg" href="" class="c-btn p-fullList__btnEdit">編集する</a>
+                <a v-else href="" class="c-btn--enable c-btn p-fullList__btnEdit--enable">編集不可</a>
+              </div>
             </div>
           </div>
             
@@ -75,16 +81,21 @@
       </li>
     </ul>
 
-    <!-- <pagination :data="items" @move-page="movePage($event)"></pagination> -->
+    <!-- <pagination :data="data" @move-page="movePage($event)"></pagination> -->
+    <pagination :page="page" :data="data" @move-page="movePage($event)"></pagination>
 </section>
 </template>
 
 <script>
+import moment from 'moment';
 
 export default {
-  props:['items', 'categories'],
+  // props:['items', 'categories', 'data'],
+  props:['items', 'categories', 'data', 'page'],
   data: function() {
     return {
+      // items: [],
+      // page: 1,
       sorts: [
         { id:1, type: '投稿日'},
         { id:2, type: '価格順'},
@@ -100,10 +111,20 @@ export default {
       ],
       selectedSortId: -1,
       selectedOrderId: -1,
-      selectedCategoryId: -1
+      selectedCategoryId: -1,
+      pageType: 3
     }
   },
   methods: {
+    getItems() {
+  
+        const url = '/ajax/ideas-list?page=' + this.page;
+        // const url = '/ajax/ideas-list';
+        axios.get(url)
+          .then((response) => {
+            this.items = response.data;
+          });
+        },
     onChangeSort() {
 
       this.selectedOrderId = -1;
@@ -111,7 +132,13 @@ export default {
       if(!this.selectedSortId) {
         this.selectedSortId = -1;
       }
-    }
+    },
+  movePage(page) {
+    // console.log(this.page);
+    this.$emit('move-page', page); // ページ番号を更新
+  
+
+}
   },
   computed: {
     filteredOrders() {
@@ -124,6 +151,16 @@ export default {
         }
       }
       return filteredOrders;
+    }
+  },
+  mounted(){
+    if(this.page_type === 1){
+      this.pageType = 1;
+    }
+  },
+  filters: {
+    moment: function(date) {
+      return moment(date).format('YYYY/MM/DD');
     }
   }
 }

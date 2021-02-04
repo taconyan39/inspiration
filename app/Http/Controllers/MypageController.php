@@ -32,8 +32,13 @@ class MypageController extends Controller
     {
         // 各リストを新規準順に取得
         $user = Auth::user();
-        $postIdeas = $user
-                    ->ideas()
+        $user_id = $user->id;
+        // $postIdeas = $user
+        //             ->ideas()
+        //             ->orderBy('created_at', 'desc')
+        //             ->take(5)
+        //             ->get();
+        $postIdeas = Idea::where('user_id', $user->id)
                     ->orderBy('created_at', 'desc')
                     ->take(5)
                     ->get();
@@ -49,7 +54,7 @@ class MypageController extends Controller
                     ->orderBy('created_at','desc')
                     ->take(5)
                     ->get();
-        // dd($interestIdeas);
+
         foreach($interestIdeas as $interestIdea){
             $interestIdea->rating = sprintf('%.1f',$interestIdea->reviews->avg('rating'));
             $interestIdea->countReview = $interestIdea->reviews->count();
@@ -60,20 +65,25 @@ class MypageController extends Controller
                     ->orderBy('created_at','desc')
                     ->take(5)
                     ->get();
+                    
         foreach($buyIdeas as $buyIdea){
             $buyIdea->rating = sprintf('%.1f',$buyIdea->reviews->avg('rating'));
             $buyIdea->countReview = $buyIdea->reviews->count();
         }
 
         // 自分のアイデアに投稿されたレビューとその情報を取得
-        $ideaReviews = Review::leftjoin('ideas', 'reviews.idea_id', '=', 'ideas.id')
-                    ->leftjoin('users','reviews.user_id', '=', 'users.id')
-                    ->leftjoin('categories','ideas.category_id', '=', 'categories.id')
-                    ->where('ideas.user_id','=', $user->id)
-                    ->select('reviews.id','reviews.review','reviews.rating','reviews.created_at','reviews.updated_at','ideas.title','ideas.price','ideas.summary','users.name','users.icon_img','categories.category_name',)
-                    ->orderBy('reviews.created_at', 'desc')
-                    ->take(5)
-                    ->get();
+        // $ideaReviews = Review::leftjoin('ideas', 'reviews.idea_id', '=', 'ideas.id')
+        //             ->leftjoin('users','reviews.user_id', '=', 'users.id')
+        //             ->leftjoin('categories','ideas.category_id', '=', 'categories.id')
+        //             ->where('ideas.user_id','=', $user->id)
+        //             ->select('reviews.id','reviews.idea_id','reviews.review','reviews.rating','reviews.created_at','reviews.updated_at','ideas.title','ideas.price','ideas.summary','users.name','users.icon_img','categories.category_name',)
+        //             ->orderBy('reviews.created_at', 'desc')
+        //             ->take(5)
+        //             ->get();
+
+        $ideaReviews = Review::whereHas('idea', function($q) use ($user_id){
+            $q->where('user_id', $user_id);
+        })->take(5)->get();
 
         return view('mypage',['user' => $user, 'postIdeas' => $postIdeas, 'interestIdeas' => $interestIdeas, 'buyIdeas' => $buyIdeas, 'ideaReviews' => $ideaReviews]);
     }

@@ -236,9 +236,9 @@
     }
     &--tag{
       display: inline-block;
-      width: 100px;
+      width: 125px;
       text-align: center;
-      margin-left: 10px;
+      margin-left: 5px;
       margin-right: 25px;
     }
   }
@@ -412,7 +412,11 @@
     &--bottom{
       width: 100%;
     }
-    // jsを使用して複数行の3点リーダー実装
+    &--title{
+      margin-bottom: 5px;
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
   }
   &__summary{
     width: 100%;
@@ -534,8 +538,6 @@
   &__bottom{
     display: flex;
     justify-content: space-between;
-    &--right{
-    }
   }
   &__btn{
     &--interest{
@@ -552,9 +554,6 @@
       &::after{
         font-size: $font-size_default;
       }
-    }
-    &--buy{
-
     }
   }
   &__body{
@@ -586,7 +585,7 @@
     }
     &--tag{
       display: inline-block;
-      width: 100px;
+      width: 125px;
       text-align: center;
       margin-left: 10px;
       margin-right: 25px;
@@ -605,6 +604,22 @@
   &__rating{
     display: inline;
   }
+  &__review{
+    width: 100%;
+    padding: $spacing-md;
+    margin-top: $spacing-lg;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  &__reviewText{
+    padding: $spacing-lg 0;
+    box-sizing: border-box;
+  }
+  &__reviewTitle{
+    font-weight: bold;
+    font-size: $font-size_lg;
+    text-align: center;
+  }
   &__price{
     font-size: $font-size_lg;
   }
@@ -620,8 +635,6 @@
     text-align: start;
     &--wrapper{
       margin: $spacing-3l 0;
-    }
-    &--not{
     }
   }
   &__purchased{
@@ -652,7 +665,6 @@
 
 .p-fullList{
   width: 100%;
-  // padding: $spacing-md;
   &__body{
     width: 100%;
     box-sizing: border-bx;
@@ -660,6 +672,18 @@
     justify-content: flex-start;
     overflow:hidden;
     text-overflow: ellipsis;
+  }
+  &__bottom{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 70px;
+  }
+  &__btn{
+    &-detail{
+      background: $color_action;
+    }
   }
   &__item{
     border: 3px solid $color_main;
@@ -687,7 +711,7 @@
     }
     &--tag{
       display: inline-block;
-      width: 100px;
+      width: 125px;
       text-align: center;
       margin-left: 10px;
       margin-right: 25px;
@@ -753,12 +777,8 @@
   justify-content: space-around;
   width: 200px;
   font-size: $font-size_lg;
-  &__items{
-    &--active{
-      
-    }
-    &--link{
-      color: $color_gray;
-    }
+  margin: $spacing-lg auto;
+  &__link{
+    color: $color_gray;
   }
 }

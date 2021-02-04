@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class IdeaPostRequest extends FormRequest
+class PostIdeaRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,11 @@ class IdeaPostRequest extends FormRequest
     public function rules()
     {
         return [
-            'idea_name' => 'required | max:20',
-            'category' => 'required',
+            'category_id' => 'required',
+            'title' => 'required | max:20',
             'summary' => 'required | max:50',
-            'price' => 'required | max:255 | integer | It:1000000',
-            'idea_content' => 'required | max:5000',
+            'price' => 'required | max:255 | integer ',
+            'content' => 'required | max:5000',
         ];
     }
 }

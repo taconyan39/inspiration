@@ -31,4 +31,31 @@ class IdeasListController extends Controller
 
         return $ideas;
     }
+    public function post($request) {
+        
+        $category = $request->category;
+        if($request->order === 2){
+            $sort = 'price';
+        }else{
+            $sort = 'created_at';
+        };
+
+        if($request->order === 1){
+            $order = 'desc';
+        }else{
+            $order = 'asc';
+        };
+
+
+        $ideas = Idea::where('category_id', $category)->with('user','category', 'reviews')->orderBy($sort, $order)->paginate(10);
+
+        // dd($ideas);
+        // TODO まとめられないか? サービスプロバイダ?
+        foreach($ideas as $idea){
+            $idea->rating = sprintf('%.1f',$idea->reviews->avg('rating'));
+            $idea->countReview = $idea->reviews->count();
+        }
+
+        return $ideas;
+    }
 }

@@ -31,6 +31,7 @@ class IdeasTableSeeder extends Seeder
             　かかる愚民を支配するにはとても道理をもって諭さとすべき方便なければ、ただ威をもって畏おどすのみ。西洋の諺ことわざに「愚民の上に苛からき政府あり」とはこのことなり。こは政府の苛きにあらず、愚民のみずから招く災わざわいなり。愚民の上に苛き政府あれば、良民の上には良き政府あるの理なり。ゆえに今わが日本国においてもこの人民ありてこの政治あるなり。仮りに人民の徳義今日よりも衰えてなお無学文盲に沈むことあらば、政府の法も今一段厳重になるべく、もしまた、人民みな学問に志して、物事の理を知り、文明の風に赴おもむくことあらば、政府の法もなおまた寛仁大度の場合に及ぶべし。法の苛からきと寛ゆるやかなるとは、ただ人民の徳不徳によりておのずから加減あるのみ。人誰か苛政を好みて良政を悪にくむ者あらん、誰か本国の富強を祈らざる者あらん、誰か外国の侮りを甘んずる者あらん、これすなわち人たる者の常の情なり。今の世に生まれ報国の心あらん者は、必ずしも身を苦しめ思いを焦がすほどの心配あるにあらず。ただその大切なる目当ては、この人情に基づきてまず一身の行ないを正し、厚く学に志し、博ひろく事を知り、銘々の身分に相応すべきほどの智徳を備えて、政府はその政まつりごとを施すに易やすく、諸民はその支配を受けて苦しみなきよう、互いにその所を得てともに全国の太平を護らんとするの一事のみ。今余輩の勧むる学問ももっぱらこの一事をもって趣旨とせり。',
             'user_id' => 1,
             'category_id' => 21,
+            'buy_flg' => 1,
             'updated_at' => Carbon::now(),
             'created_at' => Carbon::createFromDate(2020, 1, 10),
             ]);
@@ -39,6 +40,7 @@ class IdeasTableSeeder extends Seeder
         DB::table('ideas')->insert([
             'title' => '刺青',
             'price' => '9800',
+            'buy_flg' => 1,
             'summary' => 'それはまだ人々が「愚」と云う貴い徳を持って居て、世の中が今のように激しく軋（キシ）み合わない時分であった',
             'content' => 'メロスは激怒した。必ず、かの邪智暴虐じゃちぼうぎゃくの王を除かなければならぬと決意した。メロスには政治がわからぬ。メロスは、村の牧人である。笛を吹き、羊と遊んで暮して来た。け',
             'user_id' => 1,
@@ -51,6 +53,7 @@ class IdeasTableSeeder extends Seeder
         DB::table('ideas')->insert([
             'title' => '細雪',
             'price' => '9800',
+            'buy_flg' => 1,
             'summary' => '「こいさん、頼むわ。―」鏡の中で、廊下からうしろへ這入って来た妙子を見ると、自分で襟を塗りかけていた刷毛（ハケ',
             'content' => 'メロスは激怒した。必ず、かの邪智暴虐じゃちぼうぎゃくの王を除かなければならぬと決意した。メロスには政治。',
             'user_id' => 11,
@@ -66,6 +69,7 @@ class IdeasTableSeeder extends Seeder
             'content' => 'メロスは激怒した。必ず、かの邪智暴虐じゃちぼうぎゃくの王を除かなければならぬと決意した。メロスには政治がわからぬ。メロスは、村の牧人である',
             'user_id' => 1,
             'category_id' => 61,
+            'buy_flg' => 1,
             'updated_at' => Carbon::now(),
             'created_at' => Carbon::createFromDate(2020, 2, 14),
             ]);
@@ -77,6 +81,7 @@ class IdeasTableSeeder extends Seeder
             'content' => 'メロスは激怒した。必ず、かの邪智暴虐じゃちぼうぎゃくの王を除かなければならぬと決意した。メロスには政治がわからぬ。メロスは、村の牧人である。',
             'user_id' => 1,
             'category_id' => 51,
+            'buy_flg' => 1,
             'updated_at' => Carbon::now(),
             'created_at' => Carbon::createFromDate(2020, 1, 15),
             ]);
@@ -88,6 +93,7 @@ class IdeasTableSeeder extends Seeder
             'content' => 'メロスは激怒した。必ず、かの邪智暴虐じゃちぼうぎゃくの王を除かなければならぬと決意した。メロスには政治がわからぬ。メロスは、村の牧人である。',
             'user_id' => 11,
             'category_id' => 41,
+            'buy_flg' => 1,
             'updated_at' => Carbon::now(),
             'created_at' => Carbon::createFromDate(2020, 2, 16),
             ]);
@@ -102,6 +108,7 @@ class IdeasTableSeeder extends Seeder
             'content' => 'メロスは激怒した。必ず、かの邪智暴虐じゃちぼうぎゃくの王を除かなければならぬと決意した。メロスには政治がわからぬ。メロスは、村の牧人である。',
             'user_id' => $u,
             'category_id' => $c,
+            'buy_flg' => 1,
             'updated_at' => Carbon::now(),
             'created_at' => Carbon::createFromDate(2020, $i, $i),
             ]);

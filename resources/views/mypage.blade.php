@@ -16,17 +16,19 @@
             投稿したアイデア
         @endslot
 
+        @slot('url')
+            {{ url('post-idea') }}
+        @endslot
+
     @endcomponent
     
-    @component('components.simpleList-section', ['items' => $buyIdeas, 'list-name' => 'buy-ideas'])
-        @slot('title')
-          購入アイデア
-        @endslot
-    @endcomponent
-
     @component('components.simpleList-section', ['items' => $interestIdeas, 'list-name' => 'interests'])
         @slot('title')
             気になるリスト
+        @endslot
+
+        @slot('url')
+            {{ url('post-idea') }}
         @endslot
     @endcomponent
 

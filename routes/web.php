@@ -37,6 +37,9 @@ Route::post('post-idea/buy/{id}', 'PostIdeasController@buy')->name('buy');
 Route::get('ideas-list/{category}', 'IdeasListController@index');
 Route::get('ajax/ideas-list', 'Ajax\IdeasListController@index');
 
+// Route::post('ideas-list/{category}', 'IdeasListController@index');
+Route::post('ajax/ideas-list', 'Ajax\IdeasListController@post');
+
 //プロフィール変更
 Route::get('/profile', 'ProfileController@edit')->name('profile.edit');
 Route::post('/profile', 'ProfileController@update')->name('profile.update');

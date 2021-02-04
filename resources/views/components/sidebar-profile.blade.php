@@ -14,7 +14,7 @@
       </li>
       <li class="c-list__item p-profileSidebar__item">
         <a href="{{ route('profile.edit') }}" class="c-btn p-profileSidebar__btn">プロフィール変更</a>
-        <a href="{{ url('idea-post/create')}}" class="c-btn p-profileSidebar__btn">アイデアを<br>投稿する</a>
+        <a href="{{ url('post-idea/create')}}" class="c-btn p-profileSidebar__btn">アイデアを<br>投稿する</a>
         <a href="{{ url('mypage')}}" class="c-btn p-profileSidebar__btn">マイページへ</a>
       </li>
     </ul>

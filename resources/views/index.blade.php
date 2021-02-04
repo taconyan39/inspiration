@@ -28,7 +28,11 @@
       @endslot
     @endcomponent
 
-    @include('components.review-section',[ 'reviews' => $reviews])
+    @component('components.simpleList-reviewSection', ['reviews' => $reviews])
+      @slot('title')
+        新着のレビュー
+      @endslot
+    @endcomponent
 
   </main>
   

@@ -6,7 +6,7 @@
       </li>
       @foreach($categories as $category)
       <li class="c-list__item p-categoryList__item">
-        <a href="{{ url('ideas-list/' . $category->id) }}" class="c-list__link p-categoryList__link">{{ __($category->category_name) }}</a>
+        <a href="{{ url('ideas-list/' . $category->id) }}" class="c-list__link p-categoryList__link">{{ __($category->name_ja) }}</a>
       </li>
       @endforeach 
     </ul> 

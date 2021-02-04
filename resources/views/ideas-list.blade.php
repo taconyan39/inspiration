@@ -13,7 +13,7 @@
   
   <main class="l-main__2colum u-site__width">
 
-    <ideas-list :items="items.data" :categories="{{ $categories }}"></ideas-list>
+    <ideas-list :data="items" :items="items.data" :categories="{{ $categories }}" @move-page="movePage(page)"></ideas-list>
 
     <div class="p-ideasList__bottom">
     </div>

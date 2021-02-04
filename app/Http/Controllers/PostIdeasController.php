@@ -14,6 +14,7 @@ use App\Review;
 use App\BuyIdea;
 use App\Mail\IdeaSoldMail;
 use App\Mail\IdeaBoughtMail;
+use App\Http\Requests\PostIdeaRequest;
 
 class PostIdeasController extends Controller
 {
@@ -27,9 +28,10 @@ class PostIdeasController extends Controller
         $user = Auth::user();
         $categories = Category::all();
 
-        $postIdeas = $user->ideas()->where('user_id',$user->id)->orderBy('created_at', 'desc')->get()->take(10); 
-        //             // ->paginate(10);
-        // dd(DB::table('i'));
+        $postIdeas = $user->ideas()->where('user_id',$user->id)->orderBy('created_at', 'desc')->paginate(10);
+
+        // dd($postIdeas);
+
         return view('post-idea.index', ['user' => $user, 'categories' => $categories,'postIdeas' => $postIdeas]);
     }
 
@@ -58,11 +60,11 @@ class PostIdeasController extends Controller
      */
 
      // 新規アイデアの投稿処理
-    public function store(Request $request)
+    public function store(PostIdeaRequest $request)
     {
+        // dd($request->content);
         $idea = new Idea;
 
-        // Auth::user()->ideas->save($idea->fill($request->all()));
         $idea->category_id = (int)$request->category_id;
 
         $idea->user_id = Auth::user()->id;
@@ -70,7 +72,7 @@ class PostIdeasController extends Controller
         $idea->fill($request->all())->save();
 
 
-        return redirect('home')->with('flash_message', '投稿しました');
+        return redirect('mypage')->with('flash_message', '投稿しました');
     }
 
     /**
@@ -151,7 +153,7 @@ class PostIdeasController extends Controller
         $query = BuyIdea::where('idea_id', $id);
 
         // 購入がある場合はページにアクセスできないようにする
-        if($query->exists()){
+        if($idea->buy_flg){
 
             return redirect('mypage')->with('flash_message', '購入されたアイデアは編集できません');
         }
@@ -189,6 +191,10 @@ class PostIdeasController extends Controller
     }
 
     // 購入処理
+    // public function buy(Request $request ,$id){
+
+    //     return view('post-idea.purchase-process')->action('PostIdeasController@buyProcess',[ 'request' => $request, 'id' => $id]);
+    // }
     public function buy(Request $request ,$id){
 
         $user = Auth::user();
@@ -203,6 +209,11 @@ class PostIdeasController extends Controller
         }elseif($contributor){
             return redirect('post-idea/' . $id)->with('flash_message', '投稿者は購入できません');
         }else{
+
+            // 購入が発生した場合にアイデアに購入済みフラグをつける
+            if($idea->buy_flg === 0){
+                $idea->buy_flg = 1;
+            }
             // 購入者と出品者にメールを送信
             Mail::to($user->email)->send(new IdeaBoughtMail($user));
 

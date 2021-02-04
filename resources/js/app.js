@@ -32,6 +32,7 @@ Vue.component('interest-component', require('./components/InterestComponent.vue'
 Vue.component('buy-component', require('./components/BuyComponent.vue').default);
 Vue.component('category-menu', require('./components/CategoryMenu.vue').default);
 Vue.component('pagination', require('./components/Pagination.vue').default);
+Vue.component('loading', require('./components/Loading.vue').default);
 
 
 
@@ -62,7 +63,11 @@ const app = new Vue({
           .then((response) => {
             this.items = response.data;
           });
-        }
+        },
+      movePage(page){
+        this.page = page; // ページ番号を更新
+        this.getItems(); //Ajaxで新データを取得
+      }
       },
       mounted() {
         
@@ -74,7 +79,7 @@ const app = new Vue({
                 flash.style.display = "none"
                 // this.flash_flg = false
                 }, 3000);
-              
+          
         }
   
     }

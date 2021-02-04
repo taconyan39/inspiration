@@ -1,13 +1,10 @@
-<!-- アイデア名、価格、カテゴリ、概要、投稿日、口コミ数￥、平均評価点数 -->
-
 <section class="c-section p-attention">
   <h2 class="c-title__section p-attention__title">{{ $title }}</h2>
   <ul class="c-list p-attention__list">
     @foreach($ideas as $idea)
     <li class="c-list__item p-attention__listItem u-clearfix">
-      <a href="#" class="c-list__link p-attention__listLink u-clearfix">
+      <a href="{{ url('post-idea/'. $idea->id )}}" class="c-list__link p-attention__listLink u-clearfix">
           <div class="p-attention__info c-info">
-            <!-- <div class="p-attention__tag"> -->
               
             <div class="c-info__box p-attention__infoBox--left">
               <time class="p-attention__info--date">{{ $idea->created_at->format('Y/m/d') }}</time>
@@ -21,7 +18,7 @@
             </div>
           </div>
           <div class="p-attention__infoBox--bottom">
-            <span class="c-tag p-attention__infoBox--tag">{{ $idea->category->category_name }}</span>
+            <span class="c-tag p-attention__infoBox--tag">{{ $idea->category->name_ja }}</span>
             <h3 class="c-list__item--title p-attention__infoBox--title">{{ $idea->title }}</h3>
           </div>
 

@@ -13,7 +13,6 @@ class TopController extends Controller
     public function index(){
 
         $categories = Category::all();
-        // $ideas = Idea::latest()->get();
         $ideas = Idea::latest()->take(3)->get();
 
         $reviews = Review::latest()->take(4)->get();
@@ -30,6 +29,8 @@ class TopController extends Controller
         }
 
         $pickupCategories =  Category::all()->take(6);
+
+        
 
         return view('index', ['ideas' => $ideas, 'categories' => $categories, 'pickupCategories' => $pickupCategories, 'reviews' => $reviews]);
     }

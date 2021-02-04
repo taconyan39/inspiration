@@ -1,15 +1,14 @@
 <template>
 <div>
-
-    <ul class="pagination">
-        <li class="page-item" v-if="hasPrev">
-            <a class="page-link" href="#" @click.prevent="move(data.current_page-1)">前へ</a>
+    <ul class="p-pagination">
+        <li class="p-pagination__item" v-if="hasPrev">
+            <a class="p-pagination__link" href="#" @click.prevent="move(data.current_page-1)">前へ</a>
         </li>
         <li :class="getPageClass(page)" v-for="page in pages" :key="page.id">
-            <a class="page-link" href="#" v-text="page" @click.prevent="move(page)"></a>
+            <a class="p-pagination__link" href="#" v-text="page" @click.prevent="move(page)"></a>
         </li>
-        <li class="page-item" v-if="hasNext">
-            <a class="page-link" href="#" @click.prevent="move(data.current_page+1)">次へ</a>
+        <li class="p-pagination__item" v-if="hasNext">
+            <a class="p-pagination__link" href="#" @click.prevent="move(data.current_page+1)">次へ</a>
         </li>
 
     </ul>
@@ -22,6 +21,7 @@
 
 export default {
     props: {
+        page: 'page',
         data: {},  // paginate()で取得したデータ
     },
     methods: {
@@ -41,7 +41,7 @@ export default {
         },
         getPageClass(page) {
 
-            let classes = ['page-item'];
+            let classes = ['p-pagination__item'];
 
             if(this.isCurrentPage(page)) {
 
