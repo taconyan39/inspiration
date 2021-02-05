@@ -20,7 +20,7 @@ class CreateIdeasTable extends Migration
             $table->string('summary');
             $table->string('content', '5000');
             $table->boolean('delete_flg')->default(0);
-            $table->boolean('buy_flg')->default(0);
+            $table->boolean('sold_flg')->default(0);
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('category_id');
             $table->timestamps();

@@ -32,6 +32,8 @@ Vue.component('interest-component', require('./components/InterestComponent.vue'
 Vue.component('buy-component', require('./components/BuyComponent.vue').default);
 Vue.component('category-menu', require('./components/CategoryMenu.vue').default);
 Vue.component('pagination', require('./components/Pagination.vue').default);
+Vue.component('reviews', require('./components/ReviewsComponent.vue').default);
+Vue.component('search-component', require('./components/SearchComponent.vue').default);
 Vue.component('loading', require('./components/Loading.vue').default);
 
 
@@ -49,38 +51,37 @@ const app = new Vue({
     data: function() {
       return {
         menu: false,
-        page: 1,
         items: [],
         flash_flg: true
       }
     },
     methods: {
-      getItems() {
+      // getItems() {
   
-        const url = '/ajax/ideas-list?page=' + this.page;
-        // const url = '/ajax/ideas-list';
-        axios.get(url)
-          .then((response) => {
-            this.items = response.data;
-          });
-        },
-      movePage(page){
-        this.page = page; // ページ番号を更新
-        this.getItems(); //Ajaxで新データを取得
-      }
+        // console.log(this.sort);
+        // const url = '/ajax/ideas-list?page=' + this.page;
+        // const url = '/ajax/ideas-list/' ;
+        // axios.get(url)
+        //   .then((response) => {
+        //     this.items = response.data;
+        //   });
+        // },
+      // movePage(page){
+      //   this.page = page; // ページ番号を更新
+      //   this.getItems(); //Ajaxで新データを取得
+      // }
       },
       mounted() {
         
-        this.getItems();{
-            var flash = document.getElementById('flash');
+        // this.getItems();
+    //         var flash = document.getElementById('flash');
         
-            // console.log(this.flash_flg);
-            setTimeout(function(){
-                flash.style.display = "none"
-                // this.flash_flg = false
-                }, 3000);
+    //         // console.log(this.flash_flg);
+    //         setTimeout(function(){
+    //             flash.style.display = "none"
+    //             // this.flash_flg = false
+    //             }, 3000);
           
-        }
   
     }
     

@@ -1,76 +1,45 @@
 <template>
 
   <div>
-    <button v-if="this.interest" @click="onChangeInterest">★ 解除する</button>
-    <button v-else @click="onChangeInterest">☆ 気になる</button>
-
+    <button v-if="item.flg" @click="onChangeInterest(item.flg)">★ 解除する</button>
+    <button v-else @click="onChangeInterest(item.flg)">☆ 気になる</button>
   </div>
 </template>
 
 <script>
 export default {
-  // props: {
-  //   data() {
-
-  //   }
-  // },
   props:{
     idea: {
-      // type: Number,
+      type: Number,
     },
-    interest: {
-
-    },
+  },
     data() {
             return {
-              items: [],
-              flg: ''
+              item: [],
             }
           },
-
-  },
   methods: {
-    // Ajaxでデータの取得
-    // getItems(){
 
-    //   console.log(this.$emit);
-    //   const url = '/ajax/post-idea/' + this.idea.id;
-    //   axios.get(url)
-    //     .then((response) => {
-
-    //       console.log('response' + response.data);
-    //       this.idea = response.data;
-
-    //     });
-    // },
-    onChangeInterest(){
-      // console.log(interest);
+    onChangeInterest(interestFlg){
       const url = '/ajax/interest/' + this.idea.id
-      let data = {
-        interest: !this.interest
-      }
 
-      // let interest = !this.interest
-      
-      console.log(this.interest);
-      axios.post(url, data)
-        .then()
+      const params = { flg: !interestFlg};
+
+      axios.post(url, params)
+        .then(response => {
+            this.item = response.data;
+        });
         
     },
-    getItems(){
+  },
+  mounted(){
 
-      const url = '/ajax/interest/' + this.idea.id
+    const url = '/ajax/interest/' + this.idea.id
 
       axios.get(url)
         .then((response) => {
-          this.items = response.data;
+          this.item= response.data;
         })
-        console.log(this.data.items)
-    }
-  },
-  mounted(){
-    // console.log(this.idea.id);
-    this.getItems();
   }
 
 }

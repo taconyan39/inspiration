@@ -12,11 +12,27 @@
   @include('components.sidebar-category', ['categories' => $categories])
   
   <main class="l-main__2colum u-site__width">
+  <!-- {{$ideas->request()}} -->
+  <form method="POST" action="{{ url('ideas-list') }}">
+    @csrf
+    <search-component :categories="{{ 
+      $categories }}"></search-component>
+  </form>
 
-    <ideas-list :data="items" :items="items.data" :categories="{{ $categories }}" @move-page="movePage(page)"></ideas-list>
 
+    @component('components.pickupList-section', ['ideas' => $ideas])
+      @slot('title')
+        アイデア一覧
+      @endslot
+    @endcomponent
+
+    <!-- <div class="p-ideasList__bottom">
+      {{ $ideas->links('vendor/pagination/pagination') }} -->
+    <!-- </div> -->
     <div class="p-ideasList__bottom">
-    </div>
+      {{ $ideas->links('vendor/pagination/pagination') }}
+
+     </div>
     
   </main>
 </div>

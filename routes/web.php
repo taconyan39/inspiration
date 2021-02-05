@@ -34,11 +34,11 @@ Route::post('post-idea/interest/{id}', 'PostIdeasController@interest');
 Route::post('post-idea/buy/{id}', 'PostIdeasController@buy')->name('buy');
 
 // アイデア一覧表示
-Route::get('ideas-list/{category}', 'IdeasListController@index');
-Route::get('ajax/ideas-list', 'Ajax\IdeasListController@index');
-
-// Route::post('ideas-list/{category}', 'IdeasListController@index');
-Route::post('ajax/ideas-list', 'Ajax\IdeasListController@post');
+Route::get('ideas-list/{sort}', 'IdeasListController@index');
+// Route::get('ajax/ideas-list/{sort}', 'Ajax\IdeasListController@index');
+Route::get('ideas-list', 'IdeasListController@searchList');
+Route::post('ideas-list', 'IdeasListController@search');
+// Route::post('ajax/ideas-list', 'Ajax\IdeasListController@post');
 
 //プロフィール変更
 Route::get('/profile', 'ProfileController@edit')->name('profile.edit');

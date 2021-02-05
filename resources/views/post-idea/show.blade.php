@@ -30,7 +30,7 @@
                     </div>
                     
                     <div class="p-ideaDetail__infoItem--bottom">
-                        <span class="c-tag p-ideaDetail__infoItem--tag">{{ $idea->category->category_name }}</span>
+                        <span class="c-tag p-ideaDetail__infoItem--tag">{{ $idea->category->name }}</span>
                         <span class="p-ideaDetail__infoItem--name">{{ $idea->user->name }}<span>
                     </div>
                     
@@ -64,7 +64,7 @@
                         <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>
 
                         <interest-component :idea="{{ $idea }}" :interest="@json($interest_flg)"></interest-component>
-                        <form method="post" action="{{ url('post-idea/interest/' . $idea->id) }}">
+                        <!-- <form method="post" action="{{ url('post-idea/interest/' . $idea->id) }}">
                             @csrf
                             
                             @if($interest_flg)
@@ -72,8 +72,7 @@
                             @else
                                 <input class="c-btn c-rating--empty  p-ideaDetail__btn--interest" name="interest" value="気になる" type="submit">
                             @endif
-                        </form>
-
+                        </form> -->
                     </div>
                 </div>
 
@@ -94,6 +93,8 @@
             <ul class="c-list p-simpleList__list">
 
                 <p class="p-ideaDetail__reviewTitle">みんなのレビュー</p>
+
+                <!-- <reviews-component :data="items"></reviews-component> -->
 
                 @foreach($reviews as $review)
                 <li class="c-list__item p-simpleList__listItem u-clearfix">
