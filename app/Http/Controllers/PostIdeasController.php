@@ -46,8 +46,6 @@ class PostIdeasController extends Controller
     {
         $user = Auth::user();
         $categories = Category::all();
-        
-        
 
         return view('post-idea.create', ['user' => $user, 'categories' => $categories]);
     }
@@ -60,9 +58,9 @@ class PostIdeasController extends Controller
      */
 
      // 新規アイデアの投稿処理
-    public function store(PostIdeaRequest $request)
+    public function store(Request $request)
     {
-        // dd($request->content);
+        dd($request);
         $idea = new Idea;
 
         $idea->category_id = (int)$request->category_id;

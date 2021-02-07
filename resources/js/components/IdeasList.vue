@@ -3,6 +3,7 @@
 
     <h2 class="c-title__section p-fullList__title">アイデア一覧</h2>
 
+{{items}}
     <div class="c-search__wrapper p-fullList__search">
       <select name="sort" class="c-selectBox" v-model="selectedSortId" @change="onChangeSort">
         <option :value="selectedSortId">絞り込む</option>
@@ -20,7 +21,7 @@
 
       </select>
 
-      <button class="c-search">検索</button>
+      <button class="c-search" type="submit" name="submit">検索</button>
     </div>
 
     <ul class="c-list p-fullList__list">
@@ -109,13 +110,12 @@ export default {
       selectedSortId: -1,
       selectedOrderId: -1,
       selectedCategoryId: -1,
-      pageType: 3
     }
   },
   methods: {
     getItems() {
 
-            const url = '/ajax/ideas-list/' + this.sort + '?page=' + this.page;
+            const url = '/ajax/ideas-list';
 
             axios.get(url)
               .then((response) => {

@@ -1,8 +1,8 @@
 <template>
 
   <div class="c-search__wrapper p-fullList__search">
-
-
+<!-- {{items}} -->
+<!-- {{selectedTypeId}} -->
         <select name="type" class="c-selectBox" v-model="selectedTypeId" @change="onChangeType">
           <option v-for="type in types" :value="type.id" v-text="type.text" :key="type.id"></option>
         </select>
@@ -25,9 +25,10 @@
 <script>
 
 export default {
-  props:['categories','type','order', 'category_id'],
+  props:['categories'],
   data: function() {
     return {
+      items: [],
       types: [
         { id:-1, text: '検索'},
         { id:1, text: '投稿日'},
@@ -43,9 +44,12 @@ export default {
 
       ],
 
-      selectedTypeId:  this.type ? this.type: -1 ,
-      selectedOrderId: this.order ? this.order : -1,
-      selectedCategoryId: this.category_id ? this.category_id: -1,
+      // selectedTypeId:  this.type ? this.type: -1 ,
+      // selectedOrderId: this.order ? this.order : -1,
+      // selectedCategoryId: this.category_id ? this.category_id: -1,
+      selectedTypeId: this.item ? this.item : -1 ,
+      selectedOrderId:  -1,
+      selectedCategoryId:  -1,
     }
   },
   methods: {
@@ -58,6 +62,17 @@ export default {
           }
           
         },
+        getItems(){
+
+          // const url = '/ajax/ideas-list/';
+          const url = '/ajax' + location.pathname;
+          
+          console.log(url);
+          axios.get(url)
+            .then((response) => {
+              this.items = response.data;
+            });
+        }
         // onSearch(value){
           // // this.url = 'ideas-post/' + this.selectedCategoryId;
           // // this.url.submit;
@@ -113,8 +128,8 @@ export default {
     }
   },
   mounted(){
-    console.log(this.type);
-  }
+    this.getItems();
+    }
 }
 
 </script>

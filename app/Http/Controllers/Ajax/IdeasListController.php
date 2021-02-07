@@ -9,7 +9,7 @@ use App\Idea;
 class IdeasListController extends Controller
 {
     // public function index($sort) {
-    public function index() {
+    public function index(Request $request) {
         // echo 'test';
 
         // return Idea::paginate(10);
@@ -20,16 +20,8 @@ class IdeasListController extends Controller
         //     $ideas = Idea::where('category_id', '=', $sort)->orderBy('created_at', 'desc')->paginate(10);
         // }
 
-
-        $ideas = Idea::with('user','category', 'reviews')->paginate(10);
-
-        // TODO まとめられないか? サービスプロバイダ?
-        foreach($ideas as $idea){
-            $idea->rating = sprintf('%.1f',$idea->reviews->avg('rating'));
-            $idea->countReview = $idea->reviews->count();
-        }
-
-        return $ideas;
+        dd($request->type);
+        return $request;
     }
     public function post($request) {
         

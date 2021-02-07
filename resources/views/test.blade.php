@@ -4,10 +4,21 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div style="padding:15px;" id="app">
-        <div v-if="show" class="c-flash js-flash"></div>
-        <button @click="removeFlash">フラッシュ</button>
-    </div>
+<form action="{{ url('test/1/') }}" method="get">
+            <div>a<input type="text" name="a" value="{{ old('a') }}"></div>
+            <div>b<input type="text" name="b" value="{{ old('b') }}"></div>
+            <div>c<input type="text" name="c" value="{{ old('c') }}"></div>
+            <input type="submit" >
+        </form>
+
+        <div>get:{{$get}}</div>
+        <div>input:{{$input}}</div>
+        <div>request_get:{{$request_get}}</div>
+        <div>query_get:{{$query_get}}</div>
+        <div>query:{{$query}}</div>
+        <div>all:{{$all}}</div>
+        <div>only:{{$only}}</div>
+        <div>except:{{$except}}</div>
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"></script> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script> -->
     <!-- <script src="/js/vue/v-pagination.js"></script> -->

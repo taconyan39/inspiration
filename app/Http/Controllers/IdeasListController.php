@@ -4,23 +4,74 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Idea;
+use App\Sort;
 use App\Category;
 
 class IdeasListController extends Controller
 {
     
     // public function index($sort){
-    public function index($sort){
+    public function index(Request $request){
 
         $categories = Category::all();
-        $order = -1;
-        $type = -1;
-        $category_id = -1;
+        $sorts = Sort::all();
 
-        if($sort === 'all'){
-            $ideas = Idea::orderBy('created_at', 'asc')->paginate(10);
+        // $form = $request->all();
+        // unset($form['_token']);
+        // unset($request->_token);
+
+        // $sort = collect(
+        //     ['id' => 1, 'name' => '投稿が新しい順'],
+        //     ['id' => 2,'name' => '投稿が古い順'],
+        //     ['id' => 3, 'name' => '価格が高い順'],
+        //     ['id' => 4, 'name' => '投稿が安い順']
+        // );
+
+        // dd($sort);
+
+        $data = [
+            'sort_id' => $request->get('sort_id'),
+            'category_id' => $request->get('category_id'),
+        ];
+
+        // dd($data['category_id']);
+        switch($data['sort_id']){
+            case 2:
+                $type = 'created_at';
+                $order = 'asc';
+                break;
+            case 3:
+                $type = 'price';
+                $order = 'desc';
+                break;
+            case 4:
+                $type = 'price';
+                $order = 'asc';
+                break;
+            default:
+                $type = 'created_at';
+                $order = 'asc';
+                break;
+        }
+
+        // dd($data['sort_id']);
+
+        // if($data['type'] == 2){
+        //     $type = 'price';
+        // }else{
+        //     $type = 'created_at';
+        // }
+
+        // if($data['order'] == 2){
+        //     $order = 'asc';
+        // }else{
+        //     $order= 'desc';
+        // }
+
+        if(!$data || $data['category_id'] < 1 ){
+            $ideas = Idea::orderBy($type, $order)->paginate(5);
         }else{
-            $ideas = Idea::where('category_id', $sort)->paginate(10);
+            $ideas = Idea::where('category_id', $data['category_id'])->orderBy($type, $order)->paginate(5);
         }
 
         foreach($ideas as $idea){
@@ -28,7 +79,8 @@ class IdeasListController extends Controller
             $idea->countReview = $idea->reviews->count();
         }
 
-        return view('ideas-list', ['categories' => $categories, 'sort' => $sort, 'ideas' => $ideas, 'order' => $order,'category_id' => $category_id, 'type' => $type]);
+        
+        return view('ideas-list', ['categories' => $categories, 'ideas' => $ideas, 'data' => $data, 'sorts' => $sorts]);
     }
 
     public function search(Request $request){
@@ -63,10 +115,11 @@ class IdeasListController extends Controller
             $idea->countReview = $idea->reviews->count();
         }
 
+        // dd((int)$request->order);
         // dd($request->category_id);
 
         // return redirect()->action('IdeasListController@searchList');
-        return view('ideas-list', ['categories' => $categories, 'ideas' => $ideas, 'order' => $request->order, 'type' => $request->type, 'category_id' => $category_id]);
+        return view('ideas-list', ['categories' => $categories, 'ideas' => $ideas, 'order' => $request, 'type' => $request->type, 'category_id' => $category_id]);
     }
     public function searchList($request){
         

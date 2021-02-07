@@ -2247,6 +2247,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['sort', 'categories'],
@@ -2280,15 +2281,14 @@ __webpack_require__.r(__webpack_exports__);
       }],
       selectedSortId: -1,
       selectedOrderId: -1,
-      selectedCategoryId: -1,
-      pageType: 3
+      selectedCategoryId: -1
     };
   },
   methods: {
     getItems: function getItems() {
       var _this = this;
 
-      var url = '/ajax/ideas-list/' + this.sort + '?page=' + this.page;
+      var url = '/ajax/ideas-list';
       axios.get(url).then(function (response) {
         _this.items = response.data;
       });
@@ -2778,9 +2778,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['categories', 'type', 'order', 'category_id'],
+  props: ['categories'],
   data: function data() {
     return {
+      items: [],
       types: [{
         id: -1,
         text: '検索'
@@ -2808,9 +2809,12 @@ __webpack_require__.r(__webpack_exports__);
         id: 2,
         text: '価格が安い順'
       }],
-      selectedTypeId: this.type ? this.type : -1,
-      selectedOrderId: this.order ? this.order : -1,
-      selectedCategoryId: this.category_id ? this.category_id : -1
+      // selectedTypeId:  this.type ? this.type: -1 ,
+      // selectedOrderId: this.order ? this.order : -1,
+      // selectedCategoryId: this.category_id ? this.category_id: -1,
+      selectedTypeId: this.item ? this.item : -1,
+      selectedOrderId: -1,
+      selectedCategoryId: -1
     };
   },
   methods: {
@@ -2820,6 +2824,16 @@ __webpack_require__.r(__webpack_exports__);
       if (!this.selectedTypeId) {
         this.selectedTypeId = -1;
       }
+    },
+    getItems: function getItems() {
+      var _this = this;
+
+      // const url = '/ajax/ideas-list/';
+      var url = '/ajax' + location.pathname;
+      console.log(url);
+      axios.get(url).then(function (response) {
+        _this.items = response.data;
+      });
     } // onSearch(value){
     // // this.url = 'ideas-post/' + this.selectedCategoryId;
     // // this.url.submit;
@@ -2878,7 +2892,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    console.log(this.type);
+    this.getItems();
   }
 });
 
@@ -60886,7 +60900,7 @@ var render = function() {
                   "a",
                   {
                     staticClass: "c-list__link p-categoryList__link",
-                    attrs: { href: "idea-list/" + category.id }
+                    attrs: { href: "idea-list?category_id=" + category.id }
                   },
                   [_vm._v(_vm._s(category.category_name))]
                 )
@@ -61055,7 +61069,7 @@ var render = function() {
       _c("h2", { staticClass: "c-title__section p-fullList__title" }, [
         _vm._v("アイデア一覧")
       ]),
-      _vm._v(" "),
+      _vm._v("\n\n" + _vm._s(_vm.items) + "\n    "),
       _c("div", { staticClass: "c-search__wrapper p-fullList__search" }, [
         _c(
           "select",
@@ -61193,7 +61207,14 @@ var render = function() {
           2
         ),
         _vm._v(" "),
-        _c("button", { staticClass: "c-search" }, [_vm._v("検索")])
+        _c(
+          "button",
+          {
+            staticClass: "c-search",
+            attrs: { type: "submit", name: "submit" }
+          },
+          [_vm._v("検索")]
+        )
       ]),
       _vm._v(" "),
       _c(

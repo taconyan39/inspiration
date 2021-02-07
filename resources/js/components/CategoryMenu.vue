@@ -6,7 +6,7 @@
                   <p class="c-content__title p-categoryList__title">カテゴリ名</p>
               </li>
               <li class="c-list__item p-categoryList__item" v-for="category in categories" :key="category.id">
-                  <a :href="'idea-list/' + category.id" class="c-list__link p-categoryList__link">{{ category.category_name }}</a>
+                  <a :href="'idea-list?category_id=' + category.id" class="c-list__link p-categoryList__link">{{ category.category_name }}</a>
               </li>
           </ul>
       </div>
