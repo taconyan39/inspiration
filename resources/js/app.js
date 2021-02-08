@@ -35,6 +35,7 @@ Vue.component('pagination', require('./components/Pagination.vue').default);
 Vue.component('reviews', require('./components/ReviewsComponent.vue').default);
 Vue.component('search-component', require('./components/SearchComponent.vue').default);
 Vue.component('loading', require('./components/Loading.vue').default);
+Vue.component('post-review', require('./components/PostReview.vue').default);
 
 
 

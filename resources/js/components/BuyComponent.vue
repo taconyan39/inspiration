@@ -2,7 +2,7 @@
   <div>
   <!-- <loading v-show="loading"></loading> -->
 
-  <div v-show="!loading">
+  <!-- <div v-show="!loading"> -->
 
   <input type="submit" 
     value="購入する" 

@@ -4,8 +4,11 @@
 
 @section('content')
     <div class="l-wrapper__2colum u-site__width">
-
-        @include('components.sidebar-profile',['user' => $user])
+        @if($user)
+            @include('components.sidebar-profile',['user' => $user])
+        @else
+            @include('components.sidebar-category',['categories' => $categories])
+        @endif
         
         <main class="l-main__2colum">
             <article class="p-ideaDetail">
@@ -39,6 +42,7 @@
                     </div>
                     
                     <div class="p-ideaDetail__text--wrapper">
+                        @if($user)
                         @if($idea->where('user_id','=','$user->id'))
                             <div class="p-ideaDetail__purchased">
                                     <p class="p-ideaDetail__text">{!! nl2br(e($idea->content)) !!}</p>
@@ -57,6 +61,21 @@
                                     <buy-component></buy-component>
                                 </form>
                             </div>
+                        @endif
+                            @else
+
+                            <div class="p-ideaDetail__purchased--not">
+                                <a
+                                href="{{ route('login') }}"
+                                class="p-ideaDetail__text--not c-btn">購入にはログインが必要です</a>
+                                <!-- ○名がすでに購入されました -->
+                                <!-- <span class="p-ideaDetail__message">¥{{ $idea->price }}</span> -->
+                                <!-- <form action="{{ url('post-idea/buy/' . $idea->id) }}" method="POST"> -->
+                                <!-- @csrf -->
+                                    <!-- <buy-component></buy-component> -->
+                                <!-- </form> -->
+                            </div>
+
                         @endif
                     </div>
 
@@ -78,17 +97,26 @@
 
             </article>
     
+            @if($buy_flg)
             <section class="p-ideaDetail__review">
-            @if( $myreview )
+
+                @if( $myreview )
                 <p class="p-ideaDetail__reviewText">あなたの口コミ</p>
                 <div>{{ $myreview->review }}</div>
-            @else
+                @else
                 <p class="p-ideaDetail__reviewText">レビューを書いて投稿しよう！！</p>
-                <a href="{{ url('reviews/post-review/' . $idea->id) }}" class="c-btn p-ideaDetail__btnReview">レビューを投稿する</a>
-            @endif
+                <form action="{{ url('post-idea/post-review/' . $idea->id)}}" method="POST">
+                @csrf
+                <post-review></post-review>
+                </form>
+                @endif
             </section>
+            @endif
 
             <section class="p-simpleList">
+            @if($reviews->isEmpty())
+                    <div class="p-simpleList--none">レビューはまだ投稿されていません</div>
+                @else
 
             <ul class="c-list p-simpleList__list">
 
@@ -134,11 +162,12 @@
             <div class="p-simpleList__bottom">
                 <a href="{{ url('post-idea') }}" class="c-link__underline">全件表示</a>
             </div>
+            @endif
         </section>
         
-    </main>
         <div class="c-link__conainer">
             <a href="{{url()->previous()}}" class="c-link__underline">&lt;&lt; 前のページに戻る</a>
         </div>
+    </main>
     </div>
 @endsection

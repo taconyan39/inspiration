@@ -77,7 +77,7 @@
                     {{ __('Idea Content') }}
                     
                     <textarea id="content" class="p-ideaPost__textArea
-                    c-form__textArea @error('content') is-invalid @enderror" name="content" required autocomplete="content">
+                    c-form__textarea @error('content') is-invalid @enderror" name="content" required autocomplete="content">
                     アイデアの内容を入力してください(5000文字以内)
                 </textarea>
             </label>

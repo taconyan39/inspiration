@@ -32,7 +32,12 @@ Route::post('ajax/interest/{id}', 'Ajax\PostIdeasController@interest');
 Route::get('ajax/interest/{id}', 'Ajax\PostIdeasController@changeInterest');
 
 Route::post('post-idea/interest/{id}', 'PostIdeasController@interest');
-Route::post('post-idea/buy/{id}', 'PostIdeasController@buy')->name('buy');
+//商品購入
+Route::post('post-idea/buy/{id}', 'UserActionController@buy')->name('buy');
+
+//レビュー投稿
+Route::post('post-idea/postreview/{id}', 'UserActionController@postReview')->name('buy');
+
 
 // アイデア一覧表示
 Route::get('ideas-list', 'IdeasListController@index');

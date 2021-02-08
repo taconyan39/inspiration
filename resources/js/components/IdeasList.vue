@@ -3,7 +3,6 @@
 
     <h2 class="c-title__section p-fullList__title">アイデア一覧</h2>
 
-{{items}}
     <div class="c-search__wrapper p-fullList__search">
       <select name="sort" class="c-selectBox" v-model="selectedSortId" @change="onChangeSort">
         <option :value="selectedSortId">絞り込む</option>

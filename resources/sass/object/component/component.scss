@@ -221,7 +221,7 @@
 .c-form{
   padding: $spacing-md;
   box-sizing: border-box;
-  &__textArea{
+  &__textarea{
     width: 100%;
     padding: $spacing-md;
     box-sizing: border-box;
@@ -262,6 +262,9 @@
         cursor:pointer;
       }
     }
+  }
+  &__row{
+    display: flex;
   }
   &__wrapper{
     width: 400px;
@@ -330,7 +333,6 @@
   font-size:$font-size_lg;
   &::before{
     @include font-awesome(){
-    // font-size:$font-size_xl;
     margin-right: $spacing-sm;
     font-weight: 600;
     }
@@ -338,7 +340,6 @@
   &--empty{
     &::before{
       @include font-awesome(){
-        // font-size:$font-size_xl;
         margin-right: $spacing-sm;
       }
     }
@@ -355,6 +356,14 @@
   line-height: 80px;
   // animation: fadeOut 3s;
   // animation-fill-mode: both;
+}
+
+.c-row{
+  display: flex;
+}
+
+.c-star{
+  color: #FFF100;
 }
 
 @keyframes fadeOut{

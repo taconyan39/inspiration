@@ -525,7 +525,7 @@ li {
   box-sizing: border-box;
 }
 
-.c-form__textArea {
+.c-form__textarea {
   width: 100%;
   padding: 10px;
   box-sizing: border-box;
@@ -574,6 +574,10 @@ li {
 
 .c-form__input--checkBox:hover {
   cursor: pointer;
+}
+
+.c-form__row {
+  display: flex;
 }
 
 .c-form__wrapper {
@@ -669,6 +673,14 @@ li {
   height: 80px;
   background: rgba(79, 195, 247, 0.8);
   line-height: 80px;
+}
+
+.c-row {
+  display: flex;
+}
+
+.c-star {
+  color: #FFF100;
 }
 
 @-webkit-keyframes fadeOut {
@@ -1076,6 +1088,11 @@ li {
   background: #4FC3F7;
 }
 
+.p-simpleList--none {
+  padding: 15px;
+  text-align: center;
+}
+
 .p-simpleList__list {
   width: 100%;
   padding: 10px;
@@ -1231,7 +1248,7 @@ li {
   float: right;
 }
 
-.p-ideaPost__textArea {
+.p-ideaPost__textarea {
   height: 300px;
 }
 
@@ -1321,6 +1338,20 @@ li {
   margin-top: 15px;
   text-align: center;
   box-sizing: border-box;
+}
+
+.p-ideaDetail__reviewForm {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.p-ideaDetail__reviewForm--textarea {
+  width: 80%;
+  height: 80px;
+}
+
+.p-ideaDetail__reviewFormRow--btn {
+  justify-content: flex-end;
 }
 
 .p-ideaDetail__reviewText {

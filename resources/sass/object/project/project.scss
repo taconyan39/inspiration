@@ -379,6 +379,10 @@
 // myItem
 
 .p-simpleList{
+  &--none{
+    padding: $spacing-lg;
+    text-align: center;
+  }
   &__list{
     width: 100%;
     padding: $spacing_md;
@@ -525,7 +529,7 @@
 
 // アイデア投稿ページ
 .p-ideaPost{
-  &__textArea{
+  &__textarea{
     height: 300px;
   }
 }
@@ -611,6 +615,19 @@
     text-align: center;
     box-sizing: border-box;
   }
+  &__reviewForm{
+    width: 100%;
+    box-sizing: border-box;
+    &--textarea{
+      width: 80%;
+      height: 80px;
+    }
+  }
+  &__reviewFormRow{
+    &--btn{
+      justify-content: flex-end;
+    }
+    }
   &__reviewText{
     padding: $spacing-lg 0;
     box-sizing: border-box;

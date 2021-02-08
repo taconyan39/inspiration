@@ -91,7 +91,7 @@
                     @endguest
                 </ul>
 
-                <hamburger-menu @menu-click="menu = $event"></hamburger-menu>
+                <hamburger-menu @menu-click="menu = $event" v-cloak></hamburger-menu>
 
             </nav>
         </header>

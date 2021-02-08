@@ -27,10 +27,10 @@ class PostIdeasController extends Controller
     {
         $user = Auth::user();
         $categories = Category::all();
+        
 
         $postIdeas = $user->ideas()->where('user_id',$user->id)->orderBy('created_at', 'desc')->paginate(10);
 
-        // dd($postIdeas);
 
         return view('post-idea.index', ['user' => $user, 'categories' => $categories,'postIdeas' => $postIdeas]);
     }
@@ -84,13 +84,30 @@ class PostIdeasController extends Controller
         if(!ctype_digit($id)){
             return redirect('/drills/new')->with('flash_message', __('Invalid operation was performed.'));
         }
-        
+
+        if(!Auth::check()){
+            $idea = Idea::find($id);
+            $categories = Category::all();
+            $idea->rating = sprintf('%.1f',$idea->reviews()->avg('rating'));
+            $idea->countReview = $idea->reviews->count();
+            $owner_flg = false;
+            $buy_flg = false;
+            $interest_flg = false;
+            $myreview = false;
+
+            $user = false;
+
+            $reviews = Review::all()->where('idea_id', $id)->take(5);
+
+            return view('post-idea.show',[ 'idea' => $idea, 'reviews' => $reviews, 'owner_flg' => $owner_flg, 'interest_flg' => $interest_flg, 'buy_flg' => $buy_flg, 'user' => $user, 'myreview' => $myreview, 'categories' => $categories]);
+        }
+
         $user = Auth::user();
         $idea = Idea::find($id);
         $idea->rating = sprintf('%.1f',$idea->reviews()->avg('rating'));
         $idea->countReview = $idea->reviews->count();
 
-        
+
         // 投稿者の場合の表示
         if(DB::table('ideas')->where('id', $idea->id)->where('user_id', $user->id)->exists()){
             // dd('owner');
@@ -123,13 +140,14 @@ class PostIdeasController extends Controller
 
         
         // レビューを投稿しているか
-        $myreview = Review::where('idea_id', $id)->where('user_id', $user->id);
+            $myreview = Review::where('idea_id', $id)->where('user_id', $user->id);
 
-        if($myreview->exists()){
-            $myreview = $myreview->first();
-        }else{
-            $myreview = '';
-        }
+            if($myreview->exists()){
+                $myreview = $myreview->first();
+            }
+
+            
+
 
         // アイデアに投稿されたレビューとその情報を取得
         $reviews = Review::all()->where('idea_id', $id)->take(5);
@@ -188,46 +206,5 @@ class PostIdeasController extends Controller
         return redirect('post-idea/index')->with('flash_message', '削除しました');
     }
 
-    // 購入処理
-    // public function buy(Request $request ,$id){
-
-    //     return view('post-idea.purchase-process')->action('PostIdeasController@buyProcess',[ 'request' => $request, 'id' => $id]);
-    // }
-    public function buy(Request $request ,$id){
-
-        $user = Auth::user();
-        $idea = Idea::find($id);
-        $contributor = DB::table('ideas')->where('id', $id)->where('user_id', $user->id)->exists();
-        $buy_flg = DB::table('buy_ideas')->where('idea_id', $id)->where('user_id',$user->id)->exists();
-
-        // すでに購入済みでないかの確認
-        if($buy_flg){
-            return redirect('post-idea/' . $id)->with('flash_message', 'すでに購入済みです');
-            // アイデアの投稿者でないか？
-        }elseif($contributor){
-            return redirect('post-idea/' . $id)->with('flash_message', '投稿者は購入できません');
-        }else{
-
-            // 購入が発生した場合にアイデアに購入済みフラグをつける
-            if($idea->buy_flg === 0){
-                $idea->buy_flg = 1;
-            }
-            // 購入者と出品者にメールを送信
-            Mail::to($user->email)->send(new IdeaBoughtMail($user));
-
-            Mail::to($idea->user->email)->send(new IdeaSoldMail($idea->user));
-
-            //購入データの登録
-            DB::table('buy_ideas')->insert([
-                'idea_id' => $id,
-                'user_id' => $user->id,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-                ]);
-                
-
-                return redirect('post-idea/' . $id);
-        }
-    }
 
 }

@@ -83,8 +83,8 @@
                     アイデアの詳細
                 </label>
                     
-                        <textarea id="content" class="p-ideaPost__textArea
-                        c-form__textArea @error('content') is-invalid @enderror" name="content" autocomplete="content">{{ old('アイデアの内容を入力してください(5000文字以内)') }}</textarea>
+                        <textarea id="content" class="p-ideaPost__textarea
+                        c-form__textarea @error('content') is-invalid @enderror" name="content" autocomplete="content">{{ old('アイデアの内容を入力してください(5000文字以内)') }}</textarea>
                         
                     @error('content')
                     <span class="c-error" role="alert">
