@@ -6,14 +6,18 @@
 
 <div class="l-wrapper__2colum u-site__width">
 
+<div class="p-index__mainImg">
+    <div class="c-img--outer"><img class="c-img" src="{{ asset('images/introduction.jpeg') }}" alt="inspirationの紹介画像"></div>
+  </div>
+
   @include('components.sidebar-category',[ 'categories' => $categories ])
   
-
   <transition name="menu">
       <category-menu v-if="menu" :categories="{{ $categories }}"></category-menu>
   </transition>
 
   <main class="l-main__2colum">
+
     
     @component('components.pickupCategory-section', [ 'pickupCategories' => $pickupCategories])
       @slot('title')
@@ -22,7 +26,7 @@
     @endcomponent
     
     
-    @component('components.pickupList-section', ['ideas' => $ideas])
+    @component('components.ideaList-section', ['ideas' => $ideas])
       @slot('title')
         新着のアイデア
       @endslot

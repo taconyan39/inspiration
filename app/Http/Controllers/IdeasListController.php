@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Idea;
 use App\Sort;
 use App\Category;
@@ -79,8 +80,7 @@ class IdeasListController extends Controller
             $idea->countReview = $idea->reviews->count();
         }
 
-        
-        return view('ideas-list', ['categories' => $categories, 'ideas' => $ideas, 'data' => $data, 'sorts' => $sorts]);
+        return view('ideas-list.ideas-list', ['categories' => $categories, 'ideas' => $ideas, 'data' => $data, 'sorts' => $sorts]);
     }
 
     public function search(Request $request){
@@ -155,4 +155,35 @@ class IdeasListController extends Controller
 
         return view('ideas-list', ['categories' => $categories, 'ideas' => $ideas, 'order' => $request->order, 'type' => $request->type, 'category_id' => $category_id]);
     }
+
+    public function myidea(){
+        $categories = Category::all();
+        $user = Auth::user();
+        $ideas = Idea::where('user_id', $user->id)->paginate(10);
+
+        foreach($ideas as $idea){
+            $idea->rating = sprintf('%.1f',$idea->reviews->avg('rating'));
+            $idea->countReview = $idea->reviews->count();
+        }
+
+        return view('ideas-list.myidea-list', ['user' => $user ,'ideas' => $ideas, 'categories' => $categories]);
+    }
+
+    // お気に入りリスト
+    public function interest(){
+        $categories = Category::all();
+        $user = Auth::user();
+        $user_id = $user->id;
+        $ideas = Idea::whereHas('interests', function($q) use ($user_id){
+            $q->whre('user_id', $user_id);
+        })->paginate(10);
+
+        foreach($ideas as $idea){
+            $idea->rating = sprintf('%.1f',$idea->reviews->avg('rating'));
+            $idea->countReview = $idea->reviews->count();
+        }
+
+        return view('ideas-list.myidea-list', ['user' => $user ,'ideas' => $ideas, 'categories' => $categories]);
+    }
+    
 }

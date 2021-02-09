@@ -25,10 +25,6 @@
               <option value="{{$sort->id}}" >{{$sort->name}}</option>
             @endif
           @endforeach
-          <!-- <option value="1">日付が新しい順</option>
-          <option value="2">日付が古い順</option>
-          <option value="3">価格が高い順</option>
-          <option value="4">価格が安い順</option> -->
         </select>
 
 
@@ -52,10 +48,11 @@
   </form>
 
 
-    @component('components.pickupList-section', ['ideas' => $ideas])
+    @component('components.ideaList-section', ['ideas' => $ideas])
       @slot('title')
         アイデア一覧
       @endslot
+
     @endcomponent
 
 
@@ -67,4 +64,3 @@
   </main>
 </div>
 @endsection
-<!-- テスト -->

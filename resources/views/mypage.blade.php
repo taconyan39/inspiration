@@ -17,7 +17,7 @@
         @endslot
 
         @slot('url')
-            {{ url('post-idea') }}
+            {{ url('myidea-list') }}
         @endslot
 
     @endcomponent
@@ -28,7 +28,7 @@
         @endslot
 
         @slot('url')
-            {{ url('post-idea') }}
+            {{ url('interest-list') }}
         @endslot
     @endcomponent
 

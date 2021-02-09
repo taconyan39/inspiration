@@ -24,9 +24,8 @@ window.Vue = require('vue');
 Vue.component('test-component', require('./components/TestComponent.vue').default);
 Vue.component('input-component', require('./components/InputComponent.vue').default);
 Vue.component('flash-message', require('./components/FlashMessage.vue').default);
-// Vue.component('profile-edit-form', require('./components/ProfileEditForm.vue').default);
 Vue.component('icon-edit', require('./components/IconEdit.vue').default);
-Vue.component('ideas-list', require('./components/IdeasList.vue').default);
+// Vue.component('ideas-list', require('./components/IdeasList.vue').default);
 Vue.component('hamburger-menu', require('./components/HamburgerMenu.vue').default);
 Vue.component('interest-component', require('./components/InterestComponent.vue').default);
 Vue.component('buy-component', require('./components/BuyComponent.vue').default);
@@ -75,13 +74,13 @@ const app = new Vue({
       mounted() {
         
         // this.getItems();
-    //         var flash = document.getElementById('flash');
+            var flash = document.getElementById('flash');
         
-    //         // console.log(this.flash_flg);
-    //         setTimeout(function(){
-    //             flash.style.display = "none"
-    //             // this.flash_flg = false
-    //             }, 3000);
+            // console.log(this.flash_flg);
+            setTimeout(function(){
+                flash.style.display = "none"
+                // this.flash_flg = false
+                }, 3000);
           
   
     }

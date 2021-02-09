@@ -5,6 +5,8 @@
   z-index: 50;
   position: fixed;
   top: 0;
+  border-bottom: 1px solid #bbb;
+  box-shadow: 0 3px 6px rgb(0 0 0 / 20%);
 }
 
 .l-wrapper{
@@ -20,7 +22,7 @@
     overflow:hidden;
     flex-wrap: wrap;
     @include mq(){
-      margin-top: 20%;
+      margin-top: 25%;
     }
   }
   &__2colum{
@@ -34,7 +36,7 @@
     overflow:hidden;
     flex-wrap: wrap;
     @include mq(){
-      margin-top: 20%;
+      margin-top: 25%;
     }
   }
 }

@@ -46,6 +46,9 @@ Route::get('ajax/ideas-list', 'Ajax\IdeasListController@index');
 Route::post('ideas-list', 'IdeasListController@search');
 Route::post('ajax/ideas-list', 'Ajax\IdeasListController@post');
 
+Route::get('myidea-list', 'IdeasListController@myidea');
+Route::get('interest-list', 'IdeasListController@interest');
+
 //プロフィール変更
 Route::get('/profile', 'ProfileController@edit')->name('profile.edit');
 Route::post('/profile', 'ProfileController@update')->name('profile.update');
