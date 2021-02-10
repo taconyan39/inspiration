@@ -32,22 +32,27 @@ Route::post('ajax/interest/{id}', 'Ajax\PostIdeasController@interest');
 Route::get('ajax/interest/{id}', 'Ajax\PostIdeasController@changeInterest');
 
 Route::post('post-idea/interest/{id}', 'PostIdeasController@interest');
+
+// カテゴリー取得
+Route::get('/ajax/categories', 'CategoriesController@category');
+
 //商品購入
 Route::post('post-idea/buy/{id}', 'UserActionController@buy')->name('buy');
 
 //レビュー投稿
-Route::post('post-idea/postreview/{id}', 'UserActionController@postReview')->name('buy');
-
+Route::get('ajax/reviews/{id}','Ajax\ReviewsController@show');
+Route::post('post-idea/postreview/{id}', 'UserActionController@postReview');
 
 // アイデア一覧表示
-Route::get('ideas-list', 'IdeasListController@index');
+Route::get('all-ideas-list', 'IdeasListController@index');
 Route::get('ajax/ideas-list', 'Ajax\IdeasListController@index');
 // Route::get('ideas-list', 'IdeasListController@searchList');
-Route::post('ideas-list', 'IdeasListController@search');
+Route::post('all-ideas-list', 'IdeasListController@search');
 Route::post('ajax/ideas-list', 'Ajax\IdeasListController@post');
 
-Route::get('myidea-list', 'IdeasListController@myidea');
-Route::get('interest-list', 'IdeasListController@interest');
+Route::get('myideas-list', 'IdeasListController@myidea');
+Route::get('interests-list', 'IdeasListController@interest');
+Route::post('interests-list', 'IdeasListController@interestRemove');
 
 //プロフィール変更
 Route::get('/profile', 'ProfileController@edit')->name('profile.edit');

@@ -19,8 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('introduction')->nullable();
-            // $table->string('icon_img')->nullable()->default(Storage::disk('s3')->url('images/icons/noimage.png'));
-            $table->string('icon_img')->nullable();
+            $table->string('icon_img')->default('noimage_icon.png');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->boolean('delete_flg')->default(0);

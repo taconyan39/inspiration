@@ -13,6 +13,7 @@ use App\Mail\ArrivedReview;
 
 class ReviewsController extends Controller
 {
+
     // レビュー投稿ページの表示
     public function create($id){
 

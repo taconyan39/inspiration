@@ -60,7 +60,7 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="c-nav__item p-header__navItem">
-                                <a class="c-btn p-header__btn" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="c-btn c-btn--white p-header__btn" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="c-nav__item p-header__navItem">
@@ -72,7 +72,9 @@
                     <!-- TODO テンプレのままなので修正 -->
                         <!-- <li class="nav-item dropdown"> -->
                         <li class="c-nav__item p-header__navItem">
-                            <a class="c-btn p-header__btn" href="{{ route('logout') }}"
+                            <a class="c-btn 
+                            c-btn--white
+                            p-header__btn" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();"
                             >{{ __('Logout') }}</a>

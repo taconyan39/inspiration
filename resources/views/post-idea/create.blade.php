@@ -4,6 +4,8 @@
 
 @section('content')
 <div class="l-wrapper__2colum u-site__width">
+
+@include('components.sidebar-profile',['user' => $user])
         
         <main class="c-form__wrapper p-ideaPost ">
         <div class="p-ideaPost__title c-form__header">
@@ -102,10 +104,7 @@
                     投稿する
             </button>
         </form>
-    </main>
-    <div class="c-link__conainer">
-    </div>
-    @include('components.sidebar-profile',['user' => $user])
         <a href="{{url()->previous()}}">&lt;&lt; 前のページに戻る</a>
+    </main>
 </div>
 @endsection

@@ -20,6 +20,10 @@ class Idea extends Model
         return $this->hasMany('App\Review');
     }
 
+    public function interests(){
+        return $this->hasMany('App\Interest')->orderBy('createt_at', 'desc');
+    }
+
     public function buyIdea(){
         return $this->hasMany('App\BuyIdea');
     }

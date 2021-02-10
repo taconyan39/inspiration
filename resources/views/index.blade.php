@@ -25,18 +25,29 @@
       @endslot
     @endcomponent
     
-    
-    @component('components.ideaList-section', ['ideas' => $ideas])
+    <section class="c-section p-ideaList">
+    @component('components.ideasList-section', ['items' => $ideas, 'listType' => 0])
       @slot('title')
         新着のアイデア
       @endslot
+
     @endcomponent
 
-    @component('components.simpleList-reviewSection', ['reviews' => $reviews])
-      @slot('title')
-        新着のレビュー
-      @endslot
-    @endcomponent
+    @include('components.show-all', ['url' => 'all-ideas-list'])
+
+    </section>
+
+    <section class="p-simpleList c-section">
+      @component('components.simpleList-reviewSection', ['reviews' => $reviews])
+        @slot('title')
+          新着のレビュー
+        @endslot
+
+      @endcomponent
+
+      @include('components.show-all', ['url' => 'reviews-list'])
+
+    </section>
 
   </main>
   

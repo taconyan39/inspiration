@@ -245,9 +245,17 @@
   }
   &__title{
     text-align: center;
+    @include mq(md){
+      text-align: start;
+    }
     &--wrapper{
       margin-bottom: $spacing-lg;
       padding: 0 $spacing-md;
+      @include mq(md){
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+      }
     }
   }
   &__top{
@@ -378,12 +386,7 @@
       font-weight: bold;
     }
   }
-  &--none{
-    padding: $spacing-lg;
-    text-align: center;
-  }
   &__list{
-    width: 100%;
     padding: $spacing_md;
   }
   &__item{
@@ -400,10 +403,8 @@
       background: $color_white;
     }
   }
-  &__user{
-    float: left;
-    width: 10%;
-    margin-right: $spacing-lg;
+  &--none{
+    text-align: center;
   }
   &__userImg{
     &--outer{
@@ -414,6 +415,10 @@
         width: 20%;
       }
     }
+  }
+  &__under{
+    text-align: center;
+    margin: $spacing_lg 0 $spacing_lg;
   }
   &__summary{
     width: 100%;
@@ -581,8 +586,8 @@
     margin-bottom: $spacing-lg;
   }
   &__info{
-    display: flex;
-    text-align: right;
+    align-items: center;
+    margin-bottom: $spacing-lg;
     &--left{
       text-align: start;
     }
@@ -604,6 +609,7 @@
     }
   }
   &__infoItem{
+    align-items: center;
     &--bottom{
         display: flex;
         width: 100%;
@@ -651,28 +657,44 @@
   &__summary{
     font-weight: bold;
     margin-bottom: $spacing-lg;
+    font-size: $font-size_xl;
   }
   &__text{
     overflow: hidden;
     text-overflow: ellipsis;
-    // white-space: nowrap;
     box-sizing: border-box;
     text-align: start;
     &--wrapper{
       margin: $spacing-3l 0;
+      padding: $spacing-3l;
+      box-sizing: border-box;
     }
   }
   &__purchased{
     margin-bottom: $spacing-lg;
-    &--not{
-      text-align:center;
-      font-size: $font-size_xxl;
-    }
   }
   &__price{
     font-size: $font-size_xl;
     font-weight: bold;
     margin-right: $spacing_sm;
+  }
+  &__user{
+    align-items: center;
+    &--name{
+      font-size: $font-size_lg;
+    }
+  }
+  &__userImg--outer{
+    width: 50px;
+    height: 50px;
+    margin-right: $spacing-lg;
+  }
+  &__nologin{
+    text-align:center;
+      font-size: $font-size_xxl;
+    &--wrapper{
+      margin-top: $spacing-3l;
+    }
   }
 }
 
@@ -685,6 +707,13 @@
     justify-content: center;
     width: 200px;
     margin: 0 auto;
+  }
+  &__btn{
+    font-size: $font-size_default;
+    &--detail{
+      font-size: $font-size_default;
+      background: $color_action;
+    }
   }
 }
 
@@ -768,14 +797,32 @@
     }
   }
   &__search{
+    display: flex;
+    justify-content: flex-start;
+    padding: $spacing-sm;
+    height: 100%;
+    @include mq(md){
+      flex-direction: column;
+    }
     &--order{
       width: 150px;
     }
+    &--btn{
+      padding: $spacing-md;
+    }
+    &--row{
+      display: flex;
+      justify-content: flex-start;
+      @include mq(md){
+        width: 250px;
+        margin: 0 auto $spacing-md;
+      }
+    }
+  }
+  &__searchSelect{
+    width: 180px;
   }
   &__summary{
-    // TODO jsを使用して複数行の3点リーダー実装
-    // width: calc(100% - 120px);
-    // width: 30px;
     width: 100%;
   }
   &__text{
@@ -805,5 +852,12 @@
   margin: $spacing-lg auto;
   &__link{
     color: $color_gray;
+  }
+}
+
+// 気になるボタン
+.p-interest{
+  &__btn{
+    background: #e6ae2e;
   }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\Idea;
 use App\Sort;
 use App\Category;
@@ -80,7 +81,7 @@ class IdeasListController extends Controller
             $idea->countReview = $idea->reviews->count();
         }
 
-        return view('ideas-list.ideas-list', ['categories' => $categories, 'ideas' => $ideas, 'data' => $data, 'sorts' => $sorts]);
+        return view('ideas-list.all-ideas-list', ['categories' => $categories, 'ideas' => $ideas, 'data' => $data, 'sorts' => $sorts]);
     }
 
     public function search(Request $request){
@@ -159,14 +160,14 @@ class IdeasListController extends Controller
     public function myidea(){
         $categories = Category::all();
         $user = Auth::user();
-        $ideas = Idea::where('user_id', $user->id)->paginate(10);
+        $ideas = Idea::where('user_id', $user->id)->orderBy('created_at','desc')->paginate(10);
 
         foreach($ideas as $idea){
             $idea->rating = sprintf('%.1f',$idea->reviews->avg('rating'));
             $idea->countReview = $idea->reviews->count();
         }
 
-        return view('ideas-list.myidea-list', ['user' => $user ,'ideas' => $ideas, 'categories' => $categories]);
+        return view('ideas-list.myideas-list', ['user' => $user ,'ideas' => $ideas, 'categories' => $categories]);
     }
 
     // お気に入りリスト
@@ -174,16 +175,26 @@ class IdeasListController extends Controller
         $categories = Category::all();
         $user = Auth::user();
         $user_id = $user->id;
-        $ideas = Idea::whereHas('interests', function($q) use ($user_id){
-            $q->whre('user_id', $user_id);
-        })->paginate(10);
+
+        $ideas = Idea::    whereHas('interests', function($q) use ($user_id){
+            $q->where('user_id', $user_id);
+        })->orderBy('created_at', 'desc')->paginate(10);
 
         foreach($ideas as $idea){
             $idea->rating = sprintf('%.1f',$idea->reviews->avg('rating'));
             $idea->countReview = $idea->reviews->count();
         }
 
-        return view('ideas-list.myidea-list', ['user' => $user ,'ideas' => $ideas, 'categories' => $categories]);
+
+        return view('ideas-list.interests-list', ['user' => $user ,'ideas' => $ideas, 'categories' => $categories]);
+    }
+
+    public function interestRemove(Request $request){
+        $user = Auth::user();
+
+        DB::table('interests')->where('user_id', $user->id)->where('idea_id', $request->idea_id)->delete();
+
+        return redirect(url()->previous())->with('flash_message', 'お気に入り解除しました');
     }
     
 }

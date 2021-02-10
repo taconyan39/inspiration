@@ -1,4 +1,4 @@
-<section class="p-simpleList c-section">
+
 
   <h2 class="c-title__section p-simpleList__title">{{ $title }}</h2>
 
@@ -52,8 +52,3 @@
     @endforeach
 
   </ul>
-  <!-- 全件表示 -->
-  <!-- <div class="p-simpleList__bottom">
-    <a href="{{ url('myidea') }}" class="c-btn p-simpleList__linkBtn">全件表示</a>
-  </div> -->
-</section>

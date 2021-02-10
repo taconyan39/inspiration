@@ -1,18 +1,14 @@
 <template>
 
   <div>
-    <button class="c-btn c-btn--white"  v-if="item.flg" @click="onChangeInterest(item.flg)">
-      <span class="c-star">★</span>
-    解除する</button>
-
-    <button v-else class="c-btn c-btn--white p-interest__btn" @click="onChangeInterest(item.flg)">　気になる</button>
+    <button @click="onChangeInterest(item.flg)">☆ 気になる</button>
   </div>
 </template>
 
 <script>
 export default {
   props:{
-    id: {
+    idea: {
       type: Number,
     },
   },
@@ -24,7 +20,7 @@ export default {
   methods: {
 
     onChangeInterest(interestFlg){
-      const url = '/ajax/interest/' + this.id
+      const url = '/ajax/interest/' + this.idea.id
 
       const params = { flg: !interestFlg};
 
@@ -37,7 +33,7 @@ export default {
   },
   mounted(){
 
-    const url = '/ajax/interest/' + this.id
+    const url = '/ajax/interest/' + this.idea.id
 
       axios.get(url)
         .then((response) => {

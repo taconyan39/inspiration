@@ -66,6 +66,7 @@ class MypageController extends Controller
                     ->take(5)
                     ->get();
                     
+        // レビューの平均と数の格納
         foreach($buyIdeas as $buyIdea){
             $buyIdea->rating = sprintf('%.1f',$buyIdea->reviews->avg('rating'));
             $buyIdea->countReview = $buyIdea->reviews->count();

@@ -17,7 +17,7 @@
         @endslot
 
         @slot('url')
-            {{ url('myidea-list') }}
+            {{ url('myideas-list') }}
         @endslot
 
     @endcomponent
@@ -28,7 +28,7 @@
         @endslot
 
         @slot('url')
-            {{ url('interest-list') }}
+            {{ url('interests-list') }}
         @endslot
     @endcomponent
 
@@ -38,9 +38,6 @@
         @endslot
     @endcomponent
 
-
-
-    
   </main>
 </div>
 @endsection

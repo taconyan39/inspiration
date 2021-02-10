@@ -1,4 +1,4 @@
-extends('layouts.app')
+@extends('layouts.app')
 
 @section('title', 'マイページ')
 @section('content')
@@ -12,19 +12,24 @@ extends('layouts.app')
   
   <main class="l-main__2colum u-site__width">
 
-    @component('components.pickupList-section', ['ideas' => $ideas])
+    @component('components.ideasList-section', ['items' => $ideas, 'listType' => 2])
+
       @slot('title')
         投稿したアイデア一覧
       @endslot
+      
     @endcomponent
 
 
     <div class="p-ideasList__bottom">
       {{ $ideas->links('vendor/pagination/pagination') }}
 
-     </div>
+    </div>
+
+    <div class="c-link__previous--wrapper">
+      <a class="c-link__previous" href="{{url()->previous()}}">&lt;&lt; 前のページに戻る</a>
+    </div>
     
   </main>
 </div>
 @endsection
-<!-- テスト -->

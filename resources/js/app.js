@@ -28,13 +28,14 @@ Vue.component('icon-edit', require('./components/IconEdit.vue').default);
 // Vue.component('ideas-list', require('./components/IdeasList.vue').default);
 Vue.component('hamburger-menu', require('./components/HamburgerMenu.vue').default);
 Vue.component('interest-component', require('./components/InterestComponent.vue').default);
+Vue.component('interest-remove-component', require('./components/InterestRemoveComponent.vue').default);
 Vue.component('buy-component', require('./components/BuyComponent.vue').default);
 Vue.component('category-menu', require('./components/CategoryMenu.vue').default);
-Vue.component('pagination', require('./components/Pagination.vue').default);
-Vue.component('reviews', require('./components/ReviewsComponent.vue').default);
+// Vue.component('pagination', require('./components/Pagination.vue').default);
 Vue.component('search-component', require('./components/SearchComponent.vue').default);
 Vue.component('loading', require('./components/Loading.vue').default);
 Vue.component('post-review', require('./components/PostReview.vue').default);
+Vue.component('idea-reviews', require('./components/IdeaReviews.vue').default);
 
 
 
