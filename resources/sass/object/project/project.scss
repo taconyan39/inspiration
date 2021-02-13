@@ -96,7 +96,7 @@
     border-bottom: 1px solid $color_gray;
   }
   &__link{
-    padding: $spacing-md $spacing-sm;
+    padding: $spacing-xl $spacing-sm;
   }
 }
 
@@ -192,6 +192,10 @@
       width: 70%;
       box-sizing: border-box;
       position: relative;
+      @include mq(md){
+        overflow-wrap: break-word;
+        width: 60%;
+      }
     }
   }
   &__bottom{
@@ -322,6 +326,11 @@
 
 // form
 .p-login{
+  width: 500px;
+  margin: 5% auto 0;
+  @include mq(md){
+    width: 100%;
+  }
   &__label{
     display: block;
     &--wrapper{
@@ -329,18 +338,19 @@
       margin-bottom: $spacing-md;
     }
   }
-  &__btn{
-    background: $color_action;
-    float: right;
-  }
   &__btnBox{
-    justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
+    margin-top: $spacing-lg;
   }
 }
 
 .p-register{
+  width: 500px;
+  margin: 5% auto 0;
+  @include mq(md){
+    width: 100%;
+  }
   &__label{
     display: block;
     &--wrapper{
@@ -440,6 +450,12 @@
 
 // プロフィールサイドバー
 .p-profileSidebar{
+  &--sp{
+    display: none;
+    @include mq(md){
+      display: block;
+    }
+  }
   &__btn{
     display: block;
     width:100%;
@@ -457,6 +473,11 @@
     margin-right: 15px;
     overflow: hidden;
     border: 3px solid $color_main;
+    background: #fff;
+    &--sp{
+      width: 90%;
+      margin: 0 auto;
+    }
   }
   &__img{
     &--outer{
@@ -484,7 +505,11 @@
 
 // プロフィール編集
 .p-profileEdit{
-  width: 60%;
+  width: 70%;
+  margin: 0 auto;
+  @include mq(md){
+    width: 100%;
+  }
   &__btn{
     background: #4FC3F7;
     margin: auto 0 0 auto;
@@ -513,9 +538,7 @@
     color: $color_gray;
   }
   &__row{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: $spacing-md;
+    margin-top: $spacing-xxl;
     &--password{
       display: flex;
       justify-content: space-between;
@@ -526,22 +549,49 @@
 
 // アイデア投稿
 .p-ideaPost{
-  width: 60%;
+  width: 90%;
+  margin: 0 auto;
+  &__form{
+    &--posted{
+      width: 90%;
+      margin: 0 auto;
+      height: 300px;
+      display: flex;
+      text-align: center;
+      align-items: center;
+      justify-content: space-around;
+      font-size: $font-size_xxl;
+      margin-bottom: $spacing-lg;
+      flex-direction: column;
+    }
+  }
+  &__annotation{
+    font-size: $font-size_md;
+  }
   &__label{
-    display: block;
+    display: flex;
+    flex-direction: column;
     &--wrapper{
       display: block;
       margin-bottom: $spacing-md;
     }
   }
   &__btn{
-    background: $color_action;
+    background: $color_action3;
     float: right;
+    &--container{
+      margin-top: $spacing-lg;
+    }
+    &--remove{
+      // background:#F74F6E;
+      background:$color_remove;
+      color:$color_white;
+      
+    }
   }
-}
-
-// アイデア投稿ページ
-.p-ideaPost{
+  &__price::after{
+    content: '¥';
+  }
   &__textarea{
     height: 300px;
   }
@@ -549,9 +599,6 @@
 
 // アイデア詳細画面
 .p-ideaDetail{
-  width: 100%;
-  border-radius: 3px;
-  border: 3px solid $color_sub;
   &__bottom{
     display: flex;
     justify-content: space-between;

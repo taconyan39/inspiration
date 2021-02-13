@@ -26,8 +26,8 @@ class PostIdeaRequest extends FormRequest
         return [
             'category_id' => 'required',
             'title' => 'required | max:20',
-            'summary' => 'required | max:50',
-            'price' => 'required | max:255 | integer ',
+            'summary' => 'required | max:200',
+            'price' => 'required | max:1000000 | integer ',
             'content' => 'required | max:5000',
         ];
     }

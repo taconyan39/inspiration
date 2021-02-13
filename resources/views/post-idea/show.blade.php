@@ -11,7 +11,7 @@
         @endif
         
         <main class="l-main__2colum">
-            <article class="p-ideaDetail">
+            <article class="p-ideaDetail c-article">
 
                 <div class="p-ideaDetail__title c-form__header">
                     <h2 class="c-form__title">{{ $idea->title}}</h2>

@@ -6,11 +6,19 @@ use Illuminate\Http\Request;
 use App\Idea;
 use App\Category;
 use App\Review;
+use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 
 class TopController extends Controller
 {
     public function index(){
+        if(Auth::check()){
+            $user = Auth::user();
+            $user_img = $user->icon_img;
+        }else{
+            $user = false;
+            $user_img = 'noimage_icon.png';
+        }
 
         $categories = Category::all();
         $ideas = Idea::latest()->take(3)->get();
@@ -30,9 +38,7 @@ class TopController extends Controller
 
         $pickupCategories =  Category::all()->take(6);
 
-        
-
-        return view('index', ['ideas' => $ideas, 'categories' => $categories, 'pickupCategories' => $pickupCategories, 'reviews' => $reviews]);
+        return view('index', ['ideas' => $ideas, 'categories' => $categories, 'pickupCategories' => $pickupCategories, 'reviews' => $reviews, 'user' => $user, 'user_img' => $user_img]);
     }
 
 }

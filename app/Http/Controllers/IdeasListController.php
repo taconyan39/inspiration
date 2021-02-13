@@ -15,28 +15,22 @@ class IdeasListController extends Controller
     // public function index($sort){
     public function index(Request $request){
 
+        if(Auth::check()){
+            $user = Auth::user();
+            $user_img = $user->icon_img;
+        }else{
+            $user = false;
+            $user_img = 'noimage_icon.png';
+        }
+
         $categories = Category::all();
         $sorts = Sort::all();
-
-        // $form = $request->all();
-        // unset($form['_token']);
-        // unset($request->_token);
-
-        // $sort = collect(
-        //     ['id' => 1, 'name' => '投稿が新しい順'],
-        //     ['id' => 2,'name' => '投稿が古い順'],
-        //     ['id' => 3, 'name' => '価格が高い順'],
-        //     ['id' => 4, 'name' => '投稿が安い順']
-        // );
-
-        // dd($sort);
 
         $data = [
             'sort_id' => $request->get('sort_id'),
             'category_id' => $request->get('category_id'),
         ];
 
-        // dd($data['category_id']);
         switch($data['sort_id']){
             case 2:
                 $type = 'created_at';
@@ -56,20 +50,6 @@ class IdeasListController extends Controller
                 break;
         }
 
-        // dd($data['sort_id']);
-
-        // if($data['type'] == 2){
-        //     $type = 'price';
-        // }else{
-        //     $type = 'created_at';
-        // }
-
-        // if($data['order'] == 2){
-        //     $order = 'asc';
-        // }else{
-        //     $order= 'desc';
-        // }
-
         if(!$data || $data['category_id'] < 1 ){
             $ideas = Idea::orderBy($type, $order)->paginate(5);
         }else{
@@ -81,7 +61,7 @@ class IdeasListController extends Controller
             $idea->countReview = $idea->reviews->count();
         }
 
-        return view('ideas-list.all-ideas-list', ['categories' => $categories, 'ideas' => $ideas, 'data' => $data, 'sorts' => $sorts]);
+        return view('ideas-list.all-ideas-list', ['categories' => $categories, 'ideas' => $ideas, 'data' => $data, 'sorts' => $sorts, 'user' => $user, 'usr_img' => $user_img]);
     }
 
     public function search(Request $request){
@@ -116,10 +96,6 @@ class IdeasListController extends Controller
             $idea->countReview = $idea->reviews->count();
         }
 
-        // dd((int)$request->order);
-        // dd($request->category_id);
-
-        // return redirect()->action('IdeasListController@searchList');
         return view('ideas-list', ['categories' => $categories, 'ideas' => $ideas, 'order' => $request, 'type' => $request->type, 'category_id' => $category_id]);
     }
     public function searchList($request){
@@ -157,7 +133,17 @@ class IdeasListController extends Controller
         return view('ideas-list', ['categories' => $categories, 'ideas' => $ideas, 'order' => $request->order, 'type' => $request->type, 'category_id' => $category_id]);
     }
 
+    // 投稿ページ一覧
     public function myidea(){
+
+        if(Auth::check()){
+            $user = Auth::user();
+            $user_img = $user->icon_img;
+        }else{
+            $user = false;
+            $user_img = 'noimage_icon.png';
+        }
+        
         $categories = Category::all();
         $user = Auth::user();
         $ideas = Idea::where('user_id', $user->id)->orderBy('created_at','desc')->paginate(10);
@@ -167,13 +153,21 @@ class IdeasListController extends Controller
             $idea->countReview = $idea->reviews->count();
         }
 
-        return view('ideas-list.myideas-list', ['user' => $user ,'ideas' => $ideas, 'categories' => $categories]);
+        return view('ideas-list.myideas-list', ['user' => $user ,'ideas' => $ideas, 'categories' => $categories, 'user_img' => $user_img]);
     }
 
     // お気に入りリスト
     public function interest(){
+
+        if(Auth::check()){
+            $user = Auth::user();
+            $user_img = $user->icon_img;
+        }else{
+            $user = false;
+            $user_img = 'noimage_icon.png';
+        }
+
         $categories = Category::all();
-        $user = Auth::user();
         $user_id = $user->id;
 
         $ideas = Idea::    whereHas('interests', function($q) use ($user_id){
@@ -186,7 +180,7 @@ class IdeasListController extends Controller
         }
 
 
-        return view('ideas-list.interests-list', ['user' => $user ,'ideas' => $ideas, 'categories' => $categories]);
+        return view('ideas-list.interests-list', ['user' => $user ,'ideas' => $ideas, 'categories' => $categories, 'user_img' => $user_img]);
     }
 
     public function interestRemove(Request $request){

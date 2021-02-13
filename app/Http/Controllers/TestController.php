@@ -9,7 +9,7 @@ use App\Idea;
 
 class TestController extends Controller
 {
-    public function get(Request $request ,$sort){
+    public function get(){
         // dd(url());
         // dd($url);
         // $user_id = Auth::user()->id;
@@ -21,20 +21,20 @@ class TestController extends Controller
 
         // dd($reviews);
 
-        $request->flash();
+        // $request->flash();
 
-         $data = [
-         'get'           => $request->get('a'),
-         'input'         => $request->input('a'),
-         'request_get'   => $request->request->get('a'),
-         'query_get'     => $request->query->get('a'),
-         'query'         => $request->query('a'),
-         'all'           => var_export($request->all(), true),
-         'only'          => var_export($request->only(['a', 'b']), true),
-         'except'        => var_export($request->except(['b']), true),
-         ];
+        //  $data = [
+        //  'get'           => $request->get('a'),
+        //  'input'         => $request->input('a'),
+        //  'request_get'   => $request->request->get('a'),
+        //  'query_get'     => $request->query->get('a'),
+        //  'query'         => $request->query('a'),
+        //  'all'           => var_export($request->all(), true),
+        //  'only'          => var_export($request->only(['a', 'b']), true),
+        //  'except'        => var_export($request->except(['b']), true),
+        //  ];
 
-        return view('test', $data);
+        return view('test');
 
         $ideas = Idea::paginate(10);
         // dd($ideas);

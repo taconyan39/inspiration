@@ -16,7 +16,7 @@
 // });
 
 // テスト用ページ
-Route::get('/test/{sort}', 'TestController@get');
+Route::get('/test', 'TestController@get');
 Route::post('/test', 'TestController@post');
 // Route::get('ajax/pagination', '\Ajax\TestController@get');
 
@@ -30,11 +30,17 @@ Route::get('/home', 'UsersController@home')->name('home');
 Route::resource('post-idea', 'PostIdeasController');
 Route::post('ajax/interest/{id}', 'Ajax\PostIdeasController@interest');
 Route::get('ajax/interest/{id}', 'Ajax\PostIdeasController@changeInterest');
+// Route::get('ajax/idea-edit/{id}','Ajax\PostIdeasController@editAjax');
+Route::get('ajax/idea-edit/{id}','Ajax\PostIdeasController@editAjax');
+Route::get('delete', 'PostIdeascontroller@delete');
 
 Route::post('post-idea/interest/{id}', 'PostIdeasController@interest');
 
 // カテゴリー取得
-Route::get('/ajax/categories', 'CategoriesController@category');
+Route::get('/ajax/categories', 'Ajax\CategoriesController@category');
+
+// ユーザー情報取得
+Route::get('/ajax/user', 'Ajax\UserController@user');
 
 //商品購入
 Route::post('post-idea/buy/{id}', 'UserActionController@buy')->name('buy');

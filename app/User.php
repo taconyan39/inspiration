@@ -57,21 +57,4 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Idea', 'interests', 'user_id', 'idea_id')->withTimestamps();
     }
 
-    public function buyIdeas(){
-        return $this->belongsToMany('App\Idea', 'buy_ideas', 'user_id', 'idea_id')->withTimestamps();
-    }
-    /**
-* $idea_idで指定されたideaをお気に入り登録する。
-*
-* @param int $userId
-* @return bool
-*/
-    public function interest($userId){
-        // すでにお気に入りしているかの確認
-        // $exist = $this->is_interest($ideaId);
-        // 相手が自分自身かどうかの確認
-        // $its_me = $this_id == $ideaId;
-
-        // return $userId;
-        }
 }

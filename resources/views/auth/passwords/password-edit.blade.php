@@ -3,6 +3,7 @@
 @section('title', '会員登録')
 
 @section('content')
+
 <div class="l-wrapper__1colum u-site__width">
     <div class="c-form__wrapper p-passwordEdit">
         <div class="p-passwordEdit__title c-form__header">

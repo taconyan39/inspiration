@@ -1,24 +1,22 @@
 <template>
 
   <div class="c-search__wrapper p-fullList__search">
-<!-- {{items}} -->
-<!-- {{selectedTypeId}} -->
-        <select name="type" class="c-selectBox" v-model="selectedTypeId" @change="onChangeType">
-          <option v-for="type in types" :value="type.id" v-text="type.text" :key="type.id"></option>
-        </select>
+    <select name="type" class="c-selectBox" v-model="selectedTypeId" @change="onChangeType">
+      <option v-for="type in types" :value="type.id" v-text="type.text" :key="type.id"></option>
+    </select>
 
-        <select name="order" class="c-selectBox p-fullList__search--order" v-model="selectedOrderId">
-          <option :value="order.id" v-for="order in filteredOrders" :key="order.id" v-text="order.text"></option>
-        </select>
+    <select name="order" class="c-selectBox p-fullList__search--order" v-model="selectedOrderId">
+      <option :value="order.id" v-for="order in filteredOrders" :key="order.id" v-text="order.text"></option>
+    </select>
 
-        <select name="category_id" v-model="selectedCategoryId" class="c-selectBox p-fulllList__search--category">
+    <select name="category_id" v-model="selectedCategoryId" class="c-selectBox p-fulllList__search--category">
 
-          <option :value="category.id" v-for="category in filterCategories" :key="category.id" v-text="category.name_ja"></option>
+      <option :value="category.id" v-for="category in filterCategories" :key="category.id" v-text="category.name_ja"></option>
 
-        </select>
+    </select>
 
-        <button name="submit" type="submit" class="c-search"><i class="fas fa-search"></i></button>
-      </div>
+    <button name="submit" type="submit" class="c-search"><i class="fas fa-search"></i></button>
+  </div>
 
 </template>
 

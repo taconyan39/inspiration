@@ -150,7 +150,6 @@ export default {
     }
   },
   mounted(){
-    console.log('test');
 
     if(this.page_type === 1){
       this.pageType = 1;

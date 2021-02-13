@@ -17,20 +17,6 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script src="https://kit.fontawesome.com/8e92148154.js" crossorigin="anonymous"></script>
 
-    <!-- <style>
-        .menu-enter{
-            transform: translateX( -100%);
-        }
-        
-        /* .menu-leave-to{
-            transform: translateX( -100%);
-        } */
-
-        .menu-enter-active, .menu-leave-active{
-        /* transform: tra; */
-        transition: transform 1s;
-        }
-    </style> -->
 </head>
 <body>
     <div id="app" class="l-wrapper" v-cloak>
@@ -43,17 +29,6 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <h1 class="c-title__header p-header__title">{{ config('app.name', 'Inspiration') }}</h1>
                 </a>
-
-                <!-- レスポンシブ用 -->
-                <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button> -->
-
-                <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    Left Side Of Navbar
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul> -->
 
                     <!-- Right Side Of Navbar -->
                     <ul class="c-nav__item--wrapper">
@@ -70,7 +45,6 @@
                         @else
 
                     <!-- TODO テンプレのままなので修正 -->
-                        <!-- <li class="nav-item dropdown"> -->
                         <li class="c-nav__item p-header__navItem">
                             <a class="c-btn 
                             c-btn--white
@@ -96,4 +70,16 @@
                 <hamburger-menu @menu-click="menu = $event" v-cloak></hamburger-menu>
 
             </nav>
+
         </header>
+
+        <transition name="menu">
+            <profile-menu   v-if="menu"
+                            img="{{url('storage/images/icons/'. $user_img)}}"
+                            auth="{{ $user }}"
+                            login="{{ route('login')}}"
+                            register="{{ route('register')}}"
+                            list="{{ url('all-ideas-list') }}"
+                            >
+            </profile-menu>
+        </transition>

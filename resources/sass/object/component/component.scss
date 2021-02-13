@@ -3,6 +3,7 @@
 .c-title{
   &__header{
     font-size: $font-size_xxl;
+    color: $color_action2;
     @include mq(md){
       font-size: $font-size_lg;
     }
@@ -12,7 +13,7 @@
     text-align: center;
     margin-top: $spacing-lg;
     margin-bottom: $spacing-lg;
-    text-shadow: 3px 3px ($color_gray);
+    // text-shadow: 3px 3px ($color_gray);
   }
   &__section{
     font-size: $font-size_xxl;
@@ -31,6 +32,7 @@
 .c-error{
   font-size: $font-size_md;
   color: #cc0000;
+  font-weight: normal;
 }
 
 // btn
@@ -41,10 +43,16 @@
   background: $color_white;
   box-sizing: border-box;
   transition: .3s;
+  &__sidebar{
+    width: 80%;
+    border: 1px solid $color_gray;
+    padding: $spacing_md $spacing_lg;
+    background: $color_white;
+    box-sizing: border-box;
+    transition: .3s;
+  }
   &--large{
-    // font-weight: bold;
     font-size: $font-size_lg;
-    background-color:rgba(79, 195, 247, 0.8);
     padding: $spacing-md $spacing-xl;
   }
   &:hover{
@@ -52,12 +60,6 @@
     opacity: 0.8;
     border-radius: 3px;
   }
-  //   &__signup{
-  //   background: $color_action;
-  // }
-  //   &__mypage{
-  //   background: $color_action;
-  // }
   &__box{
     margin-top: $spacing_xxl;
     margin-bottom: $spacing_xl;
@@ -68,34 +70,21 @@
     padding-left: $spacing-md;
     box-sizing: border-box;
   }
-  &__twitter{
-    height: 30px;
-    text-align:center;
-    color: $color_white;
-    background: #1da1f2;
-    border-radius: 5px;
-    font-size: $font-size_md;
-    padding: 0 ;
-    box-sizing: border-box;
-    line-height: 30px;
-    width: 100px;
-    text-align: center;
-    &::before{
-      @include font-awesome(\f099, $color_white);
-    }
-    &--input{
-      line-height: 20px;
-      background: transparent;
-      border: none;
-      color: $color_white;
-      font-weight: bold;
-    }
-  }
   &__prompt{
     margin-left: $spacing_md;
     font-size: $font-size_md;
   }
-  &__second{
+  &--action{
+    background: $color_action;
+  }
+  &--action2{
+    background: $color_action2;
+    color: $color_white;
+  }
+  &--action3{
+    background: $color_action3;
+  }
+  &--sub{
     background: $color_sub;
     transition: .3s;
     &:hover{
@@ -107,6 +96,12 @@
     transition: .3s;
     &:hover{
       background: $color_sub;
+    }
+  }
+  &--enable{
+    background: $color_sub;
+    &:hover{
+      cursor: not-allowed;
     }
   }
 }
@@ -172,9 +167,6 @@
     &:hover{
       box-shadow: 0 0 16px #ddd;
     }
-    &--title{
-
-    }
     &--simple{
       &:hover{
         background-color: rgba(221, 221, 221, 0.302);
@@ -225,48 +217,78 @@
 }
 
 .c-form{
-  padding: $spacing-md;
+  padding: $spacing-xl $spacing-3l;
   box-sizing: border-box;
-  &__textarea{
-    width: 100%;
-    padding: $spacing-md;
-    box-sizing: border-box;
-    margin-bottom: $spacing-md;
+  border: 1px solid $color_gray;
+  background: #fff;
+  margin-bottom: $spacing-lg;
+  @include mq(md){
+  }
+  &__countLength{
+    font-weight: normal;
+    margin-top: 5px;
   }
   &__title{
-    font-size: 2rem;
-    text-align: center;
+    font-size: $font-size_xxl;
+    text-align: start;
+    color: $color_action2;
   }
   &__header{
-    background: $color_main;
-    padding: $spacing-md;
+    display:flex;
+    align-items: center;
+    background: $color_sub;
+    padding: $spacing-md $spacing-lg;
   }
   &__label{
-    display: block;
+    display: display;
     box-sizing: border-box;
-    margin-top: $spacing-md;
+    margin-top: $spacing-xxl;
+    color: $color_black;
+    font-weight: bold;
+    font-size: $font-size_lg;
     &--checkBox{
       display: flex;
       justify-content: flex-start;
       align-items: center;
+      color: $color_gray;
       &:hover{
         cursor:pointer;
       }
     }
     &--outer{
-      margin-bottom: $spacing_lg;
+      margin-top: $spacing_xxl;
+      margin-bottom: $spacing_xxl;
     }
   }
   &__input{
     width: 100%;
     padding: $spacing-md;
     box-sizing: border-box;
+    margin-top:$spacing-md; 
+    border: none;
+    background: $color_gray-light;
+    font-size: $font-size_lg;
     &--checkBox{
       margin-right: $spacing_sm;
       &:hover{
         cursor:pointer;
       }
     }
+    &--half{
+      width: 50%;
+      padding: $spacing-md;
+      box-sizing: border-box;
+      margin-top:$spacing-md; 
+      border: none;
+      background: $color_gray-light;
+    }
+  }
+  &__textarea{
+    width: 100%;
+    padding: $spacing-md;
+    box-sizing: border-box;
+    margin-top: $spacing-md;
+    font-size: $font-size_lg;
   }
   &__row{
     display: flex;
@@ -295,7 +317,7 @@
   &__previous{
     transition: .3s;
     &:hover{
-      color: $color_action;
+      color: $color_action3;
     }
   }
 }
@@ -370,7 +392,7 @@
 }
 
 .c-row{
-  width: 100;
+  width: 100%;
 }
 
 .c-column{
@@ -398,6 +420,13 @@
   &--end{
     display: flex;
     justify-content: flex-end;
+    &-sp{
+      display: flex;
+      justify-content: flex-end;
+      @include mq(){
+        justify-content: center;
+      }
+    }
   }
 }
 .c-star{
@@ -436,5 +465,11 @@
   margin-right: $spacing_md;
   font-size: $font_size-lg;
   padding: $spacing_md;
+}
+
+.c-article{
+  border: 3px solid $color_gray;
+  border-radius: 3px;
+  width: 100%;  
 }
 

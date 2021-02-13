@@ -4,9 +4,6 @@
 @section('content')
 
 <div class="l-wrapper__2colum u-site__width">
-  <transition name="menu">
-      <category-menu v-if="menu" :categories="{{ $categories }}"></category-menu>
-  </transition>
 
   @include('components.sidebar-profile', ['user' => $user])
   
@@ -23,7 +20,6 @@
 
     <div class="p-ideasList__bottom">
       {{ $ideas->links('vendor/pagination/pagination') }}
-
     </div>
 
     <div class="c-link__previous--wrapper">

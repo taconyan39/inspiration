@@ -154,6 +154,12 @@ return [
       |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'category_id' => 'カテゴリー',
+        'title' => 'タイトル',
+        'summary' => '概要',
+        'content' => 'アイデアの詳細',
+        'email' => 'Eメール',
+    ],
 
 ];

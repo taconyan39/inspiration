@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'パスワード再発行')
+
 @section('content')
 <div class="l-wrapper__1colum">
     <div class="row justify-content-center">

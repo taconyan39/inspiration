@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use App\Idea;
 
 class PostIdeasController extends Controller
 {
@@ -36,6 +37,13 @@ class PostIdeasController extends Controller
                 return ['flg' => false];
             }
             
+    }
+
+    public function editAjax($id){
+
+        $idea = Idea::find($id);
+
+        return $idea;
     }
 
 }

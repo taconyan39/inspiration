@@ -17,12 +17,12 @@
     margin-top: 10%;
     margin-bottom: $spacing_3l;
     box-sizing: border-box;
-    padding-right: 3%;
-    padding-left: 3%;
     overflow:hidden;
     flex-wrap: wrap;
     @include mq(){
       margin-top: 25%;
+      padding-right: 3%;
+      padding-left: 3%;
     }
   }
   &__2colum{
@@ -31,12 +31,12 @@
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
-    padding-right: 3%;
-    padding-left: 3%;
     overflow:hidden;
     flex-wrap: wrap;
     @include mq(){
       margin-top: 25%;
+      padding-right: 3%;
+      padding-left: 3%;
     }
     
   }

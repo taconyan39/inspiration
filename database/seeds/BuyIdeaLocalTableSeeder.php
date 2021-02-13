@@ -14,7 +14,7 @@ class BuyIdeaLocalTableSeeder extends Seeder
     public function run()
     {
         for($i = 20; $i <= 30; $i++){
-            DB::table('interests')->insert([
+            DB::table('buy_ideas')->insert([
 
                 'user_id' => 1,
                 'idea_id' => $i,
@@ -26,7 +26,7 @@ class BuyIdeaLocalTableSeeder extends Seeder
         for($i = 2; $i <= 8; $i++){
             
             for($x = 1; $i <= 6; $i++){
-            DB::table('interests')->insert([
+            DB::table('buy_ideas')->insert([
                 'user_id' => $i,
                 'idea_id' => $x + 1,
                 'created_at' => Carbon::now(),

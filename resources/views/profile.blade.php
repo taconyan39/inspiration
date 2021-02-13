@@ -7,62 +7,61 @@
   
     @include('components.sidebar-profile',['user' => $user])
 
-    <main class="c-form__wrapper p-profileEdit ">
-        <div class="p-profileEdit__title c-form__header">
-            <h2 class="c-form__title">プロフィール編集</h2>
+    <main class="l-main__2colum">
+
+        <div class="p-profileEdit">
+
+        <div class="p-profileEdit__title c-title__content">
+            <h2 class="c-content__title">プロフィール編集</h2>
         </div>
         
         <form method="POST" action="{{ route('profile.update') }}" class="c-form p-profileEdit__form u-clearfix" enctype="multipart/form-data">
             @csrf
-
-            <div class="p-profileEdit__row">
             
-                <label for="name" class="p-profileEdit__label c-form__label">
-                {{ __('Name') }}
+            <label for="category_id" class="p-profileEdit__label c-form__label">
+            {{ __('Name') }}
 
-                    <input id="name" type="name" class="p-profileEdit__name c-form__input
-                    @error('name') is-invalid @enderror"
-                    name="name"
-                    value="{{ old('name', $user->name) }}" required autocomplete="name"
-                    autofocus>
-                </label>
+                <input id="name" type="name" class="p-profileEdit__name c-form__input--half
+                @error('name') is-invalid @enderror"
+                name="name"
+                value="{{ old('name', $user->name) }}" autocomplete="name"
+                autofocus
+                maxlength="10">
+                <span>最大10文字</span>
+            </label>
+            
+            @error('name')
+            <span class="c-error" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+
+
+            <label for="email" class="p-profileEdit__label c-form__label">
+                {{ __('E-Mail Address')}}
                 
-                @error('name')
+                <input id="email"
+                type="email" 
+                class="p-profileEdit__email c-form__input
+                @error('email') is-invalid @enderror" 
+                name="email" 
+                value="{{ old('email', $user->email) }}" 
+                autocomplete="email"
+                maxlength="255"
+                >
+                
+                @error('email')
                 <span class="c-error" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
                 @enderror
-            </div>
+            </label>
 
-
-            <!-- 変更テストが必要 -->
-            <div class="p-profileEdit__row">
-
-                <label for="email" class="p-profileEdit__ c-form__label">
-                    {{ __('E-Mail Address')}}
-                    
-                    <input id="email"
-                    type="email" 
-                    class="p-profileEdit__email c-form__input
-                    @error('email') is-invalid @enderror" 
-                    name="email" 
-                    value="{{ old('email', $user->email) }}" 
-                    required autocomplete="email" 
-                    autofocus>
-                    
-                    @error('email')
-                    <span class="c-error" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                </label>
-            </div>
-
-            <div class="p-profileEdit__row--password">
+            <div class="c-row p-profileEdit__row">
                 <a href="{{ route('passwordEdit.edit') }}" class="c-link__underline p-profileEdit__password">パスワードを変更する</a>
             </div>
 
-            <div class="p-profileEdit__row c-container__row">
+            <div class="p-profileEdit__row c-flex--between">
 
                 <icon-edit
                     noimage="{{ asset('images/icon/noimage_icon.png') }}"
@@ -81,8 +80,9 @@
                     </button>
                 </div>
             </div>
-        </form>
-        <a href="{{url()->previous()}}">&lt;&lt; 前のページに戻る</a>
+            </form>
+            <a href="{{url()->previous()}}">&lt;&lt; 前のページに戻る</a>
+        </div>
     </main>
 </div>
 

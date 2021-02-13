@@ -5,10 +5,11 @@
 
 <div class="l-wrapper__2colum u-site__width">
   <transition name="menu">
-      <category-menu v-if="menu" :categories="{{ $categories }}"></category-menu>
+      <category-menu v-if="menu"></category-menu>
+      <!-- <category-menu v-if="menu" :categories="{{ $categories }}"></category-menu> -->
   </transition>
 
-  @include('components.sidebar-category', ['categories' => $categories])
+  @include('components.sidebar-profile', ['user' => $user])
   
   <main class="l-main__2colum u-site__width">
 

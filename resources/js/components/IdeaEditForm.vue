@@ -1,0 +1,254 @@
+<template>
+
+<div>
+  <div class="c-form p-ideaPost__form u-clearfix" v-if="!editIdea && !deleteIdea">
+
+  <label for="category_id" class="p-ideaPost__label c-form__label">
+      カテゴリー
+      <select id="category_id" class="p-ideaPost__select c-form__input--half is-invalid "
+      name="category_id"
+      v-model="category_id"
+      autocomplete="category_id"
+      autofocus>
+          <option value=""></option>
+          <option v-for="category in categories" :key="category.id" :value="category.id" class="category__type"
+          v-text="category.name_ja"></option>
+      </select>
+      
+      <div class="c-error" role="alert" v-html="errors.category_id">
+      </div>
+  </label>
+              <label for="title" class="p-ideaPost__label c-form__label">
+                  アイデア名
+
+                <input id="title" type="text" class="p-ideaPost__input c-form__input is-invalid"
+                      name="title"
+                        autocomplete="title"
+                      v-model.trim="title"
+                      autofocus
+                      maxlength="20"
+                      placeholder="20文字以内で入力してください">
+                      <div class="c-form__countLength c-flex--between p-ideaPost__count">
+                          <div class="c-error" role="alert" v-html="errors.title">
+                          </div>
+                          <span>{{ title.length}}/20</span>
+                      </div>
+                      
+              </label>
+
+                  <label for="price" class="p-ideaPost__label c-form__label">
+                      価格
+                      
+                      <input id="price"
+                      type="price"
+                      class="p-ideaPost__price
+                      c-form__input--half is-invalid" 
+                      name="price"
+                      v-model="price"
+                    autocomplete="price">
+                      
+                      <div class="c-error" role="alert" v-html="errors.price">
+                  </div>
+                  </label>
+
+                  <label for="summary" class="p-ideaPost__label c-form__label">
+                      概要
+                      
+                      <textarea id="summary" type="summary" class="p-ideaPost__input
+                      c-form__input is-invalid" name="summary"
+                      v-model.trim="summary"
+                      autocomplete="summary"
+                      maxlength="200"
+                      placeholder="200文字以内で入力してください">
+                      </textarea>
+
+                      <div class="p-ideaPost__count c-form__countLength  c-flex--between">
+                      <div class="c-error" role="alert" v-html="errors.summary">
+                      </div>
+                          <span>{{ summary.length}}/200</span>
+                      </div>
+                      
+                      
+
+                  </label>
+
+                      <label for="content" class="p-ideaPost__label c-form__label">
+                          アイデアの詳細
+                      
+                          
+                          <textarea id="content" class="p-ideaPost__textarea
+                          c-form__textarea  is-invalid
+                          
+                          " name="content"
+                          v-model.trim="content"
+                          value="idea.content"
+                          maxlength="5000"
+                          placeholder="5000文字以内で入力してください"
+                          ></textarea>
+                              <div class="p-ideaPost__count
+                              c-form__countLength  c-flex--between">
+                              <p class="p-ideaPost__annotation">購入が発生すると編集することができません</p>
+                                  <span>{{ content.length}}/5000</span>
+                              </div>
+                              
+              </label>
+
+              <div class="c-error" role="alert" v-html="errors.content" type="submit">
+                  </div>
+
+
+              <div class="c-flex--between p-ideaPost__btn--container">
+                  
+                  <button class="c-btn       c-form__btn p-ideaPost__btn--remove" type="submit"
+                          @click="onRemove()">
+                              削除する
+                  </button>
+
+                  <button class="c-btn       c-form__btn p-ideaPost__btn"
+                          @click="onSubmit()">
+                              編集する
+                  </button>
+              </div>
+
+
+                          
+          </div>
+      <!-- 投稿成功後の画面 -->
+      <div v-if="editIdea" class="c-form p-ideaPost__form--posted">
+          <p>編集されました</p>
+          <a class="c-btn" :href="mypage">マイページに戻る</a>
+          
+          <a class="c-btn" :href="edit">編集に戻る</a>
+      </div>
+
+      <div v-if="deleteIdea" class="c-form p-ideaPost__form--posted">
+          <p>アイデアが削除されました</p>
+          <a class="c-btn c-btn__second" :href="mypage">マイページに戻る</a>
+          
+      </div>
+
+    </div>
+</template>
+<script>
+export default {
+    props:['categories', 'mypage','edit', 'idea'],
+  data: function(){
+      return {
+          id: "",
+          category_id: "",
+          price: "",
+          title: "",
+          summary: "",
+          content: "",
+          errors:{},
+          items:{},
+          editIdea: false,
+          deleteIdea: false
+      }
+  },
+  methods:{
+      onSubmit(){
+        
+        //   投稿の確認
+        if(!confirm('投稿します。よろしいですか？')) {
+            return;
+        }
+
+        // 送信データの格納
+        var params ={
+                category_id: this.category_id,
+                price: Number(this.price),
+                title: this.title,   
+                summary: this.summary,   
+                content: this.content,   
+            }
+
+        this.errors = {};
+        var self = this;
+
+        axios.put('/post-idea/' + this.id, params)
+            .then(function(){
+                self.editIdea = true
+            })
+            .catch(function(error){
+                // 送信失敗時の処理
+
+                var errors = {};
+
+                for(var key in error.response.data.errors) {
+
+                    errors[key] = error.response.data.errors[key].join('<br>');;
+
+                }
+
+                self.errors = errors;
+            });
+        },
+        onRemove(){
+            //   投稿の確認
+        if(!confirm('削除します。よろしいですか？')) {
+            // document.form.submit();
+            return;
+        }
+
+        var self = this
+
+        // axios.delete('/post-idea/' + this.id)
+        //     .then(function(){
+        //         self.deleteIdea = true;
+        //     })
+        //     .catch(function(error){
+        //         // 送信失敗時の処理
+
+        //         var errors = {};
+
+        //         for(var key in error.response.data.errors) {
+
+        //             errors[key] = error.response.data.errors[key].join('<br>');;
+
+        //         }
+
+        //         self.errors = errors;
+        //     });
+
+            window.location.href = this.mypage;
+
+
+        },
+        getItem() {
+
+            this.id = this.idea.id;
+            this.category_id = this.idea.category_id;
+            this.title = this.idea.title;
+            this.price = this.idea.price;
+            this.summary = this.idea.summary;
+            this.content = this.idea.content;
+
+            // const url = '/ajax/idea-edit/' + this.id;
+
+            // const self = this;
+            // // let items = {};
+            // axios.get(url)
+            //   .then((response) => {
+            //     for(var key in response.data){
+            //         // this.key = response.data[key]
+            //         // items[key] = response.data[key];
+            //     }
+            //     this.items = response.data
+
+            //     self.items = this.items;
+
+            //   });
+             
+
+           
+
+            },
+
+      },
+      mounted(){
+        this.getItem();
+        console.log(this.mypage)
+      }
+}
+</script>

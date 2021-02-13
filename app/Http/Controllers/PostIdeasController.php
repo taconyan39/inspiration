@@ -41,9 +41,10 @@ class PostIdeasController extends Controller
     public function create()
     {
         $user = Auth::user();
+        $user_img = $user->icon_img;
         $categories = Category::all();
 
-        return view('post-idea.create', ['user' => $user, 'categories' => $categories]);
+        return view('post-idea.create', ['user' => $user, 'categories' => $categories, 'user_img' => $user_img]);
     }
 
     /**
@@ -56,7 +57,6 @@ class PostIdeasController extends Controller
      // 新規アイデアの投稿処理
     public function store(Request $request)
     {
-        dd($request);
         $idea = new Idea;
 
         $idea->category_id = (int)$request->category_id;
@@ -65,8 +65,8 @@ class PostIdeasController extends Controller
 
         $idea->fill($request->all())->save();
 
-
-        return redirect('mypage')->with('flash_message', '投稿しました');
+        // Ajaxで処理をしているのページの遷移のみ
+        // return redirect('mypage')->with('flash_message', '投稿しました');
     }
 
     /**
@@ -78,7 +78,7 @@ class PostIdeasController extends Controller
     public function show($id)
     {
         if(!ctype_digit($id)){
-            return redirect('/drills/new')->with('flash_message', __('Invalid operation was performed.'));
+            return redirect('mypage')->with('flash_message', __('Invalid operation was performed.'));
         }
 
         if(!Auth::check()){
@@ -90,6 +90,7 @@ class PostIdeasController extends Controller
             $buy_flg = false;
             $interest_flg = false;
             $myreview = false;
+            $user_img = 'noimage_icon.png';
 
             $user = false;
 
@@ -99,6 +100,7 @@ class PostIdeasController extends Controller
         }
 
         $user = Auth::user();
+        $user_img = $user->icon_img;
         $idea = Idea::find($id);
         $idea->rating = sprintf('%.1f',$idea->reviews()->avg('rating'));
         $idea->countReview = $idea->reviews->count();
@@ -132,15 +134,13 @@ class PostIdeasController extends Controller
                 }
             }
         }
-        // dd($idea->user_id);
-
         
         // レビューを投稿しているか
-            $myreview = Review::where('idea_id', $id)->where('user_id', $user->id);
+        $myreview = Review::where('idea_id', $id)->where('user_id', $user->id);
 
-            if($myreview->exists()){
-                $myreview = $myreview->first();
-            }
+        if($myreview->exists()){
+            $myreview = $myreview->first();
+        }
 
             
 
@@ -148,7 +148,7 @@ class PostIdeasController extends Controller
         // アイデアに投稿されたレビューとその情報を取得
         $reviews = Review::all()->where('idea_id', $id)->take(5);
         
-        return view('post-idea.show',[ 'user' => $user, 'idea' => $idea, 'reviews' => $reviews, 'owner_flg' => $owner_flg, 'interest_flg' => $interest_flg, 'buy_flg' => $buy_flg, 'myreview' => $myreview]);
+        return view('post-idea.show',[ 'user' => $user, 'idea' => $idea, 'reviews' => $reviews, 'owner_flg' => $owner_flg, 'interest_flg' => $interest_flg, 'buy_flg' => $buy_flg, 'myreview' => $myreview, 'user_img' => $user_img]);
     }
 
     /**
@@ -160,6 +160,7 @@ class PostIdeasController extends Controller
     public function edit($id)
     {
         $user = Auth::user();
+        $user_img = $user->icon_img;
         $idea = Idea::find($id);
 
         $query = BuyIdea::where('idea_id', $id);
@@ -172,7 +173,7 @@ class PostIdeasController extends Controller
 
 
         $categories = Category::all();
-        return view('post-idea.edit',[ 'categories' => $categories, 'user' => $user, 'idea' => $idea]);
+        return view('post-idea.edit',[ 'categories' => $categories, 'user' => $user, 'idea' => $idea, 'user_img' => $user_img]);
     }
 
     /**
@@ -185,7 +186,7 @@ class PostIdeasController extends Controller
     public function update(Request $request, $id)
     {
         $idea = Idea::find($id);
-        unset($form['_token']);
+        // unset($form['_token']);
         $idea->fill($request->all())->save();
         return redirect('/post-idea/index')->with('flash_message','変更しました');
     }
@@ -200,6 +201,10 @@ class PostIdeasController extends Controller
     {
         Idea::find($id)->delete();
         return redirect('post-idea/index')->with('flash_message', '削除しました');
+    }
+
+    public function delete(){
+        return redirect('mypage')->with('flash_message', '削除されました');
     }
 
 

@@ -26,5 +26,11 @@ class ResetPasswordController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    // protected $redirectTo = RouteServiceProvider::HOME;
+
+    protected function redirectTo() {
+
+        session()->flash('flash_message', 'パスワードが変更されました');
+        return '/mypage';
+    }
 }

@@ -8,7 +8,7 @@ use App\Category;
 
 class CategoriesController extends Controller
 {
-    public function get(){
+    public function category(){
         $category = Category::all();
         return $category;
     }

@@ -6,16 +6,15 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ProfileEditRequest;
 use Illuminate\Support\Facades\Storage;
-use App\Notifications\NotificationTest;
-use App\User;
 
 class ProfileController extends Controller
 {
     public function edit(){
 
         $user = Auth::user();
-        // dd($user);
-        return view('profile', ['user' => $user])->with(['string' => '文字列']);
+        $user_img = $user->icon_img;
+
+        return view('profile', ['user' => $user, 'user_img' => $user_img]);
     }
 
     public function update(ProfileEditRequest $request)
@@ -48,13 +47,12 @@ class ProfileController extends Controller
         });
 
         // save
-        $disk = Storage::disk('s3');
         $file_name = 'icon_'.$id.'.'.$image->getClientOriginalExtension();
 
-        $save_path = 'images/icons/'.$file_name;
-        $disk->put('images/icons/'.$file_name, (string) $img->encode(), 'public');
+        $save_path = $file_name;
+        put('images/icons/'.$file_name, (string) $img->encode(), 'public');
 
-        $file_name = $disk->url($save_path);
+        $file_name = url($save_path);
         $user->save();
 
         // return file name

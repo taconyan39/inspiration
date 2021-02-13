@@ -5,8 +5,8 @@
               <li class="c-list__title p-categoryList__item">
                   <p class="c-content__title p-categoryList__title">カテゴリ名</p>
               </li>
-              <li class="c-list__item p-categoryList__item" v-for="category in categories" :key="category.id">
-                  <a :href="'idea-list?category_id=' + category.id" class="c-list__link p-categoryList__link">{{ category.category_name }}</a>
+              <li class="c-list__item p-categoryList__item" v-for="item in items" :key="item.id">
+                  <a :href="'idea-list?category_id=' + item.id" class="c-list__link p-categoryList__link">{{ item.name_ja }}</a>
               </li>
           </ul>
       </div>
@@ -15,6 +15,24 @@
 
 <script>
 export default {
-  props: ['categories'],
+//   props: ['categories'],
+
+    data: function(){
+        return {
+            items: []
+        }
+    },
+    methods:{
+        getItems(){
+            axios.get('ajax/categories')
+                .then((response) => {
+                    this.items = response.data;
+                })
+        }
+
+    },
+    mounted(){
+        this.getItems();
+    }
 }
 </script>

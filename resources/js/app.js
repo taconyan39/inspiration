@@ -36,6 +36,9 @@ Vue.component('search-component', require('./components/SearchComponent.vue').de
 Vue.component('loading', require('./components/Loading.vue').default);
 Vue.component('post-review', require('./components/PostReview.vue').default);
 Vue.component('idea-reviews', require('./components/IdeaReviews.vue').default);
+Vue.component('idea-post-form', require('./components/IdeaPostForm.vue').default);
+Vue.component('idea-edit-form', require('./components/IdeaEditForm.vue').default);
+Vue.component('profile-menu', require('./components/ProfileMenu.vue').default);
 
 
 
