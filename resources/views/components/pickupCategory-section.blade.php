@@ -4,8 +4,7 @@
 
         @foreach($pickupCategories as $pickupCategory)
         <div class="p-pickupCategory__item">
-          <!-- <div class="c-img__filter p-pickupCategory__filter"> -->
-            <a href="#" class="p-pickupCategory__link">
+            <a href="{{ url('all-ideas-list?category_id='. $pickupCategory->id) }}" class="p-pickupCategory__link">
 
               <div class="p-pickupCategory__item--outer c-img--outer">
                 <div class="p-pickupCategory__filter">

@@ -11,12 +11,11 @@ class ReviewsController extends Controller
     public function show($id){
         
         $reviews = Review::where('idea_id', $id)->with('user','idea')->orderBy('created_at', 'desc')->paginate(5);
-        
+
+        // dd($reviews);
+
         return $reviews;
     }
 
-    public function category(){
-        dd('test');
-    }
 }
 

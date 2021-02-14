@@ -35,9 +35,16 @@ class ProfileEditRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required | max:255',
+            'name' => 'required | max:10',
             'email' => 'required | max:255 | email',
-            'profile_img' => 'image|file',
+            // 'icon_img' => 'image | file | max:2000 | mimes:jpeg, jpg, png',
+            'icon_img' => 'image | file | max:2000 | mimes:jpg,png',
+        ];
+    }
+
+    public function messages(){
+        return [
+            'icon_img.max' => '2M以下のファイルを選択してください',            
         ];
     }
 }

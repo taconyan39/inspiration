@@ -33,11 +33,20 @@
         @endslot
     @endcomponent
 
-    @component('components.simpleList-reviewSection', ['reviews' => $ideaReviews, 'list-name' => 'reviews'])
-        @slot('title')
-            レビュー一覧
-        @endslot
-    @endcomponent
+    <section>
+
+        @component('components.simpleList-reviewSection', ['reviews' => $ideaReviews, 'list-name' => 'reviews'])
+            @slot('title')
+                レビュー一覧
+            @endslot
+
+        @endcomponent
+
+        <div class="p-simpleList__bottom">
+            <a href="{{ url('reviews-list') }}" class="c-btn p-simpleList__linkBtn">全件表示</a>
+        </div>
+    
+    </section>
 
   </main>
 </div>

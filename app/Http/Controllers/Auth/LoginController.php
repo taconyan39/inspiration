@@ -32,7 +32,6 @@ class LoginController extends Controller
     //     return '/home';
     // }
     protected function redirectTo() {
-
         session()->flash('flash_message', 'ログインしました');
         return '/mypage';
     }

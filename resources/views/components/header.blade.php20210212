@@ -73,14 +73,13 @@
 
         </header>
 
-        <transition name="menu">
+        <!-- <transition name="menu">
             <profile-menu   v-if="menu"
-                            img="{{url('storage/images/icons/'. session('icon_img'))}}"
+                            img="{{url('storage/images/icons/'. $user_img)}}"
+                            auth="{{ $user }}"
                             login="{{ route('login')}}"
-                            name="{{session('name')}}"
                             register="{{ route('register')}}"
                             list="{{ url('all-ideas-list') }}"
-                            noimg="{{url('storage/images/icons/noimage_icon.jpg')}}"
                             >
             </profile-menu>
-        </transition>
+        </transition> -->

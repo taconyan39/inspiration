@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Idea;
 use App\Review;
+use App\Http\Controllers\Controller,
+    Session;
 
 
 class MypageController extends Controller
@@ -27,13 +29,10 @@ class MypageController extends Controller
      */
     public function index()
     {
-        if(Auth::check()){
-            $user = Auth::user();
-            $user_img = $user->icon_img;
-        }else{
-            $user = false;
-            $user_img = 'noimage_icon.png';
-        }
+        $user = Auth::user();
+        
+        Session::put(['name' => $user->name, 'icon_img' => $user->icon_img]);
+
         $user_id = $user->id;
 
         $postIdeas = Idea::where('user_id', $user->id)
@@ -63,7 +62,7 @@ class MypageController extends Controller
             $q->where('user_id', $user_id);
         })->take(5)->get();
 
-        return view('mypage',['user' => $user, 'postIdeas' => $postIdeas, 'interestIdeas' => $interestIdeas, 'ideaReviews' => $ideaReviews, 'user_img' => $user_img]);
+        return view('mypage',['user' => $user, 'postIdeas' => $postIdeas, 'interestIdeas' => $interestIdeas, 'ideaReviews' => $ideaReviews]);
     }
 
 }

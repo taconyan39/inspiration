@@ -45,7 +45,7 @@ export default {
 
             if(this.isCurrentPage(page)) {
 
-                classes.push('active');
+                classes.push('js-active');
 
             }
 

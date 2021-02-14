@@ -1,28 +1,20 @@
 <template>
-  <div class="c-container--half">
 
-    <label for="icon_img">
-        プロフィール画像を変更する
-        <!-- <div v-if="url" class="c-img--outer p-profileEdit__img--outer"> -->
-        <div class="c-img--outer p-profileEdit__img--outer">
+      <div>
+        <div class="c-img--outer c-img--round p-profileEdit__img--outer">
         
           <img v-if="url" :src="url" alt="プロフィール画像" class="c-img p-profileEdit__img">
 
-          <!-- 未登録の場合は仮の画像を表示 -->
-
-          <img v-else :src="noimage" alt="画像なし" class="c-img p-profileEdit__img">
-      </div>
+        </div>
         <input type="file" 
                 name="icon_img" 
                 id="icon_img" 
                 autocomplete="icon_img" 
-                value=""
                 ref="preview"
                 @change="uploadFile"
                 >
-    </label>
+      </div>
 
-  </div>
 </template>
 
 <script>

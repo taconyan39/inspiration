@@ -168,6 +168,9 @@
       box-shadow: 0 0 16px #ddd;
     }
     &--simple{
+      border-bottom: 1px solid $color_black;
+      box-sizing: border-box;
+      padding: $spacing-md;
       &:hover{
         background-color: rgba(221, 221, 221, 0.302);
       }
@@ -210,6 +213,20 @@
   @include mq(md){
     font-size: $font-size_sm;
   }
+  &--large{
+    padding: $spacing-sm $spacing-lg;
+    line-height: $font-size_lg;
+    border: 1px solid $color_black;
+    background: $color_remove;
+    color: white;
+    border-radius: 5px;
+    margin-right: $spacing-sm;
+    box-sizing: border-box;
+    @include mq(md){
+    font-size: $font-size_sm;
+  }
+    width: $font-size_lg;
+  }
 }
 
 .c-txt{
@@ -217,6 +234,10 @@
 }
 
 .c-form{
+  &__annotation{
+    font-size: $font_size-md;
+    font-weight: normal;
+  }
   padding: $spacing-xl $spacing-3l;
   box-sizing: border-box;
   border: 1px solid $color_gray;
@@ -240,7 +261,9 @@
     padding: $spacing-md $spacing-lg;
   }
   &__label{
-    display: display;
+    // display: display;
+    display: flex;
+    flex-direction: column;
     box-sizing: border-box;
     margin-top: $spacing-xxl;
     color: $color_black;
@@ -311,7 +334,7 @@
     text-decoration: underline;
     transition: .3s;
     &:hover{
-      color: $color_action;
+      color: $color_action3;
     }
   }
   &__previous{
@@ -470,6 +493,6 @@
 .c-article{
   border: 3px solid $color_gray;
   border-radius: 3px;
-  width: 100%;  
+  box-sizing: border-box;
 }
 

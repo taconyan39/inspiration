@@ -160,6 +160,7 @@ return [
         'summary' => '概要',
         'content' => 'アイデアの詳細',
         'email' => 'Eメール',
+        'icon_img' => 'プロフィール'
     ],
 
 ];

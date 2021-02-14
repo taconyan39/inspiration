@@ -8,7 +8,7 @@
     @else
       <a href="{{ url('post-idea/'. $item->id . '/edit')}}" class="c-btn c-btn--white p-ideasList__btnEdit">編集する</a>
     @endif
-      <a href="{{ url('post-idea/' . $item->id) }}" class="c-btn c-btn--action3 p-ideasList__btn">詳細を見る</a>
+      <a href="{{ url('post-idea/' . $item->id) }}" class="c-btn c-btn--action2 p-ideasList__btn">詳細を見る</a>
     </div>
     @break
     
@@ -18,10 +18,12 @@
         <form action="" method="POST">
           @csrf
             <input type="hidden" name="idea_id" value="{{ $item->id }}">
-            <button class="c-btn c-btn--white p-ideasList__btn" type="submit" name="submit"> <span class="c-star">★</span> 解除する</button>
+            <button class="c-btn c-btn--white p-ideasList__btn" type="submit" name="submit">
+              <span class="c-star">★</span> 解除する
+            </button>
         </form>
-          <a href="{{ url('post-idea/' . $item->id) }}" class="c-btn c-btn--action3 p-ideasList__btn">詳細を見る</a>
-        </div>
+          <a href="{{ url('post-idea/' . $item->id) }}" class="c-btn c-btn--action2 p-ideasList__btn">詳細を見る</a>
+      </div>
         <!-- 気にリストに入っている場合 -->
         @break
 
@@ -30,6 +32,7 @@
     @default
       <!-- 基本的な場合 -->
       <div class="p-ideasList__btn--wrapper c-flex--end-sp">
-        <a href="{{ url('post-idea/' . $item->id) }}" class="c-btn c-btn--action3 p-ideasList__btn">詳細を見る</a>
+        <a href="{{ url('post-idea/' . $item->id) }}" class="c-btn c-btn--action2 p-ideasList__btn">詳細を見る</a>
+      </div>
       
 @endswitch

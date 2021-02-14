@@ -3,24 +3,24 @@
 
   <ul class="c-list p-ideaList__list">
     @foreach($items as $item)
-    <li class="c-list__item p-ideaList__item u-clearfix">
-      <div class="p-ideaList__top c-flex--between">
-          
-        <div class="p-ideaList__topBox">
-          <time class="p-ideaList__date">{{ $item->created_at->format('Y/m/d') }}</time>
+      <li class="c-list__item p-ideaList__item u-clearfix">
+        <div class="p-ideaList__top c-flex--between">
+            
+          <div class="p-ideaList__topBox">
+            <time class="p-ideaList__date">{{ $item->created_at->format('Y/m/d') }}</time>
+          </div>
+          <div class="c-dammy p-ideaList__topBox"></div>
+          <div class="p-ideaList__topBox">
+            <span class="p-ideaList__rating c-rating">{{ $item->rating }} ({{ $item->countReview }})</span>
+          </div>
+          <div class="p-ideaList__topBox">
+            <span class="c-price p-ideaList__price">¥{{ $item->price }}</span>
+          </div>
         </div>
-        <div class="c-dammy p-ideaList__topBox"></div>
-        <div class="p-ideaList__topBox">
-          <span class="p-ideaList__rating c-rating">{{ $item->rating }} ({{ $item->countReview }})</span>
-        </div>
-        <div class="p-ideaList__topBox">
-          <span class="c-price p-ideaList__price">¥{{ $item->price }}</span>
-        </div>
-      </div>
 
-      <div class="c-row p-ideaList__title--wrapper">
-        <h3 class="c-list__title p-ideaList__title">{{ $item->title }}</h3>
-      </div>
+        <div class="c-row p-ideaList__title--wrapper">
+          <h3 class="c-list__title p-ideaList__title">{{ $item->title }}</h3>
+        </div>
 
 
         <div class="p-ideaList__body">
@@ -55,7 +55,7 @@
             @component('components.list-btn',['item' => $item, 'listType' => $listType])
               @endcomponent
         </div>
-        
+          
       </li>
-      @endforeach
-    </ul>
+    @endforeach
+  </ul>

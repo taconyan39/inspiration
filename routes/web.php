@@ -52,6 +52,7 @@ Route::post('post-idea/postreview/{id}', 'UserActionController@postReview');
 // アイデア一覧表示
 Route::get('all-ideas-list', 'IdeasListController@index');
 Route::get('ajax/ideas-list', 'Ajax\IdeasListController@index');
+Route::get('reviews-list', 'ReviewsController@index');
 // Route::get('ideas-list', 'IdeasListController@searchList');
 Route::post('all-ideas-list', 'IdeasListController@search');
 Route::post('ajax/ideas-list', 'Ajax\IdeasListController@post');

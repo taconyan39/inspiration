@@ -26,7 +26,7 @@
           <div class="p-simpleList__body--left">
 
             <div class="c-img--outer c-card--top p-ideaList__userImg--outer">
-              <img class="c-img--round p-ideaList__userImg" src="{{asset('images/icons/' . $review->user->icon_img )}}" alt="">
+              <img class="c-img--round p-ideaList__userImg" src="{{asset('storage/images/icons/' . $review->user->icon_img )}}" alt="">
             </div>
           </div>
 
@@ -52,3 +52,4 @@
     @endforeach
 
   </ul>
+

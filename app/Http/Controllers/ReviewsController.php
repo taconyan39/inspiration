@@ -15,6 +15,14 @@ class ReviewsController extends Controller
 {
 
     // レビュー投稿ページの表示
+    public function index(){
+        $reviews = Review::orderBy('created_at', 'desc')->paginate(10);
+
+
+        return view('ideas-list.all-reviews-list',['reviews' => $reviews]);
+
+    }
+    // レビュー投稿ページの表示
     public function create($id){
 
         $user = Auth::user();
@@ -34,7 +42,6 @@ class ReviewsController extends Controller
         }
 
         return view('reviews.post-review', ['idea' => $idea, 'user' => $user]);
-
 
     }
 
@@ -71,6 +78,16 @@ class ReviewsController extends Controller
 
         return redirect('post-idea/' . $id)->with('flash_message', 'レビューが投稿されました');
 
+
+    }
+
+    public function toMeReviews(){
+
+        $user = Auth::user();
+        $user_id = $user->id;
+        $reviews = Review::whereHas('idea', function($q) use ($user_id){
+            $q->where('user_id', $user_id);
+        })->orderBy('created_at')->paginate(10);
 
     }
 }

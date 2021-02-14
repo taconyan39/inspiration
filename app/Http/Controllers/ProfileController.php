@@ -19,11 +19,14 @@ class ProfileController extends Controller
 
     public function update(ProfileEditRequest $request)
     {
+        // dd($request->icon_img);
         $user = Auth::user();
         $form = $request->all();
         $id = $user->id;
 
         $profileImage = $request->file('icon_img');
+
+        // dd($profileImage);
         if ($profileImage != null) {
             $form['icon_img'] = $this->saveProfileImage($profileImage, $id); // return file name
         }
@@ -38,9 +41,9 @@ class ProfileController extends Controller
 
     private function saveProfileImage($image, $id) {
 
-        $user = Auth::user();
         // get instance
         $img = \Image::make($image);
+        // dd($img);
         // resize
         $img->fit(150, 150, function($constraint){
             $constraint->upsize();
@@ -49,11 +52,12 @@ class ProfileController extends Controller
         // save
         $file_name = 'icon_'.$id.'.'.$image->getClientOriginalExtension();
 
-        $save_path = $file_name;
-        put('images/icons/'.$file_name, (string) $img->encode(), 'public');
+        $save_path = 'public/images/icons/' .$file_name;
+        // $save_path = $file_name;
+        Storage::put($save_path, (string) $img->encode());
 
-        $file_name = url($save_path);
-        $user->save();
+        // $file_name = url($save_path);
+        // $user->save();
 
         // return file name
         return $file_name;

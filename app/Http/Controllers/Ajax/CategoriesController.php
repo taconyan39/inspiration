@@ -10,6 +10,7 @@ class CategoriesController extends Controller
 {
     public function category(){
         $category = Category::all();
+        // dd($category);
         return $category;
     }
 }

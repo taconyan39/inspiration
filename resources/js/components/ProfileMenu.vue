@@ -1,8 +1,7 @@
 <template>
   <div class="l-sp__menu">
 
-    <!-- <ul v-if="auth" class="c-list p-profileSidebar__items"> -->
-    <ul v-if="auth" class="c-list p-profileSidebar__items">
+    <ul v-if="name" class="c-list p-profileSidebar__items">
 
       <div class="c-card p-profileSidebar__card--sp">
         <div class="c-img--outer c-card-top p-profileSidebar__img--outer">
@@ -28,8 +27,8 @@
 
     <ul v-else>
       <div class="c-card p-profileSidebar__card--sp">
-        <div class="c-img--outer c-card-top p-profileSidebar__img--outer">
-          <img class="c-img c-img--round p-profileSidebar__img" :src="img" alt="プロフィール画像">
+        <div class="c-img--outer c-card--top p-profileSidebar__img--outer">
+          <img class="c-img c-img--round p-profileSidebar__img" :src="noimg" alt="プロフィール画像">
         </div>
         <li class="c-list__item-simple p-profileSidebar__item">
           <a class="c-btn__sidebar c-btn--white p-profileSidebar__btn" :href="login">ログイン</a>
@@ -48,7 +47,7 @@
 
 <script>
 export default {
-    props:['img','login','register', 'list', 'auth'],
+    props:['img','login','register', 'list', 'name','noimg'],
     data: function(){
         return {
             items: [],
@@ -56,12 +55,6 @@ export default {
         }
     },
     methods:{
-        getItems(){
-            axios.get('ajax/categories')
-                .then((response) => {
-                    this.items = response.data;
-                })
-        },
         getUser(){
           axios.get('ajax/user')
             .then((response) => {
@@ -71,7 +64,6 @@ export default {
 
     },
     mounted(){
-        this.getItems();
         this.getUser();
     }
 }

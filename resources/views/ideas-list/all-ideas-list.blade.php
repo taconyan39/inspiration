@@ -1,13 +1,9 @@
 @extends('layouts.app')
 
-@section('title', 'マイページ')
+@section('title', 'アイデア一覧')
 @section('content')
 
 <div class="l-wrapper__2colum u-site__width">
-  <transition name="menu">
-      <category-menu v-if="menu"></category-menu>
-      <!-- <category-menu v-if="menu" :categories="{{ $categories }}"></category-menu> -->
-  </transition>
 
   @include('components.sidebar-profile', ['user' => $user])
   

@@ -7,8 +7,8 @@
 <div class="l-wrapper__2colum u-site__width">
 
 <div class="p-index__mainImg">
-    <div class="c-img--outer"><img class="c-img" src="{{ asset('images/introduction.jpeg') }}" alt="inspirationの紹介画像"></div>
-  </div>
+  <div class="c-img--outer"><img class="c-img" src="{{ asset('images/introduction.jpeg') }}" alt="inspirationの紹介画像"></div>
+</div>
 
   @include('components.sidebar-category',[ 'categories' => $categories ])
 

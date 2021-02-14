@@ -281,8 +281,6 @@ li {
 @media screen and (max-width: 768px) {
   .l-main__2colum {
     width: 100%;
-    padding-right: 10px;
-    padding-left: 10px;
   }
 }
 
@@ -508,6 +506,12 @@ li {
   box-shadow: 0 0 16px #ddd;
 }
 
+.c-list__item--simple {
+  border-bottom: 1px solid #102833;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
 .c-list__item--simple:hover {
   background-color: rgba(221, 221, 221, 0.302);
 }
@@ -553,6 +557,24 @@ li {
   }
 }
 
+.c-tag--large {
+  padding: 5px 15px;
+  line-height: 1.2rem;
+  border: 1px solid #102833;
+  background: #F7637e;
+  color: white;
+  border-radius: 5px;
+  margin-right: 5px;
+  box-sizing: border-box;
+  width: 1.2rem;
+}
+
+@media screen and (max-width: 768px) {
+  .c-tag--large {
+    font-size: 0.8rem;
+  }
+}
+
 .c-txt {
   text-align: center;
 }
@@ -563,6 +585,11 @@ li {
   border: 1px solid #999;
   background: #fff;
   margin-bottom: 15px;
+}
+
+.c-form__annotation {
+  font-size: 0.9rem;
+  font-weight: normal;
 }
 
 .c-form__countLength {
@@ -584,7 +611,8 @@ li {
 }
 
 .c-form__label {
-  display: display;
+  display: flex;
+  flex-direction: column;
   box-sizing: border-box;
   margin-top: 30px;
   color: #102833;
@@ -667,7 +695,7 @@ li {
 }
 
 .c-link__underline:hover {
-  color: rgba(88, 102, 254, 0.7);
+  color: #4FC3F7;
 }
 
 .c-link__previous {
@@ -841,7 +869,7 @@ li {
 .c-article {
   border: 3px solid #999;
   border-radius: 3px;
-  width: 100%;
+  box-sizing: border-box;
 }
 
 .p-header {
@@ -1347,12 +1375,6 @@ li {
   margin: 0 auto 10px;
 }
 
-@media screen and (max-width: 768px) {
-  .p-simpleList__userImg--outer {
-    width: 20%;
-  }
-}
-
 .p-simpleList__under {
   text-align: center;
   margin: 15px 0 15px;
@@ -1450,9 +1472,7 @@ li {
 }
 
 .p-profileEdit__btn {
-  background: #4FC3F7;
   margin: auto 0 0 auto;
-  background: rgba(88, 102, 254, 0.7);
 }
 
 .p-profileEdit__btn--container {
@@ -1461,14 +1481,16 @@ li {
   align-items: bottom;
 }
 
+.p-profileEdit__img {
+  width: height 100%;
+}
+
 .p-profileEdit__img--outer {
+  -o-object-fit: cover;
+     object-fit: cover;
   width: 150px;
   height: 150px;
   margin: 15px auto;
-}
-
-.p-profileEdit__label {
-  display: block;
 }
 
 .p-profileEdit__label--container {
@@ -1488,6 +1510,7 @@ li {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
+  margin-top: 30px;
 }
 
 .p-ideaPost {
@@ -1523,7 +1546,6 @@ li {
 }
 
 .p-ideaPost__btn {
-  background: #4FC3F7;
   float: right;
 }
 
@@ -1673,7 +1695,6 @@ li {
 }
 
 .p-ideaDetail__text--wrapper {
-  margin: 40px 0;
   padding: 40px;
   box-sizing: border-box;
 }
@@ -1726,6 +1747,115 @@ li {
 .p-ideasList__btn--detail {
   font-size: 1rem;
   background: rgba(88, 102, 254, 0.7);
+}
+
+.p-ideaReviews {
+  margin-bottom: 30px;
+}
+
+.p-ideaReviews__bottom {
+  text-align: center;
+  margin: 15px 0 15px;
+}
+
+.p-ideaReviews__body {
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+.p-ideaReviews__body--left {
+  width: 100px;
+}
+
+@media screen and (max-width: 768px) {
+  .p-ideaReviews__body--left {
+    width: 20%;
+  }
+}
+
+.p-ideaReviews__body--right {
+  width: 80%;
+}
+
+@media screen and (max-width: 768px) {
+  .p-ideaReviews__body--right {
+    width: 70%;
+  }
+}
+
+.p-ideaReviews__body--upper {
+  margin-bottom: 10px;
+}
+
+.p-ideaReviews__body--title {
+  margin-bottom: 5px;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.p-ideaReviews__list {
+  padding: 10px;
+}
+
+.p-ideaReviews__item {
+  margin-top: 15px;
+}
+
+.p-ideaReviews--none {
+  text-align: center;
+}
+
+.p-ideaReviews__userImg--outer {
+  width: 50px;
+  height: 50px;
+}
+
+.p-ideaReviews__under {
+  text-align: center;
+  margin: 15px 0 15px;
+}
+
+.p-ideaReviews__review--txt {
+  text-align: left;
+}
+
+.p-ideaReviews__top {
+  margin-bottom: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 768px) {
+  .p-ideaReviews__top {
+    flex-direction: column;
+  }
+}
+
+.p-ideaReviews__top--row {
+  margin-right: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  .p-ideaReviews__top--row {
+    margin: 15px auto 0;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.p-ideaReviews__topBox {
+  margin-right: 20px;
+}
+
+.p-ideaReviews__readmore {
+  text-align: center;
+}
+
+.p-ideaReviews__readmore:hover {
+  cursor: pointer;
 }
 
 .p-fullList {
@@ -1886,7 +2016,11 @@ li {
   color: #999;
 }
 
+.p-pagination__item.js-active > .p-pagination__link {
+  color: #001F66;
+}
+
 .p-interest__btn {
-  background: #e6ae2e;
+  width: 120px;
 }
 

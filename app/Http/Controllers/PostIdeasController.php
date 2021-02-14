@@ -96,7 +96,7 @@ class PostIdeasController extends Controller
 
             $reviews = Review::all()->where('idea_id', $id)->take(5);
 
-            return view('post-idea.show',[ 'idea' => $idea, 'reviews' => $reviews, 'owner_flg' => $owner_flg, 'interest_flg' => $interest_flg, 'buy_flg' => $buy_flg, 'user' => $user, 'myreview' => $myreview, 'categories' => $categories]);
+            return view('post-idea.show',[ 'idea' => $idea, 'reviews' => $reviews, 'owner_flg' => $owner_flg, 'interest_flg' => $interest_flg, 'buy_flg' => $buy_flg, 'user' => $user, 'myreview' => $myreview, 'categories' => $categories, 'user_img' => $user_img]);
         }
 
         $user = Auth::user();
