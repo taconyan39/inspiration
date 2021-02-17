@@ -10,6 +10,7 @@
     "require": {
         "php": "^7.2.5|^8.0",
         "abraham/twitteroauth": "^0.9.1",
+        "aws/aws-sdk-php": "^3.173",
         "fideloper/proxy": "^4.4",
         "guzzlehttp/guzzle": "^7.2",
         "intervention/image": "^2.5",

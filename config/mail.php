@@ -16,7 +16,11 @@ return [
     |
     */
 
-    'driver' => env('MAIL_DRIVER', 'smtp'),
+    // 'driver' => env('MAIL_DRIVER', 'smtp'),
+
+    'driver' => env('MAIL_DRIVER', 'ses'),
+
+
 
     /*
     |--------------------------------------------------------------------------
@@ -56,8 +60,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'ochazukeyaro@hotmail.co.jp'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'info@inspiration-o.com'),
+        'name' => env('MAIL_FROM_NAME', 'inspiration'),
     ],
 
     /*
