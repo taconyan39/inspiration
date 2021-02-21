@@ -13,8 +13,10 @@
             <span class="p-simpleList__date">{{ $review->created_at->format('Y/m/d') }}</span>
           </div>
           <div class="c-dammy"></div>
-          <div>
-            <span class="c-rating">{{ $review->rating  }}</span>
+          <div class="p-simpleList__star c-flex--start">
+            @for($i = 1; $i < $review->rating; $i++)
+            <span class="c-star"></span>
+            @endfor
             <span class="p-simpleList__rating--num"></span>
           </div>
           <div>
@@ -25,8 +27,8 @@
         <div class="p-simpleList__body c-flex--between">
           <div class="p-simpleList__body--left">
 
-            <div class="c-img--outer c-card--top p-ideaList__userImg--outer">
-              <img class="c-img--round p-ideaList__userImg" src="{{asset('storage/images/icons/' . $review->user->icon_img )}}" alt="">
+            <div class="c-img--outer c-img--round c-card--top p-simpleList__userImg--outer">
+              <img class="c-img p-ideaList__userImg" src="{{asset('storage/images/icons/' . $review->user->icon_img )}}" alt="">
             </div>
           </div>
 

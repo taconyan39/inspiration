@@ -148,7 +148,7 @@ class PostIdeasController extends Controller
         // アイデアに投稿されたレビューとその情報を取得
         $reviews = Review::all()->where('idea_id', $id)->take(5);
         
-        return view('post-idea.show',[ 'user' => $user, 'idea' => $idea, 'reviews' => $reviews, 'owner_flg' => $owner_flg, 'interest_flg' => $interest_flg, 'buy_flg' => $buy_flg, 'myreview' => $myreview, 'user_img' => $user_img]);
+        return view('post-idea.myidea',[ 'user' => $user, 'idea' => $idea, 'reviews' => $reviews, 'owner_flg' => $owner_flg, 'interest_flg' => $interest_flg, 'buy_flg' => $buy_flg, 'myreview' => $myreview, 'user_img' => $user_img]);
     }
 
     /**

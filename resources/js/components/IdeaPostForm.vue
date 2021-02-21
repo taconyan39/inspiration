@@ -99,7 +99,7 @@
 
 
             <div class="c-flex--end p-ideaPost__btn--container">
-                <button class="c-btn c-form__btn p-ideaPost__btn"
+                <button class="c-btn c-btn--action2 c-form__btn p-ideaPost__btn"
                         type="button"
                         @click="onSubmit()"
                         >

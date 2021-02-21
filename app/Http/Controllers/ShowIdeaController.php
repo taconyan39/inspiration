@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\IdeaSoldMail;
 use App\Mail\IdeaBoughtMail;
 
-class UserActionController extends Controller
+class ShowIdeaController extends Controller
 {
     // 購入処理
     // public function buy(Request $request ,$id){
@@ -82,5 +82,10 @@ class UserActionController extends Controller
         ]);
 
         return redirect('/')->with('flash_message', 'レビューを投稿しました');
+    }
+    
+    public function show($id){
+        $idea = Idea::find($id);
+        return view('post-idea.idea', ['idea' => $idea]);
     }
 }

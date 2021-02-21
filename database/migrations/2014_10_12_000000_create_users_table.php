@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('introduction')->nullable();
-            $table->string('icon_img')->default('noimage_icon.png');
+            $table->string('icon_img')->default('noimage_icon.jpg');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->boolean('delete_flg')->default(0);

@@ -3087,7 +3087,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['img', 'login', 'register', 'list', 'name', 'noimg'],
+  props: ['img', 'login', 'register', 'list', 'name', 'noimg', 'mypage', 'profedit', 'postidea', 'ideaslist'],
   data: function data() {
     return {
       items: [],
@@ -62124,7 +62124,8 @@ var render = function() {
                 _c(
                   "button",
                   {
-                    staticClass: "c-btn c-form__btn p-ideaPost__btn",
+                    staticClass:
+                      "c-btn c-btn--action2 c-form__btn p-ideaPost__btn",
                     attrs: { type: "button" },
                     on: {
                       click: function($event) {
@@ -62708,11 +62709,11 @@ var render = function() {
               "div",
               {
                 staticClass:
-                  "c-img--outer c-card-top p-profileSidebar__img--outer"
+                  "c-img--outer c-img--round c-card-top p-profileSidebar__img--outer"
               },
               [
                 _c("img", {
-                  staticClass: "c-img c-img--round p-profileSidebar__img",
+                  staticClass: "c-img p-profileSidebar__img",
                   attrs: { src: _vm.img, alt: "プロフィール画像" }
                 })
               ]
@@ -62724,13 +62725,69 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _vm._m(0),
+            _c(
+              "li",
+              { staticClass: "c-list__item-simple p-profileSidebar__item" },
+              [
+                _c(
+                  "a",
+                  {
+                    staticClass:
+                      "c-btn__sidebar c-btn__sub p-profileSidebar__btn",
+                    attrs: { href: _vm.mypage }
+                  },
+                  [_vm._v("マイページへ")]
+                )
+              ]
+            ),
             _vm._v(" "),
-            _vm._m(1),
+            _c(
+              "li",
+              { staticClass: "c-list__item-simple p-profileSidebar__item" },
+              [
+                _c(
+                  "a",
+                  {
+                    staticClass:
+                      "c-btn__sidebar c-btn__sub  p-profileSidebar__btn",
+                    attrs: { href: _vm.profedit }
+                  },
+                  [_vm._v("プロフィール変更")]
+                )
+              ]
+            ),
             _vm._v(" "),
-            _vm._m(2),
+            _c(
+              "li",
+              { staticClass: "c-list__item-simple p-profileSidebar__item" },
+              [
+                _c(
+                  "a",
+                  {
+                    staticClass:
+                      "c-btn__sidebar c-btn__sub p-profileSidebar__btn",
+                    attrs: { href: _vm.postidea }
+                  },
+                  [_vm._v("アイデアを"), _c("br"), _vm._v("投稿する")]
+                )
+              ]
+            ),
             _vm._v(" "),
-            _vm._m(3)
+            _c(
+              "li",
+              { staticClass: "c-list__item-simple p-profileSidebar__item" },
+              [
+                _c(
+                  "a",
+                  {
+                    staticClass:
+                      "c-btn__sidebar c-btn__sub p-profileSidebar__btn",
+                    attrs: { href: _vm.ideaslist }
+                  },
+                  [_vm._v("アイデアを"), _c("br"), _vm._v("探す")]
+                )
+              ]
+            )
           ])
         ])
       : _c("ul", [
@@ -62781,21 +62838,7 @@ var render = function() {
               ]
             ),
             _vm._v(" "),
-            _c(
-              "li",
-              { staticClass: "c-list__item-simple p-profileSidebar__item" },
-              [
-                _c(
-                  "a",
-                  {
-                    staticClass:
-                      "c-btn__sidebar c-btn--sub p-profileSidebar__btn",
-                    attrs: { href: _vm.list }
-                  },
-                  [_vm._v("アイデアを"), _c("br"), _vm._v("探す")]
-                )
-              ]
-            )
+            _vm._m(0)
           ])
         ])
   ])
@@ -62812,65 +62855,8 @@ var staticRenderFns = [
         _c(
           "a",
           {
-            staticClass: "c-btn__sidebar c-btn__sub p-profileSidebar__btn",
-            attrs: { href: "" }
-          },
-          [_vm._v("マイページへ")]
-        )
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "li",
-      { staticClass: "c-list__item-simple p-profileSidebar__item" },
-      [
-        _c(
-          "a",
-          {
-            staticClass: "c-btn__sidebar c-btn__sub  p-profileSidebar__btn",
-            attrs: { href: "" }
-          },
-          [_vm._v("プロフィール変更")]
-        )
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "li",
-      { staticClass: "c-list__item-simple p-profileSidebar__item" },
-      [
-        _c(
-          "a",
-          {
-            staticClass: "c-btn__sidebar c-btn__sub p-profileSidebar__btn",
-            attrs: { href: "" }
-          },
-          [_vm._v("アイデアを"), _c("br"), _vm._v("投稿する")]
-        )
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "li",
-      { staticClass: "c-list__item-simple p-profileSidebar__item" },
-      [
-        _c(
-          "a",
-          {
-            staticClass: "c-btn__sidebar c-btn__sub p-profileSidebar__btn",
-            attrs: { href: "" }
+            staticClass: "c-btn__sidebar c-btn--sub p-profileSidebar__btn",
+            attrs: { href: "list" }
           },
           [_vm._v("アイデアを"), _c("br"), _vm._v("探す")]
         )

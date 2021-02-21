@@ -469,10 +469,13 @@ li {
   align-items: center;
   overflow: hidden;
   box-sizing: border-box;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin: 15px auto;
 }
 
 .c-img--round {
-  width: 90%;
+  width: 100%;
   border-radius: 50%;
   border: 1px solid #102833;
 }
@@ -822,7 +825,27 @@ li {
 }
 
 .c-star {
-  color: #f5ce00;
+  font-size: 1.2rem;
+}
+
+@media screen and (max-width: 768px) {
+  .c-star {
+    font-size: 0.8rem;
+  }
+
+  .c-star::before {
+    font-family: "Font Awesome 5 Free";
+    content: "\F005";
+    color: #F5D300;
+    font-weight: 600;
+  }
+}
+
+.c-star::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\F005";
+  color: #F5D300;
+  font-weight: 600;
 }
 
 @-webkit-keyframes fadeOut {
@@ -1295,10 +1318,6 @@ li {
   margin-bottom: 10px;
 }
 
-.p-register__btn {
-  background: rgba(88, 102, 254, 0.7);
-}
-
 .p-simpleList {
   margin-bottom: 30px;
 }
@@ -1370,9 +1389,16 @@ li {
 }
 
 .p-simpleList__userImg--outer {
-  width: 50px;
-  height: 50px;
+  width: 80px;
+  height: 80px;
   margin: 0 auto 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .p-simpleList__userImg--outer {
+    width: 50px;
+    height: 50px;
+  }
 }
 
 .p-simpleList__under {
@@ -1486,11 +1512,8 @@ li {
 }
 
 .p-profileEdit__img--outer {
-  -o-object-fit: cover;
-     object-fit: cover;
   width: 150px;
   height: 150px;
-  margin: 15px auto;
 }
 
 .p-profileEdit__label--container {

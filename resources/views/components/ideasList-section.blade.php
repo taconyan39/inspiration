@@ -29,8 +29,8 @@
             <span class="c-tag p-ideaList__body--tag">{{ $item->category->name_ja }}</span>
               
             <div class="p-ideaList__userCard c-card">
-              <div class="c-img--outer c-card--top p-ideaList__userImg--outer">
-                <img class="c-img--round p-ideaList__userImg" src="{{ asset('storage/images/icons/' . $item->user->icon_img) }}" alt="">
+              <div class="c-img--outer c-img--round c-card--top p-ideaList__userImg--outer">
+                <img class="c-img p-ideaList__userImg" src="{{ asset('storage/images/icons/' . $item->user->icon_img) }}" alt="">
               </div>
               <div class="c-card--bottom p-ideaList__userCard--bottom">
                 <p class="c-card__name">{{ $item->user->name }}</p>

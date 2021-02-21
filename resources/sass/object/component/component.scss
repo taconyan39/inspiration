@@ -136,9 +136,11 @@
     align-items: center;
     overflow: hidden;
     box-sizing: border-box;
+    object-fit: cover;
+    margin: $spacing-lg auto;
   }
   &--round{
-    width: 90%;
+    width: 100%;
     border-radius: 50%;
     border: 1px solid $color_black;
   }
@@ -453,7 +455,20 @@
   }
 }
 .c-star{
-  color: #f5ce00;
+  font-size:$font-size_lg;
+    @include mq(md){
+      font-size: $font-size_sm;
+      &::before{
+        @include font-awesome(){
+        font-weight: 600;
+        }
+      }
+    }
+  &::before{
+    @include font-awesome(){
+    font-weight: 600;
+    }
+  }
 }
 
 @keyframes fadeOut{

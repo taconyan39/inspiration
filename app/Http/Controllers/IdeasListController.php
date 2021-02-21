@@ -12,7 +12,7 @@ use App\Category;
 class IdeasListController extends Controller
 {
     
-    // public function index($sort){
+
     public function index(Request $request){
 
         if(Auth::check()){

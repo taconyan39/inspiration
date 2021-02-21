@@ -5,7 +5,7 @@
 
 <div class="l-wrapper__2colum u-site__width">
 
-  @include('components.sidebar-profile', ['user' => $user])
+  @include('components.sidebar-profile')
   
   <main class="l-main__2colum u-site__width">
 

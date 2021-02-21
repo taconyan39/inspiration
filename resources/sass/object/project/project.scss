@@ -358,9 +358,6 @@
       margin-bottom: $spacing_md;
     }
   }
-  &__btn{
-    background: $color_action;
-  }
 }
 
 // myItem
@@ -418,9 +415,13 @@
   }
   &__userImg{
     &--outer{
-      width: 50px;
-      height: 50px;
+      width: 80px;
+      height: 80px;
       margin: 0 auto $spacing-md;
+      @include mq(md){
+        width: 50px;
+        height: 50px;
+      }
     }
   }
   &__under{
@@ -518,10 +519,10 @@
   &__img{
     width: height 100%;
     &--outer{
-      object-fit: cover;
+      // object-fit: cover;
       width: 150px;
       height: 150px;
-      margin: $spacing-lg auto;
+      // margin: $spacing-lg auto;
     }
   }
   &__label{

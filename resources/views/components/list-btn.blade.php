@@ -32,7 +32,7 @@
     @default
       <!-- 基本的な場合 -->
       <div class="p-ideasList__btn--wrapper c-flex--end-sp">
-        <a href="{{ url('post-idea/' . $item->id) }}" class="c-btn c-btn--action2 p-ideasList__btn">詳細を見る</a>
+        <a href="{{ url('idea/' . $item->id) }}" class="c-btn c-btn--action2 p-ideasList__btn">詳細を見る</a>
       </div>
       
 @endswitch

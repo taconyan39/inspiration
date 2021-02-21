@@ -50,11 +50,11 @@
             <label for="password-confirm" class="p-register__label c-form__label">{{ __('Confirm Password') }}
 
                 
-                <input id="password-confirm" type="password" class="p-register__passConfirm c-form__input" name="password_confirmation" required autocomplete="new-password">
+                <input id="password-confirm" type="password" class="p-register__passConfirm c-form__input" name="password_confirmation" autocomplete="new-password">
             </label>
 
             <div class="c-btn__box p-register__btnBox">
-                <button type="submit" class="c-btn c-form__btn p-register__btn">
+                <button type="submit" class="c-btn c-btn--action2 c-form__btn p-register__btn">
                     {{ __('Register') }}
                 </button>
             </div>

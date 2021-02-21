@@ -43,8 +43,6 @@
           <li class="c-list__item-simple p-profileSidebar__item">
             <a href="list" class="c-btn__sidebar c-btn--sub p-profileSidebar__btn">アイデアを<br>探す</a>
           </li>
-        </>
       </ul>
     @endguest
-  </div>
 </aside>

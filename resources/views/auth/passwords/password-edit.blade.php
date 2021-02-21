@@ -42,7 +42,7 @@
             </label>
 
             <div class="c-btn__box p-passwordEdit__btnBox">
-                <button type="submit" class="c-btn c-form__btn p-passwordEdit__btn">
+                <button type="submit" class="c-btn c-btn--action2 c-form__btn p-passwordEdit__btn">
                     {{ __('Edit') }}
                 </button>
             </div>

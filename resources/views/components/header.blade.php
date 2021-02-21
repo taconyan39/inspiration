@@ -81,6 +81,10 @@
                             register="{{ route('register')}}"
                             list="{{ url('all-ideas-list') }}"
                             noimg="{{url('storage/images/icons/noimage_icon.jpg')}}"
+                            mypage="{{url('mypage')}}"
+                            profedit="{{route('profile.edit')}}"
+                            postidea="{{url('post-idea/create')}}"
+                            ideaslist="{{url('all-ideas-list')}}"
                             >
             </profile-menu>
         </transition>
