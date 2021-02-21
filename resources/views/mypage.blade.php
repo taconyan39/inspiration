@@ -11,7 +11,7 @@
 
   @include('components.sidebar-profile-sp', ['user' => $user])
 
-    @component('components.simpleList-section', ['items' => $postIdeas, 'list-name' => 'post-ideas'])
+    @component('components.simpleList-section', ['items' => $postIdeas, 'listName' => 'post-idea'])
 
         @slot('title')
             投稿したアイデア
@@ -22,8 +22,20 @@
         @endslot
 
     @endcomponent
+
+    @component('components.simpleList-section', ['items' => $buyIdeas, 'listName' => 'idea'])
+
+        @slot('title')
+            購入したアイデア
+        @endslot
+
+        @slot('url')
+            {{ route('buy-ideas-list') }}
+        @endslot
+
+    @endcomponent
     
-    @component('components.simpleList-section', ['items' => $interestIdeas, 'list-name' => 'interests'])
+    @component('components.simpleList-section', ['items' => $interestIdeas, 'listName' => 'idea'])
         @slot('title')
             気になるリスト
         @endslot
@@ -35,7 +47,7 @@
 
     <section>
 
-        @component('components.simpleList-reviewSection', ['reviews' => $ideaReviews, 'list-name' => 'reviews'])
+        @component('components.simpleList-reviewSection', ['reviews' => $ideaReviews, 'listName' => 'post-idea'])
             @slot('title')
                 レビュー一覧
             @endslot
@@ -43,7 +55,7 @@
         @endcomponent
 
         <div class="p-simpleList__bottom">
-            <a href="{{ url('reviews-list') }}" class="c-btn p-simpleList__linkBtn">全件表示</a>
+            <a href="{{ url('myidea-reviews') }}" class="c-btn p-simpleList__linkBtn">全件表示</a>
         </div>
     
     </section>

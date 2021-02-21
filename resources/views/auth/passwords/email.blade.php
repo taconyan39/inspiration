@@ -8,7 +8,7 @@
 
             <div class="c-card-body">
                 @if (session('status'))
-                    <div class="alert alert-success" role="alert">
+                    <div class="p-login__email--txt" role="alert">
                         {{ session('status') }}
                     </div>
                 @endif

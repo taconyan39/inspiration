@@ -43,6 +43,10 @@
   background: $color_white;
   box-sizing: border-box;
   transition: .3s;
+  &:hover{
+    cursor: pointer;
+    opacity: 0.8;
+  }
   &__sidebar{
     width: 80%;
     border: 1px solid $color_gray;
@@ -50,25 +54,20 @@
     background: $color_white;
     box-sizing: border-box;
     transition: .3s;
+    &:hover{
+      cursor: pointer;
+      opacity: 0.8;
+    }
   }
   &--large{
     font-size: $font-size_lg;
     padding: $spacing-md $spacing-xl;
   }
-  &:hover{
-    cursor: pointer;
-    opacity: 0.8;
-    border-radius: 3px;
-  }
-  &__box{
+  &__wrapper{
     margin-top: $spacing_xxl;
     margin-bottom: $spacing_xl;
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-    padding-right: $spacing-md;
-    padding-left: $spacing-md;
     box-sizing: border-box;
+    text-align: center;
   }
   &__prompt{
     margin-left: $spacing_md;
@@ -137,7 +136,7 @@
     overflow: hidden;
     box-sizing: border-box;
     object-fit: cover;
-    margin: $spacing-lg auto;
+    margin: 0 auto;
   }
   &--round{
     width: 100%;
@@ -166,13 +165,12 @@
   &__item{
     border-bottom: 1px solid $color_black;
     transition: .3s;
-    &:hover{
-      box-shadow: 0 0 16px #ddd;
-    }
+    // &:hover{
+    //   box-shadow: 0 0 16px #ddd;
+    // }
     &--simple{
       border-bottom: 1px solid $color_black;
       box-sizing: border-box;
-      padding: $spacing-md;
       &:hover{
         background-color: rgba(221, 221, 221, 0.302);
       }

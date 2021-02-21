@@ -41,7 +41,7 @@
                 <input id="password-confirm" type="password" class="p-passwordEdit__passConfirm c-form__input" name="password_confirmation">
             </label>
 
-            <div class="c-btn__box p-passwordEdit__btnBox">
+            <div class="c-btn__wrapper p-passwordEdit__btnBox c-flex--end">
                 <button type="submit" class="c-btn c-btn--action2 c-form__btn p-passwordEdit__btn">
                     {{ __('Edit') }}
                 </button>

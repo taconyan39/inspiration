@@ -81,26 +81,8 @@ class PostIdeasController extends Controller
             return redirect('mypage')->with('flash_message', __('Invalid operation was performed.'));
         }
 
-        if(!Auth::check()){
-            $idea = Idea::find($id);
-            $categories = Category::all();
-            $idea->rating = sprintf('%.1f',$idea->reviews()->avg('rating'));
-            $idea->countReview = $idea->reviews->count();
-            $owner_flg = false;
-            $buy_flg = false;
-            $interest_flg = false;
-            $myreview = false;
-            $user_img = 'noimage_icon.png';
-
-            $user = false;
-
-            $reviews = Review::all()->where('idea_id', $id)->take(5);
-
-            return view('post-idea.show',[ 'idea' => $idea, 'reviews' => $reviews, 'owner_flg' => $owner_flg, 'interest_flg' => $interest_flg, 'buy_flg' => $buy_flg, 'user' => $user, 'myreview' => $myreview, 'categories' => $categories, 'user_img' => $user_img]);
-        }
-
         $user = Auth::user();
-        $user_img = $user->icon_img;
+
         $idea = Idea::find($id);
         $idea->rating = sprintf('%.1f',$idea->reviews()->avg('rating'));
         $idea->countReview = $idea->reviews->count();
@@ -148,7 +130,7 @@ class PostIdeasController extends Controller
         // アイデアに投稿されたレビューとその情報を取得
         $reviews = Review::all()->where('idea_id', $id)->take(5);
         
-        return view('post-idea.myidea',[ 'user' => $user, 'idea' => $idea, 'reviews' => $reviews, 'owner_flg' => $owner_flg, 'interest_flg' => $interest_flg, 'buy_flg' => $buy_flg, 'myreview' => $myreview, 'user_img' => $user_img]);
+        return view('post-idea.myidea',[ 'user' => $user, 'idea' => $idea, 'reviews' => $reviews, 'owner_flg' => $owner_flg, 'interest_flg' => $interest_flg, 'buy_flg' => $buy_flg, 'myreview' => $myreview]);
     }
 
     /**

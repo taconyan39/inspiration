@@ -89,5 +89,6 @@ class ReviewsController extends Controller
             $q->where('user_id', $user_id);
         })->orderBy('created_at')->paginate(10);
 
+        return view('reviews.myidea-reviews',['reviews' => $reviews]);
     }
 }

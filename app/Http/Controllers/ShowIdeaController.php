@@ -6,17 +6,57 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Idea;
+use App\Review;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\IdeaSoldMail;
 use App\Mail\IdeaBoughtMail;
 
 class ShowIdeaController extends Controller
 {
-    // 購入処理
-    // public function buy(Request $request ,$id){
+    public function show($id){
 
-    //     return view('post-idea.purchase-process')->action('PostIdeasController@buyProcess',[ 'request' => $request, 'id' => $id]);
-    // }
+            if(!ctype_digit($id)){
+                return redirect('mypage')->with('flash_message', __('Invalid operation was performed.'));
+            }
+    
+            $user = Auth::user();
+            $idea = Idea::find($id);
+            $idea->rating = sprintf('%.1f',$idea->reviews()->avg('rating'));
+            $idea->countReview = $idea->reviews->count();
+    
+    
+                // 購入済みの場合の処理
+                if(DB::table('buy_ideas')->where('user_id', $user->id)->where('idea_id', $idea->id)->exists()){
+                    $buy_flg = true;
+                    $interest_flg = false;
+                }else{
+                    $buy_flg = false;
+                    // 未購入で気になる追加済みの処理
+                    if(DB::table('interests')->where('user_id', $user->id)->where('idea_id', $idea->id)->exists()){
+                        $interest_flg = true;
+                        // 未購入気になる未追加の処理
+                    }else{
+                        $interest_flg = false;
+                    }
+                }
+            
+            // レビューを投稿しているか
+            $myreview = Review::where('idea_id', $id)->where('user_id', $user->id);
+    
+            if($myreview->exists()){
+                $myreview = $myreview->first();
+            }else{
+                $myreview = false;
+            }
+    
+            // アイデアに投稿されたレビューとその情報を取得
+            $reviews = Review::all()->where('idea_id', $id)->take(5);
+            
+            return view('post-idea.idea',[ 'user' => $user, 'idea' => $idea, 'reviews' => $reviews, 'interest_flg' => $interest_flg, 'buy_flg' => $buy_flg, 'myreview' => $myreview]);
+
+    }
+
+    // 購入処理
     public function buy(Request $request ,$id){
         if(!Auth::check()){
             return view('/')->with('flash_message','ログインが必要です');
@@ -83,9 +123,5 @@ class ShowIdeaController extends Controller
 
         return redirect('/')->with('flash_message', 'レビューを投稿しました');
     }
-    
-    public function show($id){
-        $idea = Idea::find($id);
-        return view('post-idea.idea', ['idea' => $idea]);
-    }
+
 }

@@ -44,7 +44,6 @@
                             @endif
                         @else
 
-                    <!-- TODO テンプレのままなので修正 -->
                         <li class="c-nav__item p-header__navItem">
                             <a class="c-btn 
                             c-btn--white
@@ -54,15 +53,13 @@
                             >{{ __('Logout') }}</a>
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    @csrf
-                                </form>
+                                @csrf
+                            </form>
                         </li>
-                            <li class="c-nav__item p-header__navItem">
-                                <a  class="c-btn p-header__btn--mypage" href="{{ route('mypage') }}"
-                                >{{ __('My Page') }}</a>
-                            </li>
-
-                            </li>
+                        <li class="c-nav__item p-header__navItem">
+                            <a  class="c-btn p-header__btn--mypage" href="{{ route('mypage') }}"
+                            >{{ __('My Page') }}</a>
+                        </li>
 
                     @endguest
                 </ul>

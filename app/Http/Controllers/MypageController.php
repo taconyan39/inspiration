@@ -30,6 +30,7 @@ class MypageController extends Controller
     public function index()
     {
         $user = Auth::user();
+        $user_id = $user->id;
         
         Session::put(['name' => $user->name, 'icon_img' => $user->icon_img]);
 
@@ -40,10 +41,20 @@ class MypageController extends Controller
                     ->take(5)
                     ->get();
 
-        // 平均点と口コミ数を代入
-        foreach($postIdeas as $postIdea){
-            $postIdea->rating = sprintf('%.1f',$postIdea->reviews->avg('rating'));
-            $postIdea->countReview = $postIdea->reviews->count();
+        foreach($postIdeas as $interestIdea){
+            $interestIdea->rating = sprintf('%.1f',$interestIdea->reviews->avg('rating'));
+            $interestIdea->countReview = $interestIdea->reviews->count();
+        }
+
+        $buyIdeas = Idea::whereHas('buyIdeas', function($q) use ($user_id){
+            $q->where('user_id', $user_id);
+        })->orderBy('created_at', 'desc')
+        ->take(5)
+        ->get();
+
+        foreach($buyIdeas as $buyIdea){
+            $buyIdea->rating = sprintf('%.1f',$buyIdea->reviews->avg('rating'));
+            $buyIdea->countReview = $buyIdea->reviews->count();
         }
 
         $interestIdeas = $user
@@ -62,7 +73,7 @@ class MypageController extends Controller
             $q->where('user_id', $user_id);
         })->take(5)->get();
 
-        return view('mypage',['user' => $user, 'postIdeas' => $postIdeas, 'interestIdeas' => $interestIdeas, 'ideaReviews' => $ideaReviews]);
+        return view('mypage',['user' => $user, 'postIdeas' => $postIdeas, 'interestIdeas' => $interestIdeas, 'ideaReviews' => $ideaReviews, 'buyIdeas' => $buyIdeas]);
     }
 
 }

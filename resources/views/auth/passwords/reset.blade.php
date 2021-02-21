@@ -45,7 +45,7 @@
 
                 </label>
 
-                <div class="c-flex--end p-register__btnBox c-btn__box">
+                <div class="c-flex--end p-register__btnBox c-btn__wrapper">
                     <button type="submit" class="c-btn c-btn--action2
                     p-register__btn">
                         {{ __('Reset Password') }}

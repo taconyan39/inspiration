@@ -1,63 +1,63 @@
 <template>
 <section class="p-ideaReviews">
-  <!-- {{img}} -->
 
-  <ul class="c-list p-ideaReviews__list">
+  <p class="p-ideaDetail__reviewTitle">みんなのレビュー</p>
 
-      <p class="p-ideaDetail__reviewTitle">みんなのレビュー</p>
-      <!-- {{items.data}} -->
+  <!-- レビューがない場合 -->
+  <div v-if="!items.data[0]" class="c-list p-ideaReviews__list">
 
-      <div v-if="!items.data" class="p-ideaReviews--none">レビューはまだ投稿されていません</div>
+      <div class="p-ideaReviews--none">レビューはまだ投稿されていません</div>
+  </div>
 
-      <li v-else v-for="item in items.data" :key="item.id" class="c-list__item--simple p-ideaReviews__item u-clearfix">
+  <!-- レビューがある場合 -->
 
-          <!-- 情報部分 -->
-          <div class="p-ideaReviews__wrapper">
-            <div class="p-ideaReviews__top c-flex--start">
-              <div class="p-ideaReviews__top--row">
+  <div v-else>
+    <ul  class="c-list p-ideaReviews__list">
+
+        <li v-for="item in items.data" :key="item.id" class="c-list__item--simple p-ideaReviews__item u-clearfix">
+
+            <!-- 情報部分 -->
+            <div class="p-ideaReviews__wrapper">
+              <div class="p-ideaReviews__top">
+                <div class="p-ideaReviews__top--row c-flex--start">
+                  <!-- <div class="p-ideaReviews__topBox"> -->
+                    <div class="c-img--outer c-img--round 
+                    p-ideaReviews__userImg--outer">
+                      <img class="c-img p-ideaReviews__userImg"
+                      :src="img + '/' + item.user.icon_img"
+                      alt="アイコンイメージ">
+                    </div>
+                    <div class="p-ideaReviews__top--name">
+                      <span>{{item.user.name}}</span>
+                    </div>
+                  <!-- </div> -->
+
+                </div>
+
+              <div class="p-ideaReviews__top--row c-flex--between">
+                <div class="p-ideaReview__topBox ">
+                  <time class="p-ideaReviews__date">{{ item.created_at | moment}}</time>
+                </div>
+
                 <div class="p-ideaReviews__topBox">
-                  <div class="c-img--outer c-img--round 
-                  p-ideaReviews__userImg--outer">
-                    <img class="c-img p-ideaReviews__userImg"
-                    :src="img + '/' + item.user.icon_img"
-                    alt="アイコンイメージ">
-                  </div>
-                </div>
-
-                <div class="p-ideaReviews__top--row">
-                  <span>{{item.user.name}}</span>
+                  <span class="c-star" v-for="n in item.rating" :key="n"></span>
                 </div>
               </div>
-              <!-- </div> -->
 
-            <div class="p-ideaReviews__top--row">
-              <div class="p-ideaReview__topBox">
-                <time class="p-ideaReviews__date">{{ item.created_at | moment}}</time>
-              </div>
+              </div>          
 
-              <div class="p-ideaReviews__topBox">
-                <span class="c-rating">{{ item.rating}}</span>
-              </div>
             </div>
 
-            </div>          
+            <div class="p-ideaReviews__review">
+              <div class="p-ideaReview__review--wrapper">
+                <p class="p-ideaReviews__review--txt">{{item.review}}</p></div>
+            </div>
+          </li>
+    </ul>
 
-          </div>
-
-          <div class="p-ideaReviews__review">
-            <!-- <input id="readmore" type="checkbox" class="p-ideaReviews__review--checkbox"> -->
-            <!-- <label for="readmore" class="p-ideaReviews__review--label"> -->
-              
-            <!-- </label> -->
-            <div class="p-ideaReview__review--wrapper">
-              <p class="p-ideaReviews__review--txt">{{item.review}}</p></div>
-          </div>
-        </li>
-    <!-- {{items}} -->
-  </ul>
-
-  <pagination :data="items" @move-page="movePage($event)">
-  </pagination>
+    <pagination :data="items" @move-page="movePage($event)">
+    </pagination>
+  </div>
 
   </section>
             
@@ -84,11 +84,6 @@ export default {
           this.items = response.data;
         });
     },
-    // toggleReview(){
-    //   this.toggle = !this.toggle;
-    //   console.log('click');
-    //   console.log(this.toggle)
-    // },
     movePage(page) {
       this.page = page //ページ番号を更新
       this.getItems();

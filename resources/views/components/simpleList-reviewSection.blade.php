@@ -6,7 +6,7 @@
 
     @foreach($reviews as $review)
       <li class="c-list__item--simple p-simpleList__item u-clearfix">
-        <a href="{{ url('./post-idea/' . $review->idea_id )}}" class="c-list__link p-simpleList__listLink u-clearfix">
+        <a href="{{ url('./'. $listName  . '/' . $review->idea_id )}}" class="c-list__link p-simpleList__listLink u-clearfix">
 
         <div class="p-simpleList__top c-flex--between">
           <div>

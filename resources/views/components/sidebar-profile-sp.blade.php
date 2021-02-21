@@ -14,10 +14,10 @@
             <a href="{{ route('profile.edit') }}" class="c-btn__sidebar c-btn__sub  p-profileSidebar__btn">プロフィール変更</a>
         </li>
         <li class="c-list__item-simple p-profileSidebar__item">
-            <a href="{{ url('post-idea/create') }}" class="c-btn__sidebar c-btn__sub p-profileSidebar__btn">アイデアを<br>投稿する</a>
+            <a href="{{ url('post-idea/create') }}" class="c-btn__sidebar c-btn__sub p-profileSidebar__btn">アイデアを投稿する</a>
         </li>
         <li class="c-list__item-simple p-profileSidebar__item">
-            <a href="{{ url('all-ideas-list')}}" class="c-btn__sidebar c-btn__sub p-profileSidebar__btn">アイデアを<br>探す</a>
+            <a href="{{ route('all-ideas-list')}}" class="c-btn__sidebar c-btn__sub p-profileSidebar__btn">アイデアを探す</a>
         </li>
         </div>
     </ul>

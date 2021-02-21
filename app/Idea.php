@@ -25,7 +25,7 @@ class Idea extends Model
     }
 
     public function buyIdeas(){
-        return $this->hasMany('App\BuyIdea');
+        return $this->hasMany('App\BuyIdea')->orderBy('created_at', 'desc');
     }
 
 }

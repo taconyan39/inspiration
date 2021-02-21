@@ -22,8 +22,9 @@ Route::post('/test', 'TestController@post');
 
 Route::group(['middleware' => ['auth']], function () {
   Route::resource('post-idea', 'PostIdeasController');
-  Route::get('myideas-list', 'IdeasListController@myidea');
-  Route::get('interests-list', 'IdeasListController@interest');
+  Route::get('myideas-list', 'IdeasListController@myidea')->name('myideas-list');
+  Route::get('interests-list', 'IdeasListController@interest')->name('interest-ideas-list');
+  Route::get('buy-ideas-list', 'IdeasListController@buyIdeas')->name('buy-ideas-list');
   Route::get('/profile', 'ProfileController@edit')->name('profile.edit');
   Route::get('password-edit', 'PasswordEditController@edit')->name('passwordEdit.edit');
 
@@ -61,12 +62,12 @@ Route::get('ajax/reviews/{id}','Ajax\ReviewsController@show');
 Route::post('post-idea/postreview/{id}', 'ShowIdeaController@postReview');
 
 // アイデア一覧表示
-Route::get('all-ideas-list', 'IdeasListController@index');
+Route::get('all-ideas-list', 'IdeasListController@index')->name('all-ideas-list');
 Route::get('ajax/ideas-list', 'Ajax\IdeasListController@index');
 Route::get('reviews-list', 'ReviewsController@index');
-// Route::get('ideas-list', 'IdeasListController@searchList');
 Route::post('all-ideas-list', 'IdeasListController@search');
 Route::post('ajax/ideas-list', 'Ajax\IdeasListController@post');
+Route::get('myidea-reviews', 'ReviewsController@toMeReviews');
 
 // Route::get('myideas-list', 'IdeasListController@myidea');
 // Route::get('interests-list', 'IdeasListController@interest');

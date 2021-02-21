@@ -20,17 +20,14 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-// Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('test-component', require('./components/TestComponent.vue').default);
 Vue.component('input-component', require('./components/InputComponent.vue').default);
 Vue.component('flash-message', require('./components/FlashMessage.vue').default);
 Vue.component('icon-edit', require('./components/IconEdit.vue').default);
-// Vue.component('ideas-list', require('./components/IdeasList.vue').default);
 Vue.component('hamburger-menu', require('./components/HamburgerMenu.vue').default);
 Vue.component('interest-component', require('./components/InterestComponent.vue').default);
 Vue.component('interest-remove-component', require('./components/InterestRemoveComponent.vue').default);
 Vue.component('buy-component', require('./components/BuyComponent.vue').default);
-Vue.component('category-menu', require('./components/CategoryMenu.vue').default);
 // Vue.component('pagination', require('./components/Pagination.vue').default);
 Vue.component('search-component', require('./components/SearchComponent.vue').default);
 Vue.component('loading', require('./components/Loading.vue').default);
