@@ -12,7 +12,7 @@
   
   <main class="l-main__2colum u-site__width">
 
-    @component('components.ideasList-section', ['items' => $ideas, 'listType' => 2])
+    @component('components.ideasList-section', ['ideas' => $ideas, 'listType' => 0])
 
       @slot('title')
         購入したアイデア一覧

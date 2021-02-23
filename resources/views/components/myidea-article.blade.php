@@ -44,9 +44,6 @@
               <div class="p-ideaDetail__purchased">
                       <p class="p-ideaDetail__text">{!! nl2br(e($idea->content)) !!}</p>
                   </div>
-              <div class="p-ideaDetail__purchased">
-                  <p class="p-ideaDetail__text">{{ $idea->content }}</p>
-              </div>
           </div>
 
           @if(!$idea->sold_flg)

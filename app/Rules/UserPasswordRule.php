@@ -4,6 +4,7 @@ namespace App\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 use Hash;
 
 class UserPasswordRule implements Rule
@@ -29,9 +30,12 @@ class UserPasswordRule implements Rule
      */
     public function passes($attribute, $value)
     {
-        // dd($this);
         //現在のパスワードを取得
-        $current_password = User::find($this->user_id)->password;
+        // $current_password = User::find($this->user_id)->password;
+        $current_password = Auth::user()->password;
+
+        // dd(Auth::user()->password);
+
         if(Hash::check($value, $current_password)){
             return true;
         }
@@ -46,6 +50,6 @@ class UserPasswordRule implements Rule
      */
     public function message()
     {
-        return 'The validation error message.';
+        return 'パスワードが違います';
     }
 }

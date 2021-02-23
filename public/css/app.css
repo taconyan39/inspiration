@@ -495,25 +495,30 @@ li {
 .c-list {
   width: 100%;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .c-list--simple {
   margin-bottom: 20px;
+  overflow: hidden;
 }
 
 .c-list__title {
   font-weight: bold;
   font-size: 1.4rem;
+  overflow: hidden;
 }
 
 .c-list__item {
   border-bottom: 1px solid #102833;
   transition: 0.3s;
+  overflow: hidden;
 }
 
 .c-list__item--simple {
   border-bottom: 1px solid #102833;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .c-list__item--simple:hover {
@@ -553,6 +558,7 @@ li {
   border-radius: 5px;
   margin-right: 5px;
   box-sizing: border-box;
+  color: #f8fafc;
 }
 
 @media screen and (max-width: 768px) {
@@ -565,8 +571,8 @@ li {
   padding: 5px 15px;
   line-height: 1.2rem;
   border: 1px solid #102833;
-  background: #F7637e;
-  color: white;
+  background: rgba(88, 102, 254, 0.7);
+  color: #f8fafc;
   border-radius: 5px;
   margin-right: 5px;
   box-sizing: border-box;
@@ -624,6 +630,7 @@ li {
   align-items: center;
   background: #cfd5e6;
   padding: 10px 15px;
+  overflow: hidden;
 }
 
 .c-form__label {
@@ -1126,6 +1133,7 @@ li {
   width: 70%;
   box-sizing: border-box;
   position: relative;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 768px) {
@@ -1328,6 +1336,26 @@ li {
 }
 
 .p-register__label--wrapper {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.p-passwordEdit {
+  width: 500px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+  .p-passwordEdit {
+    width: 100%;
+  }
+}
+
+.p-passwordEdit__label {
+  display: block;
+}
+
+.p-passwordEdit__label--wrapper {
   display: block;
   margin-bottom: 10px;
 }
@@ -1720,6 +1748,7 @@ li {
   font-weight: bold;
   margin-bottom: 15px;
   font-size: 1.4rem;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 768px) {
@@ -1752,6 +1781,7 @@ li {
 
 .p-ideaDetail__purchased {
   margin-bottom: 15px;
+  overflow: hidden;
 }
 
 .p-ideaDetail__purchased--not {

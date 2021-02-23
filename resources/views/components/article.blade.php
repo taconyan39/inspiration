@@ -44,13 +44,12 @@
             @auth
                 @if($buy_flg)
                     <div class="p-ideaDetail__purchased">
-                        <p class="p-ideaDetail__text">{{ $idea->content }}</p>
+                        <p class="p-ideaDetail__text">{!! nl2br(e($idea->content)) !!}</p>
                     </div>
                 </div>
             </div>
 
         </article>
-
         <section class="p-ideaDetail__review">
 
             @if( $myreview )
@@ -61,7 +60,8 @@
                     @csrf
                     <div class="p-ideaDetail__reviewForm ">
                         <label class="c-flex--start p-ideaDetail__reviewForm--row">
-                            <select name="rating" id="" class="p-postReview__form--select c-selectBox">
+                            <select name="rating" id="" class="p-postReview__form--select c-selectBox"
+                            >
                                 <option value="">評価</option>
 
                                 @for($i = 5; $i > 0; $i-- )
@@ -80,7 +80,7 @@
                                 </span>
                             @enderror
                         </div>
-                        <post-review></post-review>
+                        <post-review oldreview="{{ old('review')}}"></post-review>
 
                         <div class="c-flex--end">
                             @error('review')

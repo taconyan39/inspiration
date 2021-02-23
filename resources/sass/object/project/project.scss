@@ -187,6 +187,7 @@
       width: 70%;
       box-sizing: border-box;
       position: relative;
+      overflow: hidden;
       @include mq(md){
         overflow-wrap: break-word;
         width: 60%;
@@ -348,6 +349,21 @@
 .p-register{
   width: 500px;
   margin: 5% auto 0;
+  @include mq(md){
+    width: 100%;
+  }
+  &__label{
+    display: block;
+    &--wrapper{
+      display: block;
+      margin-bottom: $spacing_md;
+    }
+  }
+}
+
+.p-passwordEdit{
+  width: 500px;
+  margin: 0 auto;
   @include mq(md){
     width: 100%;
   }
@@ -696,6 +712,7 @@
     font-weight: bold;
     margin-bottom: $spacing-lg;
     font-size: $font-size_xl;
+    overflow: hidden;
     @include mq(md){
       font-size: $font-size_lg;
     }
@@ -718,6 +735,7 @@
   }
   &__purchased{
     margin-bottom: $spacing-lg;
+    overflow: hidden;
     &--not{
       text-align: center;
       font-size: $font-size_xl;

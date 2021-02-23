@@ -4,7 +4,7 @@
 <!-- 投稿アイデアリストの場合 -->
   <div class="p-ideasList__btn--wrapper c-flex--around">
     @if($idea->sold_flg)
-      <a href="" class="c-btn--enable c-btn p-ideasList__btnEdit--enable">編集不可</a>
+      <a href="#" disabled class="c-btn--disable c-btn p-ideasList__btnEdit--disable">編集不可</a>
     @else
       <a href="{{ url('post-idea/'. $idea->id . '/edit')}}" class="c-btn c-btn--white p-ideasList__btnEdit">編集する</a>
     @endif

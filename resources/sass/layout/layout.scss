@@ -58,8 +58,6 @@
     box-sizing: border-box;
     @include mq(md){
       width: 100%;
-      // padding-right: $spacing-md;
-      // padding-left: $spacing-md;
     }
   }
 }

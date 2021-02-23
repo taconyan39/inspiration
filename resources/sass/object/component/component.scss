@@ -159,23 +159,24 @@
 .c-list{
   width: 100%;
   box-sizing: border-box;
+  overflow: hidden;
   &--simple{
     margin-bottom: 20px;
+    overflow: hidden;
   }
   &__title{
     font-weight: bold;
     font-size:$font-size_xl;
-    
+    overflow: hidden;
   }
   &__item{
     border-bottom: 1px solid $color_black;
     transition: .3s;
-    // &:hover{
-    //   box-shadow: 0 0 16px #ddd;
-    // }
+    overflow: hidden;
     &--simple{
       border-bottom: 1px solid $color_black;
       box-sizing: border-box;
+      overflow: hidden;
       &:hover{
         background-color: rgba(221, 221, 221, 0.302);
       }
@@ -215,6 +216,7 @@
   border-radius: 5px;
   margin-right: $spacing-sm;
   box-sizing: border-box;
+  color: $color_white;
   @include mq(md){
     font-size: $font-size_sm;
   }
@@ -222,8 +224,8 @@
     padding: $spacing-sm $spacing-lg;
     line-height: $font-size_lg;
     border: 1px solid $color_black;
-    background: $color_remove;
-    color: white;
+    background: $color_action;
+    color: $color_white;
     border-radius: 5px;
     margin-right: $spacing-sm;
     box-sizing: border-box;
@@ -268,6 +270,7 @@
     align-items: center;
     background: $color_sub;
     padding: $spacing-md $spacing-lg;
+    overflow: hidden;
   }
   &__label{
     display: flex;

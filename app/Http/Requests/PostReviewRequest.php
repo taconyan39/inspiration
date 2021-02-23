@@ -25,7 +25,7 @@ class PostReviewRequest extends FormRequest
     {
         return [
             'rating' => 'required',
-            'review' => 'required | max:200'
+            'review' => 'required |string | max:210'
         ];
     }
 }

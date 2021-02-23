@@ -57,7 +57,7 @@ class PostIdeasController extends Controller
      // 新規アイデアの投稿処理
     public function store(PostIdeaRequest $request)
     {
-        dd('test');
+
         $idea = new Idea;
 
         $idea->category_id = (int)$request->category_id;
@@ -108,8 +108,6 @@ class PostIdeasController extends Controller
         $user = Auth::user();
         $user_img = $user->icon_img;
         $idea = Idea::find($id);
-
-        $query = BuyIdea::where('idea_id', $id);
 
         // 購入がある場合はページにアクセスできないようにする
         if($idea->buy_flg){

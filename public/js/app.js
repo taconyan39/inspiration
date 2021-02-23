@@ -2903,9 +2903,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['oldreview'],
   data: function data() {
     return {
-      review: ""
+      review: this.oldreview ? this.oldreview : ''
     };
   },
   methods: {
@@ -62443,8 +62444,8 @@ var render = function() {
         attrs: {
           name: "review",
           id: "review",
-          maxlength: "500",
-          placeholder: "500文字以内で入力してください"
+          maxlength: "200",
+          placeholder: "200文字以内で入力してください"
         },
         domProps: { value: _vm.review },
         on: {
@@ -62463,7 +62464,7 @@ var render = function() {
       _c(
         "div",
         { staticClass: "c-form__countLength c-flex--end p-ideaPost__count" },
-        [_c("span", [_vm._v(_vm._s(_vm.review.length) + "/500")])]
+        [_c("span", [_vm._v(_vm._s(_vm.review.length) + "/200")])]
       )
     ]
   )
