@@ -28,7 +28,7 @@ class PasswordEdit extends Mailable
      */
     public function build()
     {
-        return $this->from('inspiration@sample.com')
+        return $this->from('info@inspiration-o.com')
                     ->subject('パスワードが変更されました')
                     ->view('emails.password-edit');
     }

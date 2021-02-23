@@ -29,7 +29,7 @@ class ArrivedReview extends Mailable
     public function build()
     {
         return $this
-            ->from('inspiration@sample.com')
+            ->from('info@inspiration-o.com')
             ->subject('レビューが届きました')
             ->view('emails.arrived-review');
     }

@@ -19,11 +19,7 @@
                 autocomplete="email" autofocus>
             </label>
 
-            @error('email')
-                <span class="c-error" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
+            
 
             <label for="password" class="p-login__label c-form__label">{{ __('Password') }}
 

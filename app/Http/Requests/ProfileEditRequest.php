@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use App\Rules\UserPasswordRule;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
 class ProfileEditRequest extends FormRequest
 {
@@ -34,10 +35,11 @@ class ProfileEditRequest extends FormRequest
      */
     public function rules()
     {
+        $user = Auth::user();
         return [
             'name' => 'required | max:10',
-            'email' => 'required | max:255 | email',
-            // 'icon_img' => 'image | file | max:2000 | mimes:jpeg, jpg, png',
+            // 'email' => ['required | max:255 | email',  Rule::unique('users')->ignore($user->id)],
+            'email' => ['required', 'max:255', 'email',  Rule::unique('users')->ignore($user->id)],
             'icon_img' => 'image | file | max:2000 | mimes:jpg,png',
         ];
     }

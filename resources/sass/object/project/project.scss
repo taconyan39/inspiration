@@ -693,6 +693,9 @@
     font-weight: bold;
     margin-bottom: $spacing-lg;
     font-size: $font-size_xl;
+    @include mq(md){
+      font-size: $font-size_lg;
+    }
   }
   &__text{
     overflow: hidden;
@@ -702,15 +705,35 @@
     &--wrapper{
       padding: $spacing-3l $spacing-3l $spacing-lg;
       box-sizing: border-box;
+      @include mq(md){
+        padding: $spacing-xl $spacing-sm;
+      }
+    }
+    &--not{
+      margin-bottom: $spacing-xxl;
     }
   }
   &__purchased{
     margin-bottom: $spacing-lg;
+    &--not{
+      text-align: center;
+      font-size: $font-size_xl;
+    }
+    &__nologinBtn{
+      &--wrapper{
+        margin-top: 50px;
+      }
+    }
   }
   &__price{
     font-size: $font-size_xl;
     font-weight: bold;
     margin-right: $spacing_sm;
+    &--large{
+      $font-size: $font-size_xl;
+      font-weight: bold;
+      margin-bottom: $spacing-xxl;
+    }
   }
   &__user{
     align-items: center;
@@ -994,9 +1017,24 @@
   }
 }
 
+.p-buy{
+  &__btn{
+    &--wrapper{
+      margin-bottom: $spacing-xxl;
+    }
+  }
+}
+
 // 気になるボタン
 .p-interest{
   &__btn{
     width: 120px;
+  }
+}
+
+// レビュー投稿フォーム
+.p-postReview{
+  &__formRow--btn{
+    margin-top: $spacing-xxl;
   }
 }

@@ -162,7 +162,9 @@ return [
         'content' => 'アイデアの詳細',
         'email' => 'Eメール',
         'icon_img' => '画像',
-        'password' => 'パスワード'
+        'password' => 'パスワード',
+        'rating' => '評価',
+        'review' => 'レビュー'
     ],
 
 ];

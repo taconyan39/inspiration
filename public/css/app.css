@@ -390,6 +390,11 @@ li {
   padding: 10px 20px;
 }
 
+.c-btn--large:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
 .c-btn__wrapper {
   margin-top: 30px;
   margin-bottom: 20px;
@@ -433,11 +438,12 @@ li {
   background: #cfd5e6;
 }
 
-.c-btn--enable {
+.c-btn--disable {
   background: #cfd5e6;
 }
 
-.c-btn--enable:hover {
+.c-btn--disable:hover {
+  opacity: 1;
   cursor: not-allowed;
 }
 
@@ -601,6 +607,12 @@ li {
   color: #001F66;
 }
 
+@media screen and (max-width: 768px) {
+  .c-form__title {
+    font-size: 1.4rem;
+  }
+}
+
 .c-form__header {
   display: flex;
   align-items: center;
@@ -667,10 +679,6 @@ li {
   box-sizing: border-box;
   margin-top: 10px;
   font-size: 1.2rem;
-}
-
-.c-form__row {
-  display: flex;
 }
 
 .c-form__wrapper {
@@ -1696,6 +1704,12 @@ li {
   font-size: 1.4rem;
 }
 
+@media screen and (max-width: 768px) {
+  .p-ideaDetail__summary {
+    font-size: 1.2rem;
+  }
+}
+
 .p-ideaDetail__text {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1708,14 +1722,38 @@ li {
   box-sizing: border-box;
 }
 
+@media screen and (max-width: 768px) {
+  .p-ideaDetail__text--wrapper {
+    padding: 20px 5px;
+  }
+}
+
+.p-ideaDetail__text--not {
+  margin-bottom: 30px;
+}
+
 .p-ideaDetail__purchased {
   margin-bottom: 15px;
+}
+
+.p-ideaDetail__purchased--not {
+  text-align: center;
+  font-size: 1.4rem;
+}
+
+.p-ideaDetail__purchased__nologinBtn--wrapper {
+  margin-top: 50px;
 }
 
 .p-ideaDetail__price {
   font-size: 1.4rem;
   font-weight: bold;
   margin-right: 5px;
+}
+
+.p-ideaDetail__price--large {
+  font-weight: bold;
+  margin-bottom: 30px;
 }
 
 .p-ideaDetail__user {
@@ -2038,7 +2076,15 @@ li {
   color: #001F66;
 }
 
+.p-buy__btn--wrapper {
+  margin-bottom: 30px;
+}
+
 .p-interest__btn {
   width: 120px;
+}
+
+.p-postReview__formRow--btn {
+  margin-top: 30px;
 }
 

@@ -29,7 +29,7 @@ class IdeaSoldMail extends Mailable
     public function build()
     {
         return $this
-            ->from($this->user->email)
+            ->from('info@inspiration-o.com')
             ->subject('アイデアが売れました')
             ->view('emails.idea-sold');
     }

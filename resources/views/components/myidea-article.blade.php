@@ -49,13 +49,13 @@
               </div>
           </div>
 
-          @if(!$idea->buy_flg)
+          @if(!$idea->sold_flg)
               <div class="p-ideaDetail__row c-flex--end">
                   <a href="{{ url('post-idea/'. $idea->id . '/edit')}}" class="c-btn c-btn--action2">編集する</a>
               </div>
           @else
               <div class="p-ideaDetail__row c-flex--end">
-                  <a href="{{ url('post-idea/'. $idea->id . '/edit')}}" class="c-btn--enable c-btn c-btn--sub">編集不可</a>
+                  <a href="#" disabled class="c-btn--disable c-btn">編集不可</a>
               </div>
           @endif
 </article>

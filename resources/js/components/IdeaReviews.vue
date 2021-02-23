@@ -20,7 +20,6 @@
             <div class="p-ideaReviews__wrapper">
               <div class="p-ideaReviews__top">
                 <div class="p-ideaReviews__top--row c-flex--start">
-                  <!-- <div class="p-ideaReviews__topBox"> -->
                     <div class="c-img--outer c-img--round 
                     p-ideaReviews__userImg--outer">
                       <img class="c-img p-ideaReviews__userImg"
@@ -30,7 +29,6 @@
                     <div class="p-ideaReviews__top--name">
                       <span>{{item.user.name}}</span>
                     </div>
-                  <!-- </div> -->
 
                 </div>
 

@@ -1970,8 +1970,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   // name: 'App',
   // data(){
@@ -2601,8 +2599,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2938,41 +2934,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      items: [{
-        id: 1,
-        star: '★★★★★',
-        count: 5
-      }, {
-        id: 2,
-        star: '★★★★',
-        count: 4
-      }, {
-        id: 3,
-        star: '★★★',
-        count: 3
-      }, {
-        id: 4,
-        star: '★★',
-        count: 2
-      }, {
-        id: 5,
-        star: '★',
-        count: 1
-      }]
+      review: ""
     };
   },
-  getItems: function getItems() {},
-  mounted: function mounted() {
-    console.log(this.items);
+  methods: {
+    onSubmit: function onSubmit() {
+      // 投稿の確認
+      if (!confirm('投稿します。よろしいですか？')) {
+        return;
+      }
+    }
   }
 });
 
@@ -61147,9 +61121,9 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "c-btn__wrapper p-buy__btn--wrapper" }, [
     _c("input", {
-      staticClass: "c-btn--large c-btn--large p-ideaDetail__btn--buy",
+      staticClass: "c-btn--large p-buy__btn\n    c-btn--action2\n    ",
       attrs: { type: "submit", value: "購入する", name: "buy", id: "buy" },
       on: { click: _vm.onBuy }
     })
@@ -62281,10 +62255,7 @@ var render = function() {
               }
             }
           },
-          [
-            _c("span", { staticClass: "c-star" }, [_vm._v("★")]),
-            _vm._v("\n  解除する")
-          ]
+          [_c("span", { staticClass: "c-star" }), _vm._v("\n  解除する")]
         )
       : _c(
           "button",
@@ -62497,65 +62468,50 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "p-ideaDetail__reviewForm " }, [
-    _c("div", { staticClass: "c-row" }, [
-      _c(
-        "select",
-        {
-          staticClass: "p-ideaDetail__reviewForm--select c-selectBox",
-          attrs: { name: "", id: "" }
-        },
-        [
-          _c("option", { attrs: { value: "0" } }, [_vm._v("評価")]),
-          _vm._v(" "),
-          _vm._l(_vm.items, function(item) {
-            return _c("option", {
-              key: item.id,
-              domProps: { value: item.count, textContent: _vm._s(item.star) }
-            })
-          })
-        ],
-        2
-      )
-    ]),
-    _vm._v(" "),
-    _vm._m(0),
-    _vm._v(" "),
-    _vm._m(1)
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { staticClass: "c-form__label" }, [
+  return _c(
+    "label",
+    { staticClass: "c-form__label", attrs: { for: "review" } },
+    [
       _c("textarea", {
-        staticClass: "c-form__textarea p-ideaDetail__reviewForm--textare",
-        attrs: { name: "idea-review", id: "" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "c-form__row p-ideaDetail__reviewFormRow--btn" },
-      [
-        _c(
-          "button",
+        directives: [
           {
-            staticClass: "c-btn p-ideaDetail__reviewForm--btn",
-            attrs: { type: "submit" }
+            name: "model",
+            rawName: "v-model.trim",
+            value: _vm.review,
+            expression: "review",
+            modifiers: { trim: true }
+          }
+        ],
+        staticClass: "c-form__textarea p-postReview__form--textare",
+        attrs: {
+          name: "review",
+          id: "review",
+          maxlength: "500",
+          placeholder: "500文字以内で入力してください"
+        },
+        domProps: { value: _vm.review },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.review = $event.target.value.trim()
           },
-          [_vm._v("レビューを投稿する")]
-        )
-      ]
-    )
-  }
-]
+          blur: function($event) {
+            return _vm.$forceUpdate()
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "c-form__countLength c-flex--end p-ideaPost__count" },
+        [_c("span", [_vm._v(_vm._s(_vm.review.length) + "/500")])]
+      )
+    ]
+  )
+}
+var staticRenderFns = []
 render._withStripped = true
 
 

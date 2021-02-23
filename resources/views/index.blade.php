@@ -34,7 +34,7 @@
       </section>
 
       <section class="p-simpleList c-section">
-        @component('components.simpleList-reviewSection', ['reviews' => $reviews, 'listName' => 'idea'])
+        @component('components.simpleList-reviewSection', ['reviews' => $reviews])
           @slot('title')
             新着のレビュー
           @endslot

@@ -1,17 +1,15 @@
 <template>
-  <div>
-  <!-- <loading v-show="loading"></loading> -->
+  <div class="c-btn__wrapper p-buy__btn--wrapper">
 
-  <!-- <div v-show="!loading"> -->
+    <input type="submit"
+      value="購入する"
+      name="buy"
+      class="c-btn--large p-buy__btn
+      c-btn--action2
+      "
+      id="buy"
+      @click="onBuy">
 
-  <input type="submit" 
-    value="購入する" 
-    name="buy"  
-    class="c-btn--large c-btn--large p-ideaDetail__btn--buy"
-    id="buy"
-    @click="onBuy">
-
-    </div>
   </div>
 </template>
 

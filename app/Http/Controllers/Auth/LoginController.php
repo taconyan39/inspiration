@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Controller,
+    Session;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -27,6 +29,12 @@ class LoginController extends Controller
      * @var string
      */
     protected function redirectTo() {
+
+        // sessionにユーザーネームと画像を入れておく
+
+        $user = Auth::user();
+        Session::put(['name' => $user->name, 'icon_img' => $user->icon_img]);
+
         session()->flash('flash_message', 'ログインしました');
         return '/mypage';
     }

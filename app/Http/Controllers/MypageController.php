@@ -6,8 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Idea;
 use App\Review;
-use App\Http\Controllers\Controller,
-    Session;
 
 
 class MypageController extends Controller
@@ -31,8 +29,6 @@ class MypageController extends Controller
     {
         $user = Auth::user();
         $user_id = $user->id;
-        
-        Session::put(['name' => $user->name, 'icon_img' => $user->icon_img]);
 
         $user_id = $user->id;
 

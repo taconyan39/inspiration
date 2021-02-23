@@ -27,7 +27,8 @@ Route::group(['middleware' => ['auth']], function () {
   Route::get('buy-ideas-list', 'IdeasListController@buyIdeas')->name('buy-ideas-list');
   Route::get('/profile', 'ProfileController@edit')->name('profile.edit');
   Route::get('password-edit', 'PasswordEditController@edit')->name('passwordEdit.edit');
-
+  //商品購入
+  Route::post('post-idea/buy/{id}', 'ShowIdeaController@buy')->name('buy');
 });
 
 
@@ -54,12 +55,9 @@ Route::get('/ajax/categories', 'Ajax\CategoriesController@category');
 // ユーザー情報取得
 Route::get('/ajax/user', 'Ajax\UserController@user');
 
-//商品購入
-Route::post('post-idea/buy/{id}', 'ShowIdeaController@buy')->name('buy');
-
 //レビュー投稿
 Route::get('ajax/reviews/{id}','Ajax\ReviewsController@show');
-Route::post('post-idea/postreview/{id}', 'ShowIdeaController@postReview');
+// Route::post('reviews/post-review/{id}', 'ReviewsController@store');
 
 // アイデア一覧表示
 Route::get('all-ideas-list', 'IdeasListController@index')->name('all-ideas-list');
@@ -83,8 +81,7 @@ Route::post('password-edit', 'PasswordEditController@update')->name('passwordEdi
 
 
 // レビュー投稿画面
-// Route::get('reviews/post-review/{id}','ReviewsController@create');
-// Route::post('reviews/post-review/{id}','ReviewsController@store');
+Route::post('reviews/{id}','ReviewsController@postreview');
 
 
 Auth::routes();

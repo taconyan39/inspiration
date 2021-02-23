@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use App\Review;
 use App\Idea;
 use App\Mail\ArrivedReview;
+use App\Http\Requests\PostReviewRequest;
 
 class ReviewsController extends Controller
 {
@@ -19,7 +20,7 @@ class ReviewsController extends Controller
         $reviews = Review::orderBy('created_at', 'desc')->paginate(10);
 
 
-        return view('ideas-list.all-reviews-list',['reviews' => $reviews]);
+        return view('reviews.all-reviews-list',['reviews' => $reviews]);
 
     }
     // レビュー投稿ページの表示
@@ -45,7 +46,7 @@ class ReviewsController extends Controller
 
     }
 
-    public function store(Request $request, $id){
+    public function postreview(PostReviewRequest $request, $id){
 
         $user = Auth::user();
         $idea = Idea::find($id);
@@ -56,7 +57,7 @@ class ReviewsController extends Controller
         // レビューを投稿済みの場合には戻る
         if($review->exists()){
 
-            return redirect('post-idea/' . $id)->with('flash_message', 'すでにレビューを投稿済みです');
+            return redirect('idea/' . $id)->with('flash_message', 'すでにレビューを投稿済みです');
 
         //投稿者はレビューを投稿できないようにする
         }elseif($contributor->exists()){
@@ -76,8 +77,7 @@ class ReviewsController extends Controller
 
         Mail::to($idea->user->email)->send(new ArrivedReview());
 
-        return redirect('post-idea/' . $id)->with('flash_message', 'レビューが投稿されました');
-
+        return redirect('idea/' . $id)->with('flash_message', 'レビューが投稿されました');
 
     }
 

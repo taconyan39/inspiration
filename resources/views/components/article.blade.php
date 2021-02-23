@@ -39,33 +39,82 @@
         <div class="p-ideaDetail__summary">
             <h3>{{ $idea->summary }}</h3>
         </div>
-        
+
         <div class="p-ideaDetail__text--wrapper">
             @auth
-                @if($idea->where('user_id','=','$user->id'))
-                    <div class="p-ideaDetail__purchased">
-                            <p class="p-ideaDetail__text">{!! nl2br(e($idea->content)) !!}</p>
-                        </div>
-                @elseif($buy_flg)
+                @if($buy_flg)
                     <div class="p-ideaDetail__purchased">
                         <p class="p-ideaDetail__text">{{ $idea->content }}</p>
                     </div>
-                @else
-                    <div class="p-ideaDetail__purchased--not">
-                        <p class="p-ideaDetail__text--not">購入すると表示されます</p>
-                        <span class="p-ideaDetail__message">¥{{ $idea->price }}</span>
-                        <form action="{{ url('post-idea/buy/' . $idea->id) }}" method="POST">
-                        @csrf
-                            <buy-component></buy-component>
-                        </form>
-                    </div>
-                    <div class="c-article__bottom p-ideaDetail__bottom">
-                        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>
+                </div>
+            </div>
 
-                        <interest-component :id="{{ $idea->id }}" :interest="@json($interest_flg)"></interest-component>
+        </article>
+
+        <section class="p-ideaDetail__review">
+
+            @if( $myreview )
+                <p class="p-ideaDetail__reviewText">レビューは投稿済みです</p>
+            @else
+                <p class="p-ideaDetail__reviewText">レビューを書いて投稿しよう！！</p>
+                <form action="{{ url('reviews/' . $idea->id)}}" method="POST">
+                    @csrf
+                    <div class="p-ideaDetail__reviewForm ">
+                        <label class="c-flex--start p-ideaDetail__reviewForm--row">
+                            <select name="rating" id="" class="p-postReview__form--select c-selectBox">
+                                <option value="">評価</option>
+
+                                @for($i = 5; $i > 0; $i-- )
+                                    <option value="{{$i}}">
+                                        @for($x = 1; $x <= $i; $x++)
+                                        <span class="c-star">★</span>
+                                        @endfor
+                                    </option>
+                                @endfor
+                            </select>
+                        </div>
+                        <div class="c-flex--start">
+                            @error('rating')
+                                <span class="c-error" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <post-review></post-review>
+
+                        <div class="c-flex--end">
+                            @error('review')
+                            <span class="c-error" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+
+                    <div class="c-form__row p-postReview__formRow--btn c-flex--end">
+                        <button type="submit" class="c-btn p-postReview__form--btn c-btn--action2">レビューを投稿する</button>
                     </div>
-                @endif
-            @endauth
+                </form>
+            @endif
+        </section>
+        @else
+            <div class="p-ideaDetail__purchased--not">
+                <p class="p-ideaDetail__text--not">購入すると表示されます</p>
+                <p class="p-ideaDetail__price--large">¥{{ $idea->price }}</p>
+                <form action="{{ url('post-idea/buy/' . $idea->id) }}" method="POST">
+                @csrf
+                    <buy-component></buy-component>
+                </form>
+            </div>
+
+            <div class="c-article__bottom p-ideaDetail__bottom">
+                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>
+
+                <interest-component :id="{{ $idea->id }}" :interest="@json($interest_flg)"></interest-component>
+            </div>
+        @endif
+
+        </article>
+        @endauth
 
             @guest
 
@@ -78,9 +127,9 @@
                     </div>
                 </div>
 
-            @endguest
-        </div>
+            </div>
 
-    </div>
 
-</article>
+    </article>
+
+    @endguest

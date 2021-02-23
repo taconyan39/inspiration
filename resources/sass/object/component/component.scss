@@ -62,6 +62,10 @@
   &--large{
     font-size: $font-size_lg;
     padding: $spacing-md $spacing-xl;
+    &:hover{
+      cursor: pointer;
+      opacity: 0.8;
+    }
   }
   &__wrapper{
     margin-top: $spacing_xxl;
@@ -97,9 +101,10 @@
       background: $color_sub;
     }
   }
-  &--enable{
+  &--disable{
     background: $color_sub;
     &:hover{
+      opacity: 1;
       cursor: not-allowed;
     }
   }
@@ -253,6 +258,9 @@
     font-size: $font-size_xxl;
     text-align: start;
     color: $color_action2;
+    @include mq(md){
+      font-size: $font-size_xl;
+    }
   }
   &__header{
     display:flex;
@@ -261,7 +269,6 @@
     padding: $spacing-md $spacing-lg;
   }
   &__label{
-    // display: display;
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
@@ -312,9 +319,6 @@
     box-sizing: border-box;
     margin-top: $spacing-md;
     font-size: $font-size_lg;
-  }
-  &__row{
-    display: flex;
   }
   &__wrapper{
     width: 400px;

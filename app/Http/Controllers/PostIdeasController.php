@@ -87,50 +87,15 @@ class PostIdeasController extends Controller
         $idea->rating = sprintf('%.1f',$idea->reviews()->avg('rating'));
         $idea->countReview = $idea->reviews->count();
 
-
-        // 投稿者の場合の表示
-        if(DB::table('ideas')->where('id', $idea->id)->where('user_id', $user->id)->exists()){
-            // dd('owner');
-            $owner_flg = true;
-            $buy_flg = false;
-            $interest_flg = false;
-        }else{
-            // dd('not_owner');
-            $owner_flg = false;
-            // 購入済みの場合の処理
-            if(DB::table('buy_ideas')->where('user_id', $user->id)->where('idea_id', $idea->id)->exists()){
-                // dd('buy');
-                $buy_flg = true;
-                $interest_flg = false;
-            }else{
-                // dd('not_buy');
-                $buy_flg = false;
-                // 未購入で気になる追加済みの処理
-                if(DB::table('interests')->where('user_id', $user->id)->where('idea_id', $idea->id)->exists()){
-                    // dd('true');
-                    $interest_flg = true;
-                    // 未購入気になる未追加の処理
-                }else{
-                    // dd('falsmyse');
-                    $interest_flg = false;
-                }
-            }
+        // 投稿者でなかった場合に通常の商品ページに移動
+        if($user->id !== $idea->user_id){
+            return redirect('idea/'. $id);
         }
-        
-        // レビューを投稿しているか
-        $myreview = Review::where('idea_id', $id)->where('user_id', $user->id);
-
-        if($myreview->exists()){
-            $myreview = $myreview->first();
-        }
-
-            
-
 
         // アイデアに投稿されたレビューとその情報を取得
         $reviews = Review::all()->where('idea_id', $id)->take(5);
         
-        return view('post-idea.myidea',[ 'user' => $user, 'idea' => $idea, 'reviews' => $reviews, 'owner_flg' => $owner_flg, 'interest_flg' => $interest_flg, 'buy_flg' => $buy_flg, 'myreview' => $myreview]);
+        return view('post-idea.myidea',[ 'user' => $user, 'idea' => $idea, 'reviews' => $reviews]);
     }
 
     /**
