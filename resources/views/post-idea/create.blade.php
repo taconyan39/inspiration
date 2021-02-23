@@ -16,7 +16,7 @@
                 <h2 class="c-content__title">アイデア投稿画面</h2>
             </div>
                 
-            <idea-post-form :categories="{{ $categories }}"></idea-post-form>
+            <idea-post-form :categories="{{ $categories }}" url="{{ url('mypage') }}"></idea-post-form>
 
             <a href="{{url()->previous()}}">&lt;&lt; 前のページに戻る</a>
         </div>

@@ -2245,12 +2245,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['categories', 'mypage', 'edit', 'idea'],
+  props: ['categories', 'delete', 'edit', 'idea', 'mypage'],
   data: function data() {
     return {
       id: "",
@@ -2261,8 +2257,7 @@ __webpack_require__.r(__webpack_exports__);
       content: "",
       errors: {},
       items: {},
-      editIdea: false,
-      deleteIdea: false
+      editIdea: false
     };
   },
   methods: {
@@ -2299,24 +2294,9 @@ __webpack_require__.r(__webpack_exports__);
     onRemove: function onRemove() {
       //   投稿の確認
       if (!confirm('削除します。よろしいですか？')) {
-        // document.form.submit();
         return;
-      }
+      } // window.location.href = this.delete;
 
-      var self = this; // axios.delete('/post-idea/' + this.id)
-      //     .then(function(){
-      //         self.deleteIdea = true;
-      //     })
-      //     .catch(function(error){
-      //         // 送信失敗時の処理
-      //         var errors = {};
-      //         for(var key in error.response.data.errors) {
-      //             errors[key] = error.response.data.errors[key].join('<br>');;
-      //         }
-      //         self.errors = errors;
-      //     });
-
-      window.location.href = this.mypage;
     },
     getItem: function getItem() {
       this.id = this.idea.id;
@@ -2324,23 +2304,11 @@ __webpack_require__.r(__webpack_exports__);
       this.title = this.idea.title;
       this.price = this.idea.price;
       this.summary = this.idea.summary;
-      this.content = this.idea.content; // const url = '/ajax/idea-edit/' + this.id;
-      // const self = this;
-      // // let items = {};
-      // axios.get(url)
-      //   .then((response) => {
-      //     for(var key in response.data){
-      //         // this.key = response.data[key]
-      //         // items[key] = response.data[key];
-      //     }
-      //     this.items = response.data
-      //     self.items = this.items;
-      //   });
+      this.content = this.idea.content;
     }
   },
   mounted: function mounted() {
     this.getItem();
-    console.log(this.mypage);
   }
 });
 
@@ -61264,7 +61232,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    !_vm.editIdea && !_vm.deleteIdea
+    !_vm.editIdea
       ? _c("div", { staticClass: "c-form p-ideaPost__form u-clearfix" }, [
           _c(
             "label",
@@ -61596,7 +61564,8 @@ var render = function() {
               _c(
                 "button",
                 {
-                  staticClass: "c-btn       c-form__btn p-ideaPost__btn",
+                  staticClass:
+                    "c-btn       c-form__btn\n                  c-btn--action2\n                  p-ideaPost__btn",
                   on: {
                     click: function($event) {
                       return _vm.onSubmit()
@@ -61612,10 +61581,7 @@ var render = function() {
             ]
           )
         ])
-      : _vm._e(),
-    _vm._v(" "),
-    _vm.editIdea
-      ? _c("div", { staticClass: "c-form p-ideaPost__form--posted" }, [
+      : _c("div", { staticClass: "c-form p-ideaPost__form--posted" }, [
           _c("p", [_vm._v("編集されました")]),
           _vm._v(" "),
           _c("a", { staticClass: "c-btn", attrs: { href: _vm.mypage } }, [
@@ -61626,19 +61592,6 @@ var render = function() {
             _vm._v("編集に戻る")
           ])
         ])
-      : _vm._e(),
-    _vm._v(" "),
-    _vm.deleteIdea
-      ? _c("div", { staticClass: "c-form p-ideaPost__form--posted" }, [
-          _c("p", [_vm._v("アイデアが削除されました")]),
-          _vm._v(" "),
-          _c(
-            "a",
-            { staticClass: "c-btn c-btn__second", attrs: { href: _vm.mypage } },
-            [_vm._v("マイページに戻る")]
-          )
-        ])
-      : _vm._e()
   ])
 }
 var staticRenderFns = []
@@ -61812,9 +61765,10 @@ var render = function() {
                   directives: [
                     {
                       name: "model",
-                      rawName: "v-model",
+                      rawName: "v-model.number",
                       value: _vm.price,
-                      expression: "price"
+                      expression: "price",
+                      modifiers: { number: true }
                     }
                   ],
                   staticClass:
@@ -61831,7 +61785,10 @@ var render = function() {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.price = $event.target.value
+                      _vm.price = _vm._n($event.target.value)
+                    },
+                    blur: function($event) {
+                      return _vm.$forceUpdate()
                     }
                   }
                 }),
@@ -62007,7 +61964,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "a",
-            { staticClass: "c-btn c-btn__second", attrs: { href: _vm.url } },
+            { staticClass: "c-btn c-btn--sub", attrs: { href: _vm.url } },
             [_vm._v("マイページに戻る")]
           )
         ])

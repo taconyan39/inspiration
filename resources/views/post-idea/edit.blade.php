@@ -13,7 +13,18 @@
             <h2 class="c-title__content">アイデア編集画面</h2>
         </div>
 
-        <idea-edit-form :idea="{{ $idea }}" :categories="{{$categories}}" mypage="{{ url('delete')}}"></idea-edit-form>
+        <form action="{{url('post-idea/'.$idea->id) }}" method="POST">
+        @csrf
+            <input type="hidden" name="_method" value="DELETE">
+            <!-- <input type="submit" value="削除" class="c-btn"> -->
+
+            <idea-edit-form :idea="{{ $idea }}"     :categories="{{$categories}}"     delete="{{ url('delete')}}"
+              mypage="{{ url('mypage')}}"
+              edit="{{ url('edit' . $idea->id)}}"
+        ></idea-edit-form>
+        </form>
+
+        
         
     </main>
         
@@ -21,11 +32,7 @@
             <div class="c-link__conainer">
     </div>
 
-    <form action="{{url('post-idea/'.$idea->id) }}" method="POST">
-        @csrf
-        <input type="hidden" name="_method" value="DELETE">
-        <input type="submit" value="削除" class="c-btn">
-    </form>
+    
         <a href="{{url()->previous()}}">&lt;&lt; 前のページに戻る</a>
 </div>
 @endsection

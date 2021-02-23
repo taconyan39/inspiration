@@ -1,7 +1,7 @@
 <template>
 
 <div>
-  <div class="c-form p-ideaPost__form u-clearfix" v-if="!editIdea && !deleteIdea">
+  <div class="c-form p-ideaPost__form u-clearfix" v-if="!editIdea">
 
   <label for="category_id" class="p-ideaPost__label c-form__label">
       カテゴリー
@@ -104,7 +104,9 @@
                               削除する
                   </button>
 
-                  <button class="c-btn       c-form__btn p-ideaPost__btn"
+                  <button class="c-btn       c-form__btn
+                  c-btn--action2
+                  p-ideaPost__btn"
                           @click="onSubmit()">
                               編集する
                   </button>
@@ -114,24 +116,18 @@
                           
           </div>
       <!-- 投稿成功後の画面 -->
-      <div v-if="editIdea" class="c-form p-ideaPost__form--posted">
+      <div v-else class="c-form p-ideaPost__form--posted">
           <p>編集されました</p>
           <a class="c-btn" :href="mypage">マイページに戻る</a>
           
           <a class="c-btn" :href="edit">編集に戻る</a>
       </div>
 
-      <div v-if="deleteIdea" class="c-form p-ideaPost__form--posted">
-          <p>アイデアが削除されました</p>
-          <a class="c-btn c-btn__second" :href="mypage">マイページに戻る</a>
-          
-      </div>
-
     </div>
 </template>
 <script>
 export default {
-    props:['categories', 'mypage','edit', 'idea'],
+    props:['categories', 'delete','edit', 'idea', 'mypage'],
   data: function(){
       return {
           id: "",
@@ -143,7 +139,6 @@ export default {
           errors:{},
           items:{},
           editIdea: false,
-          deleteIdea: false
       }
   },
   methods:{
@@ -158,9 +153,9 @@ export default {
         var params ={
                 category_id: this.category_id,
                 price: Number(this.price),
-                title: this.title,   
-                summary: this.summary,   
-                content: this.content,   
+                title: this.title,
+                summary: this.summary,
+                content: this.content,
             }
 
         this.errors = {};
@@ -187,31 +182,10 @@ export default {
         onRemove(){
             //   投稿の確認
         if(!confirm('削除します。よろしいですか？')) {
-            // document.form.submit();
             return;
         }
 
-        var self = this
-
-        // axios.delete('/post-idea/' + this.id)
-        //     .then(function(){
-        //         self.deleteIdea = true;
-        //     })
-        //     .catch(function(error){
-        //         // 送信失敗時の処理
-
-        //         var errors = {};
-
-        //         for(var key in error.response.data.errors) {
-
-        //             errors[key] = error.response.data.errors[key].join('<br>');;
-
-        //         }
-
-        //         self.errors = errors;
-        //     });
-
-            window.location.href = this.mypage;
+            // window.location.href = this.delete;
 
 
         },
@@ -224,31 +198,11 @@ export default {
             this.summary = this.idea.summary;
             this.content = this.idea.content;
 
-            // const url = '/ajax/idea-edit/' + this.id;
-
-            // const self = this;
-            // // let items = {};
-            // axios.get(url)
-            //   .then((response) => {
-            //     for(var key in response.data){
-            //         // this.key = response.data[key]
-            //         // items[key] = response.data[key];
-            //     }
-            //     this.items = response.data
-
-            //     self.items = this.items;
-
-            //   });
-             
-
-           
-
             },
 
       },
       mounted(){
         this.getItem();
-        console.log(this.mypage)
       }
 }
 </script>

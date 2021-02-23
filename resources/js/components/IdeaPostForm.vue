@@ -45,7 +45,7 @@
             class="p-ideaPost__price
             c-form__input--half is-invalid" 
             name="price"
-            v-model="price"
+            v-model.number="price"
             autocomplete="price">
             
             <div class="c-error" role="alert" v-html="errors.price">
@@ -89,7 +89,7 @@
                             <div class="p-ideaPost__count
                             c-form__countLength  c-flex--between">
                             <p class="p-ideaPost__annotation">購入が発生すると編集することができません</p>
-                                <span>{{ content.length}}/5000</span>
+                                <span>{{content.length}}/5000</span>
                             </div>
                             
             </label>
@@ -113,7 +113,7 @@
     <!-- 投稿成功後の画面 -->
     <div v-if="postIdea" class="c-form p-ideaPost__form--posted">
         <p>記事が投稿されました</p>
-        <a class="c-btn c-btn__second" :href="url">マイページに戻る</a>
+        <a class="c-btn c-btn--sub" :href="url">マイページに戻る</a>
     </div>
 
     </div>
@@ -144,9 +144,9 @@ export default {
         var params ={
                 category_id: this.category_id,
                 price: Number(this.price),
-                title: this.title,   
-                summary: this.summary,   
-                content: this.content,   
+                title: this.title,
+                summary: this.summary,
+                content: this.content,
             }
 
         this.errors = {};
@@ -155,7 +155,6 @@ export default {
         axios.post('/post-idea', params)
             .then(function(){
                 self.postIdea = true
-
             })
             .catch(function(error){
                 // 送信失敗時の処理

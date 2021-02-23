@@ -239,16 +239,17 @@
 }
 
 .c-form{
-  &__annotation{
-    font-size: $font_size-md;
-    font-weight: normal;
-  }
   padding: $spacing-xl $spacing-3l;
   box-sizing: border-box;
   border: 1px solid $color_gray;
   background: #fff;
   margin-bottom: $spacing-lg;
   @include mq(md){
+    padding: $spacing-xl $spacing-xl;
+  }
+  &__annotation{
+    font-size: $font_size-md;
+    font-weight: normal;
   }
   &__countLength{
     font-weight: normal;
@@ -298,6 +299,9 @@
     border: none;
     background: $color_gray-light;
     font-size: $font-size_lg;
+    @include mq(md){
+      font-size: $font-size_default;
+    }
     &--checkBox{
       margin-right: $spacing_sm;
       &:hover{

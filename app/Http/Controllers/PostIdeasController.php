@@ -55,8 +55,9 @@ class PostIdeasController extends Controller
      */
 
      // 新規アイデアの投稿処理
-    public function store(Request $request)
+    public function store(PostIdeaRequest $request)
     {
+        dd('test');
         $idea = new Idea;
 
         $idea->category_id = (int)$request->category_id;
@@ -65,8 +66,6 @@ class PostIdeasController extends Controller
 
         $idea->fill($request->all())->save();
 
-        // Ajaxで処理をしているのページの遷移のみ
-        // return redirect('mypage')->with('flash_message', '投稿しました');
     }
 
     /**
@@ -130,12 +129,11 @@ class PostIdeasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PostIdeaRequest $request, $id)
     {
         $idea = Idea::find($id);
-        // unset($form['_token']);
         $idea->fill($request->all())->save();
-        return redirect('/post-idea/index')->with('flash_message','変更しました');
+
     }
 
     /**
@@ -147,10 +145,11 @@ class PostIdeasController extends Controller
     public function destroy($id)
     {
         Idea::find($id)->delete();
-        return redirect('post-idea/index')->with('flash_message', '削除しました');
+        return redirect('mypage')->with('flash_message', '削除しました');
     }
 
-    public function delete(){
+    public function delete($id){
+        Idea::find($id)->delete();
         return redirect('mypage')->with('flash_message', '削除されました');
     }
 

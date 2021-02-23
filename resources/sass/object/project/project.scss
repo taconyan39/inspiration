@@ -543,6 +543,9 @@
 .p-ideaPost{
   width: 90%;
   margin: 0 auto;
+  @include mq(md){
+    width: 100%;
+  }
   &__form{
     &--posted{
       width: 90%;

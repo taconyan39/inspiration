@@ -591,6 +591,12 @@ li {
   margin-bottom: 15px;
 }
 
+@media screen and (max-width: 768px) {
+  .c-form {
+    padding: 20px 20px;
+  }
+}
+
 .c-form__annotation {
   font-size: 0.9rem;
   font-weight: normal;
@@ -654,6 +660,12 @@ li {
   border: none;
   background: rgba(204, 204, 204, 0.8);
   font-size: 1.2rem;
+}
+
+@media screen and (max-width: 768px) {
+  .c-form__input {
+    font-size: 1rem;
+  }
 }
 
 .c-form__input--checkBox {
@@ -1533,6 +1545,12 @@ li {
 .p-ideaPost {
   width: 90%;
   margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+  .p-ideaPost {
+    width: 100%;
+  }
 }
 
 .p-ideaPost__form--posted {

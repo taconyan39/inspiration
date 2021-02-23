@@ -45,7 +45,7 @@ Route::post('ajax/interest/{id}', 'Ajax\PostIdeasController@interest');
 Route::get('ajax/interest/{id}', 'Ajax\PostIdeasController@changeInterest');
 // Route::get('ajax/idea-edit/{id}','Ajax\PostIdeasController@editAjax');
 Route::get('ajax/idea-edit/{id}','Ajax\PostIdeasController@editAjax');
-Route::get('delete', 'PostIdeascontroller@delete');
+// Route::post('delete/{id}', 'PostIdeascontroller@delete');
 
 Route::post('post-idea/interest/{id}', 'PostIdeasController@interest');
 

@@ -164,7 +164,8 @@ return [
         'icon_img' => '画像',
         'password' => 'パスワード',
         'rating' => '評価',
-        'review' => 'レビュー'
+        'review' => 'レビュー',
+        'price' => '価格',
     ],
 
 ];
