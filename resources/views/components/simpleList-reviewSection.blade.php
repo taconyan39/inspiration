@@ -4,6 +4,13 @@
 
   <ul class="c-list p-simpleList__list">
 
+    @if($reviews)
+      <div class="p-simpleList--none">
+        <p>{{$title}}はまだありません</p>
+      
+      </div>
+    @else
+
     @foreach($reviews as $review)
 
       <li class="c-list__item--simple p-simpleList__item u-clearfix">
@@ -53,6 +60,7 @@
         </a>
       </li>
     @endforeach
+    @endif
 
   </ul>
 

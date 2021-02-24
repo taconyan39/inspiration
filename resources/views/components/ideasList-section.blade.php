@@ -2,6 +2,14 @@
 <h2 class="c-title__section p-ideaList__title">{{ $title }}</h2>
 
   <ul class="c-list p-ideaList__list">
+
+  @if($ideas)
+      <div class="p-simpleList--none">
+        <p>{{$title}}はまだありません</p>
+      
+      </div>
+    @else
+
     @foreach($ideas as $idea)
       <li class="c-list__item p-ideaList__item u-clearfix">
         <div class="p-ideaList__top c-flex--between">
@@ -58,4 +66,5 @@
           
       </li>
     @endforeach
+    @endif
   </ul>

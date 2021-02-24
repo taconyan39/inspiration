@@ -2,6 +2,13 @@
 
   <h2 class="c-title__section p-simpleList__title">{{ $title }}</h2>
 
+  @if($items)
+    <div class="p-simpleList--none">
+      <p>{{$title}}はまだありません</p>
+    
+    </div>
+  @else
+
   <ul class="c-list p-simpleList__list">
 
     @foreach($items as $item)
@@ -51,6 +58,8 @@
         </a>
       </li>
     @endforeach
+
+    @endif
 
   </ul>
   <!-- 全件表示 -->

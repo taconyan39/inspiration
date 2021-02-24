@@ -1428,6 +1428,16 @@ li {
 
 .p-simpleList--none {
   text-align: center;
+  background-color: #fff;
+  border: 1px solid #102833;
+  height: 150px;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
+  margin-bottom: 30px;
 }
 
 .p-simpleList__userImg--outer {
