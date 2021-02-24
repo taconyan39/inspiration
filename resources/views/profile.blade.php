@@ -19,18 +19,18 @@
                 @csrf
                 
                 <label for="category_id" class="p-profileEdit__label c-form__label">
-                <div class="c-row">
-                    {{ __('Name') }}
-                    <span class="c-form__annotation p-profileEdit__label--annotation">(最大10文字)</span>
-        
-                </div>
+                    <div class="c-row">
+                        {{ __('Name') }}
+                        <span class="c-form__annotation p-profileEdit__label--annotation">(最大10文字)</span>
+            
+                    </div>
 
                     <input id="name" type="name" class="p-profileEdit__name c-form__input--half
-                    @error('name') is-invalid @enderror"
-                    name="name"
-                    value="{{ old('name', $user->name) }}" autocomplete="name"
-                    autofocus
-                    maxlength="10">
+                        @error('name') is-invalid @enderror"
+                        name="name"
+                        value="{{ old('name', $user->name) }}" autocomplete="name"
+                        autofocus
+                        maxlength="10">
                 </label>
                 
                 @error('name')
@@ -60,6 +60,19 @@
                     @enderror
                 </label>
 
+                <textarea-label
+                    title="自己紹介文"
+                    oldvalue="{{old('introduction')}}"
+                    max="100"
+                    name="introduction">
+                </textarea-label>
+                
+                @error('introduction')
+                    <span class="c-error" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+
                 <div class="c-row p-profileEdit__row">
                     <a href="{{ route('passwordEdit.edit') }}" class="c-link__underline p-profileEdit__password">パスワードを変更する</a>
                 </div>
@@ -69,7 +82,7 @@
                     <span class="c-form__annotation">(jpg/png/2MB以下) </span>
                 </div>
 
-                <div class="p-profileEdit__wrapper c-flex--between">
+                <div class="p-profileEdit__row c-flex--between">
 
                     <div class="c-container--half">
 
@@ -92,6 +105,7 @@
                         </button>
                     </div>
                 </div>
+
             </form>
         <a href="{{url()->previous()}}">&lt;&lt; 前のページに戻る</a>
         </div>

@@ -50,7 +50,7 @@ class ShowIdeaController extends Controller
                 }
             }
             
-            // 自分がレビューを投稿したか
+            // 自分が口コミを投稿したか
             $myreview = Review::where('idea_id', $id)->where('user_id', $user->id);
     
             if($myreview->exists()){
@@ -59,7 +59,7 @@ class ShowIdeaController extends Controller
                 $myreview = false;
             }
     
-            // アイデアに投稿されたレビューとその情報を取得
+            // アイデアに投稿された口コミとその情報を取得
             $reviews = Review::all()->where('idea_id', $id)->take(5);
             
             return view('post-idea.idea',[ 'user' => $user, 'idea' => $idea, 'reviews' => $reviews, 'interest_flg' => $interest_flg, 'buy_flg' => $buy_flg, 'myreview' => $myreview]);
@@ -130,7 +130,7 @@ class ShowIdeaController extends Controller
             'updated_at' => Carbon::now(),
         ]);
 
-        return redirect('/')->with('flash_message', 'レビューを投稿しました');
+        return redirect('/')->with('flash_message', '口コミを投稿しました');
     }
 
 }

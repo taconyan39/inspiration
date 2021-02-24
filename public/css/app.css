@@ -1512,6 +1512,18 @@ li {
   margin: 5px 0;
 }
 
+.p-profileSidebar__introduction {
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  box-sizing: bordrer-box;
+}
+
+.p-profileSidebar__introduction--card {
+  min-height: 150px;
+  background: #f8fafc;
+}
+
 .p-profileSidebar__btn {
   display: block;
   width: 100%;
@@ -1546,6 +1558,7 @@ li {
 }
 
 .p-profileEdit__img--outer {
+  margin-bottom: 15px;
   width: 150px;
   height: 150px;
 }

@@ -53,9 +53,9 @@
         <section class="p-ideaDetail__review">
 
             @if( $myreview )
-                <p class="p-ideaDetail__reviewText">レビューは投稿済みです</p>
+                <p class="p-ideaDetail__reviewText">口コミは投稿済みです</p>
             @else
-                <p class="p-ideaDetail__reviewText">レビューを書いて投稿しよう！！</p>
+                <p class="p-ideaDetail__reviewText">口コミを書いて投稿しよう！！</p>
                 <form action="{{ url('reviews/' . $idea->id)}}" method="POST">
                     @csrf
                     <div class="p-ideaDetail__reviewForm ">
@@ -91,7 +91,7 @@
                         </div>
 
                     <div class="c-form__row p-postReview__formRow--btn c-flex--end">
-                        <button type="submit" class="c-btn p-postReview__form--btn c-btn--action2">レビューを投稿する</button>
+                        <button type="submit" class="c-btn p-postReview__form--btn c-btn--action2">口コミを投稿する</button>
                     </div>
                 </form>
             @endif

@@ -1,0 +1,30 @@
+<template>
+  <label for="category_id" class="p-profileEdit__label c-form__label">
+      <div class="c-row">
+        {{title}}
+      </div>
+
+      <textarea :id="name"           class="p-profileEdit__name c-form__textarea"
+          :name="name"
+          :autocomplete="name"
+          :maxlength="max"
+          v-model.trim="item">
+      </textarea>
+
+      <div class="p-ideaPost__count c-form__countLength  c-flex--end">
+        <span>{{ item.length }}/{{max}}</span>
+            
+      </div>
+  </label>
+</template>
+
+<script>
+export default {
+  props:['title', 'oldvalue', 'max', 'name'],
+  data: function(){
+    return {
+      item: (this.oldvalue) ? this.oldvalue : '',
+    }
+  }
+}
+</script>

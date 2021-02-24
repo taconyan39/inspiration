@@ -502,6 +502,16 @@
     border: none;
     margin: $spacing_sm 0;
   }
+  &__introduction{
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: $spacing_lg;
+    box-sizing: bordrer-box;
+    &--card{
+      min-height: 150px;
+      background: $color_white;
+    }
+  }
   &__btn{
     display: block;
     width:100%;
@@ -529,10 +539,9 @@
   &__img{
     width: height 100%;
     &--outer{
-      // object-fit: cover;
+      margin-bottom: $spacing-lg;
       width: 150px;
       height: 150px;
-      // margin: $spacing-lg auto;
     }
   }
   &__label{
@@ -1053,7 +1062,7 @@
   }
 }
 
-// レビュー投稿フォーム
+// 口コミ投稿フォーム
 .p-postReview{
   &__formRow--btn{
     margin-top: $spacing-xxl;

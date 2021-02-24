@@ -15,7 +15,7 @@ use App\Http\Requests\PostReviewRequest;
 class ReviewsController extends Controller
 {
 
-    // レビュー投稿ページの表示
+    // 口コミ投稿ページの表示
     public function index(){
         $reviews = Review::orderBy('created_at', 'desc')->paginate(10);
 
@@ -23,7 +23,7 @@ class ReviewsController extends Controller
         return view('reviews.all-reviews-list',['reviews' => $reviews]);
 
     }
-    // レビュー投稿ページの表示
+    // 口コミ投稿ページの表示
     public function create($id){
 
         $user = Auth::user();
@@ -32,14 +32,14 @@ class ReviewsController extends Controller
 
         $review_flg = Review::where('idea_id',$id)->where('user_id', $user->id);
 
-        // レビューを投稿済みの場合には戻る
+        // 口コミを投稿済みの場合には戻る
         if($review_flg->exists()){
 
-            return back()->with('flash_message', 'すでにレビューを投稿済みです');
+            return back()->with('flash_message', 'すでに口コミを投稿済みです');
         }elseif($contributor_flg->exists()){
             
-            //投稿者はレビューを投稿できないようにする
-            return back()->with('flash_message', '投稿者はレビューを投稿できません');
+            //投稿者は口コミを投稿できないようにする
+            return back()->with('flash_message', '投稿者は口コミを投稿できません');
         }
 
         return view('reviews.post-review', ['idea' => $idea, 'user' => $user]);
@@ -54,15 +54,15 @@ class ReviewsController extends Controller
 
         $review = Review::where('idea_id',$id)->where('user_id', $user->id);
 
-        // レビューを投稿済みの場合には戻る
+        // 口コミを投稿済みの場合には戻る
         if($review->exists()){
 
-            return redirect('idea/' . $id)->with('flash_message', 'すでにレビューを投稿済みです');
+            return redirect('idea/' . $id)->with('flash_message', 'すでに口コミを投稿済みです');
 
-        //投稿者はレビューを投稿できないようにする
+        //投稿者は口コミを投稿できないようにする
         }elseif($contributor->exists()){
             
-            return redirect('post-idea/' . $id)->with('flash_message', '投稿者はレビューを投稿できません');
+            return redirect('post-idea/' . $id)->with('flash_message', '投稿者は口コミを投稿できません');
         }
 
         // DBに購入情報を登録
@@ -77,7 +77,7 @@ class ReviewsController extends Controller
 
         Mail::to($idea->user->email)->send(new ArrivedReview());
 
-        return redirect('idea/' . $id)->with('flash_message', 'レビューが投稿されました');
+        return redirect('idea/' . $id)->with('flash_message', '口コミが投稿されました');
 
     }
 

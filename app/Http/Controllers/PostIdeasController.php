@@ -91,7 +91,7 @@ class PostIdeasController extends Controller
             return redirect('idea/'. $id);
         }
 
-        // アイデアに投稿されたレビューとその情報を取得
+        // アイデアに投稿された口コミとその情報を取得
         $reviews = Review::all()->where('idea_id', $id)->take(5);
         
         return view('post-idea.myidea',[ 'user' => $user, 'idea' => $idea, 'reviews' => $reviews]);

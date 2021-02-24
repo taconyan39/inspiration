@@ -40,6 +40,7 @@
             気になるリスト
         @endslot
 
+
         @slot('url')
             {{ url('interests-list') }}
         @endslot
@@ -49,7 +50,7 @@
 
         @component('components.simpleList-reviewSection', ['reviews' => $ideaReviews, 'listName' => 'post-idea'])
             @slot('title')
-                レビュー一覧
+                口コミ一覧
             @endslot
 
         @endcomponent

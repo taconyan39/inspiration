@@ -1,5 +1,5 @@
 <section class="c-section p-review">
-  <h2 class="c-title__content p-review__title">新着レビュー</h2>
+  <h2 class="c-title__content p-review__title">新着口コミ</h2>
   <ul class="p-review__list">
     @foreach($reviews as $review)
     <li class="p-review__listItem c-card" >

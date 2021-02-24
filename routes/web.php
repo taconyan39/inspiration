@@ -55,7 +55,7 @@ Route::get('/ajax/categories', 'Ajax\CategoriesController@category');
 // ユーザー情報取得
 Route::get('/ajax/user', 'Ajax\UserController@user');
 
-//レビュー投稿
+//口コミ投稿
 Route::get('ajax/reviews/{id}','Ajax\ReviewsController@show');
 // Route::post('reviews/post-review/{id}', 'ReviewsController@store');
 
@@ -80,7 +80,7 @@ Route::post('/profile', 'ProfileController@update')->name('profile.update');
 Route::post('password-edit', 'PasswordEditController@update')->name('passwordEdit.update');
 
 
-// レビュー投稿画面
+// 口コミ投稿画面
 Route::post('reviews/{id}','ReviewsController@postreview');
 
 

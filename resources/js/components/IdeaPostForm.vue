@@ -55,18 +55,18 @@
                 <label for="summary" class="p-ideaPost__label c-form__label">
                     概要
                     
-                    <textarea id="summary" type="summary" class="p-ideaPost__input
-                    c-form__input is-invalid" name="summary"
+                    <textarea id="summary" type="summary" class="p-ideaPost__textarea
+                    c-form__textarea is-invalid" name="summary"
                     v-model.trim="summary"
                     autocomplete="summary"
                     maxlength="200"
                     placeholder="200文字以内で入力してください"
-                    value="">
+                    >
                     </textarea>
 
                     <div class="p-ideaPost__count c-form__countLength  c-flex--between">
-                    <div class="c-error" role="alert" v-html="errors.summary">
-                    </div>
+                        <div      class="c-error" role="alert" v-html="errors.summary">
+                        </div>
                         <span>{{ summary.length}}/200</span>
                     </div>
                     

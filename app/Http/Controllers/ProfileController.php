@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ProfileEditRequest;
-use Illuminate\Support\Facades\Storage;
+// use Illuminate\Support\Facades\Storage;
+use Storage;
 
 class ProfileController extends Controller
 {
@@ -19,14 +20,12 @@ class ProfileController extends Controller
 
     public function update(ProfileEditRequest $request)
     {
-        // dd($request->icon_img);
         $user = Auth::user();
         $form = $request->all();
         $id = $user->id;
 
         $profileImage = $request->file('icon_img');
 
-        // dd($profileImage);
         if ($profileImage != null) {
             $form['icon_img'] = $this->saveProfileImage($profileImage, $id); // return file name
         }
@@ -43,21 +42,28 @@ class ProfileController extends Controller
 
         // get instance
         $img = \Image::make($image);
-        // dd($img);
+
+        $file_name = Storage::disk('s3')->put('/', $image, 'public');
+
+        dd($file_name);
         // resize
         $img->fit(150, 150, function($constraint){
             $constraint->upsize();
         });
 
+        // dd($img);
+
         // save
-        $file_name = 'icon_'.$id.'.'.$image->getClientOriginalExtension();
+        // $file_name = 'icon_'.$id.'.'.$image->getClientOriginalExtension();
+
+        $file_name = Storage::disk('s3')->put('/', $img, 'public');
+        // $file_name = Storage::disk('s3')->put('/', $image, 'public');
+
+        dd($file_name);
 
         $save_path = 'public/images/icons/' .$file_name;
-        // $save_path = $file_name;
-        Storage::put($save_path, (string) $img->encode());
 
-        // $file_name = url($save_path);
-        // $user->save();
+        Storage::put($save_path, (string) $img->encode());
 
         // return file name
         return $file_name;

@@ -1,15 +1,15 @@
 <template>
 <section class="p-ideaReviews">
 
-  <p class="p-ideaDetail__reviewTitle">みんなのレビュー</p>
+  <p class="p-ideaDetail__reviewTitle">みんなの口コミ</p>
 
-  <!-- レビューがない場合 -->
+  <!-- 口コミがない場合 -->
   <div v-if="!items.data[0]" class="c-list p-ideaReviews__list">
 
-      <div class="p-ideaReviews--none">レビューはまだ投稿されていません</div>
+      <div class="p-ideaReviews--none">口コミはまだ投稿されていません</div>
   </div>
 
-  <!-- レビューがある場合 -->
+  <!-- 口コミがある場合 -->
 
   <div v-else>
     <ul  class="c-list p-ideaReviews__list">

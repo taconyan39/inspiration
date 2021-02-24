@@ -28,7 +28,6 @@ Vue.component('hamburger-menu', require('./components/HamburgerMenu.vue').defaul
 Vue.component('interest-component', require('./components/InterestComponent.vue').default);
 Vue.component('interest-remove-component', require('./components/InterestRemoveComponent.vue').default);
 Vue.component('buy-component', require('./components/BuyComponent.vue').default);
-// Vue.component('pagination', require('./components/Pagination.vue').default);
 Vue.component('search-component', require('./components/SearchComponent.vue').default);
 Vue.component('loading', require('./components/Loading.vue').default);
 Vue.component('post-review', require('./components/PostReview.vue').default);
@@ -36,6 +35,8 @@ Vue.component('idea-reviews', require('./components/IdeaReviews.vue').default);
 Vue.component('idea-post-form', require('./components/IdeaPostForm.vue').default);
 Vue.component('idea-edit-form', require('./components/IdeaEditForm.vue').default);
 Vue.component('profile-menu', require('./components/ProfileMenu.vue').default);
+Vue.component('textarea-label', require('./components/TextareaLabel.vue').default);
+
 
 
 

@@ -8,6 +8,14 @@
       <li class="c-list__title p-profileSidebar__item">
         <p class="c-card__name p-profileSidebar__title">{{ session('name') }}</p>
       </li>
+      <li class=" p-profileSidebar__introduction">
+          <span>自己紹介文</span>
+       <div class="c-card p-profileSidebar__introduction--card">
+          <p class="p-profileSidebar__introduction--text ">
+            {{session('introduction')}}
+          </p>
+       </div>
+      </li>
       <li class="c-list__item-simple p-profileSidebar__item">
         <a href="{{ url('mypage')}}" class="c-btn c-btn--white p-profileSidebar__btn">マイページへ</a>
       </li>
@@ -41,7 +49,7 @@
               <a class="c-btn__sidebar c-btn--action p-profileSidebar__btn" href="{{route('register')}}">登録する</a>
           </li>
           <li class="c-list__item-simple p-profileSidebar__item">
-            <a href="list" class="c-btn__sidebar c-btn--sub p-profileSidebar__btn">アイデアを<br>探す</a>
+            <a href="{{ url('all-ideas-list')}}" class="c-btn__sidebar c-btn--sub p-profileSidebar__btn">アイデアを<br>探す</a>
           </li>
       </ul>
     @endguest

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'レビュー一覧')
+@section('title', '口コミ一覧')
 @section('content')
 
 <div class="l-wrapper__2colum u-site__width">
@@ -13,7 +13,7 @@
     
     @component('components.simpleList-reviewSection', ['reviews' => $reviews])
       @slot('title')
-        レビュー一覧
+        口コミ一覧
       @endslot
 
     @endcomponent

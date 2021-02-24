@@ -33,7 +33,10 @@ class LoginController extends Controller
         // sessionにユーザーネームと画像を入れておく
 
         $user = Auth::user();
-        Session::put(['name' => $user->name, 'icon_img' => $user->icon_img]);
+        Session::put([
+            'name' => $user->name, 'icon_img' => $user->icon_img,
+            'introduction' => $user->introduction
+            ]);
 
         session()->flash('flash_message', 'ログインしました');
         return '/mypage';

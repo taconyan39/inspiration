@@ -7,6 +7,16 @@
         <li class="c-list__title p-profileSidebar__item">
             <p class="c-card__name p-profileSidebar__title">{{ $user->name}}</p>
         </li>
+
+        <li class=" p-profileSidebar__introduction">
+            <span>自己紹介文</span>
+            <div class="c-card p-profileSidebar__introduction--card">
+                <p class="p-profileSidebar__introduction--text">
+                {{$user->introduction}}
+                </p>
+            </div>
+        </li>
+
         <li class="c-list__item-simple p-profileSidebar__item">
             <a href="{{ url('mypage') }}" class="c-btn__sidebar c-btn__sub p-profileSidebar__btn">マイページへ</a>
         </li>

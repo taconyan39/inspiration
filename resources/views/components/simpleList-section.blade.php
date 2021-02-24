@@ -43,7 +43,7 @@
           </div>
         </div>
         
-        <!-- レビュー内容 -->
+        <!-- 口コミ内容 -->
         <div class="p-simpleList__bottom">
           <p class="c-txt p-simpleList__summary ">
             {{$item->summary}}</p>

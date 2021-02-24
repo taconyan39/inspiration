@@ -52,7 +52,7 @@ class IdeasListController extends Controller
             $ideas = Idea::where('category_id', $data['category_id'])->orderBy($type, $order)->paginate(10);
         }
 
-        // アイデアのレビューを代入する
+        // アイデアの口コミを代入する
         foreach($ideas as $idea){
             $idea->rating = sprintf('%.1f',$idea->reviews->avg('rating'));
             $idea->countReview = $idea->reviews->count();

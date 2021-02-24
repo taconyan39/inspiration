@@ -3172,6 +3172,46 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TextareaLabel.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/TextareaLabel.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['title', 'oldvalue', 'max', 'name'],
+  data: function data() {
+    return {
+      item: this.oldvalue ? this.oldvalue : ''
+    };
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/bootstrap/dist/js/bootstrap.js":
 /*!*****************************************************!*\
   !*** ./node_modules/bootstrap/dist/js/bootstrap.js ***!
@@ -61823,15 +61863,14 @@ var render = function() {
                     }
                   ],
                   staticClass:
-                    "p-ideaPost__input\n                    c-form__input is-invalid",
+                    "p-ideaPost__textarea\n                    c-form__textarea is-invalid",
                   attrs: {
                     id: "summary",
                     type: "summary",
                     name: "summary",
                     autocomplete: "summary",
                     maxlength: "200",
-                    placeholder: "200文字以内で入力してください",
-                    value: ""
+                    placeholder: "200文字以内で入力してください"
                   },
                   domProps: { value: _vm.summary },
                   on: {
@@ -61996,13 +62035,13 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("section", { staticClass: "p-ideaReviews" }, [
     _c("p", { staticClass: "p-ideaDetail__reviewTitle" }, [
-      _vm._v("みんなのレビュー")
+      _vm._v("みんなの口コミ")
     ]),
     _vm._v(" "),
     !_vm.items.data[0]
       ? _c("div", { staticClass: "c-list p-ideaReviews__list" }, [
           _c("div", { staticClass: "p-ideaReviews--none" }, [
-            _vm._v("レビューはまだ投稿されていません")
+            _vm._v("口コミはまだ投稿されていません")
           ])
         ])
       : _c(
@@ -62827,6 +62866,78 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("h1", [_vm._v(_vm._s(_vm.val))])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TextareaLabel.vue?vue&type=template&id=6190ea7f&":
+/*!****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/TextareaLabel.vue?vue&type=template&id=6190ea7f& ***!
+  \****************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "label",
+    {
+      staticClass: "p-profileEdit__label c-form__label",
+      attrs: { for: "category_id" }
+    },
+    [
+      _c("div", { staticClass: "c-row" }, [
+        _vm._v("\n      " + _vm._s(_vm.title) + "\n    ")
+      ]),
+      _vm._v(" "),
+      _c("textarea", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model.trim",
+            value: _vm.item,
+            expression: "item",
+            modifiers: { trim: true }
+          }
+        ],
+        staticClass: "p-profileEdit__name c-form__textarea",
+        attrs: {
+          id: _vm.name,
+          name: _vm.name,
+          autocomplete: _vm.name,
+          maxlength: _vm.max
+        },
+        domProps: { value: _vm.item },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.item = $event.target.value.trim()
+          },
+          blur: function($event) {
+            return _vm.$forceUpdate()
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "p-ideaPost__count c-form__countLength  c-flex--end" },
+        [_c("span", [_vm._v(_vm._s(_vm.item.length) + "/" + _vm._s(_vm.max))])]
+      )
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -77958,8 +78069,7 @@ Vue.component('icon-edit', __webpack_require__(/*! ./components/IconEdit.vue */ 
 Vue.component('hamburger-menu', __webpack_require__(/*! ./components/HamburgerMenu.vue */ "./resources/js/components/HamburgerMenu.vue")["default"]);
 Vue.component('interest-component', __webpack_require__(/*! ./components/InterestComponent.vue */ "./resources/js/components/InterestComponent.vue")["default"]);
 Vue.component('interest-remove-component', __webpack_require__(/*! ./components/InterestRemoveComponent.vue */ "./resources/js/components/InterestRemoveComponent.vue")["default"]);
-Vue.component('buy-component', __webpack_require__(/*! ./components/BuyComponent.vue */ "./resources/js/components/BuyComponent.vue")["default"]); // Vue.component('pagination', require('./components/Pagination.vue').default);
-
+Vue.component('buy-component', __webpack_require__(/*! ./components/BuyComponent.vue */ "./resources/js/components/BuyComponent.vue")["default"]);
 Vue.component('search-component', __webpack_require__(/*! ./components/SearchComponent.vue */ "./resources/js/components/SearchComponent.vue")["default"]);
 Vue.component('loading', __webpack_require__(/*! ./components/Loading.vue */ "./resources/js/components/Loading.vue")["default"]);
 Vue.component('post-review', __webpack_require__(/*! ./components/PostReview.vue */ "./resources/js/components/PostReview.vue")["default"]);
@@ -77967,6 +78077,7 @@ Vue.component('idea-reviews', __webpack_require__(/*! ./components/IdeaReviews.v
 Vue.component('idea-post-form', __webpack_require__(/*! ./components/IdeaPostForm.vue */ "./resources/js/components/IdeaPostForm.vue")["default"]);
 Vue.component('idea-edit-form', __webpack_require__(/*! ./components/IdeaEditForm.vue */ "./resources/js/components/IdeaEditForm.vue")["default"]);
 Vue.component('profile-menu', __webpack_require__(/*! ./components/ProfileMenu.vue */ "./resources/js/components/ProfileMenu.vue")["default"]);
+Vue.component('textarea-label', __webpack_require__(/*! ./components/TextareaLabel.vue */ "./resources/js/components/TextareaLabel.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -79206,6 +79317,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TestComponent_vue_vue_type_template_id_70d64aa0___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TestComponent_vue_vue_type_template_id_70d64aa0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/TextareaLabel.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/components/TextareaLabel.vue ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _TextareaLabel_vue_vue_type_template_id_6190ea7f___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TextareaLabel.vue?vue&type=template&id=6190ea7f& */ "./resources/js/components/TextareaLabel.vue?vue&type=template&id=6190ea7f&");
+/* harmony import */ var _TextareaLabel_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TextareaLabel.vue?vue&type=script&lang=js& */ "./resources/js/components/TextareaLabel.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _TextareaLabel_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _TextareaLabel_vue_vue_type_template_id_6190ea7f___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _TextareaLabel_vue_vue_type_template_id_6190ea7f___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/TextareaLabel.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/TextareaLabel.vue?vue&type=script&lang=js&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/components/TextareaLabel.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TextareaLabel_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./TextareaLabel.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TextareaLabel.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TextareaLabel_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/TextareaLabel.vue?vue&type=template&id=6190ea7f&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/TextareaLabel.vue?vue&type=template&id=6190ea7f& ***!
+  \**********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TextareaLabel_vue_vue_type_template_id_6190ea7f___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./TextareaLabel.vue?vue&type=template&id=6190ea7f& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TextareaLabel.vue?vue&type=template&id=6190ea7f&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TextareaLabel_vue_vue_type_template_id_6190ea7f___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TextareaLabel_vue_vue_type_template_id_6190ea7f___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
