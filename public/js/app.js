@@ -74448,21 +74448,16 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
  */
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-// Vue.component('test-component', require('./components/TestComponent.vue').default);
-// Vue.component('input-component', require('./components/InputComponent.vue').default);
 
+Vue.component('buy-component', __webpack_require__(/*! ./components/BuyComponent.vue */ "./resources/js/components/BuyComponent.vue")["default"]);
 Vue.component('flash-message', __webpack_require__(/*! ./components/FlashMessage.vue */ "./resources/js/components/FlashMessage.vue")["default"]);
-Vue.component('icon-edit', __webpack_require__(/*! ./components/IconEdit.vue */ "./resources/js/components/IconEdit.vue")["default"]);
 Vue.component('hamburger-menu', __webpack_require__(/*! ./components/HamburgerMenu.vue */ "./resources/js/components/HamburgerMenu.vue")["default"]);
-Vue.component('interest-component', __webpack_require__(/*! ./components/InterestComponent.vue */ "./resources/js/components/InterestComponent.vue")["default"]); // Vue.component('interest-remove-component', require('./components/InterestRemoveComponent.vue').default);
-
-Vue.component('buy-component', __webpack_require__(/*! ./components/BuyComponent.vue */ "./resources/js/components/BuyComponent.vue")["default"]); // Vue.component('search-component', require('./components/SearchComponent.vue').default);
-// Vue.component('loading', require('./components/Loading.vue').default);
-
-Vue.component('post-review', __webpack_require__(/*! ./components/PostReview.vue */ "./resources/js/components/PostReview.vue")["default"]);
-Vue.component('idea-reviews', __webpack_require__(/*! ./components/IdeaReviews.vue */ "./resources/js/components/IdeaReviews.vue")["default"]);
-Vue.component('idea-post-form', __webpack_require__(/*! ./components/IdeaPostForm.vue */ "./resources/js/components/IdeaPostForm.vue")["default"]);
+Vue.component('icon-edit', __webpack_require__(/*! ./components/IconEdit.vue */ "./resources/js/components/IconEdit.vue")["default"]);
 Vue.component('idea-edit-form', __webpack_require__(/*! ./components/IdeaEditForm.vue */ "./resources/js/components/IdeaEditForm.vue")["default"]);
+Vue.component('idea-post-form', __webpack_require__(/*! ./components/IdeaPostForm.vue */ "./resources/js/components/IdeaPostForm.vue")["default"]);
+Vue.component('idea-reviews', __webpack_require__(/*! ./components/IdeaReviews.vue */ "./resources/js/components/IdeaReviews.vue")["default"]);
+Vue.component('interest-component', __webpack_require__(/*! ./components/InterestComponent.vue */ "./resources/js/components/InterestComponent.vue")["default"]);
+Vue.component('post-review', __webpack_require__(/*! ./components/PostReview.vue */ "./resources/js/components/PostReview.vue")["default"]);
 Vue.component('profile-menu', __webpack_require__(/*! ./components/ProfileMenu.vue */ "./resources/js/components/ProfileMenu.vue")["default"]);
 Vue.component('textarea-label', __webpack_require__(/*! ./components/TextareaLabel.vue */ "./resources/js/components/TextareaLabel.vue")["default"]);
 /**
