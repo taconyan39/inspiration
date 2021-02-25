@@ -3,7 +3,7 @@
 </h3>
 
 <p>
-  {{$user}} 様<br>
+  {{$user->name}} 様<br>
   このメールはInspirationから自動で送信しています。
 </p>
 <p>
@@ -18,9 +18,17 @@
 
 
 <p>
-----------------------------</br>
- Inspiration　Helpdesk</br>
- システムに関するお問い合わせ</br>
- フリーダイヤル　0120-xxxx-xxx</br>
- info@inspiration-o.com</br>
+----------------------------
+</p>
+<p>
+ Inspiration　Helpdesk
+ </p>
+<p>
+ システムに関するお問い合わせ
+ </p>
+<p>
+ フリーダイヤル　0120-xxxx-xxx
+ </p>
+<p>
+ info@inspiration-o.com
 </p>

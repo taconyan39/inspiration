@@ -2,7 +2,7 @@
 
   <h2 class="c-title__section p-simpleList__title">{{ $title }}</h2>
 
-  @if($items)
+  @if($items->isEmpty())
     <div class="p-simpleList--none">
       <p>{{$title}}はまだありません</p>
     

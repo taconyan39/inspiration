@@ -15,8 +15,16 @@
 
 <p>
 ----------------------------
+</p>
+<p>
  Inspiration　Helpdesk
+ </p>
+<p>
  システムに関するお問い合わせ
+ </p>
+<p>
  フリーダイヤル　0120-xxxx-xxx
+ </p>
+<p>
  info@inspiration-o.com
 </p>

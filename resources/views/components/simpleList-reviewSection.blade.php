@@ -4,7 +4,7 @@
 
   <ul class="c-list p-simpleList__list">
 
-    @if($reviews)
+    @if($reviews->isEmpty())
       <div class="p-simpleList--none">
         <p>{{$title}}はまだありません</p>
       

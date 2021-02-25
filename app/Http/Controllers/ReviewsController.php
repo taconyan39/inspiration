@@ -20,7 +20,6 @@ class ReviewsController extends Controller
     public function index(){
         $reviews = Review::orderBy('created_at', 'desc')->paginate(10);
 
-
         return view('reviews.all-reviews-list',['reviews' => $reviews]);
 
     }
@@ -68,6 +67,14 @@ class ReviewsController extends Controller
         $reviews = Review::whereHas('idea', function($q) use ($user_id){
             $q->where('user_id', $user_id);
         })->orderBy('created_at')->paginate(10);
+
+        // dd();
+        // レビューがない場合にはfalseを返す
+        // if($reviews->exists()){
+        //     $reviews = false;
+            
+        // }
+        
 
         return view('reviews.myidea-reviews',['reviews' => $reviews]);
     }
