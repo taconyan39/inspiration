@@ -22,11 +22,6 @@ class DatabaseSeeder extends Seeder
         $this->call(InterestTableSeeder::class);
         $this->call(BuyIdeaTableSeeder::class);
         
-        // ローカル用
-        // $this->call(ReviewsLocalTableSeeder::class);
-        // $this->call(IdeasLocalTableSeeder::class);
-        // $this->call(InterestLocalTableSeeder::class);
-        // $this->call(BuyIdeaLocalTableSeeder::class);
 
     }
 }
