@@ -12,8 +12,11 @@ use App\Mail\IdeaSoldMail;
 use App\Mail\IdeaBoughtMail;
 use Carbon\Carbon;
 
+// 購入者側のアイデアの処理
+
 class ShowIdeaController extends Controller
 {
+    // アイデアの表示
     public function show($id){
 
             if(!ctype_digit($id)){
@@ -26,10 +29,12 @@ class ShowIdeaController extends Controller
             $idea->rating = sprintf('%.1f',$idea->reviews()->avg('rating'));
             $idea->countReview = $idea->reviews->count();
 
-            // 投稿者の場合には投稿者用のページに遷移する
+            
+            // 未ログインの場合には未ログイン用のデータを返す
             if(!Auth::check()){
                 return view('post-idea.idea',['idea' => $idea]);
             }
+            // 投稿者の場合には投稿者用のページに遷移する
             if($user->id === $idea->user_id){
                 return redirect('post-idea/'. $id);
             }
@@ -104,33 +109,6 @@ class ShowIdeaController extends Controller
 
                 return redirect('idea/' . $id);
         }
-    }
-
-    public function postReview(Request $request, $id){
-
-        if(!Auth::check()){
-
-            return redirect('/')->with('flash_message', '未購入のユーザーは投稿できません');
-
-            }
-                $user = Auth::user();
-
-                $exists = DB::table('buy_ideas')->where('user_id', $user->id)->where('idea_id', $id)->exists();
-
-                if(!$exists){
-
-                    return redirect('/')->with('flash_message', '未購入のユーザーは投稿できません');
-                }
-
-        DB::table('reviews')->insert([
-            'review' => $request->idea-review,
-            'user_id' => Auth::user(),
-            'rating' => $request->rating,
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-        ]);
-
-        return redirect('/')->with('flash_message', '口コミを投稿しました');
     }
 
 }

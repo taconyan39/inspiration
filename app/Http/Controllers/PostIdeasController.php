@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers;
 
-// use 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use App\Category;
 use App\Idea;
 use App\Review;
-use App\BuyIdea;
 use App\Http\Requests\PostIdeaRequest;
 
+
+// 投稿者側のアイデアの処理
 class PostIdeasController extends Controller
 {
     /**
@@ -19,6 +18,8 @@ class PostIdeasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     // 投稿したアイデア一覧
     public function index()
     {
         $user = Auth::user();
@@ -74,6 +75,8 @@ class PostIdeasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+     // 自分が投稿したアイデアのページ
     public function show($id)
     {
         if(!ctype_digit($id)){
@@ -103,6 +106,8 @@ class PostIdeasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+     // アイデアの編集ページ
     public function edit($id)
     {
         $user = Auth::user();
@@ -127,6 +132,8 @@ class PostIdeasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+     // アイデアの更新処理
     public function update(PostIdeaRequest $request, $id)
     {
         $idea = Idea::find($id);
@@ -140,6 +147,8 @@ class PostIdeasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+     // アイデアの削除処理
     public function destroy($id)
     {
         Idea::find($id)->delete();

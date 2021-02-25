@@ -16,9 +16,9 @@ class PasswordEdit extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($user)
     {
-        //
+        $this->user = $user;
     }
 
     /**
@@ -30,6 +30,7 @@ class PasswordEdit extends Mailable
     {
         return $this->from('info@inspiration-o.com')
                     ->subject('パスワードが変更されました')
-                    ->view('emails.password-edit');
+                    ->view('emails.password-edit')
+                    ->with(['user' => $this->user]);
     }
 }

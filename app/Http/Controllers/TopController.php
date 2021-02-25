@@ -6,8 +6,6 @@ use Illuminate\Http\Request;
 use App\Idea;
 use App\Category;
 use App\Review;
-use Illuminate\Support\Facades\Auth;
-use Carbon\Carbon;
 
 class TopController extends Controller
 {

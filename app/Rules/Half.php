@@ -4,6 +4,8 @@ namespace App\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 
+// 半角英数字のバリデーション用
+
 class Half implements Rule
 {
     /**

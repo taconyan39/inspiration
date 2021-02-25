@@ -61,24 +61,21 @@ class IdeasListController extends Controller
         return view('ideas-list.all-ideas-list', ['categories' => $categories, 'ideas' => $ideas, 'data' => $data, 'sorts' => $sorts]);
     }
 
+    // ソート処理
     public function search(Request $request){
         
         $categories = Category::all();
         $category_id = $request->category_id;
 
         if($request->type == 2){
-            // dd('価格');
             $type = 'price';
         }else{
-            // dd('日付');
             $type = 'created_at';
         }
 
         if($request->order == 2){
-            // dd('下から');
             $order = 'asc';
         }else{
-            // dd('上から');
             $order = 'desc';
         }
 
@@ -95,51 +92,9 @@ class IdeasListController extends Controller
 
         return view('ideas-list', ['categories' => $categories, 'ideas' => $ideas, 'order' => $request, 'type' => $request->type, 'category_id' => $category_id]);
     }
-    public function searchList($request){
-        
-        $categories = Category::all();
-        $category_id = $request->category_id;
 
-        if($request->type == 2){
-            // dd('価格');
-            $type = 'price';
-        }else{
-            // dd('日付');
-            $type = 'created_at';
-        }
-
-        if($request->order == 2){
-            // dd('下から');
-            $order = 'asc';
-        }else{
-            // dd('上から');
-            $order = 'desc';
-        }
-
-        if($category_id < 0){
-            $ideas = Idea::orderBy($type, $order)->paginate(10);
-        }else{
-            $ideas = Idea::where('category_id', $category_id)->orderBy($type, $order)->paginate(10);
-        }
-
-        foreach($ideas as $idea){
-            $idea->rating = sprintf('%.1f',$idea->reviews->avg('rating'));
-            $idea->countReview = $idea->reviews->count();
-        }
-
-        return view('ideas-list', ['categories' => $categories, 'ideas' => $ideas, 'order' => $request->order, 'type' => $request->type, 'category_id' => $category_id]);
-    }
-
-    // 投稿ページ一覧
+    // 投稿したアイデア一覧
     public function myidea(){
-
-        if(Auth::check()){
-            $user = Auth::user();
-            $user_img = $user->icon_img;
-        }else{
-            $user = false;
-            $user_img = 'noimage_icon.png';
-        }
         
         $categories = Category::all();
         $user = Auth::user();
@@ -150,10 +105,10 @@ class IdeasListController extends Controller
             $idea->countReview = $idea->reviews->count();
         }
 
-        return view('ideas-list.myideas-list', ['user' => $user ,'ideas' => $ideas, 'categories' => $categories, 'user_img' => $user_img]);
+        return view('ideas-list.myideas-list', ['user' => $user ,'ideas' => $ideas, 'categories' => $categories]);
     }
 
-    // お気に入りリスト
+    // 気になるリスト一覧
     public function interest(){
 
         $user = Auth::user();
@@ -173,6 +128,7 @@ class IdeasListController extends Controller
         return view('ideas-list.interests-list', ['user' => $user ,'ideas' => $ideas, 'categories' => $categories]);
     }
 
+    // 気になる解除処理
     public function interestRemove(Request $request){
         $user = Auth::user();
 
@@ -181,8 +137,8 @@ class IdeasListController extends Controller
         return redirect(url()->previous())->with('flash_message', 'お気に入り解除しました');
     }
     
+    // 購入したアイデアの一覧
     public function buyIdeas(){
-        // 購入したアイデアの一覧
         $user = Auth::user();
 
         $categories = Category::all();

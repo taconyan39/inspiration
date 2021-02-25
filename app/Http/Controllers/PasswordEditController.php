@@ -11,10 +11,13 @@ use App\Mail\PasswordEdit;
 
 class PasswordEditController extends Controller
 {
+
+    // パスワード変更画面
     public function edit(){
         return view('auth/passwords/password-edit');
     }
 
+    // パスワードの変更処理
     public function update(PasswordEditRequest $request){
 
         $user = Auth::user();
@@ -24,7 +27,7 @@ class PasswordEditController extends Controller
         ])->save();
 
         // パスワード変更をメールで通知
-        Mail::to($user->email)->send(new PasswordEdit());
+        Mail::to($user->email)->send(new PasswordEdit($user));
 
         return redirect('/profile')->with('flash_message', 'パスワードが変更されました');
 

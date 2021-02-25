@@ -5,11 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ProfileEditRequest;
-// use Illuminate\Support\Facades\Storage;
 use Storage;
 
 class ProfileController extends Controller
 {
+    // プロフィール編集画面
     public function edit(){
 
         $user = Auth::user();
@@ -18,6 +18,7 @@ class ProfileController extends Controller
         return view('profile', ['user' => $user, 'user_img' => $user_img]);
     }
 
+    // プロフィール更新処理
     public function update(ProfileEditRequest $request)
     {
         $user = Auth::user();
@@ -38,6 +39,7 @@ class ProfileController extends Controller
         return redirect('/mypage')->with('flash_message', 'プロフィールを変更しました');
     }
 
+    // 画像の登録用の処理
     private function saveProfileImage($image, $id) {
 
         // get instance
@@ -51,7 +53,6 @@ class ProfileController extends Controller
             $constraint->upsize();
         });
 
-        // dd($img);
 
         // save
         // $file_name = 'icon_'.$id.'.'.$image->getClientOriginalExtension();

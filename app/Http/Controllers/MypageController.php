@@ -25,6 +25,8 @@ class MypageController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
+     // マイページの表示
     public function index()
     {
         $user = Auth::user();
