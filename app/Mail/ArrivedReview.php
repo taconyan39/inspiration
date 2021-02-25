@@ -16,9 +16,9 @@ class ArrivedReview extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($idea)
     {
-        //
+        $this->idea = $idea;
     }
 
     /**
@@ -31,6 +31,7 @@ class ArrivedReview extends Mailable
         return $this
             ->from('info@inspiration-o.com')
             ->subject('口コミが届きました')
-            ->view('emails.arrived-review',);
+            ->view('emails.arrived-review')
+            ->with(['idea' => $this->idea]);
     }
 }

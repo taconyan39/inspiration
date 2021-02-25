@@ -12,14 +12,15 @@
 </p>
 <p>
   商品が購入されました<br>
-  {{ $url}}
 </p>
+
+<a href="{{ route('login')}}">Inspiration</a>
 
 
 <p>
-----------------------------
- Inspiration　Helpdesk
- システムに関するお問い合わせ
- フリーダイヤル　0120-xxxx-xxx
- info@inspiration-o.com
+----------------------------</br>
+ Inspiration　Helpdesk</br>
+ システムに関するお問い合わせ</br>
+ フリーダイヤル　0120-xxxx-xxx</br>
+ info@inspiration-o.com</br>
 </p>

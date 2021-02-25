@@ -16,9 +16,9 @@ class IdeaSoldMail extends Mailable
      *
      * @return void
      */
-    public function __construct($user)
+    public function __construct($idea)
     {
-        $this->user = $user;
+        $this->idea = $idea;
     }
 
     /**
@@ -31,6 +31,7 @@ class IdeaSoldMail extends Mailable
         return $this
             ->from('info@inspiration-o.com')
             ->subject('アイデアが売れました')
-            ->view('emails.idea-sold');
+            ->view('emails.idea-sold')
+            ->with(['idea' => $this->idea]);
     }
 }

@@ -75,7 +75,7 @@ class ReviewsController extends Controller
             'updated_at' =>Carbon::now()
         ]);
 
-        Mail::to($idea->user->email)->send(new ArrivedReview());
+        Mail::to($idea->user->email)->send(new ArrivedReview($idea));
 
         return redirect('idea/' . $id)->with('flash_message', '口コミが投稿されました');
 

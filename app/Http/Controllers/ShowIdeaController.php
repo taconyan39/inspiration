@@ -89,9 +89,9 @@ class ShowIdeaController extends Controller
             }
 
             // 購入者と出品者にメールを送信
-            Mail::to($user->email)->send(new IdeaBoughtMail($user));
+            Mail::to($user->email)->send(new IdeaBoughtMail($user, $idea));
 
-            Mail::to($idea->user->email)->send(new IdeaSoldMail($idea->user));
+            Mail::to($idea->user->email)->send(new IdeaSoldMail($idea));
 
             //購入データの登録
             DB::table('buy_ideas')->insert([

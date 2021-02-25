@@ -3,7 +3,7 @@
 </h3>
 
 <p>
-  {{$user}} 様<br>
+  {{$idea->user->name}} 様<br>
   このメールはInspirationから自動で送信しています。
 </p>
 <p>
@@ -12,14 +12,15 @@
 <p>
   商品が売れました<br>
   ログインして確認しましょう
-  {{ $url}}
 </p>
+
+<a href="{{ route('login')}}">Inspiration</a>
 
 
 <p>
-----------------------------
- Inspiration　Helpdesk
- システムに関するお問い合わせ
- フリーダイヤル　0120-xxxx-xxx
- info@inspiration-o.com
+----------------------------</br>
+ Inspiration　Helpdesk</br>
+ システムに関するお問い合わせ</br>
+ フリーダイヤル　0120-xxxx-xxx</br>
+ info@inspiration-o.com</br>
 </p>

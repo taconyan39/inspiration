@@ -3,7 +3,7 @@
 
   <ul class="c-list p-ideaList__list">
 
-  @if($ideas)
+  @if(!$ideas)
       <div class="p-simpleList--none">
         <p>{{$title}}はまだありません</p>
       
