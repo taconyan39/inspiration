@@ -50,10 +50,10 @@ Route::get('ajax/idea-edit/{id}','Ajax\PostIdeasController@editAjax');
 Route::post('post-idea/interest/{id}', 'PostIdeasController@interest');
 
 // カテゴリー取得
-Route::get('/ajax/categories', 'Ajax\CategoriesController@category');
+// Route::get('/ajax/categories', 'Ajax\CategoriesController@category');
 
 // ユーザー情報取得
-Route::get('/ajax/user', 'Ajax\UserController@user');
+// Route::get('/ajax/user', 'Ajax\UserController@user');
 
 //口コミ投稿
 Route::get('ajax/reviews/{id}','Ajax\ReviewsController@show');

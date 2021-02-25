@@ -15,12 +15,6 @@
 
 <script>
 export default {
-  // name: 'App',
-  // data(){
-  //   return {
-  //     loading: true,
-  //   }
-  // },
   methods:{
     onBuy: function(){
       if(confirm('購入を確定しますか？')){
@@ -28,24 +22,6 @@ export default {
       }
     }
   },
-  // mounted(){
-  //   setTimeout(() => {
-  //     this.loading = false;
-  //   }, 1000);
-  // },
 }
 </script>
 
-<style>
-.fullview {
-  width: 100%;
-  height: 100%;
-  background: #fefefe;
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-.loading-spacer {
-  height: 30%;
-}
-</style>

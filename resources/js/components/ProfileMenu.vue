@@ -54,17 +54,5 @@ export default {
             user:{}
         }
     },
-    methods:{
-        getUser(){
-          axios.get('ajax/user')
-            .then((response) => {
-              this.user = response.data;
-            })
-        }
-
-    },
-    mounted(){
-        this.getUser();
-    }
 }
 </script>
