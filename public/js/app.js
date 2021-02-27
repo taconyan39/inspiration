@@ -2812,14 +2812,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['img', 'login', 'register', 'list', 'name', 'noimg', 'mypage', 'profedit', 'postidea', 'all-ideaslist'],
-  data: function data() {
-    return {
-      items: [],
-      user: {}
-    };
-  }
+  props: ['img', 'login', 'register', 'list', 'name', 'noimg', 'mypage', 'profedit', 'postidea', 'all-ideaslist']
 });
 
 /***/ }),
@@ -61744,19 +61739,22 @@ var render = function() {
       ? _c(
           "button",
           {
-            staticClass: "c-btn c-btn--white p-interest__btn",
+            staticClass: "c-btn--middle c-btn--white p-interest__btn",
             on: {
               click: function($event) {
                 return _vm.onChangeInterest(_vm.item.flg)
               }
             }
           },
-          [_c("span", { staticClass: "c-star" }), _vm._v("\n  解除する")]
+          [
+            _c("span", { staticClass: "c-star" }),
+            _vm._v("\n  気になるを解除する")
+          ]
         )
       : _c(
           "button",
           {
-            staticClass: "c-btn c-btn--action3 p-interest__btn",
+            staticClass: "c-btn--middle c-btn--action3 p-interest__btn",
             on: {
               click: function($event) {
                 return _vm.onChangeInterest(_vm.item.flg)
@@ -61959,7 +61957,7 @@ var render = function() {
             _vm._v(" "),
             _c("li", { staticClass: "c-list__title p-profileSidebar__item" }, [
               _c("p", { staticClass: "c-card__name p-profileSidebar__title" }, [
-                _vm._v(_vm._s(_vm.user.name))
+                _vm._v(_vm._s(_vm.name))
               ])
             ]),
             _vm._v(" "),
@@ -62034,7 +62032,7 @@ var render = function() {
               "div",
               {
                 staticClass:
-                  "c-img--outer c-card--top p-profileSidebar__img--outer"
+                  "c-img--outer c-img--round c-card--top p-profileSidebar__img--outer"
               },
               [
                 _c("img", {

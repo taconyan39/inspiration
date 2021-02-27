@@ -1,11 +1,11 @@
 <template>
 
   <div>
-    <button class="c-btn c-btn--white p-interest__btn"  v-if="item.flg" @click="onChangeInterest(item.flg)">
+    <button class="c-btn--middle c-btn--white p-interest__btn"  v-if="item.flg" @click="onChangeInterest(item.flg)">
       <span class="c-star"></span>
-    解除する</button>
+    気になるを解除する</button>
 
-    <button v-else class="c-btn c-btn--action3 p-interest__btn" @click="onChangeInterest(item.flg)">気になる</button>
+    <button v-else class="c-btn--middle c-btn--action3 p-interest__btn" @click="onChangeInterest(item.flg)">気になる</button>
   </div>
 </template>
 

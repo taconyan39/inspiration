@@ -19,7 +19,7 @@ class UsersTableSeeder extends Seeder
                 'email' => 'example@sample.com',
                 'introduction' => '会社員×フリーランスの複業家。すべての仕事をリモートワークでこなしています。SEOとSNSを駆使したコンテンツ運営が得意で、WordPressやWeb系言語を使ったWebサイト制作もしています。',
                 'password' => bcrypt('guestuser'),
-                'icon_img' => 'https://inspiration-app-bucket.s3-ap-northeast-1.amazonaws.com/images/icons/icon_sample04.jpg',
+                'icon_img' => 'https://inspiration-app-bucket.s3-ap-northeast-1.amazonaws.com/images/icons/icon_sample01.jpg',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]);

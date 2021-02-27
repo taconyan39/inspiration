@@ -60,11 +60,25 @@ class CategoriesTableSeeder extends Seeder
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
-        
+        DB::table('categories')->insert([
+            'name' => 'esports',
+            'name_ja' => 'eスポーツ',
+            'image' => 'category_gaming.jpg',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+        DB::table('categories')->insert([
+            'name' => 'Education',
+            'name_ja' => '教育',
+            'image' => 'category_education.jpg',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
         DB::table('categories')->insert([
             'name' => 'Other',
             'name_ja' => 'その他',
-            'image' => 'category_other.jpg',
+            'image' => 'category_others.jpg',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);

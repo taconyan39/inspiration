@@ -59,6 +59,19 @@
       opacity: 0.8;
     }
   }
+  &--middle{
+    border: 1px solid $color_gray;
+    padding: 0 $spacing_lg;
+    background: $color_white;
+    box-sizing: border-box;
+    transition: .3s;
+    height: 60px;
+    align-items: center;
+    &:hover{
+      cursor: pointer;
+      opacity: 0.8;
+    }
+  }
   &--large{
     font-size: $font-size_lg;
     padding: $spacing-md $spacing-xl;
@@ -172,7 +185,6 @@
   &__item{
     border-bottom: 1px solid $color_black;
     transition: .3s;
-    overflow: hidden;
     &--simple{
       border-bottom: 1px solid $color_black;
       box-sizing: border-box;
@@ -200,6 +212,10 @@
   padding: $spacing-sm;
   &__name{
     text-align: center;
+    font-size: $font-size_lg;
+    @include mq('md'){
+
+    }
   }
   &__body{
     width: 100%;
@@ -361,26 +377,32 @@
   display: flex;
   justify-content: space-between;
   text-align:right;
+  @include mq('md'){
+    flex-wrap: wrap;
+  }
   &__box{
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     align-items: center;
     @include mq(md){
-      width: 33%;
+      width: 50%;
       text-align: center;
     }
     &--left{
       text-align: start;
     }
+    &--right{
+      text-align:end;
+    }
   &__item{
     display: flex;
     flex-wrap: wrap;
   }
-    &.c-dammy{
-      @include mq(md){
-        display: none;
-      }
-    }
+    // &.c-dammy{
+    //   @include mq(md){
+    //     display: none;
+    //   }
+    // }
   }
 }
 
@@ -421,8 +443,6 @@
   height: 80px;
   background: rgba(79, 195, 247, 0.8);
   line-height: 80px;
-  // animation: fadeOut 3s;
-  // animation-fill-mode: both;
 }
 
 .c-row{

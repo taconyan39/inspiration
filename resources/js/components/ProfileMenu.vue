@@ -7,8 +7,9 @@
         <div class="c-img--outer c-img--round c-card-top p-profileSidebar__img--outer">
           <img class="c-img p-profileSidebar__img" :src="img" alt="プロフィール画像">
         </div>
+
         <li class="c-list__title p-profileSidebar__item">
-          <p class="c-card__name p-profileSidebar__title">{{user.name}}</p>
+          <p class="c-card__name p-profileSidebar__title">{{name}}</p>
         </li>
         <li class="c-list__item-simple p-profileSidebar__item">
           <a :href="mypage" class="c-btn__sidebar c-btn__sub p-profileSidebar__btn">マイページへ</a>
@@ -27,7 +28,7 @@
 
     <ul v-else>
       <div class="c-card p-profileSidebar__card--sp">
-        <div class="c-img--outer c-card--top p-profileSidebar__img--outer">
+        <div class="c-img--outer c-img--round c-card--top p-profileSidebar__img--outer">
           <img class="c-img p-profileSidebar__img" :src="noimg" alt="プロフィール画像">
         </div>
         <li class="c-list__item-simple p-profileSidebar__item">
@@ -48,11 +49,5 @@
 <script>
 export default {
     props:['img','login','register', 'list', 'name','noimg','mypage', 'profedit', 'postidea', 'all-ideaslist'],
-    data: function(){
-        return {
-            items: [],
-            user:{}
-        }
-    },
 }
 </script>

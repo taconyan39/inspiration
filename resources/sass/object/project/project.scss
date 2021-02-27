@@ -157,6 +157,23 @@
     margin-bottom: $spacing-xl;
     padding: $spacing-md;
     box-sizing: border-box;
+    @include mq('md'){
+      display: none;
+    }
+    &--sp{
+      display: none;
+      align-items: center;
+      transition: .3s;
+      overflow: hidden;
+      border: 3px solid $color_main;
+      width: 100%;
+      margin-bottom: $spacing-xl;
+      padding: $spacing-lg;
+      box-sizing: border-box;
+      @include mq('md'){
+        display: block;
+      }
+    }
   }
   &__rating{
     display: inline;
@@ -169,6 +186,9 @@
     box-sizing: border-box;
     display: flex;
     justify-content: flex-start;
+    &--sp{
+      margin-bottom: $spacing-xl;
+    }
     &--left{
       width: 125px;
       box-sizing: border-box;
@@ -188,9 +208,14 @@
       box-sizing: border-box;
       position: relative;
       overflow: hidden;
+      height: 320px;
       @include mq(md){
         overflow-wrap: break-word;
         width: 60%;
+      }
+      &-sp{
+        align-items:center;
+        display: flex;
       }
     }
   }
@@ -215,6 +240,7 @@
     }
   }
   &__btn{
+
     &--wrapper{
       @include mq(){
         justify-content: space-between;
@@ -691,6 +717,11 @@
         justify-content: space-between;
         box-sizing: border-box;
     }
+    &--right{
+      align-items: center;
+      display: flex;
+      justify-content: flex-end;
+    }
   }
   &__rating{
     display: inline;
@@ -725,7 +756,23 @@
     text-align: center;
   }
   &__price{
-    font-size: $font-size_lg;
+    font-size: $font-size_xl;
+    font-weight: bold;
+    margin-right: $spacing_sm;
+    &--wrapper{
+      border: 1px solid $color_black;
+      width: 300px;
+      margin: 0 auto 30px;
+      box-sizing: border-box;
+      padding: $spacing-xxl;
+      background: $color_gray-light;
+    }
+    &--large{
+      $font-size: $font-size_xl;
+      font-weight: bold;
+      font-size: 2rem;
+      color: $color_remove;
+    }
   }
   &__summary{
     font-weight: bold;
@@ -765,16 +812,7 @@
       }
     }
   }
-  &__price{
-    font-size: $font-size_xl;
-    font-weight: bold;
-    margin-right: $spacing_sm;
-    &--large{
-      $font-size: $font-size_xl;
-      font-weight: bold;
-      margin-bottom: $spacing-xxl;
-    }
-  }
+  
   &__user{
     align-items: center;
     &--name{
@@ -820,7 +858,7 @@
 }
 
 .p-ideaReviews{
-  
+  margin-top: $spacing_xxl;
   margin-bottom: $spacing_xxl;
   &__bottom{
     text-align: center;
@@ -1060,7 +1098,7 @@
 .p-buy{
   &__btn{
     &--wrapper{
-      margin-bottom: $spacing-xxl;
+      margin-bottom: 0;
     }
   }
 }

@@ -82,7 +82,7 @@
                     <span class="c-form__annotation">(jpg/png/2MB以下) </span>
                 </div>
 
-                <div class="p-profileEdit__row c-flex--between">
+                <div class="p-profileEdit__row c-flex--start">
 
                     <div class="c-container--half">
 
@@ -96,7 +96,8 @@
                             </span>
                         @enderror
                     </div>
-
+                </div>
+                <div class="p-profileEdit__row c-flex--end">
                     <div class="p-profileEdit__btn--container c-container--half">
 
                         <button type="submit" class="

@@ -166,6 +166,7 @@ return [
         'rating' => '評価',
         'review' => '口コミ',
         'price' => '価格',
+        'name' => '名前'
     ],
 
 ];

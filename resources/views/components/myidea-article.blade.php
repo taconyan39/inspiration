@@ -6,18 +6,18 @@
 
     <div class="p-ideaDetail__content">
 
-      <div class="p-ideaDetail__info c-flex--between">
+      <div class="p-ideaDetail__info c-info">
           
           <div class="c-info__box p-ideaDetail__infoItem--left">
               <time class="p-ideaDetail__info--date">{{ $idea->created_at->format('Y/m/d') }}</time>
           </div>
 
-          <div class="c-dammy">
+          <div class="c-dammy c-info__box">
           </div>
           <div class="c-info__box p-ideaDetail__infoItem">
               <span class="p-ideaDetail__rating c-rating">{{ $idea->rating }} ({{ $idea->countReview }})</span>
           </div>
-          <div class="c-info__box p-ideaDetail__infoItem">
+          <div class="c-info__box p-ideaDetail__infoItem--right">
               <span class="c-price p-ideaDetail__price">¥{{ $idea->price }}</span>
           </div>
       </div>

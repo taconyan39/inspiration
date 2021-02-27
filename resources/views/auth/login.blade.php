@@ -60,11 +60,6 @@
             </div>
         </form>
     </div>
-
-    <div style="text-align:center; display: flex;justify-content: center;  flex-direction: column;">
-        <h3>ゲストユーザー</h3>
-        <p><strong>Mail:</strong> example@sample.com</p>
-        <p><strong>Passord:</strong> guestuser</p>
-    </div>
+    
 </div>
 @endsection

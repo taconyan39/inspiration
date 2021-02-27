@@ -38,7 +38,7 @@
         <div class=" p-profileSidebar__card--sp">
           <div class="c-img--outer c-img--round p-profileSidebar__img--outer">
 
-            <img class="c-img p-profileSidebar__img" src=""
+            <img class="c-img p-profileSidebar__img" src="{{ asset('images/icons/noimage_icon.jpg') }}"
             alt="プロフィール画像">
           </div>
           <li class="c-list__item-simple p-profileSidebar__item">

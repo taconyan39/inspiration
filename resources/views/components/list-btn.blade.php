@@ -18,8 +18,8 @@
         <form action="" method="POST">
           @csrf
             <input type="hidden" name="idea_id" value="{{ $idea->id }}">
-            <button class="c-btn c-btn--white p-ideasList__btn" type="submit" name="submit">
-              <span class="c-star"></span> 解除する
+            <button class="c-btn--middle c-btn--white p-ideasList__btn" type="submit" name="submit">
+              <span class="c-star"></span> 気になるを解除する
             </button>
         </form>
           <a href="{{ url('post-idea/' . $idea->id) }}" class="c-btn c-btn--action2 p-ideasList__btn">詳細を見る</a>

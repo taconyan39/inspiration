@@ -4,7 +4,7 @@
 
   @if($items->isEmpty())
     <div class="p-simpleList--none">
-      <p>{{$title}}はまだありません</p>
+      <p>{{$title}}は<br>まだありません</p>
     
     </div>
   @else
