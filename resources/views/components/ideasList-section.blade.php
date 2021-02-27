@@ -81,7 +81,7 @@
           </div>
         </div>
 
-        <div class="p-ideaList__body--sp c-flex--between">
+        <div class="p-ideaList__body--sp c-flex--start">
           <div class="p-ideaList__body--left">
 
             <span class="c-tag p-ideaList__body--tag">{{ $idea->category->name_ja }}</span>

@@ -847,12 +847,17 @@
     justify-content: center;
     width: 200px;
     margin: 0 auto;
+    
   }
   &__btn{
     font-size: $font-size_default;
     &--detail{
       font-size: $font-size_default;
       background: $color_action;
+    }
+    &--show{
+      box-sizing: border-box;
+      line-height: 60px;
     }
   }
 }

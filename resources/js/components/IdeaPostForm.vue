@@ -83,7 +83,7 @@
                         
                         " name="content"
                         v-model.trim="content"
-                        max-length="5000"
+                        maxlength="5000"
                         placeholder="5000文字以内で入力してください"
                         ></textarea>
                             <div class="p-ideaPost__count

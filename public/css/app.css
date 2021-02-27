@@ -1936,6 +1936,11 @@ li {
   background: rgba(88, 102, 254, 0.7);
 }
 
+.p-ideasList__btn--show {
+  box-sizing: border-box;
+  line-height: 60px;
+}
+
 .p-ideaReviews {
   margin-top: 30px;
   margin-bottom: 30px;

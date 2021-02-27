@@ -61479,7 +61479,7 @@ var render = function() {
                   attrs: {
                     id: "content",
                     name: "content",
-                    "max-length": "5000",
+                    maxlength: "5000",
                     placeholder: "5000文字以内で入力してください"
                   },
                   domProps: { value: _vm.content },

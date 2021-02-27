@@ -45,7 +45,7 @@ class PostIdeasController extends Controller
         $user_img = $user->icon_img;
         $categories = Category::all();
 
-        return view('post-idea.create', ['user' => $user, 'categories' => $categories, 'user_img' => $user_img]);
+        return view('post-idea.create-idea', ['user' => $user, 'categories' => $categories, 'user_img' => $user_img]);
     }
 
     /**

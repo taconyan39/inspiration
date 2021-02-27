@@ -134,7 +134,7 @@ class IdeasListController extends Controller
 
         DB::table('interests')->where('user_id', $user->id)->where('idea_id', $request->idea_id)->delete();
 
-        return redirect(url()->previous())->with('flash_message', 'お気に入り解除しました');
+        return redirect(url()->previous())->with('flash_message', '気になるを解除しました');
     }
     
     // 購入したアイデアの一覧
