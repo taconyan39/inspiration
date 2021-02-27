@@ -87,7 +87,7 @@
                     <div class="c-container--half">
 
                         <icon-edit
-                            icon="{{ asset('storage/images/icons/' . $user->icon_img) }}"
+                            icon="{{ $user->icon_img}}"
                         ></icon-edit>
                         
                         @error('icon_img')

@@ -18,8 +18,8 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('introduction', '100')->nullable();
-            $table->string('icon_img')->default('noimage_icon.jpg');
+            $table->string('introduction', '100')->default('自己紹介はまだ登録されていません。')->nullable();
+            $table->string('icon_img')->default('https://inspiration-app-bucket.s3-ap-northeast-1.amazonaws.com/images/icons/noimage_icon.jpg');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->boolean('delete_flg')->default(0);

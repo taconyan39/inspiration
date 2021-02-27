@@ -61631,7 +61631,7 @@ var render = function() {
                                 _c("img", {
                                   staticClass: "c-img p-ideaReviews__userImg",
                                   attrs: {
-                                    src: _vm.img + "/" + item.user.icon_img,
+                                    src: item.user.icon_img,
                                     alt: "アイコンイメージ"
                                   }
                                 })

@@ -2,7 +2,7 @@
 
         <div class="c-card p-profileSidebar__card--sp">
         <div class="c-img--outer c-img--round c-card-top p-profileSidebar__img--outer">
-            <img class="c-img p-profileSidebar__img" src="{{ asset('storage/images/icons/' . $user->icon_img) }}" alt="プロフィール画像">
+            <img class="c-img p-profileSidebar__img" src="{{ session('icon_img')}}" alt="プロフィール画像">
         </div>
         <li class="c-list__title p-profileSidebar__item">
             <p class="c-card__name p-profileSidebar__title">{{ $user->name}}</p>

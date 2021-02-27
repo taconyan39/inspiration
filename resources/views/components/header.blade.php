@@ -72,7 +72,7 @@
 
         <transition name="menu">
             <profile-menu   v-if="menu"
-                            img="{{url('storage/images/icons/'. session('icon_img'))}}"
+                            img="{{session('icon_img')}}"
                             login="{{ route('login')}}"
                             name="{{session('name')}}"
                             register="{{ route('register')}}"

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Idea;
 use App\Review;
+use App\Http\Controllers\Controller,
+    Session;
 
 
 class MypageController extends Controller
@@ -32,7 +34,11 @@ class MypageController extends Controller
         $user = Auth::user();
         $user_id = $user->id;
 
-        $user_id = $user->id;
+        // sessionにユーザー情報を入れる
+        Session::put([
+            'name' => $user->name, 'icon_img' => $user->icon_img,
+            'introduction' => $user->introduction
+            ]);
 
         $postIdeas = Idea::where('user_id', $user->id)
                     ->orderBy('created_at', 'desc')

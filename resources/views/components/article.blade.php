@@ -28,7 +28,7 @@
             </div>
             <div class="c-flex--end p-ideaDetail__user">
                 <div class="c-img--outer c-img--round p-ideaDetail__userImg--outer">
-                    <img class="c-img p-ideaList__userImg" src="{{ asset('storage/images/icons/' . $idea->user->icon_img) }}" alt="アイコン画像">
+                    <img class="c-img p-ideaList__userImg" src="{{ $idea->user->icon_img }}" alt="アイコン画像">
                         
                     </div>
                     
