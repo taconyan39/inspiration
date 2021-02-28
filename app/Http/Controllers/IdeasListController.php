@@ -67,6 +67,7 @@ class IdeasListController extends Controller
         $categories = Category::all();
         $category_id = $request->category_id;
 
+        // 並べ替えの条件を判定
         if($request->type == 2){
             $type = 'price';
         }else{
@@ -79,12 +80,15 @@ class IdeasListController extends Controller
             $order = 'desc';
         }
 
+        // カテゴリーの絞り込みがあるか？
         if($category_id < 0){
             $ideas = Idea::orderBy($type, $order)->paginate(10);
         }else{
+            // 絞ったカテゴリーを取得
             $ideas = Idea::where('category_id', $category_id)->orderBy($type, $order)->paginate(10);
         }
 
+        // アイデアの平均点を代入
         foreach($ideas as $idea){
             $idea->rating = sprintf('%.1f',$idea->reviews->avg('rating'));
             $idea->countReview = $idea->reviews->count();
@@ -100,6 +104,7 @@ class IdeasListController extends Controller
         $user = Auth::user();
         $ideas = Idea::where('user_id', $user->id)->orderBy('created_at','desc')->paginate(10);
 
+        // 口コミの平均点を代入
         foreach($ideas as $idea){
             $idea->rating = sprintf('%.1f',$idea->reviews->avg('rating'));
             $idea->countReview = $idea->reviews->count();
@@ -116,10 +121,13 @@ class IdeasListController extends Controller
         $categories = Category::all();
         $user_id = $user->id;
 
+        // 気になるリストを登録順に代入
         $ideas = Idea::whereHas('interests', function($q) use ($user_id){
             $q->where('user_id', $user_id);
         })->paginate(10);
 
+
+        // 口コミの平均を代入
         foreach($ideas as $idea){
             $idea->rating = sprintf('%.1f',$idea->reviews->avg('rating'));
             $idea->countReview = $idea->reviews->count();
@@ -132,6 +140,7 @@ class IdeasListController extends Controller
     public function interestRemove(Request $request){
         $user = Auth::user();
 
+        // 気になるを解除
         DB::table('interests')->where('user_id', $user->id)->where('idea_id', $request->idea_id)->delete();
 
         return redirect(url()->previous())->with('flash_message', '気になるを解除しました');
@@ -144,6 +153,7 @@ class IdeasListController extends Controller
         $categories = Category::all();
         $user_id = $user->id;
 
+        // 購入したアイデアを購入順に取得
         $ideas = Idea::whereHas('buyIdeas', function($q) use ($user_id){
             $q->where('user_id', $user_id);
         })->paginate(10);

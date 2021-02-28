@@ -11,6 +11,7 @@ use App\Idea;
 
 class PostIdeasController extends Controller
 {
+    // お気に入りの操作
     public function changeInterest($id){
 
         $flg = DB::table('interests')->where('user_id', Auth::user()->id)->where('idea_id', $id)->exists();
@@ -19,6 +20,7 @@ class PostIdeasController extends Controller
 
     }
 
+    // お気に入りの状態を取得
     public function interest(Request $request, $id){
 
             if($request->flg){
@@ -39,6 +41,7 @@ class PostIdeasController extends Controller
             
     }
 
+    // 編集ページのアイデア情報を取得
     public function editAjax($id){
 
         $idea = Idea::find($id);

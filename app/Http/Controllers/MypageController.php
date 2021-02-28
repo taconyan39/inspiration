@@ -45,30 +45,36 @@ class MypageController extends Controller
                     ->take(5)
                     ->get();
 
+        // 口コミの平均点を代入
         foreach($postIdeas as $interestIdea){
             $interestIdea->rating = sprintf('%.1f',$interestIdea->reviews->avg('rating'));
             $interestIdea->countReview = $interestIdea->reviews->count();
         }
 
+        // 購入したアイデアを日付順に取得
         $buyIdeas = Idea::whereHas('buyIdeas', function($q) use ($user_id){
             $q->where('user_id', $user_id);
         })->take(5)->get();
 
+        // 購入したアイデアの口コミを代入
         foreach($buyIdeas as $buyIdea){
             $buyIdea->rating = sprintf('%.1f',$buyIdea->reviews->avg('rating'));
             $buyIdea->countReview = $buyIdea->reviews->count();
         }
 
+        // お気に入りアイテムを登録順に取得
         $interestIdeas = Idea::whereHas('interests', function($q) use ($user_id){
             $q->where('user_id', $user_id);
         })->take(5)->get();
 
+        // 口コミの平均点を代入
         foreach($interestIdeas as $interestIdea){
             $interestIdea->rating = sprintf('%.1f',$interestIdea->reviews->avg('rating'));
             $interestIdea->countReview = $interestIdea->reviews->count();
         }
                     
 
+        // レビューを日付順に取得
         $ideaReviews = Review::whereHas('idea', function($q) use ($user_id){
             $q->where('user_id', $user_id);
         })->take(5)->get();

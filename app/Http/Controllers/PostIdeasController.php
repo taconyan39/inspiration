@@ -85,6 +85,7 @@ class PostIdeasController extends Controller
 
         $user = Auth::user();
 
+        // 口コミの平均点を代入
         $idea = Idea::find($id);
         $idea->rating = sprintf('%.1f',$idea->reviews()->avg('rating'));
         $idea->countReview = $idea->reviews->count();
@@ -154,11 +155,5 @@ class PostIdeasController extends Controller
         Idea::find($id)->delete();
         return redirect('mypage')->with('flash_message', '削除しました');
     }
-
-    public function delete($id){
-        Idea::find($id)->delete();
-        return redirect('mypage')->with('flash_message', '削除されました');
-    }
-
 
 }

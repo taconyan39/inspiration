@@ -64,16 +64,11 @@ class ReviewsController extends Controller
 
         $user = Auth::user();
         $user_id = $user->id;
+
+        // レビューを登録順に取得
         $reviews = Review::whereHas('idea', function($q) use ($user_id){
             $q->where('user_id', $user_id);
         })->orderBy('created_at')->paginate(10);
-
-        // dd();
-        // レビューがない場合にはfalseを返す
-        // if($reviews->exists()){
-        //     $reviews = false;
-            
-        // }
         
 
         return view('reviews.myidea-reviews',['reviews' => $reviews]);

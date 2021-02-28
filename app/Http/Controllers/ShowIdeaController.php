@@ -76,7 +76,11 @@ class ShowIdeaController extends Controller
 
         $user = Auth::user();
         $idea = Idea::find($id);
+
+        // 投稿者の情報を取得
         $contributor = DB::table('ideas')->where('id', $id)->where('user_id', $user->id)->exists();
+
+        // アイデアの購入履歴を取得
         $buy_flg = DB::table('buy_ideas')->where('idea_id', $id)->where('user_id',$user->id)->exists();
 
         // すでに購入済みでないかの確認
