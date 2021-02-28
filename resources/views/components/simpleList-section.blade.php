@@ -36,7 +36,7 @@
               <img class="c-img p-simpleList__userImg" src="{{ $item->user->icon_img }}" alt="">
             </div>
 
-            <span class="">{{ $item->user->name }}</span>
+            <p class="">{{ $item->user->name }}</p>
             
           </div>
 

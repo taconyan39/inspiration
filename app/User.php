@@ -53,8 +53,4 @@ class User extends Authenticatable
         return $this->hasManyThrough('App\Review', 'App\Idea');
     }
 
-    public function interestIdeas(){
-        return $this->belongsToMany('App\Idea', 'interests', 'user_id', 'idea_id')->withTimestamps();
-    }
-
 }

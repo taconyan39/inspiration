@@ -52,20 +52,16 @@ class MypageController extends Controller
 
         $buyIdeas = Idea::whereHas('buyIdeas', function($q) use ($user_id){
             $q->where('user_id', $user_id);
-        })->orderBy('created_at', 'desc')
-        ->take(5)
-        ->get();
+        })->take(5)->get();
 
         foreach($buyIdeas as $buyIdea){
             $buyIdea->rating = sprintf('%.1f',$buyIdea->reviews->avg('rating'));
             $buyIdea->countReview = $buyIdea->reviews->count();
         }
 
-        $interestIdeas = $user
-                    ->interestIdeas()
-                    ->orderBy('created_at','desc')
-                    ->take(5)
-                    ->get();
+        $interestIdeas = Idea::whereHas('interests', function($q) use ($user_id){
+            $q->where('user_id', $user_id);
+        })->take(5)->get();
 
         foreach($interestIdeas as $interestIdea){
             $interestIdea->rating = sprintf('%.1f',$interestIdea->reviews->avg('rating'));

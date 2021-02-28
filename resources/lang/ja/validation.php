@@ -166,7 +166,8 @@ return [
         'rating' => '評価',
         'review' => '口コミ',
         'price' => '価格',
-        'name' => '名前'
+        'name' => '名前',
+        'current_password' => '現在のパスワード'
     ],
 
 ];

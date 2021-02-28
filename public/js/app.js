@@ -2217,9 +2217,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['categories', 'delete', 'edit', 'idea', 'mypage'],
   data: function data() {
@@ -2251,7 +2248,8 @@ __webpack_require__.r(__webpack_exports__);
         content: this.content
       };
       this.errors = {};
-      var self = this;
+      var self = this; // アイデアの更新
+
       axios.put('/post-idea/' + this.id, params).then(function () {
         self.editIdea = true;
       })["catch"](function (error) {
@@ -2266,13 +2264,7 @@ __webpack_require__.r(__webpack_exports__);
         self.errors = errors;
       });
     },
-    onRemove: function onRemove() {
-      //   投稿の確認
-      if (!confirm('削除します。よろしいですか？')) {
-        return;
-      } // window.location.href = this.delete;
-
-    },
+    // 情報の取得
     getItem: function getItem() {
       this.id = this.idea.id;
       this.category_id = this.idea.category_id;
@@ -2298,6 +2290,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
 //
 //
 //
@@ -2633,6 +2629,35 @@ __webpack_require__.r(__webpack_exports__);
     axios.get(url).then(function (response) {
       _this2.item = response.data;
     });
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/OnRemoveBtn.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/OnRemoveBtn.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  methods: {
+    onRemove: function onRemove() {
+      //   削除の確認
+      if (!confirm('削除します。よろしいですか？')) {
+        return;
+      }
+    }
   }
 });
 
@@ -60965,33 +60990,39 @@ var render = function() {
               _vm._v(
                 "\n                      価格\n                      \n                      "
               ),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.price,
-                    expression: "price"
-                  }
-                ],
-                staticClass:
-                  "p-ideaPost__price\n                      c-form__input--half is-invalid",
-                attrs: {
-                  id: "price",
-                  type: "price",
-                  name: "price",
-                  autocomplete: "price"
-                },
-                domProps: { value: _vm.price },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+              _c("div", { staticClass: "p-ideaList__row c-flex--start" }, [
+                _c("div", { staticClass: "p-ideaPost__price--mark " }, [
+                  _vm._v("￥")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.price,
+                      expression: "price"
                     }
-                    _vm.price = $event.target.value
+                  ],
+                  staticClass:
+                    "p-ideaPost__price\n                        c-form__input--half is-invalid",
+                  attrs: {
+                    id: "price",
+                    type: "price",
+                    name: "price",
+                    autocomplete: "price"
+                  },
+                  domProps: { value: _vm.price },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.price = $event.target.value
+                    }
                   }
-                }
-              }),
+                })
+              ]),
               _vm._v(" "),
               _c("div", {
                 staticClass: "c-error",
@@ -61130,59 +61161,41 @@ var render = function() {
             domProps: { innerHTML: _vm._s(_vm.errors.content) }
           }),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "c-flex--between p-ideaPost__btn--container" },
-            [
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "c-btn       c-form__btn p-ideaPost__btn--remove",
-                  attrs: { type: "submit" },
-                  on: {
-                    click: function($event) {
-                      return _vm.onRemove()
-                    }
+          _c("div", { staticClass: "c-flex--end p-ideaPost__btn--container" }, [
+            _c(
+              "button",
+              {
+                staticClass:
+                  "c-btn       c-form__btn\n                  c-btn--action2\n                  p-ideaPost__btn",
+                on: {
+                  click: function($event) {
+                    $event.stopPropagation()
+                    return _vm.onSubmit()
                   }
-                },
-                [
-                  _vm._v(
-                    "\n                              削除する\n                  "
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "c-btn       c-form__btn\n                  c-btn--action2\n                  p-ideaPost__btn",
-                  on: {
-                    click: function($event) {
-                      return _vm.onSubmit()
-                    }
-                  }
-                },
-                [
-                  _vm._v(
-                    "\n                              編集する\n                  "
-                  )
-                ]
-              )
-            ]
-          )
+                }
+              },
+              [
+                _vm._v(
+                  "\n                              編集する\n                  "
+                )
+              ]
+            )
+          ])
         ])
       : _c("div", { staticClass: "c-form p-ideaPost__form--posted" }, [
           _c("p", [_vm._v("編集されました")]),
           _vm._v(" "),
-          _c("a", { staticClass: "c-btn", attrs: { href: _vm.mypage } }, [
-            _vm._v("マイページに戻る")
-          ]),
+          _c(
+            "a",
+            { staticClass: "c-btn c-btn--action", attrs: { href: _vm.mypage } },
+            [_vm._v("マイページに戻る")]
+          ),
           _vm._v(" "),
-          _c("a", { staticClass: "c-btn", attrs: { href: _vm.edit } }, [
-            _vm._v("編集に戻る")
-          ])
+          _c(
+            "a",
+            { staticClass: "c-btn c-btn--action2", attrs: { href: _vm.edit } },
+            [_vm._v("編集に戻る")]
+          )
         ])
   ])
 }
@@ -61353,38 +61366,44 @@ var render = function() {
                 attrs: { for: "price" }
               },
               [
-                _vm._v("\n            価格\n            \n            "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model.number",
-                      value: _vm.price,
-                      expression: "price",
-                      modifiers: { number: true }
-                    }
-                  ],
-                  staticClass:
-                    "p-ideaPost__price\n            c-form__input--half is-invalid",
-                  attrs: {
-                    id: "price",
-                    type: "price",
-                    name: "price",
-                    autocomplete: "price"
-                  },
-                  domProps: { value: _vm.price },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
+                _vm._v("\n            価格\n\n            "),
+                _c("div", { staticClass: "p-ideaList__row c-flex--start" }, [
+                  _c("div", { staticClass: "p-ideaPost__price--mark " }, [
+                    _vm._v("￥")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model.number",
+                        value: _vm.price,
+                        expression: "price",
+                        modifiers: { number: true }
                       }
-                      _vm.price = _vm._n($event.target.value)
+                    ],
+                    staticClass:
+                      "p-ideaPost__price\n                c-form__input--half is-invalid",
+                    attrs: {
+                      id: "price",
+                      type: "price",
+                      name: "price",
+                      autocomplete: "price"
                     },
-                    blur: function($event) {
-                      return _vm.$forceUpdate()
+                    domProps: { value: _vm.price },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.price = _vm._n($event.target.value)
+                      },
+                      blur: function($event) {
+                        return _vm.$forceUpdate()
+                      }
                     }
-                  }
-                }),
+                  })
+                ]),
                 _vm._v(" "),
                 _c("div", {
                   staticClass: "c-error",
@@ -61769,6 +61788,42 @@ var render = function() {
           [_vm._v("気になる")]
         )
   ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/OnRemoveBtn.vue?vue&type=template&id=7136927e&":
+/*!**************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/OnRemoveBtn.vue?vue&type=template&id=7136927e& ***!
+  \**************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "button",
+    {
+      staticClass: "c-btn       c-form__btn p-ideaPost__btn--remove",
+      attrs: { type: "submit" },
+      on: {
+        click: function($event) {
+          return _vm.onRemove()
+        }
+      }
+    },
+    [_vm._v("\n                            削除する\n                ")]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -74375,6 +74430,7 @@ Vue.component('idea-post-form', __webpack_require__(/*! ./components/IdeaPostFor
 Vue.component('idea-reviews', __webpack_require__(/*! ./components/IdeaReviews.vue */ "./resources/js/components/IdeaReviews.vue")["default"]);
 Vue.component('interest-component', __webpack_require__(/*! ./components/InterestComponent.vue */ "./resources/js/components/InterestComponent.vue")["default"]);
 Vue.component('post-review', __webpack_require__(/*! ./components/PostReview.vue */ "./resources/js/components/PostReview.vue")["default"]);
+Vue.component('on-remove-btn', __webpack_require__(/*! ./components/OnRemoveBtn.vue */ "./resources/js/components/OnRemoveBtn.vue")["default"]);
 Vue.component('profile-menu', __webpack_require__(/*! ./components/ProfileMenu.vue */ "./resources/js/components/ProfileMenu.vue")["default"]);
 Vue.component('textarea-label', __webpack_require__(/*! ./components/TextareaLabel.vue */ "./resources/js/components/TextareaLabel.vue")["default"]);
 /**
@@ -75012,6 +75068,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_InterestComponent_vue_vue_type_template_id_ebb5bed0___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_InterestComponent_vue_vue_type_template_id_ebb5bed0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/OnRemoveBtn.vue":
+/*!*************************************************!*\
+  !*** ./resources/js/components/OnRemoveBtn.vue ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _OnRemoveBtn_vue_vue_type_template_id_7136927e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./OnRemoveBtn.vue?vue&type=template&id=7136927e& */ "./resources/js/components/OnRemoveBtn.vue?vue&type=template&id=7136927e&");
+/* harmony import */ var _OnRemoveBtn_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OnRemoveBtn.vue?vue&type=script&lang=js& */ "./resources/js/components/OnRemoveBtn.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _OnRemoveBtn_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _OnRemoveBtn_vue_vue_type_template_id_7136927e___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _OnRemoveBtn_vue_vue_type_template_id_7136927e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/OnRemoveBtn.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/OnRemoveBtn.vue?vue&type=script&lang=js&":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/OnRemoveBtn.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_OnRemoveBtn_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./OnRemoveBtn.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/OnRemoveBtn.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_OnRemoveBtn_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/OnRemoveBtn.vue?vue&type=template&id=7136927e&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/components/OnRemoveBtn.vue?vue&type=template&id=7136927e& ***!
+  \********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OnRemoveBtn_vue_vue_type_template_id_7136927e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./OnRemoveBtn.vue?vue&type=template&id=7136927e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/OnRemoveBtn.vue?vue&type=template&id=7136927e&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OnRemoveBtn_vue_vue_type_template_id_7136927e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OnRemoveBtn_vue_vue_type_template_id_7136927e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

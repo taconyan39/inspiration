@@ -1288,6 +1288,10 @@ li {
   padding: 10px;
 }
 
+.p-ideaList__row {
+  align-items: center;
+}
+
 .p-review__list {
   display: flex;
   justify-content: space-around;
@@ -1438,7 +1442,7 @@ li {
 
 @media screen and (max-width: 768px) {
   .p-simpleList__body--left {
-    width: 20%;
+    width: 40%;
   }
 }
 
@@ -1706,12 +1710,17 @@ li {
   color: #f8fafc;
 }
 
-.p-ideaPost__price::after {
-  content: "\A5";
+.p-ideaPost__price--mark {
+  display: inline-block;
+  margin-top: auto;
 }
 
 .p-ideaPost__textarea {
   height: 300px;
+}
+
+.p-ideaPost__row {
+  margin-bottom: 20px;
 }
 
 .p-ideaDetail__bottom {

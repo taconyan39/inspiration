@@ -39,14 +39,18 @@
 
         <label for="price" class="p-ideaPost__label c-form__label">
             価格
+
+            <div class="p-ideaList__row c-flex--start">
+                <div class="p-ideaPost__price--mark ">￥</div>
             
-            <input id="price"
-            type="price"
-            class="p-ideaPost__price
-            c-form__input--half is-invalid" 
-            name="price"
-            v-model.number="price"
-            autocomplete="price">
+                <input id="price"
+                type="price"
+                class="p-ideaPost__price
+                c-form__input--half is-invalid" 
+                name="price"
+                v-model.number="price"
+                autocomplete="price">
+            </div>
             
             <div class="c-error" role="alert" v-html="errors.price">
             </div>

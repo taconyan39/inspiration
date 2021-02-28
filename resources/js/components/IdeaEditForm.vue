@@ -39,14 +39,16 @@
                   <label for="price" class="p-ideaPost__label c-form__label">
                       価格
                       
-                      <input id="price"
-                      type="price"
-                      class="p-ideaPost__price
-                      c-form__input--half is-invalid" 
-                      name="price"
-                      v-model="price"
-                    autocomplete="price">
-                      
+                      <div class="p-ideaList__row c-flex--start">
+                        <div class="p-ideaPost__price--mark ">￥</div>
+                        <input id="price"
+                        type="price"
+                        class="p-ideaPost__price
+                        c-form__input--half is-invalid" 
+                        name="price"
+                        v-model="price"
+                        autocomplete="price">
+                        </div>
                       <div class="c-error" role="alert" v-html="errors.price">
                   </div>
                   </label>
@@ -97,17 +99,12 @@
                   </div>
 
 
-              <div class="c-flex--between p-ideaPost__btn--container">
-                  
-                  <button class="c-btn       c-form__btn p-ideaPost__btn--remove" type="submit"
-                          @click="onRemove()">
-                              削除する
-                  </button>
+              <div class="c-flex--end p-ideaPost__btn--container">
 
                   <button class="c-btn       c-form__btn
                   c-btn--action2
                   p-ideaPost__btn"
-                          @click="onSubmit()">
+                          @click.stop="onSubmit()">
                               編集する
                   </button>
               </div>
@@ -118,9 +115,9 @@
       <!-- 投稿成功後の画面 -->
       <div v-else class="c-form p-ideaPost__form--posted">
           <p>編集されました</p>
-          <a class="c-btn" :href="mypage">マイページに戻る</a>
+          <a class="c-btn c-btn--action" :href="mypage">マイページに戻る</a>
           
-          <a class="c-btn" :href="edit">編集に戻る</a>
+          <a class="c-btn c-btn--action2" :href="edit">編集に戻る</a>
       </div>
 
     </div>
@@ -161,6 +158,7 @@ export default {
         this.errors = {};
         var self = this;
 
+        // アイデアの更新
         axios.put('/post-idea/' + this.id, params)
             .then(function(){
                 self.editIdea = true
@@ -179,16 +177,7 @@ export default {
                 self.errors = errors;
             });
         },
-        onRemove(){
-            //   投稿の確認
-        if(!confirm('削除します。よろしいですか？')) {
-            return;
-        }
-
-            // window.location.href = this.delete;
-
-
-        },
+        // 情報の取得
         getItem() {
 
             this.id = this.idea.id;

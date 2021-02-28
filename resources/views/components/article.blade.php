@@ -23,9 +23,6 @@
         </div>
         
         <div class="p-ideaDetail__info c-row c-flex--between">
-            <div>
-                <span class="c-tag--large p-ideaDetail__infoItem--tag">{{ $idea->category->name_ja }}</span>
-            </div>
             <div class="c-flex--end p-ideaDetail__user">
                 <div class="c-img--outer c-img--round p-ideaDetail__userImg--outer">
                     <img class="c-img p-ideaList__userImg" src="{{ $idea->user->icon_img }}" alt="アイコン画像">
@@ -34,6 +31,10 @@
                     
                     <span class="p-ideaDetail__user--name">{{ $idea->user->name }}<span>
                 </div>
+            </div>
+
+            <div class="p-ideaDetail__info c-row">
+                <span class="c-tag--large p-ideaDetail__infoItem--tag">{{ $idea->category->name_ja }}</span>
             </div>
         
         <div class="p-ideaDetail__summary">

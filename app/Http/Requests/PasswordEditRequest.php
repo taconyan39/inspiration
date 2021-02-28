@@ -26,13 +26,13 @@ class PasswordEditRequest extends FormRequest
     public function rules()
     {
         return [
-            'current_password' => ['max:255 | alpha_dash | min:8 | required',
+            'current_password' => ['max:255', 'alpha_dash' , 'min:8','required',
                 // Ruleで現在のパスワードと一致するかの確認を行っている
                 new UserPasswordRule(
                     $this->user_id
                 )
             ],
-            'password' => ['max:255', 'min:8', 'alpha_dash', 'confirmed', new Half,]
+            'password' => ['max:255', 'min:8', 'alpha_dash', 'confirmed', 'different:current_password', new Half,]
         ];
     }
 }

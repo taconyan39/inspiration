@@ -29,6 +29,7 @@ Vue.component('idea-post-form', require('./components/IdeaPostForm.vue').default
 Vue.component('idea-reviews', require('./components/IdeaReviews.vue').default);
 Vue.component('interest-component', require('./components/InterestComponent.vue').default);
 Vue.component('post-review', require('./components/PostReview.vue').default);
+Vue.component('on-remove-btn', require('./components/OnRemoveBtn.vue').default);
 Vue.component('profile-menu', require('./components/ProfileMenu.vue').default);
 Vue.component('textarea-label', require('./components/TextareaLabel.vue').default);
 
