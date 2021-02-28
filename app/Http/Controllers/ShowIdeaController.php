@@ -93,8 +93,10 @@ class ShowIdeaController extends Controller
         }else{
 
             // 購入が発生した場合にアイデアに購入済みフラグをつける
-            if($idea->buy_flg === 0){
-                $idea->buy_flg = 1;
+
+            if($idea->sold_flg == 0){
+                $idea->sold_flg = true;
+                $idea->save();
             }
 
             // 購入者と出品者にメールを送信
@@ -109,8 +111,6 @@ class ShowIdeaController extends Controller
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
                 ]);
-                
-
                 return redirect('idea/' . $id);
         }
     }

@@ -34,7 +34,7 @@ class UsersTableSeeder extends Seeder
             ]);
             DB::table('users')->insert([
                 'name' => 'sample3',
-                'email' => 'xample4@sample.com',
+                'email' => 'example3@sample.com',
                 'introduction' => '2018年6月にツイッターをはじめたばかり。全てをなんとな〜く書いて、その後ほったらかしてました。苦笑
                 ',
                 'password' => bcrypt('password'),

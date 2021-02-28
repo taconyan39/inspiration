@@ -17,7 +17,6 @@ class CreateInterestsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('user_id')->nullable;
             $table->integer('idea_id')->nullable;
-            // $table->boolean('interest_flg');
             $table->timestamps();
         });
     }
