@@ -216,6 +216,7 @@
       &-sp{
         align-items:center;
         display: flex;
+        width: 50%;
       }
     }
   }
@@ -268,6 +269,7 @@
     margin-bottom: 20px;
     font-size: $font-size_lg;
     color: $color_gray;
+    overflow-wrap: break-word;
   }
   &__title{
     text-align: center;
@@ -547,7 +549,7 @@
       min-height: 150px;
       background: $color_white;
     }
-    &--txt{
+    &--text{
       overflow-wrap: break-word;
     }
   }
@@ -782,6 +784,7 @@
     margin-bottom: $spacing-lg;
     font-size: $font-size_xl;
     overflow: hidden;
+    overflow-wrap: break-word;
     @include mq(md){
       font-size: $font-size_lg;
     }

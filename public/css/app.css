@@ -1197,6 +1197,7 @@ li {
 .p-ideaList__body--right-sp {
   align-items: center;
   display: flex;
+  width: 50%;
 }
 
 .p-ideaList__bottom {
@@ -1255,6 +1256,7 @@ li {
   margin-bottom: 20px;
   font-size: 1.2rem;
   color: #999;
+  overflow-wrap: break-word;
 }
 
 .p-ideaList__title {
@@ -1590,7 +1592,7 @@ li {
   background: #f8fafc;
 }
 
-.p-profileSidebar__introduction--txt {
+.p-profileSidebar__introduction--text {
   overflow-wrap: break-word;
 }
 
@@ -1855,6 +1857,7 @@ li {
   margin-bottom: 15px;
   font-size: 1.4rem;
   overflow: hidden;
+  overflow-wrap: break-word;
 }
 
 @media screen and (max-width: 768px) {
