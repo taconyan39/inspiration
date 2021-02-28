@@ -9,10 +9,11 @@ use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\PasswordEditRequest;
 use App\Mail\PasswordEdit;
 
+// パスワード変更用の処理
 class PasswordEditController extends Controller
 {
 
-    // パスワード変更画面
+    // パスワード変更画面の表示
     public function edit(){
         return view('auth/passwords/password-edit');
     }

@@ -1,5 +1,5 @@
 <template>
-
+<!-- アイコン画像変更用コンポーネント -->
       <div>
         <div class="c-img--outer c-img--round p-profileEdit__img--outer">
         

@@ -1,4 +1,6 @@
+
 <template>
+<!-- 購入処理用コンポーネント -->
   <div class="c-btn__wrapper p-buy__btn--wrapper">
 
     <input type="submit"

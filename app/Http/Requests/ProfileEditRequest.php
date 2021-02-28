@@ -7,6 +7,7 @@ use App\Rules\UserPasswordRule;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 
+// プロフィール編集のバリデーション
 class ProfileEditRequest extends FormRequest
 {
     /**

@@ -11,7 +11,6 @@
         @include('components.myidea-article',['idea' => $idea])
             
 
-        <!-- <idea-reviews img="{{ asset('storage/images/icons') }}" :id="{{$idea->id}}"></idea-reviews> -->
         <idea-reviews :id="{{$idea->id}}"></idea-reviews>
         
         <div class="c-link__container">

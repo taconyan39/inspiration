@@ -7,6 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
+// パスワードを変更したときのメール処理
 class PasswordEdit extends Mailable
 {
     use Queueable, SerializesModels;

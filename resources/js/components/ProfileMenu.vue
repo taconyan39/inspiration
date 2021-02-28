@@ -1,4 +1,5 @@
 <template>
+<!-- ハンバーガーのメニュー表示用コンポーネント -->
   <div class="l-sp__menu">
 
     <ul v-if="name" class="c-list p-profileSidebar__items">

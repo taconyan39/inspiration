@@ -76,7 +76,7 @@ class PostIdeasController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-     // 自分が投稿したアイデアのページ
+     // 自分が投稿したアイデアの表示
     public function show($id)
     {
         if(!ctype_digit($id)){

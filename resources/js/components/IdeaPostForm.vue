@@ -1,5 +1,5 @@
 <template>
-
+<!-- アイデア投稿用コンポーネント -->
 <div>
 <form class="c-form p-ideaPost__form u-clearfix" name="form" v-if="!postIdea">
 
@@ -81,7 +81,6 @@
                     <label for="content" class="p-ideaPost__label c-form__label">
                         アイデアの詳細
                     
-                        
                         <textarea id="content" class="p-ideaPost__textarea
                         c-form__textarea  is-invalid
                         

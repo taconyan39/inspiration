@@ -7,8 +7,10 @@ use App\Idea;
 use App\Category;
 use App\Review;
 
+// トップページ表示用のクラス
 class TopController extends Controller
 {
+    // トップページの表示
     public function index(){
 
         $categories = Category::all();

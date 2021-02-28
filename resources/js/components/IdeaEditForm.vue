@@ -1,5 +1,5 @@
 <template>
-
+<!-- アイデア編集用コンポーネント -->
 <div>
   <div class="c-form p-ideaPost__form u-clearfix" v-if="!editIdea">
 

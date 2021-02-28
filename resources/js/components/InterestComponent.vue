@@ -1,5 +1,5 @@
 <template>
-
+<!-- 気になる処理用コンポーネント -->
   <div>
     <button class="c-btn--middle c-btn--white p-interest__btn"  v-if="item.flg" @click="onChangeInterest(item.flg)">
       <span class="c-star"></span>

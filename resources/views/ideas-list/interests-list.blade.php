@@ -15,7 +15,7 @@
     @component('components.ideasList-section', ['ideas' => $ideas, 'listType' => 2])
 
       @slot('title')
-        気になるアイデア一覧
+        気になるリスト一覧
       @endslot
       
     @endcomponent

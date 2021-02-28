@@ -1,4 +1,5 @@
 <template>
+<!-- フラッシュメッセージ用コンポーネント -->
     <div v-if="flash" class="c-flash">{{ flash }}</div>
 </template>
 

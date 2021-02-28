@@ -7,6 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
+// レビュー到着のメール処理
 class ArrivedReview extends Mailable
 {
     use Queueable, SerializesModels;

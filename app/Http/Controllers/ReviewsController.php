@@ -12,7 +12,7 @@ use App\Idea;
 use App\Mail\ArrivedReview;
 use App\Http\Requests\PostReviewRequest;
 
-// 口コミの処理
+// 口コミ操作用のクラス
 class ReviewsController extends Controller
 {
 
@@ -24,6 +24,7 @@ class ReviewsController extends Controller
 
     }
 
+    // 口コミに投稿処理
     public function postreview(PostReviewRequest $request, $id){
 
         $user = Auth::user();

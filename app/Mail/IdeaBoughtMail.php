@@ -7,6 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
+// アイデア購入のメール処理
 class IdeaBoughtMail extends Mailable
 {
     use Queueable, SerializesModels;

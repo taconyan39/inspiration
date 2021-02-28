@@ -9,7 +9,7 @@ use App\Review;
 use App\Http\Controllers\Controller,
     Session;
 
-
+// マイページの表示用
 class MypageController extends Controller
 {
     /**

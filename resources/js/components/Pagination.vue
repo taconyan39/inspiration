@@ -1,4 +1,5 @@
 <template>
+<!-- レビューのページネーション -->
 <div>
     <ul class="p-pagination">
         <li class="p-pagination__item" v-if="hasPrev">

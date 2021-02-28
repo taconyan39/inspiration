@@ -1,5 +1,5 @@
 <template>
-
+<!-- ハンバーガー用コンポーネント -->
     <div class="p-header__hamburger" @click="toggleMenu">
         <div class="c-hamburger__line p-header__hamburger--top"></div>
         <div class="c-hamburger__line p-header__hamburger--middle"></div> 

@@ -1,4 +1,5 @@
 <template>
+<!-- 気になる解除用コンポーネント -->
   <button class="c-btn       c-form__btn p-ideaPost__btn--remove" type="submit"
                           @click="onRemove()">
                               削除する

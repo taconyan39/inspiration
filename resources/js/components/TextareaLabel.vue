@@ -1,4 +1,5 @@
 <template>
+<!-- テキストエリアの字数カウント用コンポーネント -->
   <label for="category_id" class="p-profileEdit__label c-form__label">
       <div class="c-row">
         {{title}}

@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use App\Idea;
 
+// アイデア投稿フォームのAjax処理
 class PostIdeasController extends Controller
 {
     // お気に入りの操作

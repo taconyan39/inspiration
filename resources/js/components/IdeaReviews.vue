@@ -1,4 +1,5 @@
 <template>
+<!-- アイデアに寄せられた口コミを表示するコンポーネント -->
 <section class="p-ideaReviews">
 
   <p class="p-ideaDetail__reviewTitle">みんなの口コミ</p>

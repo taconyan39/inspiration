@@ -6,6 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use App\Rules\UserPasswordRule;
 use App\Rules\Half;
 
+// パスワード編集用バリデーション
 class PasswordEditRequest extends FormRequest
 {
     /**

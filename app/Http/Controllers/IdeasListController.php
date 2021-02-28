@@ -9,12 +9,13 @@ use App\Idea;
 use App\Sort;
 use App\Category;
 
+// アイデア一覧表示用クラス
 class IdeasListController extends Controller
 {
 
+    // すべてのアイデア一覧
     public function index(Request $request){
         
-        // アイデア一覧
         $categories = Category::all();
         $sorts = Sort::all();
 

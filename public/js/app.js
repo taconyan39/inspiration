@@ -1970,6 +1970,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   methods: {
     onBuy: function onBuy() {
@@ -1991,6 +1993,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -2413,7 +2416,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['categories', 'url'],
   data: function data() {
@@ -2475,6 +2477,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Pagination_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Pagination.vue */ "./resources/js/components/Pagination.vue");
+//
 //
 //
 //
@@ -2650,6 +2653,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   methods: {
     onRemove: function onRemove() {
@@ -2672,6 +2676,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -2838,6 +2843,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['img', 'login', 'register', 'list', 'name', 'noimg', 'mypage', 'profedit', 'postidea', 'all-ideaslist']
 });
@@ -2853,6 +2859,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -60708,7 +60715,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "c-btn__wrapper p-buy__btn--wrapper" }, [
     _c("input", {
-      staticClass: "c-btn--large p-buy__btn\n    c-btn--action2\n    ",
+      staticClass: "c-btn--large p-buy__btn\n      c-btn--action2\n      ",
       attrs: { type: "submit", value: "購入する", name: "buy", id: "buy" },
       on: { click: _vm.onBuy }
     })
@@ -61484,7 +61491,7 @@ var render = function() {
               },
               [
                 _vm._v(
-                  "\n                        アイデアの詳細\n                    \n                        \n                        "
+                  "\n                        アイデアの詳細\n                    \n                        "
                 ),
                 _c("textarea", {
                   directives: [
@@ -61770,7 +61777,7 @@ var render = function() {
           },
           [
             _c("span", { staticClass: "c-star" }),
-            _vm._v("\n  気になる"),
+            _vm._v("\n    気になる"),
             _c("br"),
             _vm._v("を解除する")
           ]
@@ -61822,7 +61829,7 @@ var render = function() {
         }
       }
     },
-    [_vm._v("\n                            削除する\n                ")]
+    [_vm._v("\n                              削除する\n                  ")]
   )
 }
 var staticRenderFns = []
@@ -62183,7 +62190,7 @@ var render = function() {
     },
     [
       _c("div", { staticClass: "c-row" }, [
-        _vm._v("\n      " + _vm._s(_vm.title) + "\n    ")
+        _vm._v("\n        " + _vm._s(_vm.title) + "\n      ")
       ]),
       _vm._v(" "),
       _c("textarea", {

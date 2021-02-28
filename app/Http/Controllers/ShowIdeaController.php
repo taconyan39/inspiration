@@ -13,7 +13,6 @@ use App\Mail\IdeaBoughtMail;
 use Carbon\Carbon;
 
 // 購入者側のアイデアの処理
-
 class ShowIdeaController extends Controller
 {
     // アイデアの表示

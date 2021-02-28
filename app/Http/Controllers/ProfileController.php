@@ -7,9 +7,10 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ProfileEditRequest;
 use Illuminate\Support\Facades\Storage;
 
+// プロフィール用クラス
 class ProfileController extends Controller
 {
-    // プロフィール編集画面
+    // プロフィール編集画面の表示
     public function edit(){
 
         $user = Auth::user();

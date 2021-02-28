@@ -1,5 +1,5 @@
 <template>
-
+<!-- レビュー投稿用のコンポーネント -->
     <label for="review" class="c-form__label">
       <textarea class="c-form__textarea p-postReview__form--textare"             name="review"
                 id="review"
