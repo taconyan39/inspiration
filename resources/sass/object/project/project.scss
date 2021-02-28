@@ -547,6 +547,9 @@
       min-height: 150px;
       background: $color_white;
     }
+    &--txt{
+      overflow-wrap: break-word;
+    }
   }
   &__btn{
     display: block;
@@ -788,6 +791,7 @@
     text-overflow: ellipsis;
     box-sizing: border-box;
     text-align: start;
+    overflow-wrap: break-word;
     &--wrapper{
       padding: $spacing-3l $spacing-3l $spacing-lg;
       box-sizing: border-box;

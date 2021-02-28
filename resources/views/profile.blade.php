@@ -64,6 +64,7 @@
                     title="自己紹介文"
                     oldvalue="{{old('introduction')}}"
                     max="100"
+                    txt="{{$user->introduction}}"
                     name="introduction">
                 </textarea-label>
                 

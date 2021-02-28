@@ -181,6 +181,7 @@
     font-weight: bold;
     font-size:$font-size_xl;
     overflow: hidden;
+    overflow-wrap: break-word;
   }
   &__item{
     border-bottom: 1px solid $color_black;
@@ -529,6 +530,8 @@
 }
 
 .c-selectBox{
+  -webkit-appearance: none;
+	-moz-appearance: none;
   margin-right: $spacing_md;
   font-size: $font_size-lg;
   padding: $spacing_md;

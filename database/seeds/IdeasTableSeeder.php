@@ -112,6 +112,18 @@ EOF
             'updated_at' => Carbon::now(),
             'created_at' => Carbon::createFromDate(2020, 2, 16),
             ]);
+
+        DB::table('ideas')->insert([
+            'title' => 'https://www.g',
+            'price' => 14800,
+            'summary' => 'https://www.google.com/search?sxsrf=ALeKk00BHGd-B-vUsPv3gbqLt-NqRQs',
+            'content' => 'https://www.google.com/search?sxsrf=ALeKk00BHGd-B-vUsPv3gbqLt-NqRQszbg%3A1614480803522&ei=owU7YMi_H9GvoAT18JeYCQ&q=%E7%BF%BB%E8%A8%B3&oq=%E7%BF%BB%E8%A8%B3&gs_lcp=Cgdnd3Mtd2l6EAMyBAgjECcyCAgAELEDELEDMgIIADIICAAQsQMQgwEyCAgAELEDELEDMggIABCxAxCxAzIOCAAQsQMQgwEQsQMQgwEyAggAOgUIABCwAzoJCAAQsAMQBxAeOgsIABCwAxAHEAoQHjoHCCMQ6gIQJzoKCAAQsQMQgwEQBDoFCAAQsQM6BwgAELEDEAQ6BAgAEAQ6BwgjELECECdQ98MPWPvgD2CG4w9oBXAAeACAAaEBiAHODJIBBDAuMTOYAQCgAQGqAQdnd3Mtd2l6sAEKyAEIwAEB&sclient=gws-wiz&ved=0ahUKEwiInanWyYvvAhXRF4gKHXX4BZMQ4dUDCA0&uact=5',
+            'user_id' => 2,
+            'category_id' => 5,
+            'sold_flg' => 1,
+            'updated_at' => Carbon::now(),
+            'created_at' => Carbon::createFromDate(2020, 2, 16),
+            ]);
         for($i = 1; $i <= 10; $i++){
 
             $u = mt_rand(2 , 8);
@@ -206,8 +218,8 @@ EOF
             'updated_at' => Carbon::now(),
             'created_at' => Carbon::createFromDate(2020, $i + 4, $i + 5),
         ]);
-
             }
+
             for($i = 1; $i <= 10; $i++){
                 $u = mt_rand(2 , 8);
             $c = mt_rand(2 , 7);
@@ -239,6 +251,25 @@ EOF
             
             終盤
             ヒーローの能力を最も発揮するアイテムが揃い、高レベルでヒーローの特徴もはっきりとするのでより有利に戦うためチームがまとまって行動する。そのため、5対5のような集団戦が発生し、結果どちらかのチームが全滅、復活までの待機時間中に本拠地が破壊されることで勝敗が決する。',
+            'user_id' => $u,
+            'category_id' => $c,
+            'updated_at' => Carbon::now(),
+            'created_at' => Carbon::createFromDate(2020, $i + 4, $i + 5),
+        ]);
+            }
+
+            for($i = 1; $i <= 10; $i++){
+                $u = mt_rand(2 , 8);
+            $c = mt_rand(2 , 7);
+        DB::table('ideas')->insert([
+            'title' => 'I am a Cat', 'price' => $u * 1000 + $c * 100 + $i * 10,
+            'summary' => "I am a cat. There is no name yet.
+            I have no idea where I was born. I remember only crying in a dim and damp place.  ",
+            'content' => "
+            I am a cat. There is no name yet.
+            I have no idea where I was born. I remember only crying in a dim and damp place. I saw human beings for the first time here. Moreover, I heard later that it was the most evil race of human beings called Shosei. This student is a story that sometimes catches us and eats them in a boil. However, I didn't think anything at that time, so I didn't think it was particularly scary. It just felt fluffy when it was placed on the palm of his palm and lifted up. It is probably the beginning of what is called a human being that he calms down a little on his palm and sees the student's face. The feeling that I thought was strange at this time still remains
+            
+           ",
             'user_id' => $u,
             'category_id' => $c,
             'updated_at' => Carbon::now(),

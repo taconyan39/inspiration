@@ -2848,8 +2848,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['title', 'oldvalue', 'max', 'name'],
+  props: ['title', 'oldvalue', 'max', 'name', 'txt'],
   data: function data() {
     return {
       item: this.oldvalue ? this.oldvalue : ''
@@ -61234,7 +61236,8 @@ var render = function() {
                         expression: "category_id"
                       }
                     ],
-                    staticClass: "p-ideaPost__select c-form__input--half",
+                    staticClass:
+                      "p-ideaPost__select c-form__input--half c-selectBox",
                     attrs: {
                       id: "category_id",
                       name: "category_id",
@@ -61748,7 +61751,9 @@ var render = function() {
           },
           [
             _c("span", { staticClass: "c-star" }),
-            _vm._v("\n  気になるを解除する")
+            _vm._v("\n  気になる"),
+            _c("br"),
+            _vm._v("を解除する")
           ]
         )
       : _c(
@@ -62143,7 +62148,7 @@ var render = function() {
           autocomplete: _vm.name,
           maxlength: _vm.max
         },
-        domProps: { value: _vm.item },
+        domProps: { value: _vm.item, textContent: _vm._s(_vm.txt) },
         on: {
           input: function($event) {
             if ($event.target.composing) {

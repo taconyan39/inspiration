@@ -11,14 +11,7 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-// テスト用ページ
-Route::get('/test', 'TestController@get');
-Route::post('/test', 'TestController@post');
-
+// 認証middleware
 Route::group(['middleware' => ['auth']], function () {
   Route::resource('post-idea', 'PostIdeasController');
   Route::get('myideas-list', 'IdeasListController@myidea')->name('myideas-list');

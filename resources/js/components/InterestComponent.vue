@@ -3,7 +3,7 @@
   <div>
     <button class="c-btn--middle c-btn--white p-interest__btn"  v-if="item.flg" @click="onChangeInterest(item.flg)">
       <span class="c-star"></span>
-    気になるを解除する</button>
+    気になる<br>を解除する</button>
 
     <button v-else class="c-btn--middle c-btn--action3 p-interest__btn" @click="onChangeInterest(item.flg)">気になる</button>
   </div>

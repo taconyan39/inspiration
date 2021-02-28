@@ -4,11 +4,13 @@
         {{title}}
       </div>
 
-      <textarea :id="name"           class="p-profileEdit__name c-form__textarea"
+      <textarea :id="name"
+          class="p-profileEdit__name c-form__textarea"
           :name="name"
           :autocomplete="name"
           :maxlength="max"
-          v-model.trim="item">
+          v-model.trim="item"
+          v-text="txt">
       </textarea>
 
       <div class="p-ideaPost__count c-form__countLength  c-flex--end">
@@ -20,7 +22,7 @@
 
 <script>
 export default {
-  props:['title', 'oldvalue', 'max', 'name'],
+  props:['title', 'oldvalue', 'max', 'name','txt'],
   data: function(){
     return {
       item: (this.oldvalue) ? this.oldvalue : '',

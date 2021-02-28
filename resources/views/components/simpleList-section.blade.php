@@ -35,6 +35,8 @@
             <div class="c-img--outer c-img--round c-card--top p-simpleList__userImg--outer">
               <img class="c-img p-simpleList__userImg" src="{{ $item->user->icon_img }}" alt="">
             </div>
+
+            <span class="">{{ $item->user->name }}</span>
             
           </div>
 
@@ -42,7 +44,6 @@
 
             <div class="p-simpleList__body--upper c-flex--start">
               <span class="c-tag p-simpleList__tag">{{ $item->category->name_ja}}</span>
-              <span class="">{{ $item->user->name }}</span>
             </div>
             <div class="p-simpleList__body--title c-list__title">
               <h3>{{ $item->title }}</h3>

@@ -6,7 +6,7 @@
     <label for="category_id" class="p-ideaPost__label c-form__label">
         カテゴリー
 
-        <select id="category_id" class="p-ideaPost__select c-form__input--half"
+        <select id="category_id" class="p-ideaPost__select c-form__input--half c-selectBox"
         name="category_id"
         v-model="category_id"
         autocomplete="category_id"
