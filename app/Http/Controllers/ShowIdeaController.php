@@ -21,13 +21,16 @@ class ShowIdeaController extends Controller
             if(!ctype_digit($id)){
                 return redirect('mypage')->with('flash_message', __('Invalid operation was performed.'));
             }
-
     
             $user = Auth::user();
             $idea = Idea::find($id);
+
+            if($idea === null){
+               abort(404); 
+            }
+
             $idea->rating = sprintf('%.1f',$idea->reviews()->avg('rating'));
             $idea->countReview = $idea->reviews->count();
-
             
             // 未ログインの場合には未ログイン用のデータを返す
             if(!Auth::check()){

@@ -49,19 +49,7 @@ const app = new Vue({
     data: function() {
       return {
         menu: false,
-        items: [],
-        flash_flg: true
       }
-    },
-    mounted() {
-      
-      var flash = document.getElementById('flash');
-  
-      setTimeout(function(){
-          flash.style.display = "none"
-          }, 3000);
-          
-  
     }
     
 });

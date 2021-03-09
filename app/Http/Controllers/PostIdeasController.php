@@ -111,19 +111,26 @@ class PostIdeasController extends Controller
      // アイデアの編集ページ
     public function edit($id)
     {
+        if(!ctype_digit($id)){
+            return redirect('mypage')->with('flash_message', __('Invalid operation was performed.'));
+        }
+
         $user = Auth::user();
-        $user_img = $user->icon_img;
         $idea = Idea::find($id);
+
+        // 投稿者ではない場合にマイページに遷移する
+        if($user->id !== $idea->user->id){
+            return redirect('mypage')->with('flash_message', __('Invalid operation was performed.'));
+        }
 
         // 購入がある場合はページにアクセスできないようにする
         if($idea->buy_flg){
-
             return redirect('mypage')->with('flash_message', '購入されたアイデアは編集できません');
         }
 
 
         $categories = Category::all();
-        return view('post-idea.edit',[ 'categories' => $categories, 'user' => $user, 'idea' => $idea, 'user_img' => $user_img]);
+        return view('post-idea.edit',[ 'categories' => $categories, 'user' => $user, 'idea' => $idea]);
     }
 
     /**
@@ -137,7 +144,14 @@ class PostIdeasController extends Controller
      // アイデアの更新処理
     public function update(PostIdeaRequest $request, $id)
     {
+        $user = Auth::user();
         $idea = Idea::find($id);
+
+        // 投稿者ではない場合にマイページに遷移する
+        if($user->id !== $idea->user->id){
+            return redirect('mypage')->with('flash_message', __('Invalid operation was performed.'));
+        }
+
         $idea->fill($request->all())->save();
 
     }
@@ -152,6 +166,14 @@ class PostIdeasController extends Controller
      // アイデアの削除処理
     public function destroy($id)
     {
+        $user = Auth::user();
+        $idea = Idea::find($id);
+
+        // 投稿者ではない場合にマイページに遷移する
+        if($user->id !== $idea->user->id){
+            return redirect('mypage')->with('flash_message', __('Invalid operation was performed.'));
+        }
+
         Idea::find($id)->delete();
         return redirect('mypage')->with('flash_message', '削除しました');
     }

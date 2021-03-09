@@ -1,10 +1,16 @@
 <template>
 <!-- フラッシュメッセージ用コンポーネント -->
-    <div v-if="flash" class="c-flash">{{ flash }}</div>
+    <div class="c-flash">{{ flash }}</div>
 </template>
 
 <script>
-  export default({
+export default({
     props: ['flash'],
-  })
+    mounted() {
+      var flash = document.getElementById('flash');
+      setTimeout(function(){
+          flash.style.display = "none"
+          }, 3000);
+    }
+})
 </script>

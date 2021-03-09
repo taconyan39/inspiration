@@ -1970,8 +1970,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   methods: {
     onBuy: function onBuy() {
@@ -1999,7 +1997,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['flash']
+  props: ['flash'],
+  mounted: function mounted() {
+    var flash = document.getElementById('flash');
+    setTimeout(function () {
+      flash.style.display = "none";
+    }, 3000);
+  }
 });
 
 /***/ }),
@@ -2065,8 +2069,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = (Vue.extend({
   props: ['noimage', 'icon'],
   data: function data() {
@@ -2096,9 +2098,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
 //
 //
 //
@@ -2293,18 +2292,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -2694,8 +2681,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     page: 'page',
@@ -2751,7 +2736,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
 //
 //
 //
@@ -2859,6 +2843,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -7347,7 +7332,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.menu-enter, .menu-leave-to{\n  transform: translateX( -100%);\n}\n.menu-enter-active, .menu-leave-active{\n  transition: transform 0.5s;\n}\n", ""]);
+exports.push([module.i, "\n.menu-enter, .menu-leave-to{\n    transform: translateX( -100%);\n}\n.menu-enter-active, .menu-leave-active{\n    transition: transform 0.5s;\n}\n", ""]);
 
 // exports
 
@@ -60715,7 +60700,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "c-btn__wrapper p-buy__btn--wrapper" }, [
     _c("input", {
-      staticClass: "c-btn--large p-buy__btn\n      c-btn--action2\n      ",
+      staticClass: "c-btn--large p-buy__btn\n        c-btn--action2\n        ",
       attrs: { type: "submit", value: "購入する", name: "buy", id: "buy" },
       on: { click: _vm.onBuy }
     })
@@ -60743,9 +60728,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.flash
-    ? _c("div", { staticClass: "c-flash" }, [_vm._v(_vm._s(_vm.flash))])
-    : _vm._e()
+  return _c("div", { staticClass: "c-flash" }, [_vm._v(_vm._s(_vm.flash))])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -60865,7 +60848,7 @@ var render = function() {
               attrs: { for: "category_id" }
             },
             [
-              _vm._v("\n      カテゴリー\n      "),
+              _vm._v("\n            カテゴリー\n            "),
               _c(
                 "select",
                 {
@@ -60933,7 +60916,7 @@ var render = function() {
               attrs: { for: "title" }
             },
             [
-              _vm._v("\n                  アイデア名\n\n                "),
+              _vm._v("\n            アイデア名\n\n            "),
               _c("input", {
                 directives: [
                   {
@@ -60994,9 +60977,7 @@ var render = function() {
               attrs: { for: "price" }
             },
             [
-              _vm._v(
-                "\n                      価格\n                      \n                      "
-              ),
+              _vm._v("\n            価格\n            \n            "),
               _c("div", { staticClass: "p-ideaList__row c-flex--start" }, [
                 _c("div", { staticClass: "p-ideaPost__price--mark " }, [
                   _vm._v("￥")
@@ -61012,7 +60993,7 @@ var render = function() {
                     }
                   ],
                   staticClass:
-                    "p-ideaPost__price\n                        c-form__input--half is-invalid",
+                    "p-ideaPost__price\n                c-form__input--half is-invalid",
                   attrs: {
                     id: "price",
                     type: "price",
@@ -61046,9 +61027,7 @@ var render = function() {
               attrs: { for: "summary" }
             },
             [
-              _vm._v(
-                "\n                      概要\n                      \n                      "
-              ),
+              _vm._v("\n            概要\n            \n            "),
               _c("textarea", {
                 directives: [
                   {
@@ -61060,13 +61039,14 @@ var render = function() {
                   }
                 ],
                 staticClass:
-                  "p-ideaPost__input\n                      c-form__input is-invalid",
+                  "p-ideaPost__input\n            c-form__textarea is-invalid",
                 attrs: {
                   id: "summary",
                   type: "summary",
                   name: "summary",
                   autocomplete: "summary",
                   maxlength: "200",
+                  rows: "7",
                   placeholder: "200文字以内で入力してください"
                 },
                 domProps: { value: _vm.summary },
@@ -61110,7 +61090,7 @@ var render = function() {
             },
             [
               _vm._v(
-                "\n                          アイデアの詳細\n                      \n                          \n                          "
+                "\n            アイデアの詳細\n        \n            \n            "
               ),
               _c("textarea", {
                 directives: [
@@ -61123,7 +61103,7 @@ var render = function() {
                   }
                 ],
                 staticClass:
-                  "p-ideaPost__textarea\n                          c-form__textarea  is-invalid\n                          \n                          ",
+                  "p-ideaPost__textarea\n            c-form__textarea  is-invalid\n            \n            ",
                 attrs: {
                   id: "content",
                   name: "content",
@@ -61149,7 +61129,7 @@ var render = function() {
                 "div",
                 {
                   staticClass:
-                    "p-ideaPost__count\n                              c-form__countLength  c-flex--between"
+                    "p-ideaPost__count\n            c-form__countLength  c-flex--between"
                 },
                 [
                   _c("p", { staticClass: "p-ideaPost__annotation" }, [
@@ -61173,7 +61153,7 @@ var render = function() {
               "button",
               {
                 staticClass:
-                  "c-btn       c-form__btn\n                  c-btn--action2\n                  p-ideaPost__btn",
+                  "c-btn       c-form__btn\n            c-btn--action2\n            p-ideaPost__btn",
                 on: {
                   click: function($event) {
                     $event.stopPropagation()
@@ -61181,11 +61161,7 @@ var render = function() {
                   }
                 }
               },
-              [
-                _vm._v(
-                  "\n                              編集する\n                  "
-                )
-              ]
+              [_vm._v("\n                        編集する\n            ")]
             )
           ])
         ])
@@ -61244,7 +61220,7 @@ var render = function() {
                 attrs: { for: "category_id" }
               },
               [
-                _vm._v("\n        カテゴリー\n\n        "),
+                _vm._v("\n            カテゴリー\n\n            "),
                 _c(
                   "select",
                   {
@@ -61312,7 +61288,7 @@ var render = function() {
                 attrs: { for: "title" }
               },
               [
-                _vm._v("\n        アイデア名\n\n        "),
+                _vm._v("\n            アイデア名\n\n            "),
                 _c("input", {
                   directives: [
                     {
@@ -61420,68 +61396,7 @@ var render = function() {
               ]
             ),
             _vm._v(" "),
-            _c(
-              "label",
-              {
-                staticClass: "p-ideaPost__label c-form__label",
-                attrs: { for: "summary" }
-              },
-              [
-                _vm._v(
-                  "\n                    概要\n                    \n                    "
-                ),
-                _c("textarea", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model.trim",
-                      value: _vm.summary,
-                      expression: "summary",
-                      modifiers: { trim: true }
-                    }
-                  ],
-                  staticClass:
-                    "p-ideaPost__textarea\n                    c-form__textarea is-invalid",
-                  attrs: {
-                    id: "summary",
-                    type: "summary",
-                    name: "summary",
-                    autocomplete: "summary",
-                    maxlength: "200",
-                    placeholder: "200文字以内で入力してください"
-                  },
-                  domProps: { value: _vm.summary },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.summary = $event.target.value.trim()
-                    },
-                    blur: function($event) {
-                      return _vm.$forceUpdate()
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "p-ideaPost__count c-form__countLength  c-flex--between"
-                  },
-                  [
-                    _c("div", {
-                      staticClass: "c-error",
-                      attrs: { role: "alert" },
-                      domProps: { innerHTML: _vm._s(_vm.errors.summary) }
-                    }),
-                    _vm._v(" "),
-                    _c("span", [_vm._v(_vm._s(_vm.summary.length) + "/200")])
-                  ]
-                )
-              ]
-            ),
+            _vm._m(0),
             _vm._v(" "),
             _c(
               "label",
@@ -61490,9 +61405,7 @@ var render = function() {
                 attrs: { for: "content" }
               },
               [
-                _vm._v(
-                  "\n                        アイデアの詳細\n                    \n                        "
-                ),
+                _vm._v("\n            アイデアの詳細\n        \n            "),
                 _c("textarea", {
                   directives: [
                     {
@@ -61504,7 +61417,7 @@ var render = function() {
                     }
                   ],
                   staticClass:
-                    "p-ideaPost__textarea\n                        c-form__textarea  is-invalid\n                        \n                        ",
+                    "p-ideaPost__textarea\n            c-form__textarea  is-invalid\n            \n            ",
                   attrs: {
                     id: "content",
                     name: "content",
@@ -61529,7 +61442,7 @@ var render = function() {
                   "div",
                   {
                     staticClass:
-                      "p-ideaPost__count\n                            c-form__countLength  c-flex--between"
+                      "p-ideaPost__count\n                c-form__countLength  c-flex--between"
                   },
                   [
                     _c("p", { staticClass: "p-ideaPost__annotation" }, [
@@ -61564,11 +61477,7 @@ var render = function() {
                       }
                     }
                   },
-                  [
-                    _vm._v(
-                      "\n                            投稿する\n                "
-                    )
-                  ]
+                  [_vm._v("\n                        投稿する\n            ")]
                 )
               ]
             )
@@ -61589,7 +61498,28 @@ var render = function() {
       : _vm._e()
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      {
+        staticClass: "p-profileEdit__label c-form__label",
+        attrs: { for: "category_id" }
+      },
+      [
+        _c("div", { staticClass: "c-row" }),
+        _vm._v(" "),
+        _c("textarea", {
+          staticClass: "p-profileEdit__name c-form__textarea",
+          attrs: { rows: "5" }
+        })
+      ]
+    )
+  }
+]
 render._withStripped = true
 
 
@@ -62207,6 +62137,7 @@ var render = function() {
         attrs: {
           id: _vm.name,
           name: _vm.name,
+          rows: "5",
           autocomplete: _vm.name,
           maxlength: _vm.max
         },
@@ -74450,16 +74381,8 @@ var app = new Vue({
   el: '#app',
   data: function data() {
     return {
-      menu: false,
-      items: [],
-      flash_flg: true
+      menu: false
     };
-  },
-  mounted: function mounted() {
-    var flash = document.getElementById('flash');
-    setTimeout(function () {
-      flash.style.display = "none";
-    }, 3000);
   }
 });
 

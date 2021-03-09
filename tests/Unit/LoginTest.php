@@ -6,6 +6,7 @@ namespace Tests\Unit;
 use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
+use App\Idea;
 
 class LoginTest extends TestCase
 {
@@ -38,11 +39,14 @@ class LoginTest extends TestCase
         // $response = $this->get('/');
         // $response->assertStatus(200);
 
-        $response = $this->get('/mypage');
-        $response->assertStatus(302);
+        // $idea = Idea::find(999);
+        // $this->assertNull($idea);
 
-        $user = factory(User::class)->create();
-        $response = $this->actingAs($user)->get('/mypage');
-        $response->assertStatus(200);
+        $response = $this->get('/idea/999');
+        $response->assertStatus(404);
+
+        // $user = factory(User::class)->create();
+        // $response = $this->actingAs($user)->get('/mypage');
+        // $response->assertStatus(200);
     }
 }

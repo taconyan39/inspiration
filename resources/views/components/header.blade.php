@@ -23,7 +23,9 @@
         <header class="l-header" id="header">
 
         <!-- フラッシュメッセージ -->
-            <flash-message id="flash" flash="{{ session('flash_message') }}"></flash-message>
+            @if(session('flash_message'))
+                <flash-message id="flash" flash="{{ session('flash_message') }}"></flash-message>
+            @endif
 
             <nav class="u-site__width p-header">
                 <a class="navbar-brand" href="{{ url('/') }}">

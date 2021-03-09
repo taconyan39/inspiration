@@ -467,6 +467,12 @@ li {
   justify-content: space-between;
 }
 
+@media screen and (max-width: 768px) {
+  .c-nav__item--wrapper {
+    display: none;
+  }
+}
+
 .c-section {
   padding-top: 15px;
   padding-bottom: 15px;
@@ -706,6 +712,13 @@ li {
   margin-top: 10px;
   border: none;
   background: rgba(204, 204, 204, 0.8);
+  font-size: 1.2rem;
+}
+
+@media screen and (max-width: 768px) {
+  .c-form__input--half {
+    font-size: 1rem;
+  }
 }
 
 .c-form__textarea {
@@ -714,6 +727,7 @@ li {
   box-sizing: border-box;
   margin-top: 10px;
   font-size: 1.2rem;
+  background: rgba(204, 204, 204, 0.8);
 }
 
 .c-form__wrapper {

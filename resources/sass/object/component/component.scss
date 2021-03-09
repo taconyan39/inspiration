@@ -128,6 +128,9 @@
     &--wrapper{
       display: flex;
       justify-content: space-between;
+      @include mq(md){
+        display: none;
+      }
     }
   }
 }
@@ -335,6 +338,10 @@
       margin-top:$spacing-md; 
       border: none;
       background: $color_gray-light;
+      font-size: $font-size_lg;
+      @include mq(md){
+        font-size: $font-size_default;
+      }
     }
   }
   &__textarea{
@@ -343,6 +350,7 @@
     box-sizing: border-box;
     margin-top: $spacing-md;
     font-size: $font-size_lg;
+    background: $color_gray-light;
   }
   &__wrapper{
     width: 400px;

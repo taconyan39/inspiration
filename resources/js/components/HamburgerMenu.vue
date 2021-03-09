@@ -25,11 +25,11 @@ export default {
 </script>
 
 <style>
-  .menu-enter, .menu-leave-to{
+.menu-enter, .menu-leave-to{
     transform: translateX( -100%);
-  }
+}
 
-  .menu-enter-active, .menu-leave-active{
+.menu-enter-active, .menu-leave-active{
     transition: transform 0.5s;
-  }
+}
 </style>

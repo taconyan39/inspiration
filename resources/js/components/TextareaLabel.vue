@@ -8,6 +8,7 @@
       <textarea :id="name"
           class="p-profileEdit__name c-form__textarea"
           :name="name"
+          rows="5"
           :autocomplete="name"
           :maxlength="max"
           v-model.trim="item"
