@@ -2403,6 +2403,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['categories', 'url'],
   data: function data() {
@@ -61220,7 +61232,7 @@ var render = function() {
                 attrs: { for: "category_id" }
               },
               [
-                _vm._v("\n            カテゴリー\n\n            "),
+                _vm._v("\n        カテゴリー\n\n        "),
                 _c(
                   "select",
                   {
@@ -61288,7 +61300,7 @@ var render = function() {
                 attrs: { for: "title" }
               },
               [
-                _vm._v("\n            アイデア名\n\n            "),
+                _vm._v("\n        アイデア名\n\n        "),
                 _c("input", {
                   directives: [
                     {
@@ -61396,7 +61408,68 @@ var render = function() {
               ]
             ),
             _vm._v(" "),
-            _vm._m(0),
+            _c(
+              "label",
+              {
+                staticClass: "p-ideaPost__label c-form__label",
+                attrs: { for: "summary" }
+              },
+              [
+                _vm._v(
+                  "\n                    概要\n                    \n                    "
+                ),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model.trim",
+                      value: _vm.summary,
+                      expression: "summary",
+                      modifiers: { trim: true }
+                    }
+                  ],
+                  staticClass:
+                    "p-ideaPost__textarea\n                    c-form__textarea is-invalid",
+                  attrs: {
+                    id: "summary",
+                    type: "summary",
+                    name: "summary",
+                    autocomplete: "summary",
+                    maxlength: "200",
+                    placeholder: "200文字以内で入力してください"
+                  },
+                  domProps: { value: _vm.summary },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.summary = $event.target.value.trim()
+                    },
+                    blur: function($event) {
+                      return _vm.$forceUpdate()
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "p-ideaPost__count c-form__countLength  c-flex--between"
+                  },
+                  [
+                    _c("div", {
+                      staticClass: "c-error",
+                      attrs: { role: "alert" },
+                      domProps: { innerHTML: _vm._s(_vm.errors.summary) }
+                    }),
+                    _vm._v(" "),
+                    _c("span", [_vm._v(_vm._s(_vm.summary.length) + "/200")])
+                  ]
+                )
+              ]
+            ),
             _vm._v(" "),
             _c(
               "label",
@@ -61405,7 +61478,9 @@ var render = function() {
                 attrs: { for: "content" }
               },
               [
-                _vm._v("\n            アイデアの詳細\n        \n            "),
+                _vm._v(
+                  "\n                        アイデアの詳細\n                    \n                        "
+                ),
                 _c("textarea", {
                   directives: [
                     {
@@ -61417,7 +61492,7 @@ var render = function() {
                     }
                   ],
                   staticClass:
-                    "p-ideaPost__textarea\n            c-form__textarea  is-invalid\n            \n            ",
+                    "p-ideaPost__textarea\n                        c-form__textarea  is-invalid\n                        \n                        ",
                   attrs: {
                     id: "content",
                     name: "content",
@@ -61442,7 +61517,7 @@ var render = function() {
                   "div",
                   {
                     staticClass:
-                      "p-ideaPost__count\n                c-form__countLength  c-flex--between"
+                      "p-ideaPost__count\n                            c-form__countLength  c-flex--between"
                   },
                   [
                     _c("p", { staticClass: "p-ideaPost__annotation" }, [
@@ -61477,7 +61552,11 @@ var render = function() {
                       }
                     }
                   },
-                  [_vm._v("\n                        投稿する\n            ")]
+                  [
+                    _vm._v(
+                      "\n                            投稿する\n                "
+                    )
+                  ]
                 )
               ]
             )
@@ -61498,28 +61577,7 @@ var render = function() {
       : _vm._e()
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "label",
-      {
-        staticClass: "p-profileEdit__label c-form__label",
-        attrs: { for: "category_id" }
-      },
-      [
-        _c("div", { staticClass: "c-row" }),
-        _vm._v(" "),
-        _c("textarea", {
-          staticClass: "p-profileEdit__name c-form__textarea",
-          attrs: { rows: "5" }
-        })
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
