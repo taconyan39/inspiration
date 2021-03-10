@@ -27,6 +27,7 @@ Route::group(['middleware' => ['auth']], function () {
 
 // トップページ
 
+Route::get('landingpage', 'LandingPageController@show');
 Route::get('/', 'TopController@index')->name('index');
 Route::get('/index', 'TopController@index')->name('index');
 
