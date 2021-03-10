@@ -12,7 +12,8 @@
           :autocomplete="name"
           :maxlength="max"
           v-model.trim="item"
-          v-text="txt">
+          v-text="txt"
+          :placeholder="placeholder">
       </textarea>
 
       <div class="p-ideaPost__count c-form__countLength  c-flex--end">
@@ -24,7 +25,7 @@
 
 <script>
 export default {
-  props:['title', 'oldvalue', 'max', 'name','txt'],
+  props:['title', 'oldvalue', 'max', 'name','txt', 'placeholder'],
   data: function(){
     return {
       item: (this.oldvalue) ? this.oldvalue : '',

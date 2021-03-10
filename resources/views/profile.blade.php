@@ -65,7 +65,9 @@
                     oldvalue="{{old('introduction')}}"
                     max="100"
                     txt="{{$user->introduction}}"
-                    name="introduction">
+                    name="introduction"
+                    placeholder="自己紹介は入力されていません"
+                    >
                 </textarea-label>
                 
                 @error('introduction')

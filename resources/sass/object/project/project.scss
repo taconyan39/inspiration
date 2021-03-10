@@ -73,14 +73,6 @@
   }
 }
 
-.c-hamburger__line {
-  position: absolute;
-  transition: 0.3s;
-  width: calc(100% - 12px * 2);
-  height: 3px;
-  background-color: #342534;
-}
-
 .p-index{
   &__mainImg{
     margin-bottom: $spacing_lg;

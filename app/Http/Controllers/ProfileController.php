@@ -38,7 +38,7 @@ class ProfileController extends Controller
             $file_name = 'icon_' . $id . '.' .$profileImage->getClientOriginalExtension();
 
             // 画像をリサイズ
-            $resize_img = \Image::make($profileImage)->resize(150, 150)->encode($extension);
+            $resize_img = \Image::make($profileImage)->resize(300, 300)->encode($extension);
 
             // s3のディレクトリに追加
             Storage::disk('s3')->put('/images/icons/' . $file_name,(string)$resize_img, 'public');

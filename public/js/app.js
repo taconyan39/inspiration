@@ -2879,8 +2879,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['title', 'oldvalue', 'max', 'name', 'txt'],
+  props: ['title', 'oldvalue', 'max', 'name', 'txt', 'placeholder'],
   data: function data() {
     return {
       item: this.oldvalue ? this.oldvalue : ''
@@ -62197,7 +62198,8 @@ var render = function() {
           name: _vm.name,
           rows: "5",
           autocomplete: _vm.name,
-          maxlength: _vm.max
+          maxlength: _vm.max,
+          placeholder: _vm.placeholder
         },
         domProps: { value: _vm.item, textContent: _vm._s(_vm.txt) },
         on: {
