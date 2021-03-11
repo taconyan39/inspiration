@@ -1620,12 +1620,61 @@ select {
   overflow-wrap: break-word;
 }
 
-.p-profileSidebar__btn {
+.p-userIdeaList {
+  width: 300px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 576px) {
+  .p-userIdeaList {
+    width: 100%;
+  }
+}
+
+.p-userIdeaList__btn {
   display: block;
   width: 100%;
   margin: 0 auto 10px;
   padding: 5px 10px;
   text-align: center;
+}
+
+.p-userIdeaList__card {
+  box-sizing: border-box;
+  padding: 10px;
+  width: 100%;
+  margin-right: 15px;
+  overflow: hidden;
+  border: 3px solid #e6dfcf;
+  background: #fff;
+}
+
+.p-userIdeaList__img--outer {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+}
+
+.p-userIdeaList__item {
+  display: block;
+  border: none;
+  margin: 5px 0;
+}
+
+.p-userIdeaList__introduction {
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  box-sizing: bordrer-box;
+}
+
+.p-userIdeaList__introduction--card {
+  min-height: 150px;
+  background: #f8fafc;
+}
+
+.p-userIdeaList__introduction--text {
+  overflow-wrap: break-word;
 }
 
 .p-profileEdit {

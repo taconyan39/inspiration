@@ -1,4 +1,5 @@
 
+<section class="c-section p-ideaList">
 <h2 class="c-title__section p-ideaList__title">{{ $title }}</h2>
 
   <ul class="c-list p-ideaList__list">
@@ -42,7 +43,7 @@
                 alt="">
               </div>
               <div class="c-card--bottom p-ideaList__userCard--bottom">
-                <p class="c-card__name">{{ $idea->user->name }}</p>
+                <a href="{{ url('user/' . $idea->user->id) }}" class="c-card__name c-link__underline">{{ $idea->user->name }}</a>
               </div>
             </div>
           </div>
@@ -125,3 +126,4 @@
     @endforeach
     @endif
   </ul>
+

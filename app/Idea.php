@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Idea extends Model
 {
@@ -22,6 +23,10 @@ class Idea extends Model
 
     public function interests(){
         return $this->hasMany('App\Interest')->orderBy('createt_at', 'desc');
+    }
+
+    public function interestsRanking(){
+        return $this->hasMany('App\Interest');
     }
 
     public function buyIdeas(){

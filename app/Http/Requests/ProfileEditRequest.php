@@ -39,7 +39,6 @@ class ProfileEditRequest extends FormRequest
         $user = Auth::user();
         return [
             'name' => 'required | max:10',
-            // 'email' => ['required | max:255 | email',  Rule::unique('users')->ignore($user->id)],
             'email' => ['required', 'max:255', 'email',  Rule::unique('users')->ignore($user->id)],
             'icon_img' => 'image | file | max:2000 | mimes:jpg,png',
         ];

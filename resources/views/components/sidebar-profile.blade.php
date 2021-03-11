@@ -41,7 +41,7 @@
           <div class="c-img--outer c-img--round p-profileSidebar__img--outer">
 
             <img class="c-img p-profileSidebar__img" src="{{ asset('images/default/icons/noimage_icon.jpg') }}"
-            srcset="{{ asset(images/retina_2x/icons/noimage_icon.jpg . ' 2x')}}"
+            srcset="{{ asset('images/retina_2x/icons/noimage_icon.jpg 2x')}}"
             alt="プロフィール画像">
           </div>
           <li class="c-list__item-simple p-profileSidebar__item">

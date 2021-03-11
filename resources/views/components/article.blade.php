@@ -31,7 +31,7 @@
                         
                     </div>
                     
-                    <span class="p-ideaDetail__user--name">{{ $idea->user->name }}<span>
+                    <a href="{{ url('user/' . $idea->user->id) }}" class="p-ideaDetail__user--name c-link__underline">{{ $idea->user->name }}<a>
                 </div>
             </div>
 

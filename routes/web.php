@@ -51,12 +51,14 @@ Route::get('reviews-list', 'ReviewsController@index');
 // 気になるの削除処理
 Route::post('interests-list', 'IdeasListController@interestRemove');
 
-
 //プロフィール変更
 Route::post('/profile', 'ProfileController@update')->name('profile.update');
 
 //パスワード変更
 Route::post('password-edit', 'PasswordEditController@update')->name('passwordEdit.update');
+
+// ユーザーページ
+Route::get('user/{id}', 'IdeasListController@userIdeas');
 
 
 Auth::routes();

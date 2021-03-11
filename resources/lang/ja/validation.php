@@ -167,7 +167,8 @@ return [
         'review' => '口コミ',
         'price' => '価格',
         'name' => '名前',
-        'current_password' => '現在のパスワード'
+        'current_password' => '現在のパスワード',
+        'passwords.throttled' => '時間をおいてから再試行してください'
     ],
 
 ];

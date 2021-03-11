@@ -32,7 +32,17 @@
       @endcomponent
 
       @include('components.show-all', ['url' => 'all-ideas-list'])
+      </section>
+      
+      <section class="c-section p-ideaList">
+      @component('components.ideasList-section', ['ideas' => $ideas, 'listType' => 0])
+        @slot('title')
+          新着のアイデア
+        @endslot
 
+      @endcomponent
+
+      @include('components.show-all', ['url' => 'all-ideas-list'])
       </section>
 
       <section class="p-simpleList c-section">

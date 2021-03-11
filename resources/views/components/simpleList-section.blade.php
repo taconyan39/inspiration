@@ -38,7 +38,7 @@
               alt="">
             </div>
 
-            <p class="">{{ $item->user->name }}</p>
+            <span class="c-link__underline">{{ $item->user->name }}</span>
             
           </div>
 

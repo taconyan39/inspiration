@@ -1,6 +1,6 @@
 <ul class="c-list p-profileSidebar--sp">
 
-        <div class="c-card p-profileSidebar__card--sp">
+    <div class="c-card p-profileSidebar__card--sp">
         <div class="c-img--outer c-img--round c-card-top p-profileSidebar__img--outer">
             <img class="c-img p-profileSidebar__img" src="{{ session('icon_img')}}" 
             srcset="{{ session('icon_img') . ' 2x'}}"
@@ -31,5 +31,5 @@
         <li class="c-list__item-simple p-profileSidebar__item">
             <a href="{{ route('all-ideas-list')}}" class="c-btn__sidebar c-btn__sub p-profileSidebar__btn">アイデアを探す</a>
         </li>
-        </div>
-    </ul>
+    </div>
+</ul>

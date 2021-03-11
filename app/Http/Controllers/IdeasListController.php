@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Idea;
 use App\Sort;
 use App\Category;
+use App\User;
 
 // アイデア一覧表示用クラス
 class IdeasListController extends Controller
@@ -165,6 +166,31 @@ class IdeasListController extends Controller
         }
 
         return view('ideas-list.buy-ideas-list', ['user' => $user ,'ideas' => $ideas, 'categories' => $categories]);
+
+    }
+
+    public function userIdeas($id){
+
+        if(Auth::check()){
+            $owner = Auth::user();
+            if($owner->id === $id){
+                return redirect('myideas-list');
+            }
+        }
+
+        $user = User::find($id);
+
+        $categories = Category::all();
+        $ideas = Idea::where('user_id', $id)->paginate(10);
+
+        // 購入したアイデアを購入順に取得
+
+        foreach($ideas as $idea){
+            $idea->rating = sprintf('%.1f',$idea->reviews->avg('rating'));
+            $idea->countReview = $idea->reviews->count();
+        }
+
+        return view('ideas-list.user-ideas-list', [ 'user' => $user, 'ideas' => $ideas, 'categories' => $categories]);
 
     }
 }
