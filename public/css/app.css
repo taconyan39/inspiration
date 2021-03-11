@@ -951,6 +951,7 @@ select {
   margin-right: 10px;
   font-size: 1.2rem;
   padding: 10px;
+  background: rgba(204, 204, 204, 0.8);
 }
 
 .c-article {

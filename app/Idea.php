@@ -21,16 +21,20 @@ class Idea extends Model
         return $this->hasMany('App\Review');
     }
 
-    public function interests(){
-        return $this->hasMany('App\Interest')->orderBy('createt_at', 'desc');
+    public function latestInterests(){
+        return $this->hasMany('App\Interest')->orderBy('created_at', 'desc');
     }
 
-    public function interestsRanking(){
+    public function interests(){
         return $this->hasMany('App\Interest');
     }
 
     public function buyIdeas(){
-        return $this->hasMany('App\BuyIdea')->orderBy('created_at', 'desc');
+        return $this->hasMany('App\BuyIdea');
     }
+
+    // public function buyIdeas(){
+    //     return $this->hasMany('App\BuyIdea')->orderBy('created_at', 'desc');
+    // }
 
 }

@@ -24,6 +24,14 @@ class ReviewsController extends Controller
 
     }
 
+    public function postForm($id){
+        // TODO アイデアを既に投稿していないかの処理
+        $user = Auth::user();
+        $idea = Idea::find($id);
+
+        return view('reviews.post-review-form', ['user' => $user, 'idea' => $idea]);
+    }
+
     // 口コミに投稿処理
     public function postreview(PostReviewRequest $request, $id){
 

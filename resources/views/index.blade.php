@@ -35,9 +35,20 @@
       </section>
       
       <section class="c-section p-ideaList">
-      @component('components.ideasList-section', ['ideas' => $ideas, 'listType' => 0])
+      @component('components.ideasList-section', ['ideas' => $attentionIdeas, 'listType' => 0])
         @slot('title')
-          新着のアイデア
+          注目のアイデア
+        @endslot
+
+      @endcomponent
+
+      @include('components.show-all', ['url' => 'all-ideas-list'])
+      </section>
+
+      <section class="c-section p-ideaList">
+      @component('components.ideasList-section', ['ideas' => $hotIdeas, 'listType' => 0])
+        @slot('title')
+          売れてるアイデア
         @endslot
 
       @endcomponent

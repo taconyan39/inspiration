@@ -22,7 +22,12 @@ Route::group(['middleware' => ['auth']], function () {
   Route::get('password-edit', 'PasswordEditController@edit')->name('passwordEdit.edit');
   //商品購入
   Route::post('post-idea/buy/{id}', 'ShowIdeaController@buy')->name('buy');
+  // レビュー投稿ページ
+  Route::get('post-review/{id}', 'ReviewsController@postForm');
 });
+
+// テストページ
+Route::get('test', 'TestController@get');
 
 
 // トップページ

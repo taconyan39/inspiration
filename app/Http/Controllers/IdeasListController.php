@@ -124,7 +124,7 @@ class IdeasListController extends Controller
         $user_id = $user->id;
 
         // 気になるリストを登録順に代入
-        $ideas = Idea::whereHas('interests', function($q) use ($user_id){
+        $ideas = Idea::whereHas('latestInterests', function($q) use ($user_id){
             $q->where('user_id', $user_id);
         })->paginate(10);
 
@@ -193,4 +193,28 @@ class IdeasListController extends Controller
         return view('ideas-list.user-ideas-list', [ 'user' => $user, 'ideas' => $ideas, 'categories' => $categories]);
 
     }
+
+    public function attention(){
+
+        // 注目のアイデア
+        $user = Auth::user();
+
+        $categories = Category::all();
+        $user_id = $user->id;
+
+        // 気になるリストを登録順に代入
+        $ideas = Idea::whereHas('latestInterests', function($q) use ($user_id){
+            $q->where('user_id', $user_id);
+        })->paginate(10);
+
+
+        // 口コミの平均を代入
+        foreach($ideas as $idea){
+            $idea->rating = sprintf('%.1f',$idea->reviews->avg('rating'));
+            $idea->countReview = $idea->reviews->count();
+        }
+
+        return view('ideas-list.interests-list', ['user' => $user ,'ideas' => $ideas, 'categories' => $categories]);
+    }
+
 }

@@ -17,6 +17,16 @@ class TopController extends Controller
 
         $categories = Category::all();
         $ideas = Idea::latest()->take(3)->get();
+        $month1_ago =  date('Y-m-d', strtotime("-1 month"));
+
+        $attentionIdeas = Idea::withCount('interests')->orderBy('interests_count', 'desc')->paginate(5);
+
+        $hotIdeas = Idea::withCount('buyIdeas')->orderBy('buy_ideas_count', 'desc')->paginate(5);
+
+        // $attentionIdeas = Idea::whereHas('interests', function($q) use ($month1_ago){
+        //         $q->where('created_at', '>=', $month1_ago);
+        //     })->withCount('interests')->orderBy('interests_count', 'desc')->take(5);
+        // dd($attentionIdeas);
 
         // $month1_ago = date('Y-m-d', strtotime("-1 month"));
 
@@ -41,6 +51,15 @@ class TopController extends Controller
             $idea->countReview = $idea->reviews->count();
         }
 
+        foreach($attentionIdeas as $attentionIdea){
+            $attentionIdea->rating = sprintf('%.1f',$attentionIdea->reviews->avg('rating'));
+            $attentionIdea->countReview = $attentionIdea->reviews->count();
+        }
+        foreach($hotIdeas as $hotIdea){
+            $hotIdea->rating = sprintf('%.1f',$hotIdea->reviews->avg('rating'));
+            $hotIdea->countReview = $hotIdea->reviews->count();
+        }
+
         foreach($reviews as $review){
             $review->idea->rating = sprintf('%.1f',$idea->reviews->avg('rating'));
             $review->idea->countReview = $idea->reviews->count();
@@ -48,7 +67,7 @@ class TopController extends Controller
 
         $pickupCategories =  Category::all()->take(6);
 
-        return view('index', ['ideas' => $ideas, 'categories' => $categories, 'pickupCategories' => $pickupCategories, 'reviews' => $reviews]);
+        return view('index', ['ideas' => $ideas, 'categories' => $categories, 'pickupCategories' => $pickupCategories, 'reviews' => $reviews, 'attentionIdeas' => $attentionIdeas, 'hotIdeas' => $hotIdeas]);
     }
 
 }
